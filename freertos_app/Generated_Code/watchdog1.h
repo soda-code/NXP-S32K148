@@ -7,7 +7,7 @@
 **     Version     : Component SDK_S32K1xx_15, Driver 01.00, CPU db: 3.00.000
 **     Repository  : SDK_S32K1xx_15
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2026-03-17, 21:08, # CodeGen: 5
+**     Date/Time   : 2026-03-18, 14:55, # CodeGen: 16
 **     Contents    :
 **         WDOG_DRV_Init             - status_t WDOG_DRV_Init(uint32_t instance, const wdog_user_config_t *...
 **         WDOG_DRV_Deinit           - status_t WDOG_DRV_Deinit(uint32_t instance);

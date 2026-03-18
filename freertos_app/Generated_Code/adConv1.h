@@ -7,7 +7,7 @@
 **     Version     : Component SDK_S32K1xx_15, Driver 01.00, CPU db: 3.00.000
 **     Repository  : SDK_S32K1xx_15
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2026-03-18, 11:01, # CodeGen: 6
+**     Date/Time   : 2026-03-18, 14:55, # CodeGen: 16
 **     Contents    :
 **         ADC_DRV_InitConverterStruct       - void ADC_DRV_InitConverterStruct(adc_converter_config_t *const config);
 **         ADC_DRV_ConfigConverter           - void ADC_DRV_ConfigConverter(const uint32_t instance,const...
