@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//include/app/ota_app.h=UTF-8
+encoding//src/app/key_app.c=UTF-8
+encoding//src/app/ota_app.c=UTF-8
+encoding//src/bsp/led.c=UTF-8
