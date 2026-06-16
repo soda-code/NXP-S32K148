@@ -70,15 +70,3 @@ int main(void)
   /*** Processor Expert end of main routine. DON'T WRITE CODE BELOW!!! ***/
 } /*** End of main routine. DO NOT MODIFY THIS TEXT!!! ***/
 
-/* END main */
-/*!
-** @}
-*/
-/*
-** ###################################################################
-**
-**     This file was created by Processor Expert 10.1 [05.21]
-**     for the NXP S32K series of microcontrollers.
-**
-** ###################################################################
-*/

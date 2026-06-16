@@ -1,6 +1,6 @@
 /*
 ** ###################################################################
-**     Processor:           S32K148 with 256 KB SRAM
+**     Processor:           S32K144 with 64 KB SRAM
 **     Compiler:            GNU C Compiler
 **
 **     Abstract:
@@ -43,16 +43,18 @@ M_VECTOR_RAM_SIZE = DEFINED(__flash_vector_table__) ? 0x0 : 0x0400;
 
 /* Specify the memory areas */
 MEMORY
-{
-    m_interrupts    (RX) : ORIGIN = 0x00020000, LENGTH = 0x400
-    /* Flash Configuration Field */
-    m_flash_config  (RX) : ORIGIN = 0x00020400, LENGTH = 0x00000010
-    /* APP浠ｇ爜鍖� */
-    m_text          (RX) : ORIGIN = 0x00020410, LENGTH = 0x00040000
-    /* SRAM */
-	m_data      (RW) : ORIGIN = 0x1FFF8000, LENGTH = 0x00008000
-	m_data_2    (RW) : ORIGIN = 0x20000000, LENGTH = 0x00007000
+{ 
+  /* Flash for APP*/
+  m_interrupts          (RX)  : ORIGIN = 0x00012000, LENGTH = 0x00000400
+  m_flash_config        (RX)  : ORIGIN = 0x00012400, LENGTH = 0x00000010
+  /* app 256k flash */
+  m_text                (RX)  : ORIGIN = 0x00012410, LENGTH = 0x00040000
 
+  /* SRAM_L */
+  m_data                (RW)  : ORIGIN = 0x1FFF8000, LENGTH = 0x00008000
+
+  /* SRAM_U */
+  m_data_2              (RW)  : ORIGIN = 0x20000000, LENGTH = 0x00007000
 }
 
 /* Define output sections */

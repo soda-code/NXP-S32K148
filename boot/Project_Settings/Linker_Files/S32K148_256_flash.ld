@@ -1,6 +1,6 @@
 /*
 ** ###################################################################
-**     Processor:           S32K148 with 256 KB SRAM
+**     Processor:           S32K144 with 64 KB SRAM
 **     Compiler:            GNU C Compiler
 **
 **     Abstract:
@@ -47,13 +47,14 @@ MEMORY
   /* Flash */
   m_interrupts          (RX)  : ORIGIN = 0x00000000, LENGTH = 0x00000400
   m_flash_config        (RX)  : ORIGIN = 0x00000400, LENGTH = 0x00000010
- /* m_text ³¤¶È¼ÆËã: 128KB(0x20000) - 0x410(Æ«ÒÆ) = 0x1FBF0 */
-  m_text                (RX)  : ORIGIN = 0x00000410, LENGTH = 0x0001FBF0
+  /* app 64k flash */
+  m_text                (RX)  : ORIGIN = 0x00000410, LENGTH = 0x00010000
+
   /* SRAM_L */
-  m_data                (RW)  : ORIGIN = 0x1FFE0000, LENGTH = 0x00020000
+  m_data                (RW)  : ORIGIN = 0x1FFF8000, LENGTH = 0x00008000
 
   /* SRAM_U */
-  m_data_2              (RW)  : ORIGIN = 0x20000000, LENGTH = 0x0001F000
+  m_data_2              (RW)  : ORIGIN = 0x20000000, LENGTH = 0x00007000
 }
 
 /* Define output sections */

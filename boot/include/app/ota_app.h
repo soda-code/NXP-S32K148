@@ -3,13 +3,13 @@
 
 #include <stdint.h>
 
-#define OTA_FLAG_ADDR    (0x0017E000u)
 
-#define APP_A_START       (0x00020000u)
-#define APP_B_START       (0x000CF000u)
+/* * APP 向量表起始地址：
+ * 按照 Bootloader 占用 128 KB（0x20000 字节）规划，
+ * APP A 区的起始地址必须挪到 0x00020000
+ */
+#define APP_START_ADDRESS	0x00012000 //app开始地址
 
-#define APP_A_ID          (0u)
-#define APP_B_ID          (1u)
 
 typedef struct
 {
@@ -27,4 +27,5 @@ void ota_flag_update(void);
 void ota_flag_reset(void);
 ota_flag_t* ota_flag_get(void);
 void ota_task_creat(void);
+void JumpToUserApplication(unsigned int userSP, unsigned int userStartup);
 #endif

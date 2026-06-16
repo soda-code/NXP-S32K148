@@ -2,8 +2,9 @@
 #include "./app/freertos_app.h"
 #include "./bsp/can.h"
 
-volatile int exit_code = 0;
 
+extern uint16_t g_jump_to_app_flag;
+volatile int exit_code = 0;
 //********************************************************************
 // @fun     : main
 // @brief   : 主函�?
