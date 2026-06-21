@@ -82,14 +82,14 @@
       <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/FreeRTOS.h" FileDate="2026-04-05, 09:56:32" FileAge="1775354192858" FileType="1048576" CompNumb="5" />
       <File Name="SDK/platform/devices/S32K148/include/S32K148_features.h" FileDate="2026-04-05, 09:55:55" FileAge="1775354155163" FileType="1048576" CompNumb="1" />
       <File Name="SDK/platform/drivers/src/clock/S32K1xx/clock_S32K1xx.c" FileDate="2026-04-05, 09:55:54" FileAge="1775354154920" FileType="1048576" CompNumb="3" />
-      <File Name="Generated_Code/FreeRTOSConfig.h" FileDate="2026-06-16, 19:38:17" FileAge="1781609897165" FileType="45637" CompNumb="5" />
+      <File Name="Generated_Code/FreeRTOSConfig.h" FileDate="2026-06-21, 21:03:36" FileAge="1782047016829" FileType="45637" CompNumb="5" />
       <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/timers.h" FileDate="2026-04-05, 09:56:32" FileAge="1775354192993" FileType="1048576" CompNumb="5" />
       <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/croutine.h" FileDate="2026-04-05, 09:56:32" FileAge="1775354192826" FileType="1048576" CompNumb="5" />
       <File Name="SDK/platform/pal/src/can/can_pal.c" FileDate="2026-04-05, 09:58:50" FileAge="1775354330210" FileType="1048576" CompNumb="0" />
       <File Name="SDK/platform/pal/inc/can_pal_mapping.h" FileDate="2026-04-05, 09:58:50" FileAge="1775354330216" FileType="1048576" CompNumb="0" />
       <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/queue.h" FileDate="2026-04-05, 09:56:32" FileAge="1775354192934" FileType="1048576" CompNumb="5" />
       <File Name="SDK/rtos/FreeRTOS_S32K/Source/queue.c" FileDate="2026-04-05, 09:56:32" FileAge="1775354192765" FileType="1048576" CompNumb="5" />
-      <File Name="Documentation/boot.txt" FileDate="2026-06-16, 19:38:17" FileAge="1781609897214" FileType="3072" />
+      <File Name="Documentation/boot.txt" FileDate="2026-06-21, 22:21:45" FileAge="1782051705328" FileType="3072" />
       <File Name="SDK/rtos/FreeRTOS_S32K/Source/tasks.c" FileDate="2026-06-04, 10:27:23" FileAge="1780540043199" FileType="1048576" CompNumb="5" />
       <File Name="SDK/platform/drivers/src/pins/pins_driver.c" FileDate="2026-04-05, 09:55:54" FileAge="1775354154757" FileType="1048576" CompNumb="2" />
       <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/event_groups.h" FileDate="2026-04-05, 09:56:32" FileAge="1775354192839" FileType="1048576" CompNumb="5" />
@@ -100,24 +100,24 @@
       <File Name="SDK/platform/drivers/src/clock/S32K1xx/pcc_hw_access.h" FileDate="2026-04-05, 09:55:54" FileAge="1775354154945" FileType="1048576" CompNumb="3" />
       <File Name="Generated_Code/can_pal_cfg.h" FileDate="2026-04-05, 09:58:50" FileAge="1775354330345" FileType="45637" CompNumb="1" />
       <File Name="SDK/platform/devices/S32K148/startup/system_S32K148.h" FileDate="2026-04-05, 09:55:55" FileAge="1775354155124" FileType="1048576" CompNumb="1" />
-      <File Name="SDK/platform/drivers/src/edma/edma_hw_access.c" FileDate="2026-04-05, 09:58:50" FileAge="1775354330142" FileType="1048576" CompNumb="9" />
       <File Name="SDK/platform/devices/device_registers.h" FileDate="2026-04-05, 09:55:55" FileAge="1775354155056" FileType="1048576" CompNumb="1" />
-      <File Name="SDK/platform/drivers/src/flexcan/flexcan_irq.c" FileDate="2026-04-05, 09:58:50" FileAge="1775354330316" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/platform/drivers/src/edma/edma_hw_access.c" FileDate="2026-04-05, 09:58:50" FileAge="1775354330142" FileType="1048576" CompNumb="9" />
       <File Name="SDK/platform/drivers/inc/edma_driver.h" FileDate="2026-04-05, 09:58:50" FileAge="1775354330183" FileType="1048576" CompNumb="9" />
+      <File Name="SDK/platform/drivers/src/flexcan/flexcan_irq.c" FileDate="2026-04-05, 09:58:50" FileAge="1775354330316" FileType="1048576" CompNumb="1" />
       <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/stack_macros.h" FileDate="2026-04-05, 09:56:32" FileAge="1775354192958" FileType="1048576" CompNumb="5" />
       <File Name="SDK/platform/devices/S32K148/startup/system_S32K148.c" FileDate="2026-04-05, 09:55:55" FileAge="1775354155144" FileType="1048576" CompNumb="1" />
-      <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/message_buffer.h" FileDate="2026-04-05, 09:56:32" FileAge="1775354192872" FileType="1048576" CompNumb="5" />
       <File Name="Generated_Code/clockMan1.h" FileDate="2026-04-05, 09:58:50" FileAge="1775354330380" FileType="45637" CompNumb="3" />
-      <File Name="Generated_Code/FreeRTOS.c" FileDate="1970-01-01, 07:59:59" FileAge="-1" FileType="45637" CompNumb="5" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/message_buffer.h" FileDate="2026-04-05, 09:56:32" FileAge="1775354192872" FileType="1048576" CompNumb="5" />
       <File Name="SDK/platform/drivers/src/pins/pins_port_hw_access.h" FileDate="2026-04-05, 09:55:54" FileAge="1775354154853" FileType="1048576" CompNumb="2" />
+      <File Name="Generated_Code/FreeRTOS.c" FileDate="1970-01-01, 07:59:59" FileAge="-1" FileType="45637" CompNumb="5" />
       <File Name="SDK/platform/drivers/inc/clock.h" FileDate="2026-04-05, 09:55:54" FileAge="1775354154990" FileType="1048576" CompNumb="3" />
       <File Name="Generated_Code/clockMan1.c" FileDate="2026-04-05, 09:58:50" FileAge="1775354330384" FileType="45637" CompNumb="3" />
       <File Name="SDK/platform/drivers/src/pins/pins_port_hw_access.c" FileDate="2026-04-05, 09:55:54" FileAge="1775354154831" FileType="1048576" CompNumb="2" />
       <File Name="Generated_Code/can_pal0.h" FileDate="2026-04-05, 09:58:50" FileAge="1775354330350" FileType="45637" CompNumb="6" />
       <File Name="Generated_Code/can_pal0.c" FileDate="2026-04-05, 09:58:50" FileAge="1775354330350" FileType="45637" CompNumb="6" />
-      <File Name="SDK/rtos/FreeRTOS_S32K/Source/event_groups.c" FileDate="2026-04-05, 09:56:32" FileAge="1775354192735" FileType="1048576" CompNumb="5" />
       <File Name="SDK/platform/devices/common/s32_core_cm4.h" FileDate="2026-04-05, 09:55:55" FileAge="1775354155079" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/event_groups.c" FileDate="2026-04-05, 09:56:32" FileAge="1775354192735" FileType="1048576" CompNumb="5" />
     </GeneratedByPE>
   </GeneratedFilesList>
-  <CodeGenReference>17</CodeGenReference>
+  <CodeGenReference>21</CodeGenReference>
 </CodeGenerationInfo>

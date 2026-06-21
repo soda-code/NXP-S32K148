@@ -1,6 +1,6 @@
 #include "./app/key_app.h"
 #include "./app/freertos_app.h"
-#include "Cpu.h"
+#include "./bsp/bsp_api.h"
 
  QueueHandle_t LedControlQueue; //创建队列
 
@@ -126,9 +126,10 @@ void key_Task( void *pvParameters )
 
 void key_task_creat(void)
 {
+    BaseType_t res = 0x00;
     Init_key_Queues(); // 初始化按键相关的队列
-	xTaskCreate((TaskFunction_t	)key_Task,(char * )"key_Task",(const configSTACK_DEPTH_TYPE)configMINIMAL_STACK_SIZE ,(void *	) NULL,
-					(UBaseType_t) 14,
+	res = xTaskCreate((TaskFunction_t	)key_Task,(char * )"key_Task",(const configSTACK_DEPTH_TYPE)configMINIMAL_STACK_SIZE ,(void *	) NULL,
+					(UBaseType_t) 12,
 					(TaskHandle_t *)NULL ) ;
 
 }

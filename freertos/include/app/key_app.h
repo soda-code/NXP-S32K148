@@ -7,10 +7,6 @@
 
 
 
-#define KEY1 ((PINS_DRV_ReadPins(PTC)>>12)&0x01)
-#define KEY2 ((PINS_DRV_ReadPins(PTC)>>13)&0x01)
-#define KEY3 ((PINS_DRV_ReadPins(PTC)>>14)&0x01)
-
 typedef enum KEY_NUM_
 {
 	KEY_PRESS_NULL 	= 0,

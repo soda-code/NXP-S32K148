@@ -1,30 +1,7 @@
 /*
 ** ###################################################################
-**     Processor:           S32K144 with 64 KB SRAM
-**     Compiler:            GNU C Compiler
-**
-**     Abstract:
-**         Linker file for the GNU C Compiler
-**
-**     Copyright (c) 2015-2016 Freescale Semiconductor, Inc.
-**     Copyright 2017-2018 NXP
-**     All rights reserved.
-**
-**     THIS SOFTWARE IS PROVIDED BY NXP "AS IS" AND ANY EXPRESSED OR
-**     IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
-**     OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-**     IN NO EVENT SHALL NXP OR ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-**     INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-**     (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-**     SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-**     HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-**     STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
-**     IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
-**     THE POSSIBILITY OF SUCH DAMAGE.
-**
-**     http:                 www.freescale.com
-**     mail:                 support@freescale.com
-**
+** Processor:           S32K148 with 256 KB SRAM (APP Modified)
+** Compiler:            GNU C Compiler
 ** ###################################################################
 */
 
@@ -32,30 +9,27 @@
 ENTRY(Reset_Handler)
 
 HEAP_SIZE  = DEFINED(__heap_size__)  ? __heap_size__  : 0x00000400;
-STACK_SIZE = DEFINED(__stack_size__) ? __stack_size__ : 0x00000400;
+STACK_SIZE = DEFINED(__stack_size__) ? __stack_size__ : 0x00001000; /* APP 建议分配 4KB 栈空间 */
 
-/* If symbol __flash_vector_table__=1 is defined at link time
- * the interrupt vector will not be copied to RAM.
- * Warning: Using the interrupt vector from Flash will not allow
- * INT_SYS_InstallHandler because the section is Read Only.
- */
+/* 如果定义了 __flash_vector_table__=1，则不把中断向量表拷贝到 RAM */
 M_VECTOR_RAM_SIZE = DEFINED(__flash_vector_table__) ? 0x0 : 0x0400;
 
 /* Specify the memory areas */
 MEMORY
 { 
-  /* Flash for APP*/
+  /* ====== APP Flash 空间（无缝衔接 Bootloader 的 0x12000 偏移） ====== */
   m_interrupts          (RX)  : ORIGIN = 0x00012000, LENGTH = 0x00000400
   m_flash_config        (RX)  : ORIGIN = 0x00012400, LENGTH = 0x00000010
-  /* app 256k flash */
-  m_text                (RX)  : ORIGIN = 0x00012410, LENGTH = 0x00040000
+  /* 满血释放 APP 空间：分配 1MB (0x100000) 字节 */
+  m_text                (RX)  : ORIGIN = 0x00012410, LENGTH = 0x00100000
 
-  /* SRAM_L */
-  m_data                (RW)  : ORIGIN = 0x1FFF8000, LENGTH = 0x00008000
-
-  /* SRAM_U */
-  m_data_2              (RW)  : ORIGIN = 0x20000000, LENGTH = 0x00007000
+  /* ====== APP SRAM 满血空间（全额开放 256 KB） ====== */
+  /* SRAM_L: 0x1FFF0000 ~ 0x1FFFFFFF (共 128 KB) */
+  m_data                (RW)  : ORIGIN = 0x1FFF0000, LENGTH = 0x00020000
+  /* SRAM_U: 0x20000000 ~ 0x2000FFFF (共 128 KB) */
+  m_data_2              (RW)  : ORIGIN = 0x20000000, LENGTH = 0x00020000
 }
+
 
 /* Define output sections */
 SECTIONS
@@ -187,23 +161,23 @@ SECTIONS
     __heap_limit = .;
     __heap_end__ = .;
   } > m_data_2
-
-  /* Initializes stack on the end of block */
-  __StackTop   = ORIGIN(m_data_2) + LENGTH(m_data_2);
+  
+/* 锟斤拷栈锟斤拷强锟斤拷锟斤拷锟斤拷锟斤拷 0x20000000锟斤拷SRAM_L锟斤拷末尾锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷K144锟斤拷锟斤拷K148锟斤拷锟斤拷锟皆帮拷全 */
+  __StackTop   = 0x20000000;
   __StackLimit = __StackTop - STACK_SIZE;
   PROVIDE(__stack = __StackTop);
-  __RAM_END = __StackTop;
-
-  .stack __StackLimit :
+  __RAM_END = ORIGIN(m_data_2) + LENGTH(m_data_2); /* 锟斤拷锟斤拷锟斤拷锟节达拷锟秸碉拷 */
+  
+.stack __StackLimit :
   {
     . = ALIGN(8);
     __stack_start__ = .;
     . += STACK_SIZE;
     __stack_end__ = .;
-  } > m_data_2
+  } > m_data   /* <-- 锟斤拷锟斤拷锟斤拷 m_data_2 锟斤拷为 m_data */
 
   .ARM.attributes 0 : { *(.ARM.attributes) }
 
-  ASSERT(__StackLimit >= __HeapLimit, "region m_data_2 overflowed with stack and heap")
+  /* 顺锟斤拷锟斤拷锟斤拷亩锟斤拷园锟饺�锟斤拷锟揭诧拷锟揭伙拷锟� */
+  ASSERT(__StackLimit >= __data_end__, "region m_data overflowed with stack")
 }
-

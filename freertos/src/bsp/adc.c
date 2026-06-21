@@ -42,3 +42,37 @@ uint16_t adc_read(void)
     /* 转换数值为电压 */
     return adcRawValue;
 }
+
+
+//*****************************************************************
+// @fun     : adc_get_value
+// @brief   : 读取指定通道的ADC原始值
+// @param   : adc_ch    - ADC通道号 (Adc_Enum)
+// @param   : adc_value - 输出参数，存放原始ADC值
+// @return  : 无
+//*****************************************************************
+void adc_get_value(Adc_Enum adc_ch, uint16_t *adc_value)
+{
+    /* 空指针保护 */
+    if (adc_value == NULL)
+    {
+        return;
+    }
+
+    /* 通道有效性校验 */
+    if (adc_ch >= ADC_CH_NUM)
+    {
+        *adc_value = 0;
+        return;
+    }
+
+    /* 配置ADC通道并触发转换 */
+    ADC_DRV_ConfigChan(INST_ADCONV1, (uint8_t)adc_ch, &adConv1_ChnConfig0);
+
+    /* 等待转换完成 */
+    ADC_DRV_WaitConvDone(INST_ADCONV1);
+
+    /* 获取ADC原始值 */
+    ADC_DRV_GetChanResult(INST_ADCONV1, (uint8_t)adc_ch, adc_value);
+}
+

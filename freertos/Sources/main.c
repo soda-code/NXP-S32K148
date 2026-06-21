@@ -28,8 +28,9 @@
 #include "./app/freertos_app.h"
 #include "./bsp/adc.h"
 #include "./bsp/can.h"
+#include "./bsp/usart.h"
 
-  volatile int exit_code = 0;
+volatile int exit_code = 0;
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
 
@@ -52,6 +53,7 @@ int main(void)
 	CLOCK_SYS_Init(g_clockManConfigsArr, CLOCK_MANAGER_CONFIG_CNT,g_clockManCallbacksArr, CLOCK_MANAGER_CALLBACK_CNT);
 	CLOCK_SYS_UpdateConfiguration(0U, CLOCK_MANAGER_POLICY_AGREEMENT);
 	PINS_DRV_Init(NUM_OF_CONFIGURED_PINS, g_pin_mux_InitConfigArr);
+	usart_init();
 	adc_init();
 	can_init();
   /*** Don't write any code pass this line, or it will be deleted during code generation. ***/
