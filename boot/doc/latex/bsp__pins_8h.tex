@@ -1,0 +1,104 @@
+\doxysection{src/bsp/inc/bsp\+\_\+pins.h 文件参考}
+\hypertarget{bsp__pins_8h}{}\label{bsp__pins_8h}\index{src/bsp/inc/bsp\_pins.h@{src/bsp/inc/bsp\_pins.h}}
+{\ttfamily \#include "{}pin\+\_\+mux.\+h"{}}\newline
+\doxysubsubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{bsp__pins_8h_ab6e843da2f443c0b83a1553cd2992914}{LED\+\_\+\+Y\+\_\+\+ON}}~PINS\+\_\+\+DRV\+\_\+\+Write\+Pin(PTE, 20, 0)
+\item 
+\#define \mbox{\hyperlink{bsp__pins_8h_af2faf68ac758fb4b4b857fdaab617de6}{LED\+\_\+\+Y\+\_\+\+OFF}}~PINS\+\_\+\+DRV\+\_\+\+Write\+Pin(PTE, 20, 1)
+\item 
+\#define \mbox{\hyperlink{bsp__pins_8h_adae0f3d86097ea6dfabeb369bc7f2c1c}{LED\+\_\+\+R\+\_\+\+ON}}~PINS\+\_\+\+DRV\+\_\+\+Write\+Pin(PTE, 21, 0)
+\item 
+\#define \mbox{\hyperlink{bsp__pins_8h_a061191ecb908635c27afae99679f0280}{LED\+\_\+\+R\+\_\+\+OFF}}~PINS\+\_\+\+DRV\+\_\+\+Write\+Pin(PTE, 21, 1)
+\item 
+\#define \mbox{\hyperlink{bsp__pins_8h_a19fcb75c6bbbc6ad2d8ceac36c189029}{LED\+\_\+\+G\+\_\+\+ON}}~PINS\+\_\+\+DRV\+\_\+\+Write\+Pin(PTE, 22, 0)
+\item 
+\#define \mbox{\hyperlink{bsp__pins_8h_a54271458eff6448321037ead78c76ac3}{LED\+\_\+\+G\+\_\+\+OFF}}~PINS\+\_\+\+DRV\+\_\+\+Write\+Pin(PTE, 22, 1)
+\item 
+\#define \mbox{\hyperlink{bsp__pins_8h_a1429fd4e85c4d8e419b4a05aba730df5}{LED\+\_\+\+B\+\_\+\+ON}}~PINS\+\_\+\+DRV\+\_\+\+Write\+Pin(PTE, 23, 0)
+\item 
+\#define \mbox{\hyperlink{bsp__pins_8h_a1552ab4bdb99c586585fc78c969848bc}{LED\+\_\+\+B\+\_\+\+OFF}}~PINS\+\_\+\+DRV\+\_\+\+Write\+Pin(PTE, 23, 1)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{bsp__pins_8h_ad5fbe72f2b999f65db5a42fddabff75a}{BSP\+\_\+\+Pins\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em 初始化所有板级引脚配置 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{bsp__pins_8h_doc-define-members}
+\doxysubsection{宏定义说明}
+\Hypertarget{bsp__pins_8h_a1552ab4bdb99c586585fc78c969848bc}\index{bsp\_pins.h@{bsp\_pins.h}!LED\_B\_OFF@{LED\_B\_OFF}}
+\index{LED\_B\_OFF@{LED\_B\_OFF}!bsp\_pins.h@{bsp\_pins.h}}
+\doxysubsubsection{\texorpdfstring{LED\_B\_OFF}{LED\_B\_OFF}}
+{\footnotesize\ttfamily \label{bsp__pins_8h_a1552ab4bdb99c586585fc78c969848bc} 
+\#define LED\+\_\+\+B\+\_\+\+OFF~PINS\+\_\+\+DRV\+\_\+\+Write\+Pin(PTE, 23, 1)}
+
+\Hypertarget{bsp__pins_8h_a1429fd4e85c4d8e419b4a05aba730df5}\index{bsp\_pins.h@{bsp\_pins.h}!LED\_B\_ON@{LED\_B\_ON}}
+\index{LED\_B\_ON@{LED\_B\_ON}!bsp\_pins.h@{bsp\_pins.h}}
+\doxysubsubsection{\texorpdfstring{LED\_B\_ON}{LED\_B\_ON}}
+{\footnotesize\ttfamily \label{bsp__pins_8h_a1429fd4e85c4d8e419b4a05aba730df5} 
+\#define LED\+\_\+\+B\+\_\+\+ON~PINS\+\_\+\+DRV\+\_\+\+Write\+Pin(PTE, 23, 0)}
+
+\Hypertarget{bsp__pins_8h_a54271458eff6448321037ead78c76ac3}\index{bsp\_pins.h@{bsp\_pins.h}!LED\_G\_OFF@{LED\_G\_OFF}}
+\index{LED\_G\_OFF@{LED\_G\_OFF}!bsp\_pins.h@{bsp\_pins.h}}
+\doxysubsubsection{\texorpdfstring{LED\_G\_OFF}{LED\_G\_OFF}}
+{\footnotesize\ttfamily \label{bsp__pins_8h_a54271458eff6448321037ead78c76ac3} 
+\#define LED\+\_\+\+G\+\_\+\+OFF~PINS\+\_\+\+DRV\+\_\+\+Write\+Pin(PTE, 22, 1)}
+
+\Hypertarget{bsp__pins_8h_a19fcb75c6bbbc6ad2d8ceac36c189029}\index{bsp\_pins.h@{bsp\_pins.h}!LED\_G\_ON@{LED\_G\_ON}}
+\index{LED\_G\_ON@{LED\_G\_ON}!bsp\_pins.h@{bsp\_pins.h}}
+\doxysubsubsection{\texorpdfstring{LED\_G\_ON}{LED\_G\_ON}}
+{\footnotesize\ttfamily \label{bsp__pins_8h_a19fcb75c6bbbc6ad2d8ceac36c189029} 
+\#define LED\+\_\+\+G\+\_\+\+ON~PINS\+\_\+\+DRV\+\_\+\+Write\+Pin(PTE, 22, 0)}
+
+\Hypertarget{bsp__pins_8h_a061191ecb908635c27afae99679f0280}\index{bsp\_pins.h@{bsp\_pins.h}!LED\_R\_OFF@{LED\_R\_OFF}}
+\index{LED\_R\_OFF@{LED\_R\_OFF}!bsp\_pins.h@{bsp\_pins.h}}
+\doxysubsubsection{\texorpdfstring{LED\_R\_OFF}{LED\_R\_OFF}}
+{\footnotesize\ttfamily \label{bsp__pins_8h_a061191ecb908635c27afae99679f0280} 
+\#define LED\+\_\+\+R\+\_\+\+OFF~PINS\+\_\+\+DRV\+\_\+\+Write\+Pin(PTE, 21, 1)}
+
+\Hypertarget{bsp__pins_8h_adae0f3d86097ea6dfabeb369bc7f2c1c}\index{bsp\_pins.h@{bsp\_pins.h}!LED\_R\_ON@{LED\_R\_ON}}
+\index{LED\_R\_ON@{LED\_R\_ON}!bsp\_pins.h@{bsp\_pins.h}}
+\doxysubsubsection{\texorpdfstring{LED\_R\_ON}{LED\_R\_ON}}
+{\footnotesize\ttfamily \label{bsp__pins_8h_adae0f3d86097ea6dfabeb369bc7f2c1c} 
+\#define LED\+\_\+\+R\+\_\+\+ON~PINS\+\_\+\+DRV\+\_\+\+Write\+Pin(PTE, 21, 0)}
+
+\Hypertarget{bsp__pins_8h_af2faf68ac758fb4b4b857fdaab617de6}\index{bsp\_pins.h@{bsp\_pins.h}!LED\_Y\_OFF@{LED\_Y\_OFF}}
+\index{LED\_Y\_OFF@{LED\_Y\_OFF}!bsp\_pins.h@{bsp\_pins.h}}
+\doxysubsubsection{\texorpdfstring{LED\_Y\_OFF}{LED\_Y\_OFF}}
+{\footnotesize\ttfamily \label{bsp__pins_8h_af2faf68ac758fb4b4b857fdaab617de6} 
+\#define LED\+\_\+\+Y\+\_\+\+OFF~PINS\+\_\+\+DRV\+\_\+\+Write\+Pin(PTE, 20, 1)}
+
+\Hypertarget{bsp__pins_8h_ab6e843da2f443c0b83a1553cd2992914}\index{bsp\_pins.h@{bsp\_pins.h}!LED\_Y\_ON@{LED\_Y\_ON}}
+\index{LED\_Y\_ON@{LED\_Y\_ON}!bsp\_pins.h@{bsp\_pins.h}}
+\doxysubsubsection{\texorpdfstring{LED\_Y\_ON}{LED\_Y\_ON}}
+{\footnotesize\ttfamily \label{bsp__pins_8h_ab6e843da2f443c0b83a1553cd2992914} 
+\#define LED\+\_\+\+Y\+\_\+\+ON~PINS\+\_\+\+DRV\+\_\+\+Write\+Pin(PTE, 20, 0)}
+
+
+
+\label{doc-func-members}
+\Hypertarget{bsp__pins_8h_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{bsp__pins_8h_ad5fbe72f2b999f65db5a42fddabff75a}\index{bsp\_pins.h@{bsp\_pins.h}!BSP\_Pins\_Init@{BSP\_Pins\_Init}}
+\index{BSP\_Pins\_Init@{BSP\_Pins\_Init}!bsp\_pins.h@{bsp\_pins.h}}
+\doxysubsubsection{\texorpdfstring{BSP\_Pins\_Init()}{BSP\_Pins\_Init()}}
+{\footnotesize\ttfamily \label{bsp__pins_8h_ad5fbe72f2b999f65db5a42fddabff75a} 
+void BSP\+\_\+\+Pins\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+初始化所有板级引脚配置 
+
+该函数执行以下操作：
+\begin{DoxyEnumerate}
+\item 通过\+PINS\+\_\+\+DRV\+\_\+\+Init初始化所有配置的引脚
+\item 将所有\+LED初始化为关闭状态
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{注解}
+该函数应在系统初始化阶段调用 
+\end{DoxyNote}

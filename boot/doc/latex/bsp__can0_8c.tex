@@ -1,0 +1,152 @@
+\doxysection{src/bsp/bsp\+\_\+can0.c 文件参考}
+\hypertarget{bsp__can0_8c}{}\label{bsp__can0_8c}\index{src/bsp/bsp\_can0.c@{src/bsp/bsp\_can0.c}}
+{\ttfamily \#include "{}bsp\+\_\+can0.\+h"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include "{}os\+\_\+task.\+h"{}}\newline
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{bsp__can0_8c_add49b40764f89664c8c13569f283f9c1}{CAN0\+\_\+\+Callback}} (uint32\+\_\+t instance, can\+\_\+event\+\_\+t event, uint32\+\_\+t buff\+Idx, void \texorpdfstring{$\ast$}{*}flexcan\+State)
+\begin{DoxyCompactList}\small\item\em CAN0中断回调函数，处理\+CAN0总线的接收和发送事件 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bsp__can0_8c_a95c1440bfaa98d76c3059011ad98d1c6}{BSP\+\_\+\+CAN0\+\_\+\+Send\+\_\+\+STD}} (uint16\+\_\+t id, uint8\+\_\+t data\mbox{[}8\mbox{]})
+\begin{DoxyCompactList}\small\item\em 通过\+CAN0总线发送标准帧数据 \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{bsp__can0_8c_a85fc1177fbdd048a41ca8a08f9fa2704}{BSP\+\_\+\+CAN0\+\_\+\+Send\+\_\+\+EXT}} (uint32\+\_\+t id, uint8\+\_\+t data\mbox{[}64\mbox{]}, uint8\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em 通过\+CAN0总线发送扩展帧格式数据 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bsp__can0_8c_a1b3667da09687e06f9b25fca016135e5}{BSP\+\_\+\+CAN0\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em 初始化\+CAN0控制器 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{bsp__can0_8c_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{bsp__can0_8c_a1b3667da09687e06f9b25fca016135e5}\index{bsp\_can0.c@{bsp\_can0.c}!BSP\_CAN0\_Init@{BSP\_CAN0\_Init}}
+\index{BSP\_CAN0\_Init@{BSP\_CAN0\_Init}!bsp\_can0.c@{bsp\_can0.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_CAN0\_Init()}{BSP\_CAN0\_Init()}}
+{\footnotesize\ttfamily \label{bsp__can0_8c_a1b3667da09687e06f9b25fca016135e5} 
+void BSP\+\_\+\+CAN0\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+初始化\+CAN0控制器 
+
+该函数完成\+CAN0控制器的完整初始化流程，包括：
+\begin{DoxyItemize}
+\item 初始化\+CAN控制器实例
+\item 配置标准帧和扩展帧的接收/发送邮箱
+\item 设置接收过滤器
+\item 安装事件回调函数
+\item 设置中断优先级
+\item 启动接收过程
+\end{DoxyItemize}
+
+\begin{DoxyNote}{注解}
+该函数不返回任何值，所有配置均为硬件直接操作 
+\end{DoxyNote}
+\begin{DoxyWarning}{警告}
+调用前需确保\+CAN0相关硬件已上电且时钟稳定 
+\end{DoxyWarning}
+\begin{DoxyAttention}{注意}
+该函数会覆盖所有\+CAN0相关配置，调用后需重新配置过滤器 
+\end{DoxyAttention}
+\Hypertarget{bsp__can0_8c_a85fc1177fbdd048a41ca8a08f9fa2704}\index{bsp\_can0.c@{bsp\_can0.c}!BSP\_CAN0\_Send\_EXT@{BSP\_CAN0\_Send\_EXT}}
+\index{BSP\_CAN0\_Send\_EXT@{BSP\_CAN0\_Send\_EXT}!bsp\_can0.c@{bsp\_can0.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_CAN0\_Send\_EXT()}{BSP\_CAN0\_Send\_EXT()}}
+{\footnotesize\ttfamily \label{bsp__can0_8c_a85fc1177fbdd048a41ca8a08f9fa2704} 
+uint8\+\_\+t BSP\+\_\+\+CAN0\+\_\+\+Send\+\_\+\+EXT (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id}{, }\item[{uint8\+\_\+t}]{data}{\mbox{[}64\mbox{]}, }\item[{uint8\+\_\+t}]{length}{}\end{DoxyParamCaption})}
+
+
+
+通过\+CAN0总线发送扩展帧格式数据 
+
+
+\begin{DoxyParams}{参数}
+{\em id} & CAN消息\+ID（扩展帧格式） \\
+\hline
+{\em data} & 待发送的数据缓冲区（最大64字节） \\
+\hline
+{\em length} & 实际数据长度（字节数）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+uint8\+\_\+t 发送状态码：
+\begin{DoxyItemize}
+\item 0：发送成功
+\item 1：发送失败
+\item 2：中止传输失败
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{注解}
+函数内部会尝试500次轮询发送状态，超时后将尝试中止当前传输并重发 
+\end{DoxyNote}
+\begin{DoxyWarning}{警告}
+数据长度参数必须小于等于64字节，否则会导致内存越界 
+\end{DoxyWarning}
+\Hypertarget{bsp__can0_8c_a95c1440bfaa98d76c3059011ad98d1c6}\index{bsp\_can0.c@{bsp\_can0.c}!BSP\_CAN0\_Send\_STD@{BSP\_CAN0\_Send\_STD}}
+\index{BSP\_CAN0\_Send\_STD@{BSP\_CAN0\_Send\_STD}!bsp\_can0.c@{bsp\_can0.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_CAN0\_Send\_STD()}{BSP\_CAN0\_Send\_STD()}}
+{\footnotesize\ttfamily \label{bsp__can0_8c_a95c1440bfaa98d76c3059011ad98d1c6} 
+void BSP\+\_\+\+CAN0\+\_\+\+Send\+\_\+\+STD (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{id}{, }\item[{uint8\+\_\+t}]{data}{\mbox{[}8\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+通过\+CAN0总线发送标准帧数据 
+
+
+\begin{DoxyParams}{参数}
+{\em id} & 要发送的\+CAN消息\+ID（标准帧格式） \\
+\hline
+{\em data} & 要发送的8字节数据数组\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+此函数会尝试发送\+CAN消息，如果发送邮箱繁忙，会等待最多500次尝试：
+\begin{DoxyEnumerate}
+\item 正常情况：等待发送邮箱空闲后发送
+\item 超时情况：强制中止当前传输并重新尝试发送
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\begin{DoxyWarning}{警告}
+调用此函数前必须确保\+CAN0已正确初始化 
+\end{DoxyWarning}
+\Hypertarget{bsp__can0_8c_add49b40764f89664c8c13569f283f9c1}\index{bsp\_can0.c@{bsp\_can0.c}!CAN0\_Callback@{CAN0\_Callback}}
+\index{CAN0\_Callback@{CAN0\_Callback}!bsp\_can0.c@{bsp\_can0.c}}
+\doxysubsubsection{\texorpdfstring{CAN0\_Callback()}{CAN0\_Callback()}}
+{\footnotesize\ttfamily \label{bsp__can0_8c_add49b40764f89664c8c13569f283f9c1} 
+void CAN0\+\_\+\+Callback (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{instance}{, }\item[{can\+\_\+event\+\_\+t}]{event}{, }\item[{uint32\+\_\+t}]{buff\+Idx}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{flexcan\+State}{}\end{DoxyParamCaption})}
+
+
+
+CAN0中断回调函数，处理\+CAN0总线的接收和发送事件 
+
+
+\begin{DoxyParams}{参数}
+{\em instance} & CAN实例号（未使用） \\
+\hline
+{\em event} & 触发回调的事件类型 \\
+\hline
+{\em buff\+Idx} & 缓冲区索引（未使用） \\
+\hline
+{\em flexcan\+State} & Flex\+CAN状态指针（未使用）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+此函数在中断上下文中执行，必须保持简短高效 
+
+对于接收完成事件：
+\begin{DoxyEnumerate}
+\item 读取标准帧和扩展帧数据
+\item 将接收到的扩展帧数据复制到本地缓冲区
+\item 通过消息队列将接收到的\+CAN帧指针发送给任务处理
+\item 清空接收缓冲区\+ID标志
+\end{DoxyEnumerate}
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{in}}  & {\em event} & 可能的事件类型：
+\begin{DoxyItemize}
+\item CAN\+\_\+\+EVENT\+\_\+\+RX\+\_\+\+COMPLETE\+: 接收完成事件
+\item CAN\+\_\+\+EVENT\+\_\+\+TX\+\_\+\+COMPLETE\+: 发送完成事件 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}

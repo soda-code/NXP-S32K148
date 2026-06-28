@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>S32K148_VCU_APP: src/lib/libgeo/geo.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">S32K148_VCU_APP
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('geo_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">geo.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="geo_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef LIB_LIBGEO_GEO_H_</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define LIB_LIBGEO_GEO_H_</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">static</span> <span class="keywordtype">float</span> CONSTANTS_ONE_G = 9.80665f;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">static</span> <span class="keywordtype">double</span> CONSTANTS_RADIUS_OF_EARTH = 6371000;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">static</span> <span class="keywordtype">float</span> CONSTANTS_RADIUS_OF_EARTH_F = 6371000;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">static</span> <span class="keywordtype">float</span> CONSTANTS_EARTH_SPIN_RATE = 7.2921150e-5f;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span></div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="};">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structcrosstrack__error__s.html">   43</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structcrosstrack__error__s.html">crosstrack_error_s</a> {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="structcrosstrack__error__s.html#ad9c423ec01aad0eff70ad5186d01bbf7">   44</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structcrosstrack__error__s.html#ad9c423ec01aad0eff70ad5186d01bbf7">past_end</a>;   <span class="comment">// 如果最近点超出线段/弧段末端则为真</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="structcrosstrack__error__s.html#a1fbc068b4c85fc5e8b20ebea4e0f0ca7">   45</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structcrosstrack__error__s.html#a1fbc068b4c85fc5e8b20ebea4e0f0ca7">distance</a>;  <span class="comment">// 与线/弧最近点的距离，单位：米</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structcrosstrack__error__s.html#abbd521db18c6ff65884a741d5b69ed79">   46</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structcrosstrack__error__s.html#abbd521db18c6ff65884a741d5b69ed79">bearing</a>;   <span class="comment">// 指向最近点的方位角，单位：弧度</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>};</div>
+</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keywordtype">float</span> <a class="code hl_function" href="geo_8h.html#a71a3f1dd74077ca88d95a943768c728b">get_bearing_to_next_waypoint</a>(<span class="keywordtype">double</span> lat_now, <span class="keywordtype">double</span> lon_now, <span class="keywordtype">double</span> lat_next, <span class="keywordtype">double</span> lon_next);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keywordtype">float</span> <a class="code hl_function" href="geo_8h.html#aa534a8020615f97fdd342c587211d557">get_distance_to_next_waypoint</a>(<span class="keywordtype">double</span> lat_now, <span class="keywordtype">double</span> lon_now, <span class="keywordtype">double</span> lat_next, <span class="keywordtype">double</span> lon_next);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keywordtype">void</span> <a class="code hl_function" href="geo_8h.html#a8cf2ed6d2c6d6ef12853085621d50c24">waypoint_from_heading_and_distance</a>(<span class="keywordtype">double</span> lat_start, <span class="keywordtype">double</span> lon_start, <span class="keywordtype">float</span> bearing, <span class="keywordtype">float</span> dist, <span class="keywordtype">double</span> *lat_target, <span class="keywordtype">double</span> *lon_target);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keywordtype">void</span> <a class="code hl_function" href="geo_8h.html#a713e1c07bb04347540b8c98af7bb6a37">create_waypoint_from_line_and_dist</a>(<span class="keywordtype">double</span> lat_A, <span class="keywordtype">double</span> lon_A, <span class="keywordtype">double</span> lat_B, <span class="keywordtype">double</span> lon_B, <span class="keywordtype">float</span> dist, <span class="keywordtype">double</span> *lat_target, <span class="keywordtype">double</span> *lon_target);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keywordtype">float</span> <a class="code hl_function" href="geo_8h.html#a5e68ad5e5e2cbff411bc04cd80724856">get_distance_to_point_global_wgs84</a>(<span class="keywordtype">double</span> lat_now, <span class="keywordtype">double</span> lon_now, <span class="keywordtype">float</span> alt_now, <span class="keywordtype">double</span> lat_next, <span class="keywordtype">double</span> lon_next, <span class="keywordtype">float</span> alt_next,<span class="keywordtype">float</span> *dist_xy, <span class="keywordtype">float</span> *dist_z);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keywordtype">int</span> <a class="code hl_function" href="geo_8h.html#a8461e04a8672b957285ced1e58cad478">get_distance_to_line</a>(<span class="keyword">struct</span> <a class="code hl_struct" href="structcrosstrack__error__s.html">crosstrack_error_s</a> *crosstrack_error, <span class="keywordtype">double</span> lat_now, <span class="keywordtype">double</span> lon_now, <span class="keywordtype">double</span> lat_start, <span class="keywordtype">double</span> lon_start, <span class="keywordtype">double</span> lat_end, <span class="keywordtype">double</span> lon_end);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keywordtype">int</span> <a class="code hl_function" href="geo_8h.html#abeff6a5ec4736d7cb89258a0d26560d1">get_distance_to_arc</a>(<span class="keyword">struct</span> <a class="code hl_struct" href="structcrosstrack__error__s.html">crosstrack_error_s</a> *crosstrack_error, <span class="keywordtype">double</span> lat_now, <span class="keywordtype">double</span> lon_now,<span class="keywordtype">double</span> lat_center, <span class="keywordtype">double</span> lon_center,<span class="keywordtype">float</span> radius, <span class="keywordtype">float</span> arc_start_bearing, <span class="keywordtype">float</span> arc_sweep);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keywordtype">void</span> <a class="code hl_function" href="geo_8h.html#af78e324949ecc8e9b46518c695cc2e42">get_vector_to_next_waypoint</a>(<span class="keywordtype">double</span> lat_now, <span class="keywordtype">double</span> lon_now, <span class="keywordtype">double</span> lat_next, <span class="keywordtype">double</span> lon_next, <span class="keywordtype">float</span> *v_n, <span class="keywordtype">float</span> *v_e);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keywordtype">void</span> <a class="code hl_function" href="geo_8h.html#a5fba342d3636e23b40d89e62df5e2490">get_vector_to_next_waypoint_fast</a>(<span class="keywordtype">double</span> lat_now, <span class="keywordtype">double</span> lon_now, <span class="keywordtype">double</span> lat_next, <span class="keywordtype">double</span> lon_next, <span class="keywordtype">float</span> *v_n, <span class="keywordtype">float</span> *v_e);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keywordtype">void</span> <a class="code hl_function" href="geo_8h.html#a5e9f593d4dc359086faa8bb94148116e">add_vector_to_global_position</a>(<span class="keywordtype">double</span> lat_now, <span class="keywordtype">double</span> lon_now, <span class="keywordtype">float</span> v_n, <span class="keywordtype">float</span> v_e, <span class="keywordtype">double</span> *lat_res, <span class="keywordtype">double</span> *lon_res);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#endif </span><span class="comment">/* LIB_LIBGEO_GEO_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="ageo_8h_html_a5e68ad5e5e2cbff411bc04cd80724856"><div class="ttname"><a href="geo_8h.html#a5e68ad5e5e2cbff411bc04cd80724856">get_distance_to_point_global_wgs84</a></div><div class="ttdeci">float get_distance_to_point_global_wgs84(double lat_now, double lon_now, float alt_now, double lat_next, double lon_next, float alt_next, float *dist_xy, float *dist_z)</div><div class="ttdoc">使用Haversine公式计算两个地理点之间的距离</div><div class="ttdef"><b>定义</b> geo.c:212</div></div>
+<div class="ttc" id="ageo_8h_html_a5e9f593d4dc359086faa8bb94148116e"><div class="ttname"><a href="geo_8h.html#a5e9f593d4dc359086faa8bb94148116e">add_vector_to_global_position</a></div><div class="ttdeci">void add_vector_to_global_position(double lat_now, double lon_now, float v_n, float v_e, double *lat_res, double *lon_res)</div><div class="ttdoc">将速度矢量添加到全球位置坐标</div><div class="ttdef"><b>定义</b> geo.c:538</div></div>
+<div class="ttc" id="ageo_8h_html_a5fba342d3636e23b40d89e62df5e2490"><div class="ttname"><a href="geo_8h.html#a5fba342d3636e23b40d89e62df5e2490">get_vector_to_next_waypoint_fast</a></div><div class="ttdeci">void get_vector_to_next_waypoint_fast(double lat_now, double lon_now, double lat_next, double lon_next, float *v_n, float *v_e)</div><div class="ttdoc">计算从当前位置到下一个航路点的向量（快速版本）</div><div class="ttdef"><b>定义</b> geo.c:502</div></div>
+<div class="ttc" id="ageo_8h_html_a713e1c07bb04347540b8c98af7bb6a37"><div class="ttname"><a href="geo_8h.html#a713e1c07bb04347540b8c98af7bb6a37">create_waypoint_from_line_and_dist</a></div><div class="ttdeci">void create_waypoint_from_line_and_dist(double lat_A, double lon_A, double lat_B, double lon_B, float dist, double *lat_target, double *lon_target)</div><div class="ttdoc">从起始点沿着指向第二个点的方向创建指定距离的航点</div><div class="ttdef"><b>定义</b> geo.c:176</div></div>
+<div class="ttc" id="ageo_8h_html_a71a3f1dd74077ca88d95a943768c728b"><div class="ttname"><a href="geo_8h.html#a71a3f1dd74077ca88d95a943768c728b">get_bearing_to_next_waypoint</a></div><div class="ttdeci">float get_bearing_to_next_waypoint(double lat_now, double lon_now, double lat_next, double lon_next)</div><div class="ttdoc">计算到下一个航点的方位角（初始航向）</div><div class="ttdef"><b>定义</b> geo.c:74</div></div>
+<div class="ttc" id="ageo_8h_html_a8461e04a8672b957285ced1e58cad478"><div class="ttname"><a href="geo_8h.html#a8461e04a8672b957285ced1e58cad478">get_distance_to_line</a></div><div class="ttdeci">int get_distance_to_line(struct crosstrack_error_s *crosstrack_error, double lat_now, double lon_now, double lat_start, double lon_start, double lat_end, double lon_end)</div><div class="ttdoc">计算当前位置到线段的横向误差（cross-track error）。</div><div class="ttdef"><b>定义</b> geo.c:270</div></div>
+<div class="ttc" id="ageo_8h_html_a8cf2ed6d2c6d6ef12853085621d50c24"><div class="ttname"><a href="geo_8h.html#a8cf2ed6d2c6d6ef12853085621d50c24">waypoint_from_heading_and_distance</a></div><div class="ttdeci">void waypoint_from_heading_and_distance(double lat_start, double lon_start, float bearing, float dist, double *lat_target, double *lon_target)</div><div class="ttdoc">根据起始点、方位角和距离计算目标航点坐标</div><div class="ttdef"><b>定义</b> geo.c:137</div></div>
+<div class="ttc" id="ageo_8h_html_aa534a8020615f97fdd342c587211d557"><div class="ttname"><a href="geo_8h.html#aa534a8020615f97fdd342c587211d557">get_distance_to_next_waypoint</a></div><div class="ttdeci">float get_distance_to_next_waypoint(double lat_now, double lon_now, double lat_next, double lon_next)</div><div class="ttdoc">计算两个地理航点之间的大圆距离</div><div class="ttdef"><b>定义</b> geo.c:104</div></div>
+<div class="ttc" id="ageo_8h_html_abeff6a5ec4736d7cb89258a0d26560d1"><div class="ttname"><a href="geo_8h.html#abeff6a5ec4736d7cb89258a0d26560d1">get_distance_to_arc</a></div><div class="ttdeci">int get_distance_to_arc(struct crosstrack_error_s *crosstrack_error, double lat_now, double lon_now, double lat_center, double lon_center, float radius, float arc_start_bearing, float arc_sweep)</div><div class="ttdoc">计算当前位置到指定圆弧（arc）的最近距离和方位，并填充横向误差结构体</div><div class="ttdef"><b>定义</b> geo.c:339</div></div>
+<div class="ttc" id="ageo_8h_html_af78e324949ecc8e9b46518c695cc2e42"><div class="ttname"><a href="geo_8h.html#af78e324949ecc8e9b46518c695cc2e42">get_vector_to_next_waypoint</a></div><div class="ttdeci">void get_vector_to_next_waypoint(double lat_now, double lon_now, double lat_next, double lon_next, float *v_n, float *v_e)</div><div class="ttdoc">计算当前位置到下一个航点的向量在局部东北坐标系（North, East）上的分量（单位：米）。</div><div class="ttdef"><b>定义</b> geo.c:468</div></div>
+<div class="ttc" id="astructcrosstrack__error__s_html"><div class="ttname"><a href="structcrosstrack__error__s.html">crosstrack_error_s</a></div><div class="ttdoc">相对于线段或弧段的横向误差（crosstrack）信息。</div><div class="ttdef"><b>定义</b> geo.h:43</div></div>
+<div class="ttc" id="astructcrosstrack__error__s_html_a1fbc068b4c85fc5e8b20ebea4e0f0ca7"><div class="ttname"><a href="structcrosstrack__error__s.html#a1fbc068b4c85fc5e8b20ebea4e0f0ca7">crosstrack_error_s::distance</a></div><div class="ttdeci">float distance</div><div class="ttdef"><b>定义</b> geo.h:45</div></div>
+<div class="ttc" id="astructcrosstrack__error__s_html_abbd521db18c6ff65884a741d5b69ed79"><div class="ttname"><a href="structcrosstrack__error__s.html#abbd521db18c6ff65884a741d5b69ed79">crosstrack_error_s::bearing</a></div><div class="ttdeci">float bearing</div><div class="ttdef"><b>定义</b> geo.h:46</div></div>
+<div class="ttc" id="astructcrosstrack__error__s_html_ad9c423ec01aad0eff70ad5186d01bbf7"><div class="ttname"><a href="structcrosstrack__error__s.html#ad9c423ec01aad0eff70ad5186d01bbf7">crosstrack_error_s::past_end</a></div><div class="ttdeci">bool past_end</div><div class="ttdef"><b>定义</b> geo.h:44</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_c85d3e3c5052e9ad9ce18c6863244a25.html">lib</a></li><li class="navelem"><a href="dir_158a49887507f8643b83dba3b4a1d3a2.html">libgeo</a></li><li class="navelem"><a href="geo_8h.html">geo.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

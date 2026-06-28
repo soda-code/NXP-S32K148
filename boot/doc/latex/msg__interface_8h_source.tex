@@ -1,0 +1,62 @@
+\doxysection{msg\+\_\+interface.\+h}
+\hypertarget{msg__interface_8h_source}{}\label{msg__interface_8h_source}\index{src/interface/msg\_interface.h@{src/interface/msg\_interface.h}}
+\mbox{\hyperlink{msg__interface_8h}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ msg\_interface.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ 2025{\ucr}{\ucr}11{\ucr}{\ucr}2{\ucr}{\ucr}}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ 18750}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ }}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ INTERFACE\_INC\_MSG\_INTERFACE\_H\_}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ INTERFACE\_INC\_MSG\_INTERFACE\_H\_}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ CAN0}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vcu__can0__fd_8h}{vcu\_can0\_fd.h}}"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvcu__can0__fd__motor__ctrl__t}{vcu\_can0\_fd\_motor\_ctrl\_t}}\ \mbox{\hyperlink{structvcu__can0__fd__motor__ctrl__t}{vcu\_can0\_fd\_motor\_ctrl\_t}};}
+\DoxyCodeLine{00021\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvcu__can0__fd__gps__status__t}{vcu\_can0\_fd\_gps\_status\_t}}\ \mbox{\hyperlink{structvcu__can0__fd__gps__status__t}{vcu\_can0\_fd\_gps\_status\_t}};}
+\DoxyCodeLine{00022\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvcu__can0__fd__vcu__version__t}{vcu\_can0\_fd\_vcu\_version\_t}}\ \mbox{\hyperlink{structvcu__can0__fd__vcu__version__t}{vcu\_can0\_fd\_vcu\_version\_t}};}
+\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvcu__can0__fd__vcu__cmd__t}{vcu\_can0\_fd\_vcu\_cmd\_t}}\ \ \mbox{\hyperlink{structvcu__can0__fd__vcu__cmd__t}{vcu\_can0\_fd\_vcu\_cmd\_t}};}
+\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvcu__can0__fd__vcu__heartbeat__t}{vcu\_can0\_fd\_vcu\_heartbeat\_t}}\ \mbox{\hyperlink{structvcu__can0__fd__vcu__heartbeat__t}{vcu\_can0\_fd\_vcu\_heartbeat\_t}};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{msg__interface_8h_a747b619eb98617940b805267f7ee6050a506e8dd29460ea318b68d035f679b01b}{MANUAL}},\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{msg__interface_8h_a747b619eb98617940b805267f7ee6050ad4f1ddc0e9c9a34f69ab877071896786}{RC}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{msg__interface_8h_a747b619eb98617940b805267f7ee6050ab81b7469043e9c54603ca3aebbe38e90}{Auto}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00034\ \}\ \mbox{\hyperlink{msg__interface_8h_a747b619eb98617940b805267f7ee6050}{vehicle\_mode\_t}};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00040\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_h_u_a_r_t___p_a_r_a6c39bf42036efeb8fc70bf5153864d17}{rx\_len}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_h_u_a_r_t___p_a_r_a75a4e7433b45eaf39b2f5f2e27431485}{rx\_buf}}[128];\ \ \ \ }
+\DoxyCodeLine{00043\ \}\ \mbox{\hyperlink{struct_h_u_a_r_t___p_a_r}{HUART\_PAR}};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00049\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ uint8\_t\ \ \mbox{\hyperlink{struct_h_c_a_n___s_t_r_u_c_t_a587e6579470f21c3312037f89ec8513f}{type}};\ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct_h_c_a_n___s_t_r_u_c_t_a645271d0b9c759169ad7e2c6190b98be}{id}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_h_c_a_n___s_t_r_u_c_t_aff4c31fcd49e09d22145742152388de1}{data}}[64];\ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ uint8\_t\ \ \mbox{\hyperlink{struct_h_c_a_n___s_t_r_u_c_t_a0a6cf8078e26447bb924dcfd618743c4}{length}};\ \ \ \ }
+\DoxyCodeLine{00054\ \}\ \mbox{\hyperlink{struct_h_c_a_n___s_t_r_u_c_t}{HCAN\_STRUCT}};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{msg__interface_8h_a2b4d2c0a2b8342ac061cfd0c0915129a}{vcu\_can0\_fd\_gps\_status\_t}}\ \ \ \ \mbox{\hyperlink{struct_v_c_u___shared___data__t_a6c8734d35135234a1289c1d5f6e68d43}{gps\_status\_msg}};}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{msg__interface_8h_adaa803ab2cde47d2ac79b7defbc01d03}{vcu\_can0\_fd\_vcu\_version\_t}}\ \ \ \mbox{\hyperlink{struct_v_c_u___shared___data__t_a8213733e77133931f4b8222a4eb52121}{vcu\_version\_msg}};}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{msg__interface_8h_a3c8a8d442ca19c3048a8d520e8742fba}{vcu\_can0\_fd\_vcu\_heartbeat\_t}}\ \mbox{\hyperlink{struct_v_c_u___shared___data__t_a69c776bf6980ec8d98855955476e564e}{vcu\_heartbeat\_msg}};}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{msg__interface_8h_a1fc2eefee98d8daa7b17bff29d126de7}{vcu\_can0\_fd\_motor\_ctrl\_t}}\ \ \ \ \mbox{\hyperlink{struct_v_c_u___shared___data__t_a8031838341a15771153ed0daa3233c19}{motor\_duty\_ctrl\_msg}};}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{msg__interface_8h_a08243bdeaeb79a1a00680d1e145b9fa7}{vcu\_can0\_fd\_vcu\_cmd\_t}}\ \ \ \ \ \ \ \mbox{\hyperlink{struct_v_c_u___shared___data__t_a027a1050d217cac6af5277c8b9ccc8b7}{vcu\_cmd\_msg}};}
+\DoxyCodeLine{00065\ \}\ \mbox{\hyperlink{struct_v_c_u___shared___data__t}{VCU\_Shared\_Data\_t}};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_v_c_u___shared___data__t}{VCU\_Shared\_Data\_t}}\ \mbox{\hyperlink{msg__interface_8c_afc8069e9efa5cce49bc050716a8d16e7}{g\_shared\_data}};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INTERFACE\_INC\_MSG\_INTERFACE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

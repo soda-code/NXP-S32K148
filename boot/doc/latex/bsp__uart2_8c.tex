@@ -1,0 +1,124 @@
+\doxysection{src/bsp/bsp\+\_\+uart2.c 文件参考}
+\hypertarget{bsp__uart2_8c}{}\label{bsp__uart2_8c}\index{src/bsp/bsp\_uart2.c@{src/bsp/bsp\_uart2.c}}
+{\ttfamily \#include "{}bsp\+\_\+uart2.\+h"{}}\newline
+{\ttfamily \#include "{}os\+\_\+task.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{bsp__uart2_8c_acb87a375de3bfbc222127a0b07e1be93}{UART2\+\_\+\+Rx\+\_\+\+Callback}} (void \texorpdfstring{$\ast$}{*}driver\+State, uart\+\_\+event\+\_\+t event, void \texorpdfstring{$\ast$}{*}user\+Data)
+\begin{DoxyCompactList}\small\item\em UART2接收中断回调函数 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bsp__uart2_8c_aff03e3940f89a1a3680f59bb551d0918}{BSP\+\_\+\+UART2\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em 初始化\+UART2外设 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bsp__uart2_8c_adc15728b027cc63b27fb322eddf5ede2}{BSP\+\_\+\+UART2\+\_\+\+Send}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}buf, uint8\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em 通过\+UART2发送数据 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bsp__uart2_8c_ad00c9e73f1d428238f1ce55cc23425c6}{BSP\+\_\+\+UART2\+\_\+\+Printf}} (char \texorpdfstring{$\ast$}{*}fmt,...)
+\begin{DoxyCompactList}\small\item\em 通过\+UART2接口格式化输出字符串 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{bsp__uart2_8c_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{bsp__uart2_8c_aff03e3940f89a1a3680f59bb551d0918}\index{bsp\_uart2.c@{bsp\_uart2.c}!BSP\_UART2\_Init@{BSP\_UART2\_Init}}
+\index{BSP\_UART2\_Init@{BSP\_UART2\_Init}!bsp\_uart2.c@{bsp\_uart2.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_UART2\_Init()}{BSP\_UART2\_Init()}}
+{\footnotesize\ttfamily \label{bsp__uart2_8c_aff03e3940f89a1a3680f59bb551d0918} 
+void BSP\+\_\+\+UART2\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+初始化\+UART2外设 
+
+配置\+UART2硬件参数并启动接收中断。该函数执行以下操作：
+\begin{DoxyEnumerate}
+\item 初始化\+UART2硬件寄存器
+\item 设置\+UART2中断优先级
+\item 启动首次接收操作
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{注解}
+调用此函数前需确保uart2\+\_\+instance和uart2\+\_\+\+Config0已正确配置 
+\end{DoxyNote}
+\begin{DoxyWarning}{警告}
+此函数会启用\+UART2中断，需确保中断处理函数已正确实现 
+\end{DoxyWarning}
+\Hypertarget{bsp__uart2_8c_ad00c9e73f1d428238f1ce55cc23425c6}\index{bsp\_uart2.c@{bsp\_uart2.c}!BSP\_UART2\_Printf@{BSP\_UART2\_Printf}}
+\index{BSP\_UART2\_Printf@{BSP\_UART2\_Printf}!bsp\_uart2.c@{bsp\_uart2.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_UART2\_Printf()}{BSP\_UART2\_Printf()}}
+{\footnotesize\ttfamily \label{bsp__uart2_8c_ad00c9e73f1d428238f1ce55cc23425c6} 
+void BSP\+\_\+\+UART2\+\_\+\+Printf (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{fmt}{, }\item[{}]{...}{}\end{DoxyParamCaption})}
+
+
+
+通过\+UART2接口格式化输出字符串 
+
+
+\begin{DoxyParams}{参数}
+{\em fmt} & 格式化字符串，遵循标准printf格式规范 \\
+\hline
+{\em ...} & 可变参数列表，根据fmt中的格式说明符提供相应参数\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+该函数内部使用100字节的静态缓冲区，格式化字符串长度不应超过此限制 
+
+函数会阻塞直到所有数据发送完成
+\end{DoxyNote}
+\begin{DoxyWarning}{警告}
+不安全的缓冲区使用：未检查缓冲区溢出，调用者需确保格式化结果不超过100字节 
+\end{DoxyWarning}
+\Hypertarget{bsp__uart2_8c_adc15728b027cc63b27fb322eddf5ede2}\index{bsp\_uart2.c@{bsp\_uart2.c}!BSP\_UART2\_Send@{BSP\_UART2\_Send}}
+\index{BSP\_UART2\_Send@{BSP\_UART2\_Send}!bsp\_uart2.c@{bsp\_uart2.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_UART2\_Send()}{BSP\_UART2\_Send()}}
+{\footnotesize\ttfamily \label{bsp__uart2_8c_adc15728b027cc63b27fb322eddf5ede2} 
+void BSP\+\_\+\+UART2\+\_\+\+Send (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{buf}{, }\item[{uint8\+\_\+t}]{len}{}\end{DoxyParamCaption})}
+
+
+
+通过\+UART2发送数据 
+
+
+\begin{DoxyParams}{参数}
+{\em buf} & 要发送的数据缓冲区指针 \\
+\hline
+{\em len} & 要发送的数据长度（字节数）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+此函数是阻塞式发送，调用后会等待数据发送完成才返回 
+\end{DoxyNote}
+\Hypertarget{bsp__uart2_8c_acb87a375de3bfbc222127a0b07e1be93}\index{bsp\_uart2.c@{bsp\_uart2.c}!UART2\_Rx\_Callback@{UART2\_Rx\_Callback}}
+\index{UART2\_Rx\_Callback@{UART2\_Rx\_Callback}!bsp\_uart2.c@{bsp\_uart2.c}}
+\doxysubsubsection{\texorpdfstring{UART2\_Rx\_Callback()}{UART2\_Rx\_Callback()}}
+{\footnotesize\ttfamily \label{bsp__uart2_8c_acb87a375de3bfbc222127a0b07e1be93} 
+void UART2\+\_\+\+Rx\+\_\+\+Callback (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{driver\+State}{, }\item[{uart\+\_\+event\+\_\+t}]{event}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{user\+Data}{}\end{DoxyParamCaption})}
+
+
+
+UART2接收中断回调函数 
+
+该函数在\+UART2接收中断发生时被调用，负责处理接收到的数据并将其放入消息队列。
+
+
+\begin{DoxyParams}{参数}
+{\em driver\+State} & 驱动状态指针（未使用） \\
+\hline
+{\em event} & 触发回调的事件类型 \\
+\hline
+{\em user\+Data} & 用户数据指针（未使用）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+函数内部会处理两种事件：
+\begin{DoxyEnumerate}
+\item 接收完成事件：将数据拷贝到应用缓冲区并通过队列发送给上层任务
+\item 缓冲区满事件：检查是否收到换行符或缓冲区将满，更新接收索引
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\begin{DoxyWarning}{警告}
+此函数在中断上下文中执行，必须保持简短且不使用阻塞操作 
+\end{DoxyWarning}

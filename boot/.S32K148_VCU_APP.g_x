@@ -1,0 +1,292 @@
+<CodeGenerationInfo>
+  <ToolchainSettings>
+    <option>
+      <name>PE_G_4PEx_ToolChain_C_Compiler_Includes</name>
+      <values lines_count="17">
+        <Line>"${ProjDirPath}/SDK/platform/drivers/src/clock/S32K1xx"</Line>
+        <Line>"${ProjDirPath}/SDK/rtos/FreeRTOS_S32K/Source/include"</Line>
+        <Line>"${ProjDirPath}/SDK/rtos/FreeRTOS_S32K/Source/portable/GCC/ARM_CM4F"</Line>
+        <Line>"${ProjDirPath}/SDK/rtos/osif/"</Line>
+        <Line>"${ProjDirPath}/SDK/platform/pal/inc"</Line>
+        <Line>"${ProjDirPath}/SDK/platform/pal/inc"</Line>
+        <Line>"${ProjDirPath}/SDK/platform/pal/inc"</Line>
+        <Line>"${ProjDirPath}/SDK/platform/pal/inc"</Line>
+        <Line>"${ProjDirPath}/SDK/platform/pal/inc"</Line>
+        <Line>"${ProjDirPath}/SDK/platform/pal/inc"</Line>
+        <Line>"${ProjDirPath}/SDK/lib/S32K14x/AMMCLib/include"</Line>
+        <Line>"${ProjDirPath}/SDK/platform/pal/inc"</Line>
+        <Line>"${ProjDirPath}/SDK/platform/devices"</Line>
+        <Line>"${ProjDirPath}/SDK/platform/devices/common"</Line>
+        <Line>"${ProjDirPath}/SDK/platform/devices/S32K148/include"</Line>
+        <Line>"${ProjDirPath}/SDK/platform/devices/S32K148/startup"</Line>
+        <Line>"${ProjDirPath}/SDK/platform/drivers/inc"</Line>
+      </values>
+    </option>
+    <option>
+      <name>PE_G_4PEx_ToolChain_Linker_Libraries</name>
+      <values lines_count="1">
+        <Line>":S32K14x_AMMCLIB.a"</Line>
+      </values>
+    </option>
+    <option>
+      <name>PE_G_4PEx_ToolChain_C_Compiler_Symbols</name>
+      <values lines_count="1">
+        <Line>USING_OS_FREERTOS</Line>
+      </values>
+    </option>
+    <option>
+      <name>PE_G_4PEx_ToolChain_Linker_SearchLibraryPaths</name>
+      <values lines_count="1">
+        <Line>"${ProjDirPath}/SDK/lib/S32K14x/AMMCLib/lib/s32ds_arm32"</Line>
+      </values>
+    </option>
+    <option>
+      <name>PE_G_4PEx_ilg_gnuarmeclipse_managedbuild_cross_option_c_compiler_defs</name>
+      <values lines_count="1">
+        <Line>"CPU_S32K148_176"</Line>
+      </values>
+    </option>
+  </ToolchainSettings>
+  <GeneratedFilesList>
+    <GeneratedByPE>
+      <File Name="SDK/platform/devices/device_registers.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/SWLIBS_Version.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/pal/inc/wdg_pal.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="0" />
+      <File Name="SDK/platform/drivers/src/interrupt/interrupt_manager.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="4" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_Mnac.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/drivers/inc/adc_driver.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="15" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_Hyst.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/gflib.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GMCLIB_SvmSci.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_Add.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/croutine.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_Tan.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/devices/devassert.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/event_groups.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/platform/drivers/src/power/S32K1xx/power_smc_hw_access.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="19" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GDFLIB_FilterFIR.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_Sin.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/drivers/src/power/S32K1xx/power_smc_hw_access.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="19" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GMCLIB_BetaProjection.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_Neg.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_UpperLimit.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_ControllerPIrAW.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="Generated_Code/pin_mux.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="2" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GMCLIB_BetaProjection3Ph.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_LowerLimit.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_AtanYX.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_Lut1D.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="Generated_Code/pin_mux.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="2" />
+      <File Name="SDK/platform/pal/inc/can_pal_mapping.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="0" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_Ramp.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/mlib.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/timers.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/platform/devices/startup.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="Documentation/S32K148_VCU_APP.txt" FileDate="2026-06-28, 21:28:00" FileAge="1782653280120" FileType="3072" />
+      <File Name="SDK/platform/drivers/src/edma/edma_driver.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="8" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_Div.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/devices/startup.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/platform/devices/S32K148/include/S32K148.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/platform/drivers/src/flexio/flexio_hw_access.h" FileDate="1970-01-01, 07:59:59" FileAge="-1" FileType="1048576" />
+      <File Name="SDK/platform/drivers/src/clock/S32K1xx/scg_hw_access.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="3" />
+      <File Name="SDK/platform/drivers/src/edma/edma_irq.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="8" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GMCLIB_ElimDcBusRip.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_Acos.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/drivers/src/edma/edma_hw_access.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="8" />
+      <File Name="SDK/platform/drivers/src/edma/edma_irq.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="8" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/AMCLIB_TrackObsrv.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/drivers/src/edma/edma_hw_access.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="8" />
+      <File Name="SDK/platform/drivers/inc/pins_driver.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="2" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_RndSat.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/mpu_wrappers.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/platform/drivers/src/flexcan/flexcan_irq.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/FreeRTOS.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/platform/drivers/src/flexcan/flexcan_irq.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/platform/drivers/src/wdog/wdog_driver.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/platform/drivers/src/power/power_manager.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="19" />
+      <File Name="SDK/platform/drivers/inc/wdog_driver.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/platform/drivers/src/lpuart/lpuart_irq.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/queue.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/SWLIBS_Typedefs.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/drivers/src/lpuart/lpuart_irq.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/platform/drivers/src/clock/S32K1xx/pmc_hw_access.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="3" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_VLog10.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_AbsSat.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/AMCLIB_FW.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/drivers/src/clock/S32K1xx/smc_hw_access.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="3" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/stack_macros.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/queue.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_Msu.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="Generated_Code/can2.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="7" />
+      <File Name="SDK/platform/pal/inc/wdg_pal_mapping.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="0" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GMCLIB_SvmStd.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="Generated_Code/can2.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="7" />
+      <File Name="SDK/platform/drivers/src/lpuart/lpuart_hw_access.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_Mul.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/devices/common/s32_core_cm4.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_AddSat.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/drivers/src/adc/adc_hw_access.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="15" />
+      <File Name="SDK/platform/drivers/src/lpuart/lpuart_hw_access.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GDFLIB_FilterIIR2.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/drivers/src/pins/pins_driver.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="2" />
+      <File Name="SDK/platform/drivers/src/pins/pins_port_hw_access.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="2" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_Lut2D.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/drivers/src/pins/pins_port_hw_access.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="2" />
+      <File Name="SDK/platform/pal/inc/uart_pal_mapping.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="0" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_ShBi.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_Cos.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GMCLIB_PwmIct.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/stream_buffer.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/platform/drivers/src/crc/crc_hw_access.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="22" />
+      <File Name="SDK/platform/drivers/src/crc/crc_hw_access.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="22" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/deprecated_definitions.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/platform/drivers/inc/power_manager.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="19" />
+      <File Name="SDK/platform/drivers/inc/interrupt_manager.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="4" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GMCLIB_SvmU7n.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="Generated_Code/uart2.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="18" />
+      <File Name="Documentation/S32K148_VCU_APP_Settings.xml" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="3072" />
+      <File Name="Generated_Code/uart2.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="18" />
+      <File Name="SDK/platform/drivers/src/adc/adc_driver.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="15" />
+      <File Name="Generated_Code/uart0.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="17" />
+      <File Name="Generated_Code/uart0.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="17" />
+      <File Name="SDK/platform/drivers/inc/lpuart_driver.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="Generated_Code/dmaController1.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="8" />
+      <File Name="SDK/platform/pal/inc/can_pal.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="0" />
+      <File Name="SDK/platform/drivers/src/pins/pins_gpio_hw_access.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="2" />
+      <File Name="Generated_Code/dmaController1.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="8" />
+      <File Name="Generated_Code/wdg_pal1.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="23" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/mpu_prototypes.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="Generated_Code/AMMCLib1.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="20" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/event_groups.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="Generated_Code/wdg_pal1.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="23" />
+      <File Name="SDK/platform/drivers/src/power/S32K1xx/power_rcm_hw_access.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="19" />
+      <File Name="Generated_Code/AMMCLib1.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_IntegratorTR.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GMCLIB_ParkInv.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_Norm.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/drivers/src/lpuart/lpuart_driver.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/gmclib.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/gdflib.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_SinCos.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_Mac.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GMCLIB_Park.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_AtanYXShifted.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_VMac.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_Convert.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/drivers/src/clock/S32K1xx/clock_S32K1xx.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="3" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GMCLIB_ClarkInv.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/AMCLIB_Windmilling.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_MulSat.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/portable/MemMang/heap_4.c" FileDate="2026-06-28, 15:48:09" FileAge="1782632889958" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/platform/drivers/src/clock/S32K1xx/clock_S32K1xx.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="3" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/portable/MemMang/heap_2.c" FileDate="1970-01-01, 07:59:59" FileAge="-1" FileType="1048576" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_ConvertPU.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="Generated_Code/adConv0.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="15" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/AMCLIB_CurrentLoop.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/drivers/inc/clock.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="3" />
+      <File Name="Generated_Code/crc1.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="22" />
+      <File Name="SDK/platform/drivers/src/clock/S32K1xx/sim_hw_access.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="3" />
+      <File Name="Generated_Code/adConv0.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="15" />
+      <File Name="Generated_Code/crc1.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="22" />
+      <File Name="Generated_Code/clockMan1.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="3" />
+      <File Name="SDK/platform/pal/src/can/can_pal.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="0" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/AMCLIB_SpeedLoop.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/rtos/osif/osif.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="10" />
+      <File Name="Generated_Code/clockMan1.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="3" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_ControllerPIpAW.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="Generated_Code/wdg_pal_cfg.h" FileDate="2026-06-28, 15:18:14" FileAge="1782631094565" FileType="45637" CompNumb="1" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/semphr.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/timers.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/platform/pal/src/uart/uart_pal.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="0" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_Sub.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/drivers/inc/flexcan_driver.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_Log10.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_ShLSat.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/devices/S32K148/startup/system_S32K148.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/AMCLIB_BemfObsrvDQ.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/StackMacros.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/amclib.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GDFLIB_FilterMA.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/drivers/inc/flexio.h" FileDate="1970-01-01, 07:59:59" FileAge="-1" FileType="1048576" />
+      <File Name="SDK/platform/drivers/src/flexcan/flexcan_driver.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_ShR.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/SWLIBS_Defines.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/devices/S32K148/startup/system_S32K148.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/task.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/platform/devices/status.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/platform/drivers/src/flexio/flexio_uart_driver.c" FileDate="1970-01-01, 07:59:59" FileAge="-1" FileType="1048576" />
+      <File Name="SDK/platform/devices/S32K148/include/S32K148_features.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/projdefs.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_MacSat.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/tasks.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="Generated_Code/can3.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="11" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_ControllerPIDpAW.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/drivers/src/flexio/flexio_common.h" FileDate="1970-01-01, 07:59:59" FileAge="-1" FileType="1048576" />
+      <File Name="Generated_Code/pwrMan1.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="19" />
+      <File Name="Generated_Code/can3.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="11" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/portable/GCC/ARM_CM4F/port.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_ShL.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="Generated_Code/can1.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="6" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_DivSat.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/drivers/src/flexio/flexio_common.c" FileDate="1970-01-01, 07:59:59" FileAge="-1" FileType="1048576" />
+      <File Name="Generated_Code/pwrMan1.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="19" />
+      <File Name="Generated_Code/SWLIBS_Config.h" FileDate="2026-06-28, 15:18:14" FileAge="1782631094555" FileType="45637" CompNumb="20" />
+      <File Name="SDK/platform/drivers/src/wdog/wdog_hw_access.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="Generated_Code/can1.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="6" />
+      <File Name="SDK/platform/drivers/src/wdog/wdog_hw_access.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/SWLIBS_MacroDisp.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="Generated_Code/FreeRTOS.c" FileDate="1970-01-01, 07:59:59" FileAge="-1" FileType="45637" CompNumb="5" />
+      <File Name="SDK/rtos/osif/osif_freertos.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="10" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_VectorLimit.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/pal/inc/uart_pal.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="0" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GDFLIB_FilterIIR1.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/list.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/platform/drivers/src/flexcan/flexcan_hw_access.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/stream_buffer.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/platform/drivers/src/flexcan/flexcan_hw_access.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_Sign.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="Sources/main.c" FileDate="2026-06-28, 21:27:59" FileAge="1782653279941" FileType="128" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/AMCLIB_FWSpeedLoop.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_SubSat.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_Atan.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/lib/s32ds_arm32/S32K14x_AMMCLIB.a" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/list.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="Generated_Code/uart_pal_cfg.h" FileDate="2026-06-28, 15:18:14" FileAge="1782631094568" FileType="45637" CompNumb="1" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_Asin.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GMCLIB_Clark.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_ControllerPIr.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GMCLIB_DecouplingPMSM.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GMCLIB_SvmU0n.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_ControllerPIp.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_Sqrt.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/portable/GCC/ARM_CM4F/portmacro.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/platform/drivers/inc/clock_manager.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="3" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/message_buffer.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_VMin.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="Generated_Code/Cpu.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="1" />
+      <File Name="SDK/platform/drivers/src/power/S32K1xx/power_manager_S32K1xx.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="19" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_ShBiSat.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="Generated_Code/FreeRTOSConfig.h" FileDate="2026-06-28, 15:48:10" FileAge="1782632890082" FileType="45637" CompNumb="5" />
+      <File Name="Generated_Code/uart1.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="16" />
+      <File Name="Generated_Code/Cpu.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="1" />
+      <File Name="SDK/platform/drivers/inc/crc_driver.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="22" />
+      <File Name="SDK/platform/drivers/src/power/S32K1xx/power_manager_S32K1xx.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="19" />
+      <File Name="SDK/platform/pal/src/wdg/wdg_pal.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="0" />
+      <File Name="SDK/platform/drivers/src/crc/crc_driver.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="22" />
+      <File Name="Generated_Code/uart1.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="45637" CompNumb="16" />
+      <File Name="SDK/platform/drivers/inc/edma_driver.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="8" />
+      <File Name="SDK/platform/drivers/src/clock/S32K1xx/pcc_hw_access.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="3" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_NegSat.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_Round.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/portable.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/platform/drivers/src/power/S32K1xx/power_scg_hw_access.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="19" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/croutine.c" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="5" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/GFLIB_Limit.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+      <File Name="SDK/platform/devices/callbacks.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/platform/drivers/inc/flexio_uart_driver.h" FileDate="1970-01-01, 07:59:59" FileAge="-1" FileType="1048576" />
+      <File Name="Generated_Code/can_pal_cfg.h" FileDate="2026-06-28, 15:18:14" FileAge="1782631094570" FileType="45637" CompNumb="1" />
+      <File Name="SDK/lib/S32K14x/AMMCLIB/include/MLIB_Abs.h" FileDate="2026-05-29, 11:37:30" FileAge="1780025850000" FileType="1048576" CompNumb="20" />
+    </GeneratedByPE>
+  </GeneratedFilesList>
+  <CodeGenReference>54</CodeGenReference>
+</CodeGenerationInfo>

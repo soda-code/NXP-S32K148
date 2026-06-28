@@ -1,0 +1,88 @@
+\doxysection{vcu\+\_\+can0\+\_\+fd\+\_\+attitude\+\_\+t结构体 参考}
+\hypertarget{structvcu__can0__fd__attitude__t}{}\label{structvcu__can0__fd__attitude__t}\index{vcu\_can0\_fd\_attitude\_t@{vcu\_can0\_fd\_attitude\_t}}
+
+
+{\ttfamily \#include $<$vcu\+\_\+can0\+\_\+fd.\+h$>$}
+
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structvcu__can0__fd__attitude__t_ad24a3c4c449b459dadb3129d921056bb}{roll}}\+: 16
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structvcu__can0__fd__attitude__t_a0f9975db96506f711550d6cfb58672d6}{pitch}}\+: 16
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structvcu__can0__fd__attitude__t_a2bdab9012a9e16d6bfaa5be6edea4571}{yaw}}\+: 16
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structvcu__can0__fd__attitude__t_ae956fd39281722830d2de3478e63bb6e}{rollspeed}}\+: 14
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structvcu__can0__fd__attitude__t_a8e59d223c666762e4a6d8c9b24dfe615}{pitchspeed}}\+: 14
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structvcu__can0__fd__attitude__t_ab3dced07d4b636d1884c0b4cc0ffe6cb}{yawspeed}}\+: 14
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structvcu__can0__fd__attitude__t_a17304e84aa3e6e1a41792caa75091a0a}{life\+\_\+attitude}}\+: 6
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Signals in message Attitude.
+
+All signal values are as on the CAN bus. 
+
+\label{doc-variable-members}
+\Hypertarget{structvcu__can0__fd__attitude__t_doc-variable-members}
+\doxysubsection{类成员变量说明}
+\Hypertarget{structvcu__can0__fd__attitude__t_a17304e84aa3e6e1a41792caa75091a0a}\index{vcu\_can0\_fd\_attitude\_t@{vcu\_can0\_fd\_attitude\_t}!life\_attitude@{life\_attitude}}
+\index{life\_attitude@{life\_attitude}!vcu\_can0\_fd\_attitude\_t@{vcu\_can0\_fd\_attitude\_t}}
+\doxysubsubsection{\texorpdfstring{life\_attitude}{life\_attitude}}
+{\footnotesize\ttfamily \label{structvcu__can0__fd__attitude__t_a17304e84aa3e6e1a41792caa75091a0a} 
+uint8\+\_\+t vcu\+\_\+can0\+\_\+fd\+\_\+attitude\+\_\+t\+::life\+\_\+attitude}
+
+Range\+: 0..63 (0.\+0..63.\+0 -\/) Scale\+: 1 Offset\+: 0 \Hypertarget{structvcu__can0__fd__attitude__t_a0f9975db96506f711550d6cfb58672d6}\index{vcu\_can0\_fd\_attitude\_t@{vcu\_can0\_fd\_attitude\_t}!pitch@{pitch}}
+\index{pitch@{pitch}!vcu\_can0\_fd\_attitude\_t@{vcu\_can0\_fd\_attitude\_t}}
+\doxysubsubsection{\texorpdfstring{pitch}{pitch}}
+{\footnotesize\ttfamily \label{structvcu__can0__fd__attitude__t_a0f9975db96506f711550d6cfb58672d6} 
+uint16\+\_\+t vcu\+\_\+can0\+\_\+fd\+\_\+attitude\+\_\+t\+::pitch}
+
+Pitch angle (-\/pi..+pi)
+
+Range\+: 0..62832 (-\/3.\+1416..3.\+1416 rad) Scale\+: 0.\+0001 Offset\+: -\/3.\+1416 \Hypertarget{structvcu__can0__fd__attitude__t_a8e59d223c666762e4a6d8c9b24dfe615}\index{vcu\_can0\_fd\_attitude\_t@{vcu\_can0\_fd\_attitude\_t}!pitchspeed@{pitchspeed}}
+\index{pitchspeed@{pitchspeed}!vcu\_can0\_fd\_attitude\_t@{vcu\_can0\_fd\_attitude\_t}}
+\doxysubsubsection{\texorpdfstring{pitchspeed}{pitchspeed}}
+{\footnotesize\ttfamily \label{structvcu__can0__fd__attitude__t_a8e59d223c666762e4a6d8c9b24dfe615} 
+uint16\+\_\+t vcu\+\_\+can0\+\_\+fd\+\_\+attitude\+\_\+t\+::pitchspeed}
+
+Pitch angular speed
+
+Range\+: 0..16383 (0.\+0..16.\+383 rad/s) Scale\+: 0.\+001 Offset\+: 0 \Hypertarget{structvcu__can0__fd__attitude__t_ad24a3c4c449b459dadb3129d921056bb}\index{vcu\_can0\_fd\_attitude\_t@{vcu\_can0\_fd\_attitude\_t}!roll@{roll}}
+\index{roll@{roll}!vcu\_can0\_fd\_attitude\_t@{vcu\_can0\_fd\_attitude\_t}}
+\doxysubsubsection{\texorpdfstring{roll}{roll}}
+{\footnotesize\ttfamily \label{structvcu__can0__fd__attitude__t_ad24a3c4c449b459dadb3129d921056bb} 
+uint16\+\_\+t vcu\+\_\+can0\+\_\+fd\+\_\+attitude\+\_\+t\+::roll}
+
+Roll angle (-\/pi..+pi)
+
+Range\+: 0..62832 (-\/3.\+1416..3.\+1416 rad) Scale\+: 0.\+0001 Offset\+: -\/3.\+1416 \Hypertarget{structvcu__can0__fd__attitude__t_ae956fd39281722830d2de3478e63bb6e}\index{vcu\_can0\_fd\_attitude\_t@{vcu\_can0\_fd\_attitude\_t}!rollspeed@{rollspeed}}
+\index{rollspeed@{rollspeed}!vcu\_can0\_fd\_attitude\_t@{vcu\_can0\_fd\_attitude\_t}}
+\doxysubsubsection{\texorpdfstring{rollspeed}{rollspeed}}
+{\footnotesize\ttfamily \label{structvcu__can0__fd__attitude__t_ae956fd39281722830d2de3478e63bb6e} 
+uint16\+\_\+t vcu\+\_\+can0\+\_\+fd\+\_\+attitude\+\_\+t\+::rollspeed}
+
+Roll angular speed
+
+Range\+: 0..16383 (0.\+0..16.\+383 rad/s) Scale\+: 0.\+001 Offset\+: 0 \Hypertarget{structvcu__can0__fd__attitude__t_a2bdab9012a9e16d6bfaa5be6edea4571}\index{vcu\_can0\_fd\_attitude\_t@{vcu\_can0\_fd\_attitude\_t}!yaw@{yaw}}
+\index{yaw@{yaw}!vcu\_can0\_fd\_attitude\_t@{vcu\_can0\_fd\_attitude\_t}}
+\doxysubsubsection{\texorpdfstring{yaw}{yaw}}
+{\footnotesize\ttfamily \label{structvcu__can0__fd__attitude__t_a2bdab9012a9e16d6bfaa5be6edea4571} 
+uint16\+\_\+t vcu\+\_\+can0\+\_\+fd\+\_\+attitude\+\_\+t\+::yaw}
+
+Yaw angle (-\/pi..+pi)
+
+Range\+: 0..62832 (-\/3.\+1416..3.\+1416 rad) Scale\+: 0.\+0001 Offset\+: -\/3.\+1416 \Hypertarget{structvcu__can0__fd__attitude__t_ab3dced07d4b636d1884c0b4cc0ffe6cb}\index{vcu\_can0\_fd\_attitude\_t@{vcu\_can0\_fd\_attitude\_t}!yawspeed@{yawspeed}}
+\index{yawspeed@{yawspeed}!vcu\_can0\_fd\_attitude\_t@{vcu\_can0\_fd\_attitude\_t}}
+\doxysubsubsection{\texorpdfstring{yawspeed}{yawspeed}}
+{\footnotesize\ttfamily \label{structvcu__can0__fd__attitude__t_ab3dced07d4b636d1884c0b4cc0ffe6cb} 
+uint16\+\_\+t vcu\+\_\+can0\+\_\+fd\+\_\+attitude\+\_\+t\+::yawspeed}
+
+Yaw angular speed
+
+Range\+: 0..16383 (0.\+0..16.\+383 rad/s) Scale\+: 0.\+001 Offset\+: 0 

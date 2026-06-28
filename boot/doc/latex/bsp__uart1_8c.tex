@@ -1,0 +1,135 @@
+\doxysection{src/bsp/bsp\+\_\+uart1.c 文件参考}
+\hypertarget{bsp__uart1_8c}{}\label{bsp__uart1_8c}\index{src/bsp/bsp\_uart1.c@{src/bsp/bsp\_uart1.c}}
+{\ttfamily \#include "{}bsp\+\_\+uart1.\+h"{}}\newline
+{\ttfamily \#include "{}os\+\_\+task.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{bsp__uart1_8c_a8e65b6d78928b61805d7089e7ebd3b95}{UART1\+\_\+\+Rx\+\_\+\+Callback}} (void \texorpdfstring{$\ast$}{*}driver\+State, uart\+\_\+event\+\_\+t event, void \texorpdfstring{$\ast$}{*}user\+Data)
+\begin{DoxyCompactList}\small\item\em UART1接收中断回调函数 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bsp__uart1_8c_a7d37ae04b6b69f9cf30c4488236ded68}{UART1\+\_\+\+NMEA\+\_\+\+Rx\+\_\+\+Callback}} (void \texorpdfstring{$\ast$}{*}driver\+State, uart\+\_\+event\+\_\+t event, void \texorpdfstring{$\ast$}{*}user\+Data)
+\item 
+void \mbox{\hyperlink{bsp__uart1_8c_a1c9190dc6bbe632ad5918b1ee4a5e2ab}{BSP\+\_\+\+UART1\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em 初始化\+UART1外设 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bsp__uart1_8c_a718de9c87a295d72ea1c9fa835a5f34f}{BSP\+\_\+\+UART1\+\_\+\+Send}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}buf, uint8\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em 通过\+UART1发送数据 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bsp__uart1_8c_a1e8d93185715d1a20938cf743d3c4618}{BSP\+\_\+\+UART1\+\_\+\+Printf}} (char \texorpdfstring{$\ast$}{*}fmt,...)
+\begin{DoxyCompactList}\small\item\em 通过\+UART1发送格式化字符串 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{bsp__uart1_8c_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{bsp__uart1_8c_a1c9190dc6bbe632ad5918b1ee4a5e2ab}\index{bsp\_uart1.c@{bsp\_uart1.c}!BSP\_UART1\_Init@{BSP\_UART1\_Init}}
+\index{BSP\_UART1\_Init@{BSP\_UART1\_Init}!bsp\_uart1.c@{bsp\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_UART1\_Init()}{BSP\_UART1\_Init()}}
+{\footnotesize\ttfamily \label{bsp__uart1_8c_a1c9190dc6bbe632ad5918b1ee4a5e2ab} 
+void BSP\+\_\+\+UART1\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+初始化\+UART1外设 
+
+该函数完成\+UART1的硬件初始化配置，包括：
+\begin{DoxyEnumerate}
+\item 根据预定义配置初始化\+UART控制器
+\item 设置\+UART1中断优先级
+\item 启动首次接收操作
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{注解}
+该函数应在系统初始化阶段调用，且只调用一次 
+
+中断优先级设置为0x02（较高优先级） 
+
+使用轮询方式启动首次接收 
+\end{DoxyNote}
+\Hypertarget{bsp__uart1_8c_a1e8d93185715d1a20938cf743d3c4618}\index{bsp\_uart1.c@{bsp\_uart1.c}!BSP\_UART1\_Printf@{BSP\_UART1\_Printf}}
+\index{BSP\_UART1\_Printf@{BSP\_UART1\_Printf}!bsp\_uart1.c@{bsp\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_UART1\_Printf()}{BSP\_UART1\_Printf()}}
+{\footnotesize\ttfamily \label{bsp__uart1_8c_a1e8d93185715d1a20938cf743d3c4618} 
+void BSP\+\_\+\+UART1\+\_\+\+Printf (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{fmt}{, }\item[{}]{...}{}\end{DoxyParamCaption})}
+
+
+
+通过\+UART1发送格式化字符串 
+
+该函数提供类似printf的格式化输出功能，通过\+UART1串口发送格式化后的字符串。 函数内部使用固定大小的缓冲区(100字节)存储格式化结果。
+
+
+\begin{DoxyParams}{参数}
+{\em fmt} & 格式化字符串，遵循标准printf格式规范 \\
+\hline
+{\em ...} & 可变参数列表，与格式化字符串中的占位符对应\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+函数会阻塞直到所有数据发送完成 
+\end{DoxyNote}
+\begin{DoxyWarning}{警告}
+格式化后的字符串长度不能超过100字节，否则会导致缓冲区溢出 
+\end{DoxyWarning}
+\Hypertarget{bsp__uart1_8c_a718de9c87a295d72ea1c9fa835a5f34f}\index{bsp\_uart1.c@{bsp\_uart1.c}!BSP\_UART1\_Send@{BSP\_UART1\_Send}}
+\index{BSP\_UART1\_Send@{BSP\_UART1\_Send}!bsp\_uart1.c@{bsp\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_UART1\_Send()}{BSP\_UART1\_Send()}}
+{\footnotesize\ttfamily \label{bsp__uart1_8c_a718de9c87a295d72ea1c9fa835a5f34f} 
+void BSP\+\_\+\+UART1\+\_\+\+Send (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{buf}{, }\item[{uint8\+\_\+t}]{len}{}\end{DoxyParamCaption})}
+
+
+
+通过\+UART1发送数据 
+
+
+\begin{DoxyParams}{参数}
+{\em buf} & 要发送的数据缓冲区指针 \\
+\hline
+{\em len} & 要发送的数据长度（字节数）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+该函数是阻塞式发送，调用后会等待发送完成才返回 
+\end{DoxyNote}
+\Hypertarget{bsp__uart1_8c_a7d37ae04b6b69f9cf30c4488236ded68}\index{bsp\_uart1.c@{bsp\_uart1.c}!UART1\_NMEA\_Rx\_Callback@{UART1\_NMEA\_Rx\_Callback}}
+\index{UART1\_NMEA\_Rx\_Callback@{UART1\_NMEA\_Rx\_Callback}!bsp\_uart1.c@{bsp\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_NMEA\_Rx\_Callback()}{UART1\_NMEA\_Rx\_Callback()}}
+{\footnotesize\ttfamily \label{bsp__uart1_8c_a7d37ae04b6b69f9cf30c4488236ded68} 
+void UART1\+\_\+\+NMEA\+\_\+\+Rx\+\_\+\+Callback (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{driver\+State}{, }\item[{uart\+\_\+event\+\_\+t}]{event}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{user\+Data}{}\end{DoxyParamCaption})}
+
+\Hypertarget{bsp__uart1_8c_a8e65b6d78928b61805d7089e7ebd3b95}\index{bsp\_uart1.c@{bsp\_uart1.c}!UART1\_Rx\_Callback@{UART1\_Rx\_Callback}}
+\index{UART1\_Rx\_Callback@{UART1\_Rx\_Callback}!bsp\_uart1.c@{bsp\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_Rx\_Callback()}{UART1\_Rx\_Callback()}}
+{\footnotesize\ttfamily \label{bsp__uart1_8c_a8e65b6d78928b61805d7089e7ebd3b95} 
+void UART1\+\_\+\+Rx\+\_\+\+Callback (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{driver\+State}{, }\item[{uart\+\_\+event\+\_\+t}]{event}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{user\+Data}{}\end{DoxyParamCaption})}
+
+
+
+UART1接收中断回调函数 
+
+该函数在\+UART1接收到数据时被调用，处理接收到的数据并将其放入消息队列供上层任务处理。
+
+
+\begin{DoxyParams}{参数}
+{\em driver\+State} & 驱动状态指针（未使用） \\
+\hline
+{\em event} & 触发回调的事件类型（\+UART\+\_\+\+EVENT\+\_\+\+RX\+\_\+\+FULL表示接收完成） \\
+\hline
+{\em user\+Data} & 用户自定义数据指针（未使用）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+该函数运行在中断上下文中，必须保持简短高效 
+
+使用双缓冲机制避免数据竞争：\+Uart1为硬件缓冲区，uart1\+\_\+recv为应用缓冲区 
+
+每次只接收1字节数据，直到检测到换行符或缓冲区满
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{异常}
+{\em 无显式抛出异常，但内部会处理\+STATUS\+\_\+\+BUSY等错误状态} & \\
+\hline
+\end{DoxyExceptions}

@@ -1,0 +1,671 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>S32K148_VCU_APP: src/os/os_task.c 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">S32K148_VCU_APP
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('os__task_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">os_task.c 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>系统任务函数  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="os__task_8h_source.html">os_task.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bsp_8h_source.html">bsp.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a12783b5b7cba4dff4ae72bd0615ff922" id="r_a12783b5b7cba4dff4ae72bd0615ff922"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12783b5b7cba4dff4ae72bd0615ff922">HSRUN</a>&#160;&#160;&#160;(0u) /* High speed run      */</td></tr>
+<tr class="memitem:a35f69a612b07bbf1de53bbbd8d877c09" id="r_a35f69a612b07bbf1de53bbbd8d877c09"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35f69a612b07bbf1de53bbbd8d877c09">RUN</a>&#160;&#160;&#160;(1u) /* Run                 */</td></tr>
+<tr class="memitem:a35e9b6db82d89c92b80618dbe099b6a0" id="r_a35e9b6db82d89c92b80618dbe099b6a0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35e9b6db82d89c92b80618dbe099b6a0">VLPR</a>&#160;&#160;&#160;(2u) /* Very low power run  */</td></tr>
+<tr class="memitem:a0f7222dfd063975056be5c005dd994d0" id="r_a0f7222dfd063975056be5c005dd994d0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f7222dfd063975056be5c005dd994d0">STOP1</a>&#160;&#160;&#160;(3u) /* Stop option 1       */</td></tr>
+<tr class="memitem:aaef7f467c484fefb8158f5b23f005ccd" id="r_aaef7f467c484fefb8158f5b23f005ccd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaef7f467c484fefb8158f5b23f005ccd">STOP2</a>&#160;&#160;&#160;(4u) /* Stop option 2       */</td></tr>
+<tr class="memitem:aa8dfa868782d6d0a5a94f34472fffee3" id="r_aa8dfa868782d6d0a5a94f34472fffee3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8dfa868782d6d0a5a94f34472fffee3">VLPS</a>&#160;&#160;&#160;(5u) /* Very low power stop */</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:acb6df8f47f418aad9c9a9e045d7d1e6d" id="r_acb6df8f47f418aad9c9a9e045d7d1e6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb6df8f47f418aad9c9a9e045d7d1e6d">OS_Init</a> (void)</td></tr>
+<tr class="memdesc:acb6df8f47f418aad9c9a9e045d7d1e6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">系统初始化函数，负责硬件和RTOS基础环境初始化  <br /></td></tr>
+<tr class="memitem:ab8c5f724349bae19455385ca6af34b47" id="r_ab8c5f724349bae19455385ca6af34b47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8c5f724349bae19455385ca6af34b47">OS_Task_Start</a> (void)</td></tr>
+<tr class="memdesc:ab8c5f724349bae19455385ca6af34b47"><td class="mdescLeft">&#160;</td><td class="mdescRight">系统任务启动函数，启动任务调度器  <br /></td></tr>
+<tr class="memitem:a7c3f1730d68ea5aa990ec47d5da7048d" id="r_a7c3f1730d68ea5aa990ec47d5da7048d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c3f1730d68ea5aa990ec47d5da7048d">BSP_Init</a> (void)</td></tr>
+<tr class="memdesc:a7c3f1730d68ea5aa990ec47d5da7048d"><td class="mdescLeft">&#160;</td><td class="mdescRight">外设初始化函数，负责外设初始化  <br /></td></tr>
+<tr class="memitem:a5181742ecc534cb7184318509f18e159" id="r_a5181742ecc534cb7184318509f18e159"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5181742ecc534cb7184318509f18e159">Interface_Init</a> (void)</td></tr>
+<tr class="memdesc:a5181742ecc534cb7184318509f18e159"><td class="mdescLeft">&#160;</td><td class="mdescRight">共享数据初始化函数，负责初始化共享数据区  <br /></td></tr>
+<tr class="memitem:a4feeabaeaac27da1289ec7f2385962a1" id="r_a4feeabaeaac27da1289ec7f2385962a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4feeabaeaac27da1289ec7f2385962a1">Task_Create</a> (void)</td></tr>
+<tr class="memdesc:a4feeabaeaac27da1289ec7f2385962a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">任务创建函数，负责创建系统任务  <br /></td></tr>
+<tr class="memitem:a23641a130d50561b87964ee9817782ad" id="r_a23641a130d50561b87964ee9817782ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23641a130d50561b87964ee9817782ad">Queue_Create</a> (void)</td></tr>
+<tr class="memdesc:a23641a130d50561b87964ee9817782ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">队列创建函数，负责创建系统队列  <br /></td></tr>
+<tr class="memitem:a981e8359a4551c407b6fd181009618a2" id="r_a981e8359a4551c407b6fd181009618a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a981e8359a4551c407b6fd181009618a2">Event_Create</a> (void)</td></tr>
+<tr class="memdesc:a981e8359a4551c407b6fd181009618a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">事件创建函数，负责创建系统事件  <br /></td></tr>
+<tr class="memitem:a9a7cc2dfa8662f845ac212f273ace247" id="r_a9a7cc2dfa8662f845ac212f273ace247"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a7cc2dfa8662f845ac212f273ace247">OS_Task_Init</a> (void *pvPara)</td></tr>
+<tr class="memdesc:a9a7cc2dfa8662f845ac212f273ace247"><td class="mdescLeft">&#160;</td><td class="mdescRight">系统初始化任务函数，负责系统初始化  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:acb5bc048b8a4c079fd4081016662800f" id="r_acb5bc048b8a4c079fd4081016662800f"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb5bc048b8a4c079fd4081016662800f">Task_Init_Handler</a></td></tr>
+<tr class="memdesc:acb5bc048b8a4c079fd4081016662800f"><td class="mdescLeft">&#160;</td><td class="mdescRight">任务句柄  <br /></td></tr>
+<tr class="memitem:ac86368b82f4a801c72fbb1509b891009" id="r_ac86368b82f4a801c72fbb1509b891009"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac86368b82f4a801c72fbb1509b891009">Task_Com_Handler</a></td></tr>
+<tr class="memitem:a6ea58d7c320e8adddaa49c7d2da939d8" id="r_a6ea58d7c320e8adddaa49c7d2da939d8"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ea58d7c320e8adddaa49c7d2da939d8">Task_Diagnosis_Handler</a></td></tr>
+<tr class="memitem:a3abdcc378dfd1ce59ad97e754f4ef846" id="r_a3abdcc378dfd1ce59ad97e754f4ef846"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3abdcc378dfd1ce59ad97e754f4ef846">Task_BodyCtrl_Handler</a></td></tr>
+<tr class="memitem:af4e36465b54ca7e100b6aa79d3a702d8" id="r_af4e36465b54ca7e100b6aa79d3a702d8"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4e36465b54ca7e100b6aa79d3a702d8">Task_Motor_Handler</a></td></tr>
+<tr class="memitem:aa8f7a242c608d2d6a3dc52e36eec8cf7" id="r_aa8f7a242c608d2d6a3dc52e36eec8cf7"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8f7a242c608d2d6a3dc52e36eec8cf7">Task_Energy_Handler</a></td></tr>
+<tr class="memitem:adfcbd748702f32899277485ce7ff03f2" id="r_adfcbd748702f32899277485ce7ff03f2"><td class="memItemLeft" align="right" valign="top">QueueHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfcbd748702f32899277485ce7ff03f2">g_uart0_rx_queue</a></td></tr>
+<tr class="memdesc:adfcbd748702f32899277485ce7ff03f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART队列句柄  <br /></td></tr>
+<tr class="memitem:a2cff3efe9270ec7d6cc8d2263d0ead0c" id="r_a2cff3efe9270ec7d6cc8d2263d0ead0c"><td class="memItemLeft" align="right" valign="top">QueueHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2cff3efe9270ec7d6cc8d2263d0ead0c">g_uart1_rx_queue</a></td></tr>
+<tr class="memitem:a963fbfdc997e1bf5c54d348fb6daabce" id="r_a963fbfdc997e1bf5c54d348fb6daabce"><td class="memItemLeft" align="right" valign="top">QueueHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a963fbfdc997e1bf5c54d348fb6daabce">g_uart2_rx_queue</a></td></tr>
+<tr class="memitem:a13be13a537aa5f691b9107db794b6f81" id="r_a13be13a537aa5f691b9107db794b6f81"><td class="memItemLeft" align="right" valign="top">QueueHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13be13a537aa5f691b9107db794b6f81">g_can0_rx_queue</a></td></tr>
+<tr class="memdesc:a13be13a537aa5f691b9107db794b6f81"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN队列句柄  <br /></td></tr>
+<tr class="memitem:aa31b0e7e08b64b3e0f252b92d4bee5cd" id="r_aa31b0e7e08b64b3e0f252b92d4bee5cd"><td class="memItemLeft" align="right" valign="top">QueueHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa31b0e7e08b64b3e0f252b92d4bee5cd">g_can1_rx_queue</a></td></tr>
+<tr class="memitem:a48231a18d753418ee56660e8ea71b72d" id="r_a48231a18d753418ee56660e8ea71b72d"><td class="memItemLeft" align="right" valign="top">QueueHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a48231a18d753418ee56660e8ea71b72d">g_can2_rx_queue</a></td></tr>
+<tr class="memitem:aad262935fbeb61c41c7c65d82f688ea6" id="r_aad262935fbeb61c41c7c65d82f688ea6"><td class="memItemLeft" align="right" valign="top">QueueHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad262935fbeb61c41c7c65d82f688ea6">g_body_rx_queue</a></td></tr>
+<tr class="memdesc:aad262935fbeb61c41c7c65d82f688ea6"><td class="mdescLeft">&#160;</td><td class="mdescRight">不同任务专用队列  <br /></td></tr>
+<tr class="memitem:a59ab7f766d2735ae2ae3deeed95c8891" id="r_a59ab7f766d2735ae2ae3deeed95c8891"><td class="memItemLeft" align="right" valign="top">QueueHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59ab7f766d2735ae2ae3deeed95c8891">g_motor_rx_queue</a></td></tr>
+<tr class="memitem:acedba9d8b440a9ffd80834c6611a0a4b" id="r_acedba9d8b440a9ffd80834c6611a0a4b"><td class="memItemLeft" align="right" valign="top">EventGroupHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acedba9d8b440a9ffd80834c6611a0a4b">g_system_events</a></td></tr>
+<tr class="memdesc:acedba9d8b440a9ffd80834c6611a0a4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">系统事件组句柄  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
+<div class="textblock"><p>系统任务函数 </p>
+<dl class="section author"><dt>作者</dt><dd>polaris </dd></dl>
+<dl class="section version"><dt>版本</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2025-11-22 </dd></dl>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="a12783b5b7cba4dff4ae72bd0615ff922" name="a12783b5b7cba4dff4ae72bd0615ff922"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12783b5b7cba4dff4ae72bd0615ff922">&#9670;&#160;</a></span>HSRUN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HSRUN&#160;&#160;&#160;(0u) /* High speed run      */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a35f69a612b07bbf1de53bbbd8d877c09" name="a35f69a612b07bbf1de53bbbd8d877c09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35f69a612b07bbf1de53bbbd8d877c09">&#9670;&#160;</a></span>RUN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN&#160;&#160;&#160;(1u) /* Run                 */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f7222dfd063975056be5c005dd994d0" name="a0f7222dfd063975056be5c005dd994d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f7222dfd063975056be5c005dd994d0">&#9670;&#160;</a></span>STOP1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STOP1&#160;&#160;&#160;(3u) /* Stop option 1       */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaef7f467c484fefb8158f5b23f005ccd" name="aaef7f467c484fefb8158f5b23f005ccd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaef7f467c484fefb8158f5b23f005ccd">&#9670;&#160;</a></span>STOP2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STOP2&#160;&#160;&#160;(4u) /* Stop option 2       */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a35e9b6db82d89c92b80618dbe099b6a0" name="a35e9b6db82d89c92b80618dbe099b6a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35e9b6db82d89c92b80618dbe099b6a0">&#9670;&#160;</a></span>VLPR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VLPR&#160;&#160;&#160;(2u) /* Very low power run  */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa8dfa868782d6d0a5a94f34472fffee3" name="aa8dfa868782d6d0a5a94f34472fffee3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8dfa868782d6d0a5a94f34472fffee3">&#9670;&#160;</a></span>VLPS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VLPS&#160;&#160;&#160;(5u) /* Very low power stop */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a7c3f1730d68ea5aa990ec47d5da7048d" name="a7c3f1730d68ea5aa990ec47d5da7048d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c3f1730d68ea5aa990ec47d5da7048d">&#9670;&#160;</a></span>BSP_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BSP_Init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>外设初始化函数，负责外设初始化 </p>
+
+</div>
+</div>
+<a id="a981e8359a4551c407b6fd181009618a2" name="a981e8359a4551c407b6fd181009618a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a981e8359a4551c407b6fd181009618a2">&#9670;&#160;</a></span>Event_Create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Event_Create </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>事件创建函数，负责创建系统事件 </p>
+
+</div>
+</div>
+<a id="a5181742ecc534cb7184318509f18e159" name="a5181742ecc534cb7184318509f18e159"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5181742ecc534cb7184318509f18e159">&#9670;&#160;</a></span>Interface_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Interface_Init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>共享数据初始化函数，负责初始化共享数据区 </p>
+
+</div>
+</div>
+<a id="acb6df8f47f418aad9c9a9e045d7d1e6d" name="acb6df8f47f418aad9c9a9e045d7d1e6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb6df8f47f418aad9c9a9e045d7d1e6d">&#9670;&#160;</a></span>OS_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OS_Init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>系统初始化函数，负责硬件和RTOS基础环境初始化 </p>
+<p>该函数执行以下关键初始化操作：</p><ol type="1">
+<li>系统时钟初始化（48MHz配置）</li>
+<li>MCU电源模式设置（HSRUN高速运行模式）</li>
+<li>板级引脚初始化</li>
+<li>创建系统初始化任务（T_Init）</li>
+</ol>
+<dl class="section note"><dt>注解</dt><dd>此函数应在main()函数中首先调用，且只调用一次，通过PEX_RTOS_INIT宏定义控制是否调用 </dd></dl>
+<dl class="section warning"><dt>警告</dt><dd>调用前需确保已正确配置g_clockManConfigsArr等全局配置数组</dd></dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">void</td><td>无输入参数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>void 无返回值</dd></dl>
+<dl class="section see"><dt>参见</dt><dd>CLOCK_SYS_Init() </dd>
+<dd>
+POWER_SYS_Init() </dd>
+<dd>
+xTaskCreate() </dd></dl>
+<p>系统时钟初始化</p>
+<p>时钟更新配置,默认48MHZ, HSRUN下112MHZ</p>
+<p>电源模式初始化与设置</p>
+<p>板级引脚初始化</p>
+<p>创建系统初始化任务</p>
+
+</div>
+</div>
+<a id="a9a7cc2dfa8662f845ac212f273ace247" name="a9a7cc2dfa8662f845ac212f273ace247"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a7cc2dfa8662f845ac212f273ace247">&#9670;&#160;</a></span>OS_Task_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OS_Task_Init </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>pvPara</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>系统初始化任务函数，负责系统初始化 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pvPara</td><td>无输入参数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>void 无返回值 </dd></dl>
+<p>进入临界区</p>
+<p>退出临界区</p>
+
+</div>
+</div>
+<a id="ab8c5f724349bae19455385ca6af34b47" name="ab8c5f724349bae19455385ca6af34b47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8c5f724349bae19455385ca6af34b47">&#9670;&#160;</a></span>OS_Task_Start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OS_Task_Start </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>系统任务启动函数，启动任务调度器 </p>
+
+</div>
+</div>
+<a id="a23641a130d50561b87964ee9817782ad" name="a23641a130d50561b87964ee9817782ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23641a130d50561b87964ee9817782ad">&#9670;&#160;</a></span>Queue_Create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Queue_Create </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>队列创建函数，负责创建系统队列 </p>
+
+</div>
+</div>
+<a id="a4feeabaeaac27da1289ec7f2385962a1" name="a4feeabaeaac27da1289ec7f2385962a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4feeabaeaac27da1289ec7f2385962a1">&#9670;&#160;</a></span>Task_Create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Task_Create </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>任务创建函数，负责创建系统任务 </p>
+<p>创建通信任务</p>
+<p>创建车身控制任务</p>
+<p>创建动力控制任务</p>
+<p>创建诊断任务</p>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">变量说明</h2>
+<a id="aad262935fbeb61c41c7c65d82f688ea6" name="aad262935fbeb61c41c7c65d82f688ea6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad262935fbeb61c41c7c65d82f688ea6">&#9670;&#160;</a></span>g_body_rx_queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QueueHandle_t g_body_rx_queue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>不同任务专用队列 </p>
+
+</div>
+</div>
+<a id="a13be13a537aa5f691b9107db794b6f81" name="a13be13a537aa5f691b9107db794b6f81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13be13a537aa5f691b9107db794b6f81">&#9670;&#160;</a></span>g_can0_rx_queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QueueHandle_t g_can0_rx_queue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>CAN队列句柄 </p>
+
+</div>
+</div>
+<a id="aa31b0e7e08b64b3e0f252b92d4bee5cd" name="aa31b0e7e08b64b3e0f252b92d4bee5cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa31b0e7e08b64b3e0f252b92d4bee5cd">&#9670;&#160;</a></span>g_can1_rx_queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QueueHandle_t g_can1_rx_queue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48231a18d753418ee56660e8ea71b72d" name="a48231a18d753418ee56660e8ea71b72d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48231a18d753418ee56660e8ea71b72d">&#9670;&#160;</a></span>g_can2_rx_queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QueueHandle_t g_can2_rx_queue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a59ab7f766d2735ae2ae3deeed95c8891" name="a59ab7f766d2735ae2ae3deeed95c8891"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59ab7f766d2735ae2ae3deeed95c8891">&#9670;&#160;</a></span>g_motor_rx_queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QueueHandle_t g_motor_rx_queue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acedba9d8b440a9ffd80834c6611a0a4b" name="acedba9d8b440a9ffd80834c6611a0a4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acedba9d8b440a9ffd80834c6611a0a4b">&#9670;&#160;</a></span>g_system_events</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventGroupHandle_t g_system_events</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>系统事件组句柄 </p>
+
+</div>
+</div>
+<a id="adfcbd748702f32899277485ce7ff03f2" name="adfcbd748702f32899277485ce7ff03f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfcbd748702f32899277485ce7ff03f2">&#9670;&#160;</a></span>g_uart0_rx_queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QueueHandle_t g_uart0_rx_queue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>UART队列句柄 </p>
+
+</div>
+</div>
+<a id="a2cff3efe9270ec7d6cc8d2263d0ead0c" name="a2cff3efe9270ec7d6cc8d2263d0ead0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cff3efe9270ec7d6cc8d2263d0ead0c">&#9670;&#160;</a></span>g_uart1_rx_queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QueueHandle_t g_uart1_rx_queue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a963fbfdc997e1bf5c54d348fb6daabce" name="a963fbfdc997e1bf5c54d348fb6daabce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a963fbfdc997e1bf5c54d348fb6daabce">&#9670;&#160;</a></span>g_uart2_rx_queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QueueHandle_t g_uart2_rx_queue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3abdcc378dfd1ce59ad97e754f4ef846" name="a3abdcc378dfd1ce59ad97e754f4ef846"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3abdcc378dfd1ce59ad97e754f4ef846">&#9670;&#160;</a></span>Task_BodyCtrl_Handler</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t Task_BodyCtrl_Handler</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac86368b82f4a801c72fbb1509b891009" name="ac86368b82f4a801c72fbb1509b891009"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac86368b82f4a801c72fbb1509b891009">&#9670;&#160;</a></span>Task_Com_Handler</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t Task_Com_Handler</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6ea58d7c320e8adddaa49c7d2da939d8" name="a6ea58d7c320e8adddaa49c7d2da939d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ea58d7c320e8adddaa49c7d2da939d8">&#9670;&#160;</a></span>Task_Diagnosis_Handler</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t Task_Diagnosis_Handler</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa8f7a242c608d2d6a3dc52e36eec8cf7" name="aa8f7a242c608d2d6a3dc52e36eec8cf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8f7a242c608d2d6a3dc52e36eec8cf7">&#9670;&#160;</a></span>Task_Energy_Handler</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t Task_Energy_Handler</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acb5bc048b8a4c079fd4081016662800f" name="acb5bc048b8a4c079fd4081016662800f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb5bc048b8a4c079fd4081016662800f">&#9670;&#160;</a></span>Task_Init_Handler</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t Task_Init_Handler</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>任务句柄 </p>
+
+</div>
+</div>
+<a id="af4e36465b54ca7e100b6aa79d3a702d8" name="af4e36465b54ca7e100b6aa79d3a702d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4e36465b54ca7e100b6aa79d3a702d8">&#9670;&#160;</a></span>Task_Motor_Handler</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t Task_Motor_Handler</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_a71443761d886d6152d96ebd3fda63af.html">os</a></li><li class="navelem"><a href="os__task_8c.html">os_task.c</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

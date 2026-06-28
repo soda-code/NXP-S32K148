@@ -1,0 +1,55 @@
+\doxysection{HCAN\+\_\+\+STRUCT结构体 参考}
+\hypertarget{struct_h_c_a_n___s_t_r_u_c_t}{}\label{struct_h_c_a_n___s_t_r_u_c_t}\index{HCAN\_STRUCT@{HCAN\_STRUCT}}
+
+
+CAN接收参数结构体  
+
+
+
+
+{\ttfamily \#include $<$msg\+\_\+interface.\+h$>$}
+
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_h_c_a_n___s_t_r_u_c_t_a587e6579470f21c3312037f89ec8513f}{type}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_h_c_a_n___s_t_r_u_c_t_a645271d0b9c759169ad7e2c6190b98be}{id}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_h_c_a_n___s_t_r_u_c_t_aff4c31fcd49e09d22145742152388de1}{data}} \mbox{[}64\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_h_c_a_n___s_t_r_u_c_t_a0a6cf8078e26447bb924dcfd618743c4}{length}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+CAN接收参数结构体 
+
+\label{doc-variable-members}
+\Hypertarget{struct_h_c_a_n___s_t_r_u_c_t_doc-variable-members}
+\doxysubsection{类成员变量说明}
+\Hypertarget{struct_h_c_a_n___s_t_r_u_c_t_aff4c31fcd49e09d22145742152388de1}\index{HCAN\_STRUCT@{HCAN\_STRUCT}!data@{data}}
+\index{data@{data}!HCAN\_STRUCT@{HCAN\_STRUCT}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily \label{struct_h_c_a_n___s_t_r_u_c_t_aff4c31fcd49e09d22145742152388de1} 
+uint8\+\_\+t HCAN\+\_\+\+STRUCT\+::data\mbox{[}64\mbox{]}}
+
+Data bytes of the CAN/\+CAN FD message \Hypertarget{struct_h_c_a_n___s_t_r_u_c_t_a645271d0b9c759169ad7e2c6190b98be}\index{HCAN\_STRUCT@{HCAN\_STRUCT}!id@{id}}
+\index{id@{id}!HCAN\_STRUCT@{HCAN\_STRUCT}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{struct_h_c_a_n___s_t_r_u_c_t_a645271d0b9c759169ad7e2c6190b98be} 
+uint32\+\_\+t HCAN\+\_\+\+STRUCT\+::id}
+
+ID of the message \Hypertarget{struct_h_c_a_n___s_t_r_u_c_t_a0a6cf8078e26447bb924dcfd618743c4}\index{HCAN\_STRUCT@{HCAN\_STRUCT}!length@{length}}
+\index{length@{length}!HCAN\_STRUCT@{HCAN\_STRUCT}}
+\doxysubsubsection{\texorpdfstring{length}{length}}
+{\footnotesize\ttfamily \label{struct_h_c_a_n___s_t_r_u_c_t_a0a6cf8078e26447bb924dcfd618743c4} 
+uint8\+\_\+t HCAN\+\_\+\+STRUCT\+::length}
+
+Length of the data field \Hypertarget{struct_h_c_a_n___s_t_r_u_c_t_a587e6579470f21c3312037f89ec8513f}\index{HCAN\_STRUCT@{HCAN\_STRUCT}!type@{type}}
+\index{type@{type}!HCAN\_STRUCT@{HCAN\_STRUCT}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \label{struct_h_c_a_n___s_t_r_u_c_t_a587e6579470f21c3312037f89ec8513f} 
+uint8\+\_\+t HCAN\+\_\+\+STRUCT\+::type}
+
+0\+:std 1\+:ext 

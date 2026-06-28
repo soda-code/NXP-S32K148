@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>S32K148_VCU_APP: src/os/inc/os_task.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">S32K148_VCU_APP
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('os__task_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">os_task.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="os__task_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef OS_INC_OS_TASK_H_</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define OS_INC_OS_TASK_H_</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;FreeRTOS.h&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;queue.h&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;event_groups.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;task.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;semphr.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;stdarg.h&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="msg__interface_8h.html">msg_interface.h</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="os__task__com_8h.html">os_task_com.h</a>&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;<a class="code" href="os__task__diagnosis_8h.html">os_task_diagnosis.h</a>&quot;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="os__task_8h.html#abe6efefd449d19d4daa134bb3921618a">   30</a></span><span class="preprocessor">#define PEX_RTOS_INIT   OS_Init</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="os__task_8h.html#a4b3a47f6cba094efa8f4a9a24bb0042e">   31</a></span><span class="preprocessor">#define PEX_RTOS_START  OS_Task_Start</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="os__task_8h.html#a49bb301de1a96122ff438c9fed4486fe">   35</a></span><span class="preprocessor">#define USE_SYSTEM_MONITOR 1</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="os__task_8h.html#aadd45adc61f554a2f7692d0e7453f8c9">   39</a></span><span class="preprocessor">#define USE_NMEA_RX_CALLBACK 1</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="os__task_8h.html#ae79a25eb3a4351c1e9b3c1a7721c3103">   44</a></span><span class="preprocessor">#define COM_TASK_ALIVE_BIT       (1 &lt;&lt; 0)</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="os__task_8h.html#a90d910d3f785d13c5c235849338d0bf2">   45</a></span><span class="preprocessor">#define BODY_TASK_ALIVE_BIT      (1 &lt;&lt; 2)</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="os__task_8h.html#a04e9ac8e3b72b86ada5e6bb9548a5ced">   46</a></span><span class="preprocessor">#define MOTOR_TASK_ALIVE_BIT     (1 &lt;&lt; 3)</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="os__task_8h.html#abb1e7d55761c9fc1cce93388eeb69a77">   47</a></span><span class="preprocessor">#define ENERGY_TASK_ALIVE_BIT    (1 &lt;&lt; 4)</span><span class="preprocessor"></span></div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="};">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999">   51</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999abe16f09091eda222d9ea72d60ee7cff9">   52</a></span>    <a class="code hl_enumvalue" href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999abe16f09091eda222d9ea72d60ee7cff9">TASK_PRIO_SAFETY_MONITOR</a> = 10,    </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999a754106f8110fe243d2045af9f4dfbdd6">   53</a></span>    <a class="code hl_enumvalue" href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999a754106f8110fe243d2045af9f4dfbdd6">TASK_PRIO_MOTOR_CONTROL</a> = 9,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999ada61a8268b643862b6b73f7ad958ce73">   54</a></span>    <a class="code hl_enumvalue" href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999ada61a8268b643862b6b73f7ad958ce73">TASK_PRIO_POWER_MGMT</a> = 8,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999a6246438bdd8220f7644d78ceb6977ae3">   55</a></span>    <a class="code hl_enumvalue" href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999a6246438bdd8220f7644d78ceb6977ae3">TASK_PRIO_BODY_CONTROL</a> = 7,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999ade20e6b0aff16ad6216ebc92f0048fbf">   56</a></span>    <a class="code hl_enumvalue" href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999ade20e6b0aff16ad6216ebc92f0048fbf">TASK_PRIO_THERMAL_MGMT</a> = 6,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999a04e71692b3eefe0ff457ca75c687e74d">   57</a></span>    <a class="code hl_enumvalue" href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999a04e71692b3eefe0ff457ca75c687e74d">TASK_PRIO_COMMUNICATION</a> = 5,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999ad38f2da0fec7cf97cfdbc3314663b883">   58</a></span>    <a class="code hl_enumvalue" href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999ad38f2da0fec7cf97cfdbc3314663b883">TASK_PRIO_DIAGNOSTIC</a> = 4,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999a89352342d9ce3ec08b73202e4b34d6e6">   59</a></span>    <a class="code hl_enumvalue" href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999a89352342d9ce3ec08b73202e4b34d6e6">TASK_PRIO_DATA_LOGGER</a> = 3         </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>} <a class="code hl_enumeration" href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999">task_priorities_t</a>;</div>
+</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">extern</span> TaskHandle_t     <a class="code hl_variable" href="os__task_8h.html#acb5bc048b8a4c079fd4081016662800f">Task_Init_Handler</a>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">extern</span> TaskHandle_t     <a class="code hl_variable" href="os__task_8h.html#ac86368b82f4a801c72fbb1509b891009">Task_Com_Handler</a>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">extern</span> TaskHandle_t     <a class="code hl_variable" href="os__task_8h.html#a6ea58d7c320e8adddaa49c7d2da939d8">Task_Diagnosis_Handler</a>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">extern</span> TaskHandle_t     <a class="code hl_variable" href="os__task_8h.html#a3abdcc378dfd1ce59ad97e754f4ef846">Task_BodyCtrl_Handler</a>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">extern</span> TaskHandle_t     <a class="code hl_variable" href="os__task_8h.html#af4e36465b54ca7e100b6aa79d3a702d8">Task_Motor_Handler</a>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">extern</span> TaskHandle_t     <a class="code hl_variable" href="os__task_8h.html#aa8f7a242c608d2d6a3dc52e36eec8cf7">Task_Energy_Handler</a>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">extern</span> QueueHandle_t    <a class="code hl_variable" href="os__task_8h.html#adfcbd748702f32899277485ce7ff03f2">g_uart0_rx_queue</a>;   </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keyword">extern</span> QueueHandle_t    <a class="code hl_variable" href="os__task_8h.html#a2cff3efe9270ec7d6cc8d2263d0ead0c">g_uart1_rx_queue</a>;   </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">extern</span> QueueHandle_t    <a class="code hl_variable" href="os__task_8h.html#a963fbfdc997e1bf5c54d348fb6daabce">g_uart2_rx_queue</a>;   </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">extern</span> QueueHandle_t <a class="code hl_variable" href="os__task_8h.html#a13be13a537aa5f691b9107db794b6f81">g_can0_rx_queue</a>;      </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">extern</span> QueueHandle_t <a class="code hl_variable" href="os__task_8h.html#aa31b0e7e08b64b3e0f252b92d4bee5cd">g_can1_rx_queue</a>;      </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">extern</span> QueueHandle_t <a class="code hl_variable" href="os__task_8h.html#a48231a18d753418ee56660e8ea71b72d">g_can2_rx_queue</a>;      </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keyword">extern</span> QueueHandle_t <a class="code hl_variable" href="os__task_8h.html#aad262935fbeb61c41c7c65d82f688ea6">g_body_rx_queue</a>;      </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keyword">extern</span> QueueHandle_t <a class="code hl_variable" href="os__task_8h.html#a59ab7f766d2735ae2ae3deeed95c8891">g_motor_rx_queue</a>;     </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="keyword">extern</span> EventGroupHandle_t <a class="code hl_variable" href="os__task_8h.html#acedba9d8b440a9ffd80834c6611a0a4b">g_system_events</a>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keywordtype">void</span> <a class="code hl_function" href="os__task_8h.html#acb6df8f47f418aad9c9a9e045d7d1e6d">OS_Init</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keywordtype">void</span> <a class="code hl_function" href="os__task_8h.html#ab8c5f724349bae19455385ca6af34b47">OS_Task_Start</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keywordtype">void</span> <a class="code hl_function" href="os__task_8h.html#a7c3f1730d68ea5aa990ec47d5da7048d">BSP_Init</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keywordtype">void</span> <a class="code hl_function" href="os__task_8h.html#a5181742ecc534cb7184318509f18e159">Interface_Init</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keywordtype">void</span> <a class="code hl_function" href="os__task_8h.html#a4feeabaeaac27da1289ec7f2385962a1">Task_Create</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keywordtype">void</span> <a class="code hl_function" href="os__task_8h.html#a23641a130d50561b87964ee9817782ad">Queue_Create</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keywordtype">void</span> <a class="code hl_function" href="os__task_8h.html#a981e8359a4551c407b6fd181009618a2">Event_Create</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keywordtype">void</span> <a class="code hl_function" href="os__task_8h.html#a9a7cc2dfa8662f845ac212f273ace247">OS_Task_Init</a>(<span class="keywordtype">void</span> *pvPara);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="keywordtype">void</span> <a class="code hl_function" href="os__task_8h.html#a16f1002548c4413e84cd5f4772fe6b0c">OS_Task_Com</a>(<span class="keywordtype">void</span> *pvPara);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keywordtype">void</span> <a class="code hl_function" href="os__task_8h.html#a8053a425ece933dab1c08fd0c07268ef">OS_Task_Diagnosis</a>(<span class="keywordtype">void</span> *pvPara);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="keywordtype">void</span> <a class="code hl_function" href="os__task_8h.html#abd076fd1f11b7443705fb8c3c89d11e9">OS_Task_Body</a>(<span class="keywordtype">void</span> *pvPara);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keywordtype">void</span> <a class="code hl_function" href="os__task_8h.html#a7b8be94c22324cffa9953a263d3c8282">OS_Task_Motor</a>(<span class="keywordtype">void</span> *pvPara);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#endif </span><span class="comment">/* OS_INC_OS_TASK_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="amsg__interface_8h_html"><div class="ttname"><a href="msg__interface_8h.html">msg_interface.h</a></div></div>
+<div class="ttc" id="aos__task_8h_html_a13be13a537aa5f691b9107db794b6f81"><div class="ttname"><a href="os__task_8h.html#a13be13a537aa5f691b9107db794b6f81">g_can0_rx_queue</a></div><div class="ttdeci">QueueHandle_t g_can0_rx_queue</div><div class="ttdoc">CAN队列句柄</div><div class="ttdef"><b>定义</b> os_task.c:33</div></div>
+<div class="ttc" id="aos__task_8h_html_a16f1002548c4413e84cd5f4772fe6b0c"><div class="ttname"><a href="os__task_8h.html#a16f1002548c4413e84cd5f4772fe6b0c">OS_Task_Com</a></div><div class="ttdeci">void OS_Task_Com(void *pvPara)</div><div class="ttdoc">FreeRTOS通信任务（入口函数）</div><div class="ttdef"><b>定义</b> os_task_com.c:52</div></div>
+<div class="ttc" id="aos__task_8h_html_a23641a130d50561b87964ee9817782ad"><div class="ttname"><a href="os__task_8h.html#a23641a130d50561b87964ee9817782ad">Queue_Create</a></div><div class="ttdeci">void Queue_Create(void)</div><div class="ttdoc">队列创建函数，负责创建系统队列</div><div class="ttdef"><b>定义</b> os_task.c:151</div></div>
+<div class="ttc" id="aos__task_8h_html_a2723647aa6860e1571118555ffd1b999"><div class="ttname"><a href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999">task_priorities_t</a></div><div class="ttdeci">task_priorities_t</div><div class="ttdoc">任务优先级</div><div class="ttdef"><b>定义</b> os_task.h:51</div></div>
+<div class="ttc" id="aos__task_8h_html_a2723647aa6860e1571118555ffd1b999a04e71692b3eefe0ff457ca75c687e74d"><div class="ttname"><a href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999a04e71692b3eefe0ff457ca75c687e74d">TASK_PRIO_COMMUNICATION</a></div><div class="ttdeci">@ TASK_PRIO_COMMUNICATION</div><div class="ttdef"><b>定义</b> os_task.h:57</div></div>
+<div class="ttc" id="aos__task_8h_html_a2723647aa6860e1571118555ffd1b999a6246438bdd8220f7644d78ceb6977ae3"><div class="ttname"><a href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999a6246438bdd8220f7644d78ceb6977ae3">TASK_PRIO_BODY_CONTROL</a></div><div class="ttdeci">@ TASK_PRIO_BODY_CONTROL</div><div class="ttdef"><b>定义</b> os_task.h:55</div></div>
+<div class="ttc" id="aos__task_8h_html_a2723647aa6860e1571118555ffd1b999a754106f8110fe243d2045af9f4dfbdd6"><div class="ttname"><a href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999a754106f8110fe243d2045af9f4dfbdd6">TASK_PRIO_MOTOR_CONTROL</a></div><div class="ttdeci">@ TASK_PRIO_MOTOR_CONTROL</div><div class="ttdef"><b>定义</b> os_task.h:53</div></div>
+<div class="ttc" id="aos__task_8h_html_a2723647aa6860e1571118555ffd1b999a89352342d9ce3ec08b73202e4b34d6e6"><div class="ttname"><a href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999a89352342d9ce3ec08b73202e4b34d6e6">TASK_PRIO_DATA_LOGGER</a></div><div class="ttdeci">@ TASK_PRIO_DATA_LOGGER</div><div class="ttdef"><b>定义</b> os_task.h:59</div></div>
+<div class="ttc" id="aos__task_8h_html_a2723647aa6860e1571118555ffd1b999abe16f09091eda222d9ea72d60ee7cff9"><div class="ttname"><a href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999abe16f09091eda222d9ea72d60ee7cff9">TASK_PRIO_SAFETY_MONITOR</a></div><div class="ttdeci">@ TASK_PRIO_SAFETY_MONITOR</div><div class="ttdef"><b>定义</b> os_task.h:52</div></div>
+<div class="ttc" id="aos__task_8h_html_a2723647aa6860e1571118555ffd1b999ad38f2da0fec7cf97cfdbc3314663b883"><div class="ttname"><a href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999ad38f2da0fec7cf97cfdbc3314663b883">TASK_PRIO_DIAGNOSTIC</a></div><div class="ttdeci">@ TASK_PRIO_DIAGNOSTIC</div><div class="ttdef"><b>定义</b> os_task.h:58</div></div>
+<div class="ttc" id="aos__task_8h_html_a2723647aa6860e1571118555ffd1b999ada61a8268b643862b6b73f7ad958ce73"><div class="ttname"><a href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999ada61a8268b643862b6b73f7ad958ce73">TASK_PRIO_POWER_MGMT</a></div><div class="ttdeci">@ TASK_PRIO_POWER_MGMT</div><div class="ttdef"><b>定义</b> os_task.h:54</div></div>
+<div class="ttc" id="aos__task_8h_html_a2723647aa6860e1571118555ffd1b999ade20e6b0aff16ad6216ebc92f0048fbf"><div class="ttname"><a href="os__task_8h.html#a2723647aa6860e1571118555ffd1b999ade20e6b0aff16ad6216ebc92f0048fbf">TASK_PRIO_THERMAL_MGMT</a></div><div class="ttdeci">@ TASK_PRIO_THERMAL_MGMT</div><div class="ttdef"><b>定义</b> os_task.h:56</div></div>
+<div class="ttc" id="aos__task_8h_html_a2cff3efe9270ec7d6cc8d2263d0ead0c"><div class="ttname"><a href="os__task_8h.html#a2cff3efe9270ec7d6cc8d2263d0ead0c">g_uart1_rx_queue</a></div><div class="ttdeci">QueueHandle_t g_uart1_rx_queue</div><div class="ttdef"><b>定义</b> os_task.c:31</div></div>
+<div class="ttc" id="aos__task_8h_html_a3abdcc378dfd1ce59ad97e754f4ef846"><div class="ttname"><a href="os__task_8h.html#a3abdcc378dfd1ce59ad97e754f4ef846">Task_BodyCtrl_Handler</a></div><div class="ttdeci">TaskHandle_t Task_BodyCtrl_Handler</div><div class="ttdef"><b>定义</b> os_task.c:25</div></div>
+<div class="ttc" id="aos__task_8h_html_a48231a18d753418ee56660e8ea71b72d"><div class="ttname"><a href="os__task_8h.html#a48231a18d753418ee56660e8ea71b72d">g_can2_rx_queue</a></div><div class="ttdeci">QueueHandle_t g_can2_rx_queue</div><div class="ttdef"><b>定义</b> os_task.c:35</div></div>
+<div class="ttc" id="aos__task_8h_html_a4feeabaeaac27da1289ec7f2385962a1"><div class="ttname"><a href="os__task_8h.html#a4feeabaeaac27da1289ec7f2385962a1">Task_Create</a></div><div class="ttdeci">void Task_Create(void)</div><div class="ttdoc">任务创建函数，负责创建系统任务</div><div class="ttdef"><b>定义</b> os_task.c:117</div></div>
+<div class="ttc" id="aos__task_8h_html_a5181742ecc534cb7184318509f18e159"><div class="ttname"><a href="os__task_8h.html#a5181742ecc534cb7184318509f18e159">Interface_Init</a></div><div class="ttdeci">void Interface_Init(void)</div><div class="ttdoc">共享数据初始化函数，负责初始化共享数据区</div><div class="ttdef"><b>定义</b> os_task.c:106</div></div>
+<div class="ttc" id="aos__task_8h_html_a59ab7f766d2735ae2ae3deeed95c8891"><div class="ttname"><a href="os__task_8h.html#a59ab7f766d2735ae2ae3deeed95c8891">g_motor_rx_queue</a></div><div class="ttdeci">QueueHandle_t g_motor_rx_queue</div><div class="ttdef"><b>定义</b> os_task.c:37</div></div>
+<div class="ttc" id="aos__task_8h_html_a6ea58d7c320e8adddaa49c7d2da939d8"><div class="ttname"><a href="os__task_8h.html#a6ea58d7c320e8adddaa49c7d2da939d8">Task_Diagnosis_Handler</a></div><div class="ttdeci">TaskHandle_t Task_Diagnosis_Handler</div><div class="ttdef"><b>定义</b> os_task.c:24</div></div>
+<div class="ttc" id="aos__task_8h_html_a7b8be94c22324cffa9953a263d3c8282"><div class="ttname"><a href="os__task_8h.html#a7b8be94c22324cffa9953a263d3c8282">OS_Task_Motor</a></div><div class="ttdeci">void OS_Task_Motor(void *pvPara)</div><div class="ttdoc">电机控制任务主函数</div><div class="ttdef"><b>定义</b> os_task_motor.c:27</div></div>
+<div class="ttc" id="aos__task_8h_html_a7c3f1730d68ea5aa990ec47d5da7048d"><div class="ttname"><a href="os__task_8h.html#a7c3f1730d68ea5aa990ec47d5da7048d">BSP_Init</a></div><div class="ttdeci">void BSP_Init(void)</div><div class="ttdoc">外设初始化函数，负责外设初始化</div><div class="ttdef"><b>定义</b> os_task.c:93</div></div>
+<div class="ttc" id="aos__task_8h_html_a8053a425ece933dab1c08fd0c07268ef"><div class="ttname"><a href="os__task_8h.html#a8053a425ece933dab1c08fd0c07268ef">OS_Task_Diagnosis</a></div><div class="ttdeci">void OS_Task_Diagnosis(void *pvPara)</div><div class="ttdoc">诊断任务主函数，周期性执行系统健康监测</div><div class="ttdef"><b>定义</b> os_task_diagnosis.c:246</div></div>
+<div class="ttc" id="aos__task_8h_html_a963fbfdc997e1bf5c54d348fb6daabce"><div class="ttname"><a href="os__task_8h.html#a963fbfdc997e1bf5c54d348fb6daabce">g_uart2_rx_queue</a></div><div class="ttdeci">QueueHandle_t g_uart2_rx_queue</div><div class="ttdef"><b>定义</b> os_task.c:32</div></div>
+<div class="ttc" id="aos__task_8h_html_a981e8359a4551c407b6fd181009618a2"><div class="ttname"><a href="os__task_8h.html#a981e8359a4551c407b6fd181009618a2">Event_Create</a></div><div class="ttdeci">void Event_Create(void)</div><div class="ttdoc">事件创建函数，负责创建系统事件</div><div class="ttdef"><b>定义</b> os_task.c:166</div></div>
+<div class="ttc" id="aos__task_8h_html_a9a7cc2dfa8662f845ac212f273ace247"><div class="ttname"><a href="os__task_8h.html#a9a7cc2dfa8662f845ac212f273ace247">OS_Task_Init</a></div><div class="ttdeci">void OS_Task_Init(void *pvPara)</div><div class="ttdoc">系统初始化任务函数，负责系统初始化</div><div class="ttdef"><b>定义</b> os_task.c:178</div></div>
+<div class="ttc" id="aos__task_8h_html_aa31b0e7e08b64b3e0f252b92d4bee5cd"><div class="ttname"><a href="os__task_8h.html#aa31b0e7e08b64b3e0f252b92d4bee5cd">g_can1_rx_queue</a></div><div class="ttdeci">QueueHandle_t g_can1_rx_queue</div><div class="ttdef"><b>定义</b> os_task.c:34</div></div>
+<div class="ttc" id="aos__task_8h_html_aa8f7a242c608d2d6a3dc52e36eec8cf7"><div class="ttname"><a href="os__task_8h.html#aa8f7a242c608d2d6a3dc52e36eec8cf7">Task_Energy_Handler</a></div><div class="ttdeci">TaskHandle_t Task_Energy_Handler</div><div class="ttdef"><b>定义</b> os_task.c:27</div></div>
+<div class="ttc" id="aos__task_8h_html_aad262935fbeb61c41c7c65d82f688ea6"><div class="ttname"><a href="os__task_8h.html#aad262935fbeb61c41c7c65d82f688ea6">g_body_rx_queue</a></div><div class="ttdeci">QueueHandle_t g_body_rx_queue</div><div class="ttdoc">不同任务专用队列</div><div class="ttdef"><b>定义</b> os_task.c:36</div></div>
+<div class="ttc" id="aos__task_8h_html_ab8c5f724349bae19455385ca6af34b47"><div class="ttname"><a href="os__task_8h.html#ab8c5f724349bae19455385ca6af34b47">OS_Task_Start</a></div><div class="ttdeci">void OS_Task_Start(void)</div><div class="ttdoc">系统任务启动函数，启动任务调度器</div><div class="ttdef"><b>定义</b> os_task.c:85</div></div>
+<div class="ttc" id="aos__task_8h_html_abd076fd1f11b7443705fb8c3c89d11e9"><div class="ttname"><a href="os__task_8h.html#abd076fd1f11b7443705fb8c3c89d11e9">OS_Task_Body</a></div><div class="ttdeci">void OS_Task_Body(void *pvPara)</div><div class="ttdoc">车身控制任务主函数</div><div class="ttdef"><b>定义</b> os_task_body.c:23</div></div>
+<div class="ttc" id="aos__task_8h_html_ac86368b82f4a801c72fbb1509b891009"><div class="ttname"><a href="os__task_8h.html#ac86368b82f4a801c72fbb1509b891009">Task_Com_Handler</a></div><div class="ttdeci">TaskHandle_t Task_Com_Handler</div><div class="ttdef"><b>定义</b> os_task.c:23</div></div>
+<div class="ttc" id="aos__task_8h_html_acb5bc048b8a4c079fd4081016662800f"><div class="ttname"><a href="os__task_8h.html#acb5bc048b8a4c079fd4081016662800f">Task_Init_Handler</a></div><div class="ttdeci">TaskHandle_t Task_Init_Handler</div><div class="ttdoc">任务句柄</div><div class="ttdef"><b>定义</b> os_task.c:22</div></div>
+<div class="ttc" id="aos__task_8h_html_acb6df8f47f418aad9c9a9e045d7d1e6d"><div class="ttname"><a href="os__task_8h.html#acb6df8f47f418aad9c9a9e045d7d1e6d">OS_Init</a></div><div class="ttdeci">void OS_Init(void)</div><div class="ttdoc">系统初始化函数，负责硬件和RTOS基础环境初始化</div><div class="ttdef"><b>定义</b> os_task.c:61</div></div>
+<div class="ttc" id="aos__task_8h_html_acedba9d8b440a9ffd80834c6611a0a4b"><div class="ttname"><a href="os__task_8h.html#acedba9d8b440a9ffd80834c6611a0a4b">g_system_events</a></div><div class="ttdeci">EventGroupHandle_t g_system_events</div><div class="ttdoc">系统事件组句柄</div><div class="ttdef"><b>定义</b> os_task.c:40</div></div>
+<div class="ttc" id="aos__task_8h_html_adfcbd748702f32899277485ce7ff03f2"><div class="ttname"><a href="os__task_8h.html#adfcbd748702f32899277485ce7ff03f2">g_uart0_rx_queue</a></div><div class="ttdeci">QueueHandle_t g_uart0_rx_queue</div><div class="ttdoc">UART队列句柄</div><div class="ttdef"><b>定义</b> os_task.c:30</div></div>
+<div class="ttc" id="aos__task_8h_html_af4e36465b54ca7e100b6aa79d3a702d8"><div class="ttname"><a href="os__task_8h.html#af4e36465b54ca7e100b6aa79d3a702d8">Task_Motor_Handler</a></div><div class="ttdeci">TaskHandle_t Task_Motor_Handler</div><div class="ttdef"><b>定义</b> os_task.c:26</div></div>
+<div class="ttc" id="aos__task__com_8h_html"><div class="ttname"><a href="os__task__com_8h.html">os_task_com.h</a></div><div class="ttdoc">通信任务</div></div>
+<div class="ttc" id="aos__task__diagnosis_8h_html"><div class="ttname"><a href="os__task__diagnosis_8h.html">os_task_diagnosis.h</a></div><div class="ttdoc">系统诊断任务</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_a71443761d886d6152d96ebd3fda63af.html">os</a></li><li class="navelem"><a href="dir_dcb055540ec97f0f2a9bbd6082b34406.html">inc</a></li><li class="navelem"><a href="os__task_8h.html">os_task.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

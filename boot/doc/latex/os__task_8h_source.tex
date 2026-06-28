@@ -1,0 +1,77 @@
+\doxysection{os\+\_\+task.\+h}
+\hypertarget{os__task_8h_source}{}\label{os__task_8h_source}\index{src/os/inc/os\_task.h@{src/os/inc/os\_task.h}}
+\mbox{\hyperlink{os__task_8h}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ OS\_INC\_OS\_TASK\_H\_}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ OS\_INC\_OS\_TASK\_H\_}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}FreeRTOS.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}queue.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}event\_groups.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}task.h"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}semphr.h"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <stdarg.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{msg__interface_8h}{msg\_interface.h}}"{}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{os__task__com_8h}{os\_task\_com.h}}"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{os__task__diagnosis_8h}{os\_task\_diagnosis.h}}"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ PEX\_RTOS\_INIT\ \ \ OS\_Init}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ PEX\_RTOS\_START\ \ OS\_Task\_Start}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ USE\_SYSTEM\_MONITOR\ 1}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ USE\_NMEA\_RX\_CALLBACK\ 1}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ COM\_TASK\_ALIVE\_BIT\ \ \ \ \ \ \ (1\ <<\ 0)}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ BODY\_TASK\_ALIVE\_BIT\ \ \ \ \ \ (1\ <<\ 2)}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ MOTOR\_TASK\_ALIVE\_BIT\ \ \ \ \ (1\ <<\ 3)}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ ENERGY\_TASK\_ALIVE\_BIT\ \ \ \ (1\ <<\ 4)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{os__task_8h_a2723647aa6860e1571118555ffd1b999abe16f09091eda222d9ea72d60ee7cff9}{TASK\_PRIO\_SAFETY\_MONITOR}}\ =\ 10,\ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{os__task_8h_a2723647aa6860e1571118555ffd1b999a754106f8110fe243d2045af9f4dfbdd6}{TASK\_PRIO\_MOTOR\_CONTROL}}\ =\ 9,}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{os__task_8h_a2723647aa6860e1571118555ffd1b999ada61a8268b643862b6b73f7ad958ce73}{TASK\_PRIO\_POWER\_MGMT}}\ =\ 8,}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{os__task_8h_a2723647aa6860e1571118555ffd1b999a6246438bdd8220f7644d78ceb6977ae3}{TASK\_PRIO\_BODY\_CONTROL}}\ =\ 7,}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{os__task_8h_a2723647aa6860e1571118555ffd1b999ade20e6b0aff16ad6216ebc92f0048fbf}{TASK\_PRIO\_THERMAL\_MGMT}}\ =\ 6,}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{os__task_8h_a2723647aa6860e1571118555ffd1b999a04e71692b3eefe0ff457ca75c687e74d}{TASK\_PRIO\_COMMUNICATION}}\ =\ 5,}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{os__task_8h_a2723647aa6860e1571118555ffd1b999ad38f2da0fec7cf97cfdbc3314663b883}{TASK\_PRIO\_DIAGNOSTIC}}\ =\ 4,}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{os__task_8h_a2723647aa6860e1571118555ffd1b999a89352342d9ce3ec08b73202e4b34d6e6}{TASK\_PRIO\_DATA\_LOGGER}}\ =\ 3\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00060\ \}\ \mbox{\hyperlink{os__task_8h_a2723647aa6860e1571118555ffd1b999}{task\_priorities\_t}};}
+\DoxyCodeLine{00064\ \textcolor{keyword}{extern}\ TaskHandle\_t\ \ \ \ \ \mbox{\hyperlink{os__task_8h_acb5bc048b8a4c079fd4081016662800f}{Task\_Init\_Handler}};}
+\DoxyCodeLine{00065\ \textcolor{keyword}{extern}\ TaskHandle\_t\ \ \ \ \ \mbox{\hyperlink{os__task_8h_ac86368b82f4a801c72fbb1509b891009}{Task\_Com\_Handler}};}
+\DoxyCodeLine{00066\ \textcolor{keyword}{extern}\ TaskHandle\_t\ \ \ \ \ \mbox{\hyperlink{os__task_8h_a6ea58d7c320e8adddaa49c7d2da939d8}{Task\_Diagnosis\_Handler}};}
+\DoxyCodeLine{00067\ \textcolor{keyword}{extern}\ TaskHandle\_t\ \ \ \ \ \mbox{\hyperlink{os__task_8h_a3abdcc378dfd1ce59ad97e754f4ef846}{Task\_BodyCtrl\_Handler}};}
+\DoxyCodeLine{00068\ \textcolor{keyword}{extern}\ TaskHandle\_t\ \ \ \ \ \mbox{\hyperlink{os__task_8h_af4e36465b54ca7e100b6aa79d3a702d8}{Task\_Motor\_Handler}};}
+\DoxyCodeLine{00069\ \textcolor{keyword}{extern}\ TaskHandle\_t\ \ \ \ \ \mbox{\hyperlink{os__task_8h_aa8f7a242c608d2d6a3dc52e36eec8cf7}{Task\_Energy\_Handler}};}
+\DoxyCodeLine{00073\ \textcolor{keyword}{extern}\ QueueHandle\_t\ \ \ \ \mbox{\hyperlink{os__task_8h_adfcbd748702f32899277485ce7ff03f2}{g\_uart0\_rx\_queue}};\ \ \ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{extern}\ QueueHandle\_t\ \ \ \ \mbox{\hyperlink{os__task_8h_a2cff3efe9270ec7d6cc8d2263d0ead0c}{g\_uart1\_rx\_queue}};\ \ \ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{extern}\ QueueHandle\_t\ \ \ \ \mbox{\hyperlink{os__task_8h_a963fbfdc997e1bf5c54d348fb6daabce}{g\_uart2\_rx\_queue}};\ \ \ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{extern}\ QueueHandle\_t\ \mbox{\hyperlink{os__task_8h_a13be13a537aa5f691b9107db794b6f81}{g\_can0\_rx\_queue}};\ \ \ \ \ \ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{extern}\ QueueHandle\_t\ \mbox{\hyperlink{os__task_8h_aa31b0e7e08b64b3e0f252b92d4bee5cd}{g\_can1\_rx\_queue}};\ \ \ \ \ \ }
+\DoxyCodeLine{00081\ \textcolor{keyword}{extern}\ QueueHandle\_t\ \mbox{\hyperlink{os__task_8h_a48231a18d753418ee56660e8ea71b72d}{g\_can2\_rx\_queue}};\ \ \ \ \ \ }
+\DoxyCodeLine{00085\ \textcolor{keyword}{extern}\ QueueHandle\_t\ \mbox{\hyperlink{os__task_8h_aad262935fbeb61c41c7c65d82f688ea6}{g\_body\_rx\_queue}};\ \ \ \ \ \ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{extern}\ QueueHandle\_t\ \mbox{\hyperlink{os__task_8h_a59ab7f766d2735ae2ae3deeed95c8891}{g\_motor\_rx\_queue}};\ \ \ \ \ }
+\DoxyCodeLine{00090\ \textcolor{keyword}{extern}\ EventGroupHandle\_t\ \mbox{\hyperlink{os__task_8h_acedba9d8b440a9ffd80834c6611a0a4b}{g\_system\_events}};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{os__task_8h_acb6df8f47f418aad9c9a9e045d7d1e6d}{OS\_Init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00093\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{os__task_8h_ab8c5f724349bae19455385ca6af34b47}{OS\_Task\_Start}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{os__task_8h_a7c3f1730d68ea5aa990ec47d5da7048d}{BSP\_Init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{os__task_8h_a5181742ecc534cb7184318509f18e159}{Interface\_Init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00097\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{os__task_8h_a4feeabaeaac27da1289ec7f2385962a1}{Task\_Create}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00098\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{os__task_8h_a23641a130d50561b87964ee9817782ad}{Queue\_Create}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00099\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{os__task_8h_a981e8359a4551c407b6fd181009618a2}{Event\_Create}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{os__task_8h_a9a7cc2dfa8662f845ac212f273ace247}{OS\_Task\_Init}}(\textcolor{keywordtype}{void}\ *pvPara);}
+\DoxyCodeLine{00102\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{os__task_8h_a16f1002548c4413e84cd5f4772fe6b0c}{OS\_Task\_Com}}(\textcolor{keywordtype}{void}\ *pvPara);}
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{os__task_8h_a8053a425ece933dab1c08fd0c07268ef}{OS\_Task\_Diagnosis}}(\textcolor{keywordtype}{void}\ *pvPara);}
+\DoxyCodeLine{00104\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{os__task_8h_abd076fd1f11b7443705fb8c3c89d11e9}{OS\_Task\_Body}}(\textcolor{keywordtype}{void}\ *pvPara);}
+\DoxyCodeLine{00105\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{os__task_8h_a7b8be94c22324cffa9953a263d3c8282}{OS\_Task\_Motor}}(\textcolor{keywordtype}{void}\ *pvPara);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ OS\_INC\_OS\_TASK\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

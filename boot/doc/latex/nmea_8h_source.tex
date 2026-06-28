@@ -1,0 +1,192 @@
+\doxysection{nmea.\+h}
+\hypertarget{nmea_8h_source}{}\label{nmea_8h_source}\index{src/lib/libnmea/nmea.h@{src/lib/libnmea/nmea.h}}
+\mbox{\hyperlink{nmea_8h}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ nmea.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ LIB\_LIBNMEA\_NMEA\_H\_}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ LIB\_LIBNMEA\_NMEA\_H\_}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ PRE\_GGA\ \ \ \ \ "{}\$GNGGA"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ PRE\_GLL\ \ \ \ \ "{}\$GNGLL"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ PRE\_GSA\ \ \ \ \ "{}\$GNGSA"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ PRE\_GPGSV\ \ \ "{}\$GPGSV"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ PRE\_GNGSV\ \ \ "{}\$GNGSV"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ PRE\_GLGSV\ \ \ "{}\$GLGSV"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ PRE\_RMC\ \ \ \ \ "{}\$GNRMC"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ PRE\_VTG\ \ \ \ \ "{}\$GNVTG"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ ENABLE\_GGA\ \ 1}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ ENABLE\_GLL\ \ 1}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ ENABLE\_GSA\ \ 1}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ ENABLE\_GSV\ \ 0}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ ENABLE\_RMC\ \ 1}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ ENABLE\_VTG\ \ 1}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ ENABLE\_UTC\ \ 0}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ MAX\_GPS\_BUFFER\_SIZE\ 512\ }}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ MAX\_SATELLITES\ \ \ 32}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ MAX\_GSA\_CHANNELS\ 36}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#if\ ENABLE\_GGA}}
+\DoxyCodeLine{00034\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_g_g_a_acc6b8a3a5e6fecee73a8d0db9c36feae}{utc}}[11];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ UTC时间，格式为hhmmss.sss}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_g_a_addbca9561f53a93272f412aad9d10e25}{lat}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 纬度，格式为ddmm.mmmm}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_g_g_a_a474bde26492a6ad4c96f4f5aef869dd1}{lat\_dir}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 纬度半球，N或S}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_g_a_afa045176fa3ff71b97db05f84ea2daa0}{lon}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 经度，格式为dddmm.mmmm}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_g_g_a_a135a986f29c9e257acd250c312f4f9da}{lon\_dir}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 经度半球，E或W}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_g_g_a_aa565749ac2b7fd745fb688c99002d446}{quality}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 0=定位无效，1=定位有效}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_g_g_a_a37040029c3aa7f2f8cb43b27990d67d9}{sats}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 使用卫星数量，从00到12}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_g_a_ab7c43f57a48f0c85599f66fe9ed62e2a}{hdop}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 水平精确度，0.5到99.9，单位m}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_g_a_a3c3ba34439a485e62c4365f6a894559b}{alt}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 海平面的高度，-\/9999.9到9999.9米}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_g_a_a3aa0e01009bfa65519e52bf46b93464b}{undulation}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 大地水准面高度，-\/9999.9到9999.9米}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_g_g_a_a31651af5e01e53e9c41a07931ce741d5}{age}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 差分时间}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \mbox{\hyperlink{struct_g_g_a_af335ed32791edf6034fdcf5cba1c0326}{stn\_ID}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 差分站ID号0000\ -\/\ 1023}}
+\DoxyCodeLine{00048\ \}\ \mbox{\hyperlink{struct_g_g_a}{GGA}};}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#if\ ENABLE\_GLL}}
+\DoxyCodeLine{00052\ \textcolor{comment}{//\ GPGLL数据结构体（地理定位信息）}}
+\DoxyCodeLine{00053\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00054\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_l_l_a251f5d6e70463debe87c3f4ea6b2fa0a}{lat}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 纬度，格式为ddmm.mmmm}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_g_l_l_ac8a0a0aef47d82767580dd7d746f7a63}{lat\_dir}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 纬度半球，N或S}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_l_l_ad305c43e84f86b61ceb633a98768db5d}{lon}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 经度，格式为dddmm.mmmm}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_g_l_l_a4b654c653f1baca23fe1f8c8225c025c}{lon\_dir}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 经度半球，E或W}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_g_l_l_abb7165183d6a4ca6f782fffcd5c94859}{utc}}[11];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ UTC时间，格式为hhmmss.sss}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_g_l_l_a0eb43b605112858cc1d66c1fee6fd917}{data\_status}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 状态标志位，A：有效，V无效}}
+\DoxyCodeLine{00061\ \}\mbox{\hyperlink{struct_g_l_l}{GLL}};}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#if\ ENABLE\_GSA}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#pragma\ pack(1)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ 便于指针偏移取值}}
+\DoxyCodeLine{00066\ \textcolor{comment}{//\ 信道信息结构体}}
+\DoxyCodeLine{00067\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00068\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_g_s_a___p_r_n_ae60711e5fb568bd47922068d60c07f1f}{total}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 总信道个数}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_g_s_a___p_r_n_a3c04964404034edb1106074eea62a0de}{prn\_ID}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ prn信道}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_g_s_a___p_r_n_af8dc5226655f67d1118968d19f275359}{prn}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ PRN\ 码（伪随机噪声码）}}
+\DoxyCodeLine{00072\ \}\mbox{\hyperlink{struct_g_s_a___p_r_n}{GSA\_PRN}};}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#pragma\ pack()}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{comment}{//GPGSA数据结构体（当前卫星信息）}}
+\DoxyCodeLine{00076\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00077\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_g_s_a_acf85aed816254009c982b21bdfe9f60d}{mode\_MA}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 定位模式(选择2D/3D)，A=自动选择，M=手动选择}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_g_s_a_a7954a0cc0ffa518856c3c867ae91ab90}{mode\_123}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 定位类型，1=未定位，2=2D定位，3=3D定位}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_s_a_afbfb48a6d700fa763a5f30d34de6bcfd}{pdop}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ PDOP综合位置精度因子（0.5\ -\/\ 99.9）}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_s_a_a6f03c09bec71f917798ff7c4d3c864de}{hdop}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ HDOP水平精度因子（0.5\ -\/\ 99.9）}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_s_a_a9ceaecea121d3a9f0a82d7f2a45dbd1d}{vdop}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ VDOP垂直精度因子（0.5\ -\/\ 99.9）}}
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{struct_g_s_a___p_r_n}{GSA\_PRN}}\ \mbox{\hyperlink{struct_g_s_a_a35b83c27f7f0dd7464bf8ac6f6ede602}{gsa\_prn}}[\mbox{\hyperlink{nmea_8h_a6b19d95aeaaa0435b963cd26687f1c2f}{MAX\_GSA\_CHANNELS}}];\ \ \ \textcolor{comment}{//\ 存放信道信息}}
+\DoxyCodeLine{00084\ \}\mbox{\hyperlink{struct_g_s_a}{GSA}};}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#if\ ENABLE\_GSV}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#pragma\ pack(1)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00089\ \textcolor{comment}{//\ 可见卫星信息结构体}}
+\DoxyCodeLine{00090\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00091\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ prn;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ PRN\ 码（伪随机噪声码）}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ elev;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 卫星仰角（00\ -\/\ 90）度}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ azimuth;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 卫星方位角（00\ -\/\ 359）度}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ SNR;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 信噪比}}
+\DoxyCodeLine{00096\ \}SAT\_INFO;}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#pragma\ pack()}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{comment}{//\ GPGSV数据结构体(可见卫星信息)}}
+\DoxyCodeLine{00100\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00101\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ msgs;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 本次GSV语句的总数目（1\ -\/\ 3）}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ msg;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 本条GSV语句是本次GSV语句的第几条（1\ -\/\ 3）}}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ sats;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 当前可见卫星总数（00\ -\/\ 12）}}
+\DoxyCodeLine{00105\ \ \ \ \ SAT\_INFO\ sat\_info[\mbox{\hyperlink{nmea_8h_a01fd210b45393158b79251da6a7d75b7}{MAX\_SATELLITES}}];\ \ \ \textcolor{comment}{//\ 卫星信息}}
+\DoxyCodeLine{00106\ \}GSV;}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#if\ ENABLE\_RMC}}
+\DoxyCodeLine{00110\ \textcolor{comment}{//RMC数据结构体（推荐定位信息数据格式）}}
+\DoxyCodeLine{00111\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00112\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_r_m_c_ae6c777ae089ba7f3a16c2e20d44a6911}{utc}}[11];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ UTC时间，hhmmss.sss格式}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_r_m_c_a0ddc4bd04b72cff58498487eff0ce6bd}{pos\_status}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 状态，A=定位，V=未定位}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_r_m_c_a20b61004e3a00428b75e638b20e9c9d1}{lat}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 纬度ddmm.mmmm，度分格式}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_r_m_c_ad2d055c4b54f1878441ae98bff794200}{lat\_dec}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_r_m_c_a7e63f3c67c2e0f41b3380e42a231831a}{lat\_dir}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 纬度N（北纬）或S（南纬）}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_r_m_c_a41664567d6c1b313269c5f63f327583a}{lon}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 经度dddmm.mmmm，度分格式}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_r_m_c_ac4a77ea70aad65bf7580b1bbb4f9b892}{lon\_dec}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_r_m_c_ad26d00a5b2afae18e7379498113c32b0}{lon\_dir}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 经度E（东经）或W（西经）}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_r_m_c_a025c75274f8661c27fc5923ec14e4449}{speed\_Kn}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 速度}}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_r_m_c_a4108e15c73775b09acb19cd83ad2eec9}{track\_true}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 方位角，度}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_r_m_c_a31ddd417ecf957beac1e3d573002e5bf}{date}}[7];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ UTC日期，DDMMYY格式}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_r_m_c_a33a7ef8df8d2d5569591fa4c72e11564}{mag\_var}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 磁偏角，（000\ -\/\ 180）度}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_r_m_c_a649c92968801d91927d3571a8e33f6b2}{var\_dir}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 磁偏角方向，E=东,W=西}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_r_m_c_a901060ac822a5150e855816739d62472}{mode\_ind}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 模式，A=自动，D=差分，E=估测，N=数据无效（3.0协议内容）}}
+\DoxyCodeLine{00127\ \}\mbox{\hyperlink{struct_r_m_c}{RMC}};}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#if\ ENABLE\_VTG}}
+\DoxyCodeLine{00131\ \textcolor{comment}{//VTG数据结构体（地面速度信息）}}
+\DoxyCodeLine{00132\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00133\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_v_t_g_a2e68e96dbf2817020d5f1849d90cc90d}{track\_true}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 运动角度，000\ -\/\ 359，真北参照系}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_v_t_g_a76c621263f42176f09622753bc57ea3f}{track\_mag}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 运动角度，000\ -\/\ 359，磁北参照系}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_v_t_g_a335307a864dcebb677198b0bf5a1370e}{speed\_Kn}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 水平运动速度（0.00），节，Knots}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_v_t_g_af2d1e498befef1916d4d17100cf5e273}{speed\_Km}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 水平运动速度（0.00）,\ 公里/时，km/h}}
+\DoxyCodeLine{00138\ \}\mbox{\hyperlink{struct_v_t_g}{VTG}};}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#if\ ENABLE\_UTC}}
+\DoxyCodeLine{00142\ \textcolor{comment}{//UTC时间结构体}}
+\DoxyCodeLine{00143\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00144\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ YY;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 年}}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ DD;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 日}}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ MM;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 月}}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ hh;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 时}}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ mm;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 分}}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ ss;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 秒}}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ ds;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 毫秒}}
+\DoxyCodeLine{00152\ \}UTC;}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00159\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00160\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_g_p_s_af9322aab557a66d969c232a8a7abf2a7}{gps\_buffer\_data}}[\mbox{\hyperlink{nmea_8h_a28a5b4da4a3994220cde4d90acac4b22}{MAX\_GPS\_BUFFER\_SIZE}}];}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\#if\ ENABLE\_GGA}}
+\DoxyCodeLine{00163\ \ \ \ \ \mbox{\hyperlink{struct_g_g_a}{GGA}}\ \mbox{\hyperlink{struct_g_p_s_a926544c67c37bb67b3914eba8d55f256}{gga\_data}};}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#if\ ENABLE\_GLL}}
+\DoxyCodeLine{00166\ \ \ \ \ \mbox{\hyperlink{struct_g_l_l}{GLL}}\ \mbox{\hyperlink{struct_g_p_s_ae38b1dc67005d6e2316886b417746113}{gll\_data}};}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#if\ ENABLE\_GSA}}
+\DoxyCodeLine{00169\ \ \ \ \ \mbox{\hyperlink{struct_g_s_a}{GSA}}\ \mbox{\hyperlink{struct_g_p_s_a4c9aa5d9fe0c1f8d6f54fe5e76e00e8e}{gsa\_data}};}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#if\ ENABLE\_GSV}}
+\DoxyCodeLine{00172\ \ \ \ \ GSV\ gpgsv\_data;}
+\DoxyCodeLine{00173\ \ \ \ \ GSV\ gngsv\_data;}
+\DoxyCodeLine{00174\ \ \ \ \ GSV\ glgsv\_data;}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\#if\ ENABLE\_RMC}}
+\DoxyCodeLine{00177\ \ \ \ \ \mbox{\hyperlink{struct_r_m_c}{RMC}}\ \mbox{\hyperlink{struct_g_p_s_a504faabf9710aab879800ca43436fd2e}{rmc\_data}};}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#if\ ENABLE\_VTG}}
+\DoxyCodeLine{00180\ \ \ \ \ \mbox{\hyperlink{struct_v_t_g}{VTG}}\ \mbox{\hyperlink{struct_g_p_s_a54a4857bcb6a5c44d46296885366de7c}{vtg\_data}};}
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#if\ ENABLE\_UTC}}
+\DoxyCodeLine{00183\ \ \ \ \ UTC\ utc;\ \ \ \ }
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00185\ \}\mbox{\hyperlink{struct_g_p_s}{GPS}};}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{nmea_8h_a5d880dd9c672c243e1d6bcbb9cba74e6}{gps\_global\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00188\ \mbox{\hyperlink{struct_g_p_s}{GPS}}\ \mbox{\hyperlink{nmea_8h_aacbe592abc0b5d13ce4b9195ac268716}{gps\_data\_parse}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ gps\_src,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ gps\_src\_len);}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIB\_LIBNMEA\_NMEA\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

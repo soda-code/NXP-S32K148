@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>S32K148_VCU_APP: src/bsp/bsp_can2.c 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">S32K148_VCU_APP
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('bsp__can2_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">bsp_can2.c 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="bsp__can2_8h_source.html">bsp_can2.h</a>&quot;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="os__task_8h_source.html">os_task.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a9cbf362949b6ab796967fffe7bb8dcbe" id="r_a9cbf362949b6ab796967fffe7bb8dcbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9cbf362949b6ab796967fffe7bb8dcbe">CAN2_Callback</a> (uint32_t instance, can_event_t event, uint32_t buffIdx, void *flexcanState)</td></tr>
+<tr class="memdesc:a9cbf362949b6ab796967fffe7bb8dcbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN2中断回调函数，处理CAN2总线的接收和发送事件  <br /></td></tr>
+<tr class="memitem:a23d5297865eac58a1bbccb7263d7b4e5" id="r_a23d5297865eac58a1bbccb7263d7b4e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23d5297865eac58a1bbccb7263d7b4e5">BSP_CAN2_Send_STD</a> (uint16_t id, uint8_t data[8])</td></tr>
+<tr class="memdesc:a23d5297865eac58a1bbccb7263d7b4e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过CAN2总线发送标准帧数据（11位ID）  <br /></td></tr>
+<tr class="memitem:a10ba4ebf9ff9b7c5d59d75a03d3c6334" id="r_a10ba4ebf9ff9b7c5d59d75a03d3c6334"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10ba4ebf9ff9b7c5d59d75a03d3c6334">BSP_CAN2_Send_EXT</a> (uint32_t id, uint8_t data[64], uint8_t length)</td></tr>
+<tr class="memdesc:a10ba4ebf9ff9b7c5d59d75a03d3c6334"><td class="mdescLeft">&#160;</td><td class="mdescRight">发送扩展帧格式的CAN2消息  <br /></td></tr>
+<tr class="memitem:ae9ed38a6a41a06478e277d8ac3ff5a54" id="r_ae9ed38a6a41a06478e277d8ac3ff5a54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9ed38a6a41a06478e277d8ac3ff5a54">BSP_CAN2_Init</a> (void)</td></tr>
+<tr class="memdesc:ae9ed38a6a41a06478e277d8ac3ff5a54"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化CAN2控制器  <br /></td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="ae9ed38a6a41a06478e277d8ac3ff5a54" name="ae9ed38a6a41a06478e277d8ac3ff5a54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9ed38a6a41a06478e277d8ac3ff5a54">&#9670;&#160;</a></span>BSP_CAN2_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BSP_CAN2_Init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>初始化CAN2控制器 </p>
+<p>完成CAN2控制器的完整硬件初始化配置，包括：</p><ul>
+<li>控制器基础配置</li>
+<li>标准帧和扩展帧的收发邮箱配置</li>
+<li>接收过滤器设置（全通模式）</li>
+<li>中断回调函数注册</li>
+<li>中断优先级设置</li>
+<li>启动接收操作</li>
+</ul>
+<dl class="section note"><dt>注解</dt><dd>该函数应在系统初始化阶段调用，且只调用一次 </dd>
+<dd>
+使用前需确保相关缓冲区配置已完成（Rx_buffCfg_STD/EXT, Tx_buffCfg_STD/EXT） </dd>
+<dd>
+中断优先级设置为0x02（较高优先级） </dd></dl>
+
+</div>
+</div>
+<a id="a10ba4ebf9ff9b7c5d59d75a03d3c6334" name="a10ba4ebf9ff9b7c5d59d75a03d3c6334"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10ba4ebf9ff9b7c5d59d75a03d3c6334">&#9670;&#160;</a></span>BSP_CAN2_Send_EXT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BSP_CAN2_Send_EXT </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>data</em></span>[64], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>发送扩展帧格式的CAN2消息 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>29位扩展帧标识符 </td></tr>
+    <tr><td class="paramname">data</td><td>待发送的数据数组，最大64字节 </td></tr>
+    <tr><td class="paramname">length</td><td>实际数据长度(1-64字节)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>函数采用阻塞式发送，最多重试500次 </dd>
+<dd>
+发送失败时会尝试中止当前传输并重新发送</dd></dl>
+<dl class="section return"><dt>返回</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a23d5297865eac58a1bbccb7263d7b4e5" name="a23d5297865eac58a1bbccb7263d7b4e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23d5297865eac58a1bbccb7263d7b4e5">&#9670;&#160;</a></span>BSP_CAN2_Send_STD()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BSP_CAN2_Send_STD </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>data</em></span>[8]&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>通过CAN2总线发送标准帧数据（11位ID） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>标准帧ID（11位） </td></tr>
+    <tr><td class="paramname">data</td><td>待发送的数据数组（固定8字节）</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>该函数采用阻塞式发送，最多重试500次 </dd>
+<dd>
+如果发送超时，会强制中止当前传输并重新尝试发送 </dd></dl>
+
+</div>
+</div>
+<a id="a9cbf362949b6ab796967fffe7bb8dcbe" name="a9cbf362949b6ab796967fffe7bb8dcbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cbf362949b6ab796967fffe7bb8dcbe">&#9670;&#160;</a></span>CAN2_Callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAN2_Callback </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>instance</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">can_event_t</td>          <td class="paramname"><span class="paramname"><em>event</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>buffIdx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>flexcanState</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>CAN2中断回调函数，处理CAN2总线的接收和发送事件 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">instance</td><td>CAN实例号（未使用） </td></tr>
+    <tr><td class="paramname">event</td><td>触发的事件类型（CAN_EVENT_RX_COMPLETE或CAN_EVENT_TX_COMPLETE） </td></tr>
+    <tr><td class="paramname">buffIdx</td><td>缓冲区索引（未使用） </td></tr>
+    <tr><td class="paramname">flexcanState</td><td>FlexCAN状态指针（未使用）</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>该函数在中断上下文中执行，必须保持简短高效 </dd>
+<dd>
+接收到的标准帧和扩展帧消息会被分别处理 </dd>
+<dd>
+扩展帧消息会被转换为统一格式(HCAN_STRUCT)并通过队列发送给上层任务</dd></dl>
+<p>主要功能：</p><ul>
+<li>处理CAN2接收完成事件(CAN_EVENT_RX_COMPLETE)</li>
+<li>读取标准帧和扩展帧接收邮箱</li>
+<li>将扩展帧消息格式转换为HCAN_STRUCT统一格式</li>
+<li>通过消息队列(g_can2_rx_queue)异步传递接收到的消息</li>
+<li>清空接收缓冲区标志位</li>
+</ul>
+<dl class="section warning"><dt>警告</dt><dd>该函数使用xQueueSendFromISR()发送消息，必须在FreeRTOS环境中使用 </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_0937102de6aefa85ea195f3f88a55c7c.html">bsp</a></li><li class="navelem"><a href="bsp__can2_8c.html">bsp_can2.c</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

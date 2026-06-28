@@ -1,0 +1,477 @@
+\doxysection{src/lib/libgeo/geo.c 文件参考}
+\hypertarget{geo_8c}{}\label{geo_8c}\index{src/lib/libgeo/geo.c@{src/lib/libgeo/geo.c}}
+{\ttfamily \#include "{}geo.\+h"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$float.\+h$>$}\newline
+{\ttfamily \#include "{}AMMCLib1.\+h"{}}\newline
+\doxysubsubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{geo_8c_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+PI}}~3.\+14159265358979323846
+\item 
+\#define \mbox{\hyperlink{geo_8c_ab9c3c609e1d02430671de0a109410ac8}{M\+\_\+\+PI\+\_\+F}}~3.\+14159265f
+\item 
+\#define \mbox{\hyperlink{geo_8c_a2b791d1953eea4287b0f21cf900906cc}{M\+\_\+\+PI\+\_\+2\+\_\+F}}~1.\+57079632f
+\item 
+\#define \mbox{\hyperlink{geo_8c_a4da6eb78c6d6247f75b2d132c8abf110}{M\+\_\+\+PI\+\_\+4\+\_\+F}}~0.\+78539816f
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{geo_8c_a71a3f1dd74077ca88d95a943768c728b}{get\+\_\+bearing\+\_\+to\+\_\+next\+\_\+waypoint}} (double lat\+\_\+now, double lon\+\_\+now, double lat\+\_\+next, double lon\+\_\+next)
+\begin{DoxyCompactList}\small\item\em 计算到下一个航点的方位角（初始航向） \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{geo_8c_aa534a8020615f97fdd342c587211d557}{get\+\_\+distance\+\_\+to\+\_\+next\+\_\+waypoint}} (double lat\+\_\+now, double lon\+\_\+now, double lat\+\_\+next, double lon\+\_\+next)
+\begin{DoxyCompactList}\small\item\em 计算两个地理航点之间的大圆距离 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{geo_8c_a8cf2ed6d2c6d6ef12853085621d50c24}{waypoint\+\_\+from\+\_\+heading\+\_\+and\+\_\+distance}} (double lat\+\_\+start, double lon\+\_\+start, float bearing, float dist, double \texorpdfstring{$\ast$}{*}lat\+\_\+target, double \texorpdfstring{$\ast$}{*}lon\+\_\+target)
+\begin{DoxyCompactList}\small\item\em 根据起始点、方位角和距离计算目标航点坐标 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{geo_8c_a713e1c07bb04347540b8c98af7bb6a37}{create\+\_\+waypoint\+\_\+from\+\_\+line\+\_\+and\+\_\+dist}} (double lat\+\_\+A, double lon\+\_\+A, double lat\+\_\+B, double lon\+\_\+B, float dist, double \texorpdfstring{$\ast$}{*}lat\+\_\+target, double \texorpdfstring{$\ast$}{*}lon\+\_\+target)
+\begin{DoxyCompactList}\small\item\em 从起始点沿着指向第二个点的方向创建指定距离的航点 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{geo_8c_a5e68ad5e5e2cbff411bc04cd80724856}{get\+\_\+distance\+\_\+to\+\_\+point\+\_\+global\+\_\+wgs84}} (double lat\+\_\+now, double lon\+\_\+now, float alt\+\_\+now, double lat\+\_\+next, double lon\+\_\+next, float alt\+\_\+next, float \texorpdfstring{$\ast$}{*}dist\+\_\+xy, float \texorpdfstring{$\ast$}{*}dist\+\_\+z)
+\begin{DoxyCompactList}\small\item\em 使用\+Haversine公式计算两个地理点之间的距离 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{geo_8c_a8461e04a8672b957285ced1e58cad478}{get\+\_\+distance\+\_\+to\+\_\+line}} (struct \mbox{\hyperlink{structcrosstrack__error__s}{crosstrack\+\_\+error\+\_\+s}} \texorpdfstring{$\ast$}{*}crosstrack\+\_\+error, double lat\+\_\+now, double lon\+\_\+now, double lat\+\_\+start, double lon\+\_\+start, double lat\+\_\+end, double lon\+\_\+end)
+\begin{DoxyCompactList}\small\item\em 计算当前位置到线段的横向误差（cross-\/track error）。 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{geo_8c_abeff6a5ec4736d7cb89258a0d26560d1}{get\+\_\+distance\+\_\+to\+\_\+arc}} (struct \mbox{\hyperlink{structcrosstrack__error__s}{crosstrack\+\_\+error\+\_\+s}} \texorpdfstring{$\ast$}{*}crosstrack\+\_\+error, double lat\+\_\+now, double lon\+\_\+now, double lat\+\_\+center, double lon\+\_\+center, float radius, float arc\+\_\+start\+\_\+bearing, float arc\+\_\+sweep)
+\begin{DoxyCompactList}\small\item\em 计算当前位置到指定圆弧（arc）的最近距离和方位，并填充横向误差结构体 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{geo_8c_af78e324949ecc8e9b46518c695cc2e42}{get\+\_\+vector\+\_\+to\+\_\+next\+\_\+waypoint}} (double lat\+\_\+now, double lon\+\_\+now, double lat\+\_\+next, double lon\+\_\+next, float \texorpdfstring{$\ast$}{*}v\+\_\+n, float \texorpdfstring{$\ast$}{*}v\+\_\+e)
+\begin{DoxyCompactList}\small\item\em 计算当前位置到下一个航点的向量在局部东北坐标系（\+North, East）上的分量（单位：米）。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{geo_8c_a5fba342d3636e23b40d89e62df5e2490}{get\+\_\+vector\+\_\+to\+\_\+next\+\_\+waypoint\+\_\+fast}} (double lat\+\_\+now, double lon\+\_\+now, double lat\+\_\+next, double lon\+\_\+next, float \texorpdfstring{$\ast$}{*}v\+\_\+n, float \texorpdfstring{$\ast$}{*}v\+\_\+e)
+\begin{DoxyCompactList}\small\item\em 计算从当前位置到下一个航路点的向量（快速版本） \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{geo_8c_a5e9f593d4dc359086faa8bb94148116e}{add\+\_\+vector\+\_\+to\+\_\+global\+\_\+position}} (double lat\+\_\+now, double lon\+\_\+now, float v\+\_\+n, float v\+\_\+e, double \texorpdfstring{$\ast$}{*}lat\+\_\+res, double \texorpdfstring{$\ast$}{*}lon\+\_\+res)
+\begin{DoxyCompactList}\small\item\em 将速度矢量添加到全球位置坐标 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{geo_8c_doc-define-members}
+\doxysubsection{宏定义说明}
+\Hypertarget{geo_8c_ae71449b1cc6e6250b91f539153a7a0d3}\index{geo.c@{geo.c}!M\_PI@{M\_PI}}
+\index{M\_PI@{M\_PI}!geo.c@{geo.c}}
+\doxysubsubsection{\texorpdfstring{M\_PI}{M\_PI}}
+{\footnotesize\ttfamily \label{geo_8c_ae71449b1cc6e6250b91f539153a7a0d3} 
+\#define M\+\_\+\+PI~3.\+14159265358979323846}
+
+\Hypertarget{geo_8c_a2b791d1953eea4287b0f21cf900906cc}\index{geo.c@{geo.c}!M\_PI\_2\_F@{M\_PI\_2\_F}}
+\index{M\_PI\_2\_F@{M\_PI\_2\_F}!geo.c@{geo.c}}
+\doxysubsubsection{\texorpdfstring{M\_PI\_2\_F}{M\_PI\_2\_F}}
+{\footnotesize\ttfamily \label{geo_8c_a2b791d1953eea4287b0f21cf900906cc} 
+\#define M\+\_\+\+PI\+\_\+2\+\_\+F~1.\+57079632f}
+
+\Hypertarget{geo_8c_a4da6eb78c6d6247f75b2d132c8abf110}\index{geo.c@{geo.c}!M\_PI\_4\_F@{M\_PI\_4\_F}}
+\index{M\_PI\_4\_F@{M\_PI\_4\_F}!geo.c@{geo.c}}
+\doxysubsubsection{\texorpdfstring{M\_PI\_4\_F}{M\_PI\_4\_F}}
+{\footnotesize\ttfamily \label{geo_8c_a4da6eb78c6d6247f75b2d132c8abf110} 
+\#define M\+\_\+\+PI\+\_\+4\+\_\+F~0.\+78539816f}
+
+\Hypertarget{geo_8c_ab9c3c609e1d02430671de0a109410ac8}\index{geo.c@{geo.c}!M\_PI\_F@{M\_PI\_F}}
+\index{M\_PI\_F@{M\_PI\_F}!geo.c@{geo.c}}
+\doxysubsubsection{\texorpdfstring{M\_PI\_F}{M\_PI\_F}}
+{\footnotesize\ttfamily \label{geo_8c_ab9c3c609e1d02430671de0a109410ac8} 
+\#define M\+\_\+\+PI\+\_\+F~3.\+14159265f}
+
+
+
+\label{doc-func-members}
+\Hypertarget{geo_8c_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{geo_8c_a5e9f593d4dc359086faa8bb94148116e}\index{geo.c@{geo.c}!add\_vector\_to\_global\_position@{add\_vector\_to\_global\_position}}
+\index{add\_vector\_to\_global\_position@{add\_vector\_to\_global\_position}!geo.c@{geo.c}}
+\doxysubsubsection{\texorpdfstring{add\_vector\_to\_global\_position()}{add\_vector\_to\_global\_position()}}
+{\footnotesize\ttfamily \label{geo_8c_a5e9f593d4dc359086faa8bb94148116e} 
+void add\+\_\+vector\+\_\+to\+\_\+global\+\_\+position (\begin{DoxyParamCaption}\item[{double}]{lat\+\_\+now}{, }\item[{double}]{lon\+\_\+now}{, }\item[{float}]{v\+\_\+n}{, }\item[{float}]{v\+\_\+e}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{lat\+\_\+res}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{lon\+\_\+res}{}\end{DoxyParamCaption})}
+
+
+
+将速度矢量添加到全球位置坐标 
+
+该函数根据北向和东向速度分量，计算相对于当前位置的新的地理坐标。 使用地球半径作为转换因子，将笛卡尔坐标系中的速度增量转换为地理坐标增量。
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{in}}  & {\em lat\+\_\+now} & 当前纬度，单位：度（°） \\
+\hline
+\mbox{\texttt{in}}  & {\em lon\+\_\+now} & 当前经度，单位：度（°） \\
+\hline
+\mbox{\texttt{in}}  & {\em v\+\_\+n} & 北向速度分量，单位：米/秒（m/s） \\
+\hline
+\mbox{\texttt{in}}  & {\em v\+\_\+e} & 东向速度分量，单位：米/秒（m/s） \\
+\hline
+\mbox{\texttt{out}}  & {\em lat\+\_\+res} & 计算得到的结果纬度指针，单位：度（°） \\
+\hline
+\mbox{\texttt{out}}  & {\em lon\+\_\+res} & 计算得到的结果经度指针，单位：度（°）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+void
+\end{DoxyReturn}
+\begin{DoxyNote}{注解}
+该函数假设地球为球体，使用常数 CONSTANTS\+\_\+\+RADIUS\+\_\+\+OF\+\_\+\+EARTH 表示地球半径。 函数内部使用弧度制进行计算，输入输出均为十进制度数。
+\end{DoxyNote}
+\begin{DoxySeeAlso}{参见}
+CONSTANTS\+\_\+\+RADIUS\+\_\+\+OF\+\_\+\+EARTH 
+\end{DoxySeeAlso}
+\Hypertarget{geo_8c_a713e1c07bb04347540b8c98af7bb6a37}\index{geo.c@{geo.c}!create\_waypoint\_from\_line\_and\_dist@{create\_waypoint\_from\_line\_and\_dist}}
+\index{create\_waypoint\_from\_line\_and\_dist@{create\_waypoint\_from\_line\_and\_dist}!geo.c@{geo.c}}
+\doxysubsubsection{\texorpdfstring{create\_waypoint\_from\_line\_and\_dist()}{create\_waypoint\_from\_line\_and\_dist()}}
+{\footnotesize\ttfamily \label{geo_8c_a713e1c07bb04347540b8c98af7bb6a37} 
+void create\+\_\+waypoint\+\_\+from\+\_\+line\+\_\+and\+\_\+dist (\begin{DoxyParamCaption}\item[{double}]{lat\+\_\+A}{, }\item[{double}]{lon\+\_\+A}{, }\item[{double}]{lat\+\_\+B}{, }\item[{double}]{lon\+\_\+B}{, }\item[{float}]{dist}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{lat\+\_\+target}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{lon\+\_\+target}{}\end{DoxyParamCaption})}
+
+
+
+从起始点沿着指向第二个点的方向创建指定距离的航点 
+
+该函数通过以下步骤计算目标航点：
+\begin{DoxyEnumerate}
+\item 计算从点\+A到点\+B的方位角
+\item 沿该方位角从点\+A出发指定距离处创建新航点 如果距离实际上为零（小于\+FLT\+\_\+\+EPSILON），目标点设置为点A
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{in}}  & {\em lat\+\_\+A} & 起始点\+A的纬度，单位：度 \\
+\hline
+\mbox{\texttt{in}}  & {\em lon\+\_\+A} & 起始点\+A的经度，单位：度 \\
+\hline
+\mbox{\texttt{in}}  & {\em lat\+\_\+B} & 参考点\+B的纬度，单位：度 \\
+\hline
+\mbox{\texttt{in}}  & {\em lon\+\_\+B} & 参考点\+B的经度，单位：度 \\
+\hline
+\mbox{\texttt{in}}  & {\em dist} & 从点\+A沿指向点\+B方向行进的距离，单位：米 \\
+\hline
+\mbox{\texttt{out}}  & {\em lat\+\_\+target} & 指向存储计算的目标航点纬度的指针 \\
+\hline
+\mbox{\texttt{out}}  & {\em lon\+\_\+target} & 指向存储计算的目标航点经度的指针\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+无返回值
+\end{DoxyReturn}
+\begin{DoxyNote}{注解}
+该函数假设输入参数有效。确保指针不为\+NULL。 
+
+距离可以是正值或负值；负值将在相反方向创建航点。 
+\end{DoxyNote}
+\Hypertarget{geo_8c_a71a3f1dd74077ca88d95a943768c728b}\index{geo.c@{geo.c}!get\_bearing\_to\_next\_waypoint@{get\_bearing\_to\_next\_waypoint}}
+\index{get\_bearing\_to\_next\_waypoint@{get\_bearing\_to\_next\_waypoint}!geo.c@{geo.c}}
+\doxysubsubsection{\texorpdfstring{get\_bearing\_to\_next\_waypoint()}{get\_bearing\_to\_next\_waypoint()}}
+{\footnotesize\ttfamily \label{geo_8c_a71a3f1dd74077ca88d95a943768c728b} 
+float get\+\_\+bearing\+\_\+to\+\_\+next\+\_\+waypoint (\begin{DoxyParamCaption}\item[{double}]{lat\+\_\+now}{, }\item[{double}]{lon\+\_\+now}{, }\item[{double}]{lat\+\_\+next}{, }\item[{double}]{lon\+\_\+next}{}\end{DoxyParamCaption})}
+
+
+
+计算到下一个航点的方位角（初始航向） 
+
+该函数使用球面余弦定理计算从当前地理位置到下一个航点的初始方位角（弧度）。 方位角是相对于北向的顺时针角度，范围归一化至 \mbox{[}-\/π, π\mbox{]}。
+
+
+\begin{DoxyParams}{参数}
+{\em lat\+\_\+now} & 当前纬度，单位：度 \\
+\hline
+{\em lon\+\_\+now} & 当前经度，单位：度 \\
+\hline
+{\em lat\+\_\+next} & 下一航点纬度，单位：度 \\
+\hline
+{\em lon\+\_\+next} & 下一航点经度，单位：度\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+方位角，单位：弧度，范围 \mbox{[}-\/π, π\mbox{]}，其中：
+\begin{DoxyItemize}
+\item 0 弧度表示北方
+\item π/2 弧度表示东方
+\item π 或 -\/π 表示南方
+\item -\/π/2 弧度表示西方
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{注解}
+所有输入坐标应以度为单位。该函数采用球形地球模型， 适用于中小距离的计算。 
+\end{DoxyNote}
+\Hypertarget{geo_8c_abeff6a5ec4736d7cb89258a0d26560d1}\index{geo.c@{geo.c}!get\_distance\_to\_arc@{get\_distance\_to\_arc}}
+\index{get\_distance\_to\_arc@{get\_distance\_to\_arc}!geo.c@{geo.c}}
+\doxysubsubsection{\texorpdfstring{get\_distance\_to\_arc()}{get\_distance\_to\_arc()}}
+{\footnotesize\ttfamily \label{geo_8c_abeff6a5ec4736d7cb89258a0d26560d1} 
+int get\+\_\+distance\+\_\+to\+\_\+arc (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structcrosstrack__error__s}{crosstrack\+\_\+error\+\_\+s}} \texorpdfstring{$\ast$}{*}}]{crosstrack\+\_\+error}{, }\item[{double}]{lat\+\_\+now}{, }\item[{double}]{lon\+\_\+now}{, }\item[{double}]{lat\+\_\+center}{, }\item[{double}]{lon\+\_\+center}{, }\item[{float}]{radius}{, }\item[{float}]{arc\+\_\+start\+\_\+bearing}{, }\item[{float}]{arc\+\_\+sweep}{}\end{DoxyParamCaption})}
+
+
+
+计算当前位置到指定圆弧（arc）的最近距离和方位，并填充横向误差结构体 
+
+该函数在给定圆心和半径以及圆弧起始方位与扫过角的情况下， 计算当前位置到圆弧的最短距离与相应的方位，并通过 \doxylink{structcrosstrack__error__s}{crosstrack\+\_\+error\+\_\+s} 结构返回结果。 函数同时标记是否到达圆弧的终点（past\+\_\+end）。
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{out}}  & {\em crosstrack\+\_\+error} & 指向用于返回结果的结构体指针。函数会设置以下字段：
+\begin{DoxyItemize}
+\item crosstrack\+\_\+error-\/\texorpdfstring{$>$}{>}distance \+: 最近点到当前位置的距离（单位：米，非负）。
+\item crosstrack\+\_\+error-\/\texorpdfstring{$>$}{>}bearing \+: 从当前位置指向最近点的航向（单位：弧度）， 最终用 wrap\+\_\+pif 包裹到典型区间（例如 -\/π 到 π）。
+\item crosstrack\+\_\+error-\/\texorpdfstring{$>$}{>}past\+\_\+end \+: 布尔值，若最近点为圆弧终点则为 true，否则为 false。 
+\end{DoxyItemize}\\
+\hline
+\mbox{\texttt{in}}  & {\em lat\+\_\+now} & 当前纬度（与项目中 \doxylink{geo_8c_aa534a8020615f97fdd342c587211d557}{get\+\_\+distance\+\_\+to\+\_\+next\+\_\+waypoint()}/get\+\_\+bearing\+\_\+to\+\_\+next\+\_\+waypoint() 使用的纬度单位一致）。 \\
+\hline
+\mbox{\texttt{in}}  & {\em lon\+\_\+now} & 当前经度（与项目中 \doxylink{geo_8c_aa534a8020615f97fdd342c587211d557}{get\+\_\+distance\+\_\+to\+\_\+next\+\_\+waypoint()}/get\+\_\+bearing\+\_\+to\+\_\+next\+\_\+waypoint() 使用的经度单位一致）。 \\
+\hline
+\mbox{\texttt{in}}  & {\em lat\+\_\+center} & 圆心纬度（与上述经纬度单位一致）。 \\
+\hline
+\mbox{\texttt{in}}  & {\em lon\+\_\+center} & 圆心经度（与上述经纬度单位一致）。 \\
+\hline
+\mbox{\texttt{in}}  & {\em radius} & 圆弧半径（单位：米）。若 radius \texorpdfstring{$<$}{<} 0.\+1，则函数视为无效并返回错误。 \\
+\hline
+\mbox{\texttt{in}}  & {\em arc\+\_\+start\+\_\+bearing} & 圆弧起始方位（单位：弧度）。与 arc\+\_\+sweep 一起定义圆弧的区间（按模 2π 处理）。 \\
+\hline
+\mbox{\texttt{in}}  & {\em arc\+\_\+sweep} & 圆弧扫过角（单位：弧度），可为正或负：
+\begin{DoxyItemize}
+\item 当 arc\+\_\+sweep \texorpdfstring{$>$}{>}= 0 时，圆弧区间为 \mbox{[}arc\+\_\+start\+\_\+bearing, arc\+\_\+start\+\_\+bearing + arc\+\_\+sweep\mbox{]}（模 2π）。
+\item 当 arc\+\_\+sweep \texorpdfstring{$<$}{<} 0 时，圆弧区间为 \mbox{[}arc\+\_\+start\+\_\+bearing + arc\+\_\+sweep, arc\+\_\+start\+\_\+bearing\mbox{]}（模 2π）。
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+返回值说明：
+\begin{DoxyItemize}
+\item 0 表示成功计算并已填充 crosstrack\+\_\+error。
+\item -\/1 表示输入无效（当前仅在 radius \texorpdfstring{$<$}{<} 0.\+1 m 时返回错误）；在出错时 crosstrack\+\_\+error 不被保证为有效值。 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{参见}
+\doxylink{geo_8c_aa534a8020615f97fdd342c587211d557}{get\+\_\+distance\+\_\+to\+\_\+next\+\_\+waypoint}, \doxylink{geo_8c_a71a3f1dd74077ca88d95a943768c728b}{get\+\_\+bearing\+\_\+to\+\_\+next\+\_\+waypoint}, wrap\+\_\+pif 
+\end{DoxySeeAlso}
+\Hypertarget{geo_8c_a8461e04a8672b957285ced1e58cad478}\index{geo.c@{geo.c}!get\_distance\_to\_line@{get\_distance\_to\_line}}
+\index{get\_distance\_to\_line@{get\_distance\_to\_line}!geo.c@{geo.c}}
+\doxysubsubsection{\texorpdfstring{get\_distance\_to\_line()}{get\_distance\_to\_line()}}
+{\footnotesize\ttfamily \label{geo_8c_a8461e04a8672b957285ced1e58cad478} 
+int get\+\_\+distance\+\_\+to\+\_\+line (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structcrosstrack__error__s}{crosstrack\+\_\+error\+\_\+s}} \texorpdfstring{$\ast$}{*}}]{crosstrack\+\_\+error}{, }\item[{double}]{lat\+\_\+now}{, }\item[{double}]{lon\+\_\+now}{, }\item[{double}]{lat\+\_\+start}{, }\item[{double}]{lon\+\_\+start}{, }\item[{double}]{lat\+\_\+end}{, }\item[{double}]{lon\+\_\+end}{}\end{DoxyParamCaption})}
+
+
+
+计算当前位置到线段的横向误差（cross-\/track error）。 
+
+计算从当前位置 (lat\+\_\+now, lon\+\_\+now) 到由 (lat\+\_\+start, lon\+\_\+start) 与 (lat\+\_\+end, lon\+\_\+end) 定义的大圆航线段的有符号最短距离（横向误差）以及指向该航线的制导航向。 同时检测当前位置是否已越过航段终点。
+
+\begin{DoxyNote}{注解}
+crosstrack\+\_\+error 结构体字段：
+\begin{DoxyItemize}
+\item crosstrack\+\_\+error-\/\texorpdfstring{$>$}{>}distance \+: 有符号横向距离（与 get\+\_\+distance\+\_\+to\+\_\+next\+\_\+waypoint 返回相同的线性单位）。 符号表示相对于由起点到终点方向的航线在左/右侧（正值表示在航线左侧）。
+\item crosstrack\+\_\+error-\/\texorpdfstring{$>$}{>}bearing \+: 指向航线的航向（弧度），已归一化到 \mbox{[}-\/pi, pi\mbox{]}。 值基于航线航向旋转 ±pi/2，取决于当前位置在哪一侧。
+\item crosstrack\+\_\+error-\/\texorpdfstring{$>$}{>}past\+\_\+end \+: 当当前位置沿航线方向越过终点时置为 true （即航线航向与指向终点的航向之间的角度差超过 ±pi/2）。
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item 航向以弧度表示，使用 wrap\+\_\+pif/wrap\+\_\+pi 等函数归一化。
+\item 距离使用与 get\+\_\+distance\+\_\+to\+\_\+next\+\_\+waypoint 相同的单位（通常为米）。
+\item 函数在内部使用浮点运算（中间计算为 float 精度）。
+\end{DoxyItemize}
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{out}}  & {\em crosstrack\+\_\+error} & \+: 指向要填充的 struct \doxylink{structcrosstrack__error__s}{crosstrack\+\_\+error\+\_\+s} 的指针。 \\
+\hline
+\mbox{\texttt{in}}  & {\em lat\+\_\+now,lon\+\_\+now} & \+: 当前点纬度/经度（度）。 \\
+\hline
+\mbox{\texttt{in}}  & {\em lat\+\_\+start,lon\+\_\+start} & \+: 航段起点纬度/经度（度）。 \\
+\hline
+\mbox{\texttt{in}}  & {\em lat\+\_\+end,lon\+\_\+end} & \+: 航段终点纬度/经度（度）。\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+
+\begin{DoxyItemize}
+\item 0 成功（crosstrack\+\_\+error 已填充）。
+\item -\/1 错误（参数无效或当前位置与终点距离过小）。此时 crosstrack\+\_\+error 保持默认/重置状态 （past\+\_\+end = false, distance = 0.\+0, bearing = 0.\+0）。
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{注解}
+
+\begin{DoxyItemize}
+\item 若当前位置到终点距离非常小（dist\+\_\+to\+\_\+end \texorpdfstring{$<$}{<} 0.\+1，与 get\+\_\+distance\+\_\+to\+\_\+next\+\_\+waypoint 单位一致）， 为避免不可靠的横向误差计算，函数返回 -\/1。 
+\end{DoxyItemize}
+\end{DoxyNote}
+\Hypertarget{geo_8c_aa534a8020615f97fdd342c587211d557}\index{geo.c@{geo.c}!get\_distance\_to\_next\_waypoint@{get\_distance\_to\_next\_waypoint}}
+\index{get\_distance\_to\_next\_waypoint@{get\_distance\_to\_next\_waypoint}!geo.c@{geo.c}}
+\doxysubsubsection{\texorpdfstring{get\_distance\_to\_next\_waypoint()}{get\_distance\_to\_next\_waypoint()}}
+{\footnotesize\ttfamily \label{geo_8c_aa534a8020615f97fdd342c587211d557} 
+float get\+\_\+distance\+\_\+to\+\_\+next\+\_\+waypoint (\begin{DoxyParamCaption}\item[{double}]{lat\+\_\+now}{, }\item[{double}]{lon\+\_\+now}{, }\item[{double}]{lat\+\_\+next}{, }\item[{double}]{lon\+\_\+next}{}\end{DoxyParamCaption})}
+
+
+
+计算两个地理航点之间的大圆距离 
+
+使用\+Haversine公式计算地球表面上两点之间的最短距离， 这两点由它们的纬度和经度坐标指定。
+
+
+\begin{DoxyParams}{参数}
+{\em lat\+\_\+now} & 当前纬度，单位：十进制度 \\
+\hline
+{\em lon\+\_\+now} & 当前经度，单位：十进制度 \\
+\hline
+{\em lat\+\_\+next} & 下一航点纬度，单位：十进制度 \\
+\hline
+{\em lon\+\_\+next} & 下一航点经度，单位：十进制度\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+到下一航点的距离，单位：米（或\+CONSTANTS\+\_\+\+RADIUS\+\_\+\+OF\+\_\+\+EARTH使用的单位）
+\end{DoxyReturn}
+\begin{DoxyNote}{注解}
+假设radians()宏/函数将度转换为弧度 
+
+CONSTANTS\+\_\+\+RADIUS\+\_\+\+OF\+\_\+\+EARTH应定义为地球平均半径（约6371000米） 
+
+输入坐标应为有效的纬度\mbox{[}-\/90, 90\mbox{]}和经度\mbox{[}-\/180, 180\mbox{]}值 
+\end{DoxyNote}
+\Hypertarget{geo_8c_a5e68ad5e5e2cbff411bc04cd80724856}\index{geo.c@{geo.c}!get\_distance\_to\_point\_global\_wgs84@{get\_distance\_to\_point\_global\_wgs84}}
+\index{get\_distance\_to\_point\_global\_wgs84@{get\_distance\_to\_point\_global\_wgs84}!geo.c@{geo.c}}
+\doxysubsubsection{\texorpdfstring{get\_distance\_to\_point\_global\_wgs84()}{get\_distance\_to\_point\_global\_wgs84()}}
+{\footnotesize\ttfamily \label{geo_8c_a5e68ad5e5e2cbff411bc04cd80724856} 
+float get\+\_\+distance\+\_\+to\+\_\+point\+\_\+global\+\_\+wgs84 (\begin{DoxyParamCaption}\item[{double}]{lat\+\_\+now}{, }\item[{double}]{lon\+\_\+now}{, }\item[{float}]{alt\+\_\+now}{, }\item[{double}]{lat\+\_\+next}{, }\item[{double}]{lon\+\_\+next}{, }\item[{float}]{alt\+\_\+next}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{dist\+\_\+xy}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{dist\+\_\+z}{}\end{DoxyParamCaption})}
+
+
+
+使用\+Haversine公式计算两个地理点之间的距离 
+
+计算以\+WGS84坐标（纬度/经度/高度）指定的两点之间的3\+D距离。 该函数返回总3\+D距离，并提供水平和竖直分量。
+
+
+\begin{DoxyParams}{参数}
+{\em lat\+\_\+now} & 当前纬度，单位：度 \\
+\hline
+{\em lon\+\_\+now} & 当前经度，单位：度 \\
+\hline
+{\em alt\+\_\+now} & 当前高度，单位：米 \\
+\hline
+{\em lat\+\_\+next} & 目标纬度，单位：度 \\
+\hline
+{\em lon\+\_\+next} & 目标经度，单位：度 \\
+\hline
+{\em alt\+\_\+next} & 目标高度，单位：米 \\
+\hline
+{\em dist\+\_\+xy} & 指向存储水平距离的指针，单位：米 \\
+\hline
+{\em dist\+\_\+z} & 指向存储竖直距离的指针，单位：米\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+float 两点之间的总3\+D距离，单位：米
+\end{DoxyReturn}
+\begin{DoxyNote}{注解}
+使用\+Haversine公式计算地球表面的大圆距离 
+
+所有返回的距离值为绝对值（正数） 
+
+需要定义\+CONSTANTS\+\_\+\+RADIUS\+\_\+\+OF\+\_\+\+EARTH（通常约为6371000米） 
+\end{DoxyNote}
+\Hypertarget{geo_8c_af78e324949ecc8e9b46518c695cc2e42}\index{geo.c@{geo.c}!get\_vector\_to\_next\_waypoint@{get\_vector\_to\_next\_waypoint}}
+\index{get\_vector\_to\_next\_waypoint@{get\_vector\_to\_next\_waypoint}!geo.c@{geo.c}}
+\doxysubsubsection{\texorpdfstring{get\_vector\_to\_next\_waypoint()}{get\_vector\_to\_next\_waypoint()}}
+{\footnotesize\ttfamily \label{geo_8c_af78e324949ecc8e9b46518c695cc2e42} 
+void get\+\_\+vector\+\_\+to\+\_\+next\+\_\+waypoint (\begin{DoxyParamCaption}\item[{double}]{lat\+\_\+now}{, }\item[{double}]{lon\+\_\+now}{, }\item[{double}]{lat\+\_\+next}{, }\item[{double}]{lon\+\_\+next}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{v\+\_\+n}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{v\+\_\+e}{}\end{DoxyParamCaption})}
+
+
+
+计算当前位置到下一个航点的向量在局部东北坐标系（\+North, East）上的分量（单位：米）。 
+
+给定当前点和目标航点的纬度/经度，函数基于球面地球模型（使用 CONSTANTS\+\_\+\+RADIUS\+\_\+\+OF\+\_\+\+EARTH） 计算从当前点指向目标航点的向量在北向和东向的分量。输入角度以十进制度（degrees）给出， 函数会内部将其转换为弧度并使用三角函数进行计算。实现中为兼顾性能与精度在部分计算中混合 使用了 double 与 float 类型的三角运算与转换。
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{in}}  & {\em lat\+\_\+now} & 当前纬度（degrees）。 \\
+\hline
+\mbox{\texttt{in}}  & {\em lon\+\_\+now} & 当前经度（degrees）。 \\
+\hline
+\mbox{\texttt{in}}  & {\em lat\+\_\+next} & 目标航点纬度（degrees）。 \\
+\hline
+\mbox{\texttt{in}}  & {\em lon\+\_\+next} & 目标航点经度（degrees）。 \\
+\hline
+\mbox{\texttt{out}}  & {\em v\+\_\+n} & 指向 float 的指针，用于返回北向分量（单位：米）。调用者需保证非 NULL。 \\
+\hline
+\mbox{\texttt{out}}  & {\em v\+\_\+e} & 指向 float 的指针，用于返回东向分量（单位：米）。调用者需保证非 NULL。\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+
+\begin{DoxyItemize}
+\item 结果基于简化的球面近似（不考虑高度差或地球椭球体修正），适用于短至中距离导航向量计算。
+\item 输入角度必须为度值；函数内部使用 radians() 进行转换。
+\item 函数不对 v\+\_\+n/v\+\_\+e 进行空指针检查，调用者需负责传入有效指针。
+\item 该函数无全局可变状态（假定 CONSTANTS\+\_\+\+RADIUS\+\_\+\+OF\+\_\+\+EARTH 为常量），因此在多线程环境下为可重入的。
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxySeeAlso}{参见}
+radians() 
+\end{DoxySeeAlso}
+\Hypertarget{geo_8c_a5fba342d3636e23b40d89e62df5e2490}\index{geo.c@{geo.c}!get\_vector\_to\_next\_waypoint\_fast@{get\_vector\_to\_next\_waypoint\_fast}}
+\index{get\_vector\_to\_next\_waypoint\_fast@{get\_vector\_to\_next\_waypoint\_fast}!geo.c@{geo.c}}
+\doxysubsubsection{\texorpdfstring{get\_vector\_to\_next\_waypoint\_fast()}{get\_vector\_to\_next\_waypoint\_fast()}}
+{\footnotesize\ttfamily \label{geo_8c_a5fba342d3636e23b40d89e62df5e2490} 
+void get\+\_\+vector\+\_\+to\+\_\+next\+\_\+waypoint\+\_\+fast (\begin{DoxyParamCaption}\item[{double}]{lat\+\_\+now}{, }\item[{double}]{lon\+\_\+now}{, }\item[{double}]{lat\+\_\+next}{, }\item[{double}]{lon\+\_\+next}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{v\+\_\+n}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{v\+\_\+e}{}\end{DoxyParamCaption})}
+
+
+
+计算从当前位置到下一个航路点的向量（快速版本） 
+
+该函数使用快速近似方法计算从当前地理位置到下一个航路点的北向和东向速度向量。 混合使用双精度和单精度三角函数以最大化速度和效率。
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{in}}  & {\em lat\+\_\+now} & 当前位置纬度（度） \\
+\hline
+\mbox{\texttt{in}}  & {\em lon\+\_\+now} & 当前位置经度（度） \\
+\hline
+\mbox{\texttt{in}}  & {\em lat\+\_\+next} & 下一个航路点纬度（度） \\
+\hline
+\mbox{\texttt{in}}  & {\em lon\+\_\+next} & 下一个航路点经度（度） \\
+\hline
+\mbox{\texttt{out}}  & {\em v\+\_\+n} & 指向北向向量分量的指针（米） \\
+\hline
+\mbox{\texttt{out}}  & {\em v\+\_\+e} & 指向东向向量分量的指针（米）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+void
+\end{DoxyReturn}
+\begin{DoxyNote}{注解}
+此函数使用简化的地球模型，假设地球半径恒定，适用于近距离航路点计算 
+
+输出向量分量单位为米，基于地球半径常数计算
+\end{DoxyNote}
+\begin{DoxySeeAlso}{参见}
+CONSTANTS\+\_\+\+RADIUS\+\_\+\+OF\+\_\+\+EARTH 
+
+radians() 
+\end{DoxySeeAlso}
+\Hypertarget{geo_8c_a8cf2ed6d2c6d6ef12853085621d50c24}\index{geo.c@{geo.c}!waypoint\_from\_heading\_and\_distance@{waypoint\_from\_heading\_and\_distance}}
+\index{waypoint\_from\_heading\_and\_distance@{waypoint\_from\_heading\_and\_distance}!geo.c@{geo.c}}
+\doxysubsubsection{\texorpdfstring{waypoint\_from\_heading\_and\_distance()}{waypoint\_from\_heading\_and\_distance()}}
+{\footnotesize\ttfamily \label{geo_8c_a8cf2ed6d2c6d6ef12853085621d50c24} 
+void waypoint\+\_\+from\+\_\+heading\+\_\+and\+\_\+distance (\begin{DoxyParamCaption}\item[{double}]{lat\+\_\+start}{, }\item[{double}]{lon\+\_\+start}{, }\item[{float}]{bearing}{, }\item[{float}]{dist}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{lat\+\_\+target}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{lon\+\_\+target}{}\end{DoxyParamCaption})}
+
+
+
+根据起始点、方位角和距离计算目标航点坐标 
+
+该函数基于起始地理位置、方位角和行进距离，计算目标航点的纬度和经度。 计算使用球面三角学来考虑地球的曲率。
+
+
+\begin{DoxyParams}{参数}
+{\em lat\+\_\+start} & 起始纬度，单位：度 \\
+\hline
+{\em lon\+\_\+start} & 起始经度，单位：度 \\
+\hline
+{\em bearing} & 方位角，单位：弧度（将被归一化到 \mbox{[}0, 2π\mbox{]}） \\
+\hline
+{\em dist} & 行进距离，单位：米 \\
+\hline
+{\em lat\+\_\+target} & 指向存储计算出的目标纬度的指针，单位：度 \\
+\hline
+{\em lon\+\_\+target} & 指向存储计算出的目标经度的指针，单位：度\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+方位角使用 wrap\+\_\+2pif() 归一化，确保其在 \mbox{[}0, 2π\mbox{]} 范围内。 
+
+CONSTANTS\+\_\+\+RADIUS\+\_\+\+OF\+\_\+\+EARTH 应定义为地球平均半径（米）。 
+
+坐标使用 WGS84 基准（纬度/经度以度为单位）。
+\end{DoxyNote}
+\begin{DoxySeeAlso}{参见}
+wrap\+\_\+2pif(), radians(), degrees() 
+\end{DoxySeeAlso}

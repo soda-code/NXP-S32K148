@@ -1,0 +1,199 @@
+\doxysection{src/os/os\+\_\+task\+\_\+diagnosis.c 文件参考}
+\hypertarget{os__task__diagnosis_8c}{}\label{os__task__diagnosis_8c}\index{src/os/os\_task\_diagnosis.c@{src/os/os\_task\_diagnosis.c}}
+
+
+系统诊断任务  
+
+
+{\ttfamily \#include "{}os\+\_\+task\+\_\+diagnosis.\+h"{}}\newline
+{\ttfamily \#include "{}bsp.\+h"{}}\newline
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_task_diag_config__t}{Task\+Diag\+Config\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em 任务诊断配置 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{os__task__diagnosis_8c_aa4a2f928b637887cd165f08fb24445ea}{TASK\+\_\+\+NORMAL}}~(1u)
+\begin{DoxyCompactList}\small\item\em 任务状态 \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{os__task__diagnosis_8c_a6c4844c4d39945b8308575daf612394b}{TASK\+\_\+\+ABNORMAL}}~(0u)
+\item 
+\#define \mbox{\hyperlink{os__task__diagnosis_8c_ac100b1f685b87893cb8824dc9a0d1579}{COM\+\_\+\+TASK\+\_\+\+EVENT}}~(\mbox{\hyperlink{os__task_8h_ae79a25eb3a4351c1e9b3c1a7721c3103}{COM\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BIT}} $<$$<$ 1)
+\begin{DoxyCompactList}\small\item\em 任务事件唯一性映射 \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{os__task__diagnosis_8c_a019d894120a19b09a43ce3d4f4fc707a}{BODY\+\_\+\+TASK\+\_\+\+EVENT}}~(\mbox{\hyperlink{os__task_8h_a90d910d3f785d13c5c235849338d0bf2}{BODY\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BIT}} $<$$<$ 1)
+\item 
+\#define \mbox{\hyperlink{os__task__diagnosis_8c_a197b22d294d78b55f1be977749cb940f}{MOTOR\+\_\+\+TASK\+\_\+\+EVENT}}~(\mbox{\hyperlink{os__task_8h_a04e9ac8e3b72b86ada5e6bb9548a5ced}{MOTOR\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BIT}} $<$$<$ 1)
+\item 
+\#define \mbox{\hyperlink{os__task__diagnosis_8c_a239a743ed8d159d84e9c0f4f61ab08ec}{ENERGY\+\_\+\+TASK\+\_\+\+EVENT}}~(\mbox{\hyperlink{os__task_8h_abb1e7d55761c9fc1cce93388eeb69a77}{ENERGY\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BIT}} $<$$<$ 1)
+\item 
+\#define \mbox{\hyperlink{os__task__diagnosis_8c_a94bffb193cb9de9369771487fe1db5aa}{DIAGNOSIS\+\_\+\+PERIOD}}~(10u)
+\begin{DoxyCompactList}\small\item\em 诊断周期 \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{os__task__diagnosis_8c_a410875c3f82648c20894c3f3c024b260}{ALL\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BITS}}
+\begin{DoxyCompactList}\small\item\em 所有系统自检任务存活位 \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{os__task__diagnosis_8c_ae184d8d5afd39e58a02e618c0a162bd1}{TASK\+\_\+\+DIAG\+\_\+\+CONFIG\+\_\+\+CNT}}~(sizeof(s\+\_\+task\+\_\+diag\+\_\+config) / sizeof(\mbox{\hyperlink{struct_task_diag_config__t}{Task\+Diag\+Config\+\_\+t}}))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{os__task__diagnosis_8c_ab6ad48a3c0284917b941ccff7d1dbe5b}{MCU\+\_\+\+Freq\+\_\+\+Print}} (void)
+\begin{DoxyCompactList}\small\item\em 打印\+MCU核心频率信息 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{os__task__diagnosis_8c_a8053a425ece933dab1c08fd0c07268ef}{OS\+\_\+\+Task\+\_\+\+Diagnosis}} (void \texorpdfstring{$\ast$}{*}pv\+Para)
+\begin{DoxyCompactList}\small\item\em 诊断任务主函数，周期性执行系统健康监测 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{变量}
+\begin{DoxyCompactItemize}
+\item 
+volatile size\+\_\+t \mbox{\hyperlink{os__task__diagnosis_8c_acc974055107e0328e84ac9d76159685e}{x\+Free\+Heap\+Space}}
+\begin{DoxyCompactList}\small\item\em 空闲堆内存大小 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+系统诊断任务 
+
+\begin{DoxyAuthor}{作者}
+polaris 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{版本}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{日期}
+2025-\/11-\/22 
+\end{DoxyDate}
+
+
+\label{doc-define-members}
+\Hypertarget{os__task__diagnosis_8c_doc-define-members}
+\doxysubsection{宏定义说明}
+\Hypertarget{os__task__diagnosis_8c_a410875c3f82648c20894c3f3c024b260}\index{os\_task\_diagnosis.c@{os\_task\_diagnosis.c}!ALL\_TASK\_ALIVE\_BITS@{ALL\_TASK\_ALIVE\_BITS}}
+\index{ALL\_TASK\_ALIVE\_BITS@{ALL\_TASK\_ALIVE\_BITS}!os\_task\_diagnosis.c@{os\_task\_diagnosis.c}}
+\doxysubsubsection{\texorpdfstring{ALL\_TASK\_ALIVE\_BITS}{ALL\_TASK\_ALIVE\_BITS}}
+{\footnotesize\ttfamily \label{os__task__diagnosis_8c_a410875c3f82648c20894c3f3c024b260} 
+\#define ALL\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BITS}
+
+{\bfseries 值\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{os__task_8h_ae79a25eb3a4351c1e9b3c1a7721c3103}{COM\_TASK\_ALIVE\_BIT}}\ |\ \mbox{\hyperlink{os__task_8h_a90d910d3f785d13c5c235849338d0bf2}{BODY\_TASK\_ALIVE\_BIT}}\ |\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{os__task_8h_a04e9ac8e3b72b86ada5e6bb9548a5ced}{MOTOR\_TASK\_ALIVE\_BIT}}\ |\ \mbox{\hyperlink{os__task_8h_abb1e7d55761c9fc1cce93388eeb69a77}{ENERGY\_TASK\_ALIVE\_BIT}})}
+
+\end{DoxyCode}
+
+
+所有系统自检任务存活位 
+
+\Hypertarget{os__task__diagnosis_8c_a019d894120a19b09a43ce3d4f4fc707a}\index{os\_task\_diagnosis.c@{os\_task\_diagnosis.c}!BODY\_TASK\_EVENT@{BODY\_TASK\_EVENT}}
+\index{BODY\_TASK\_EVENT@{BODY\_TASK\_EVENT}!os\_task\_diagnosis.c@{os\_task\_diagnosis.c}}
+\doxysubsubsection{\texorpdfstring{BODY\_TASK\_EVENT}{BODY\_TASK\_EVENT}}
+{\footnotesize\ttfamily \label{os__task__diagnosis_8c_a019d894120a19b09a43ce3d4f4fc707a} 
+\#define BODY\+\_\+\+TASK\+\_\+\+EVENT~(\mbox{\hyperlink{os__task_8h_a90d910d3f785d13c5c235849338d0bf2}{BODY\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BIT}} $<$$<$ 1)}
+
+\Hypertarget{os__task__diagnosis_8c_ac100b1f685b87893cb8824dc9a0d1579}\index{os\_task\_diagnosis.c@{os\_task\_diagnosis.c}!COM\_TASK\_EVENT@{COM\_TASK\_EVENT}}
+\index{COM\_TASK\_EVENT@{COM\_TASK\_EVENT}!os\_task\_diagnosis.c@{os\_task\_diagnosis.c}}
+\doxysubsubsection{\texorpdfstring{COM\_TASK\_EVENT}{COM\_TASK\_EVENT}}
+{\footnotesize\ttfamily \label{os__task__diagnosis_8c_ac100b1f685b87893cb8824dc9a0d1579} 
+\#define COM\+\_\+\+TASK\+\_\+\+EVENT~(\mbox{\hyperlink{os__task_8h_ae79a25eb3a4351c1e9b3c1a7721c3103}{COM\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BIT}} $<$$<$ 1)}
+
+
+
+任务事件唯一性映射 
+
+\Hypertarget{os__task__diagnosis_8c_a94bffb193cb9de9369771487fe1db5aa}\index{os\_task\_diagnosis.c@{os\_task\_diagnosis.c}!DIAGNOSIS\_PERIOD@{DIAGNOSIS\_PERIOD}}
+\index{DIAGNOSIS\_PERIOD@{DIAGNOSIS\_PERIOD}!os\_task\_diagnosis.c@{os\_task\_diagnosis.c}}
+\doxysubsubsection{\texorpdfstring{DIAGNOSIS\_PERIOD}{DIAGNOSIS\_PERIOD}}
+{\footnotesize\ttfamily \label{os__task__diagnosis_8c_a94bffb193cb9de9369771487fe1db5aa} 
+\#define DIAGNOSIS\+\_\+\+PERIOD~(10u)}
+
+
+
+诊断周期 
+
+\Hypertarget{os__task__diagnosis_8c_a239a743ed8d159d84e9c0f4f61ab08ec}\index{os\_task\_diagnosis.c@{os\_task\_diagnosis.c}!ENERGY\_TASK\_EVENT@{ENERGY\_TASK\_EVENT}}
+\index{ENERGY\_TASK\_EVENT@{ENERGY\_TASK\_EVENT}!os\_task\_diagnosis.c@{os\_task\_diagnosis.c}}
+\doxysubsubsection{\texorpdfstring{ENERGY\_TASK\_EVENT}{ENERGY\_TASK\_EVENT}}
+{\footnotesize\ttfamily \label{os__task__diagnosis_8c_a239a743ed8d159d84e9c0f4f61ab08ec} 
+\#define ENERGY\+\_\+\+TASK\+\_\+\+EVENT~(\mbox{\hyperlink{os__task_8h_abb1e7d55761c9fc1cce93388eeb69a77}{ENERGY\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BIT}} $<$$<$ 1)}
+
+\Hypertarget{os__task__diagnosis_8c_a197b22d294d78b55f1be977749cb940f}\index{os\_task\_diagnosis.c@{os\_task\_diagnosis.c}!MOTOR\_TASK\_EVENT@{MOTOR\_TASK\_EVENT}}
+\index{MOTOR\_TASK\_EVENT@{MOTOR\_TASK\_EVENT}!os\_task\_diagnosis.c@{os\_task\_diagnosis.c}}
+\doxysubsubsection{\texorpdfstring{MOTOR\_TASK\_EVENT}{MOTOR\_TASK\_EVENT}}
+{\footnotesize\ttfamily \label{os__task__diagnosis_8c_a197b22d294d78b55f1be977749cb940f} 
+\#define MOTOR\+\_\+\+TASK\+\_\+\+EVENT~(\mbox{\hyperlink{os__task_8h_a04e9ac8e3b72b86ada5e6bb9548a5ced}{MOTOR\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BIT}} $<$$<$ 1)}
+
+\Hypertarget{os__task__diagnosis_8c_a6c4844c4d39945b8308575daf612394b}\index{os\_task\_diagnosis.c@{os\_task\_diagnosis.c}!TASK\_ABNORMAL@{TASK\_ABNORMAL}}
+\index{TASK\_ABNORMAL@{TASK\_ABNORMAL}!os\_task\_diagnosis.c@{os\_task\_diagnosis.c}}
+\doxysubsubsection{\texorpdfstring{TASK\_ABNORMAL}{TASK\_ABNORMAL}}
+{\footnotesize\ttfamily \label{os__task__diagnosis_8c_a6c4844c4d39945b8308575daf612394b} 
+\#define TASK\+\_\+\+ABNORMAL~(0u)}
+
+\Hypertarget{os__task__diagnosis_8c_ae184d8d5afd39e58a02e618c0a162bd1}\index{os\_task\_diagnosis.c@{os\_task\_diagnosis.c}!TASK\_DIAG\_CONFIG\_CNT@{TASK\_DIAG\_CONFIG\_CNT}}
+\index{TASK\_DIAG\_CONFIG\_CNT@{TASK\_DIAG\_CONFIG\_CNT}!os\_task\_diagnosis.c@{os\_task\_diagnosis.c}}
+\doxysubsubsection{\texorpdfstring{TASK\_DIAG\_CONFIG\_CNT}{TASK\_DIAG\_CONFIG\_CNT}}
+{\footnotesize\ttfamily \label{os__task__diagnosis_8c_ae184d8d5afd39e58a02e618c0a162bd1} 
+\#define TASK\+\_\+\+DIAG\+\_\+\+CONFIG\+\_\+\+CNT~(sizeof(s\+\_\+task\+\_\+diag\+\_\+config) / sizeof(\mbox{\hyperlink{struct_task_diag_config__t}{Task\+Diag\+Config\+\_\+t}}))}
+
+\Hypertarget{os__task__diagnosis_8c_aa4a2f928b637887cd165f08fb24445ea}\index{os\_task\_diagnosis.c@{os\_task\_diagnosis.c}!TASK\_NORMAL@{TASK\_NORMAL}}
+\index{TASK\_NORMAL@{TASK\_NORMAL}!os\_task\_diagnosis.c@{os\_task\_diagnosis.c}}
+\doxysubsubsection{\texorpdfstring{TASK\_NORMAL}{TASK\_NORMAL}}
+{\footnotesize\ttfamily \label{os__task__diagnosis_8c_aa4a2f928b637887cd165f08fb24445ea} 
+\#define TASK\+\_\+\+NORMAL~(1u)}
+
+
+
+任务状态 
+
+
+
+\label{doc-func-members}
+\Hypertarget{os__task__diagnosis_8c_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{os__task__diagnosis_8c_ab6ad48a3c0284917b941ccff7d1dbe5b}\index{os\_task\_diagnosis.c@{os\_task\_diagnosis.c}!MCU\_Freq\_Print@{MCU\_Freq\_Print}}
+\index{MCU\_Freq\_Print@{MCU\_Freq\_Print}!os\_task\_diagnosis.c@{os\_task\_diagnosis.c}}
+\doxysubsubsection{\texorpdfstring{MCU\_Freq\_Print()}{MCU\_Freq\_Print()}}
+{\footnotesize\ttfamily \label{os__task__diagnosis_8c_ab6ad48a3c0284917b941ccff7d1dbe5b} 
+void MCU\+\_\+\+Freq\+\_\+\+Print (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+打印\+MCU核心频率信息 
+
+该函数获取当前\+MCU的核心时钟频率，并通过\+UART1接口以\+MHz为单位输出频率信息。 输出格式为："{}\mbox{[}\+MCU INFO\mbox{]} Core Frequency\+: X MHz\textbackslash{}r\textbackslash{}n"{} \Hypertarget{os__task__diagnosis_8c_a8053a425ece933dab1c08fd0c07268ef}\index{os\_task\_diagnosis.c@{os\_task\_diagnosis.c}!OS\_Task\_Diagnosis@{OS\_Task\_Diagnosis}}
+\index{OS\_Task\_Diagnosis@{OS\_Task\_Diagnosis}!os\_task\_diagnosis.c@{os\_task\_diagnosis.c}}
+\doxysubsubsection{\texorpdfstring{OS\_Task\_Diagnosis()}{OS\_Task\_Diagnosis()}}
+{\footnotesize\ttfamily \label{os__task__diagnosis_8c_a8053a425ece933dab1c08fd0c07268ef} 
+void OS\+\_\+\+Task\+\_\+\+Diagnosis (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Para}{}\end{DoxyParamCaption})}
+
+
+
+诊断任务主函数，周期性执行系统健康监测 
+
+该任务以固定周期运行系统健康检查，包括但不限于：
+\begin{DoxyItemize}
+\item 系统资源监控
+\item 关键组件状态检查
+\item 故障诊断处理
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{参数}
+{\em pv\+Para} & Free\+RTOS任务参数（未使用）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+任务周期由\+DIAGNOSIS\+\_\+\+PERIOD宏定义控制 
+
+使用v\+Task\+Delay\+Until确保精确周期调度 
+\end{DoxyNote}
+
+
+\label{doc-var-members}
+\Hypertarget{os__task__diagnosis_8c_doc-var-members}
+\doxysubsection{变量说明}
+\Hypertarget{os__task__diagnosis_8c_acc974055107e0328e84ac9d76159685e}\index{os\_task\_diagnosis.c@{os\_task\_diagnosis.c}!xFreeHeapSpace@{xFreeHeapSpace}}
+\index{xFreeHeapSpace@{xFreeHeapSpace}!os\_task\_diagnosis.c@{os\_task\_diagnosis.c}}
+\doxysubsubsection{\texorpdfstring{xFreeHeapSpace}{xFreeHeapSpace}}
+{\footnotesize\ttfamily \label{os__task__diagnosis_8c_acc974055107e0328e84ac9d76159685e} 
+volatile size\+\_\+t x\+Free\+Heap\+Space}
+
+
+
+空闲堆内存大小 
+

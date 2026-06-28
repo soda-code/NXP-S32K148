@@ -1,0 +1,12 @@
+main:
+  push:
+    - stages:
+      - name: sync to github
+        imports: https://cnb.cool/polaris-tian/my-token/-/blob/main/env.yml
+        image: tencentcom/git-sync
+        settings:
+          target_url: https://github.com/CNPolaris/S32K148_VCU_APP.git
+          auth_type: https
+          push_tags: true
+          username: ${GITHUB_USERNAME}
+          password: ${GITHUB_PASSWORD}

@@ -1,0 +1,37 @@
+\doxysection{geo.\+h}
+\hypertarget{geo_8h_source}{}\label{geo_8h_source}\index{src/lib/libgeo/geo.h@{src/lib/libgeo/geo.h}}
+\mbox{\hyperlink{geo_8h}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ LIB\_LIBGEO\_GEO\_H\_}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ LIB\_LIBGEO\_GEO\_H\_}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ CONSTANTS\_ONE\_G\ =\ 9.80665f;}
+\DoxyCodeLine{00018\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ CONSTANTS\_RADIUS\_OF\_EARTH\ =\ 6371000;}
+\DoxyCodeLine{00022\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ CONSTANTS\_RADIUS\_OF\_EARTH\_F\ =\ 6371000;}
+\DoxyCodeLine{00026\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ CONSTANTS\_EARTH\_SPIN\_RATE\ =\ 7.2921150e-\/5f;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcrosstrack__error__s}{crosstrack\_error\_s}}\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structcrosstrack__error__s_ad9c423ec01aad0eff70ad5186d01bbf7}{past\_end}};\ \ \ \textcolor{comment}{//\ 如果最近点超出线段/弧段末端则为真}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structcrosstrack__error__s_a1fbc068b4c85fc5e8b20ebea4e0f0ca7}{distance}};\ \ \textcolor{comment}{//\ 与线/弧最近点的距离，单位：米}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structcrosstrack__error__s_abbd521db18c6ff65884a741d5b69ed79}{bearing}};\ \ \ \textcolor{comment}{//\ 指向最近点的方位角，单位：弧度}}
+\DoxyCodeLine{00047\ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{geo_8h_a71a3f1dd74077ca88d95a943768c728b}{get\_bearing\_to\_next\_waypoint}}(\textcolor{keywordtype}{double}\ lat\_now,\ \textcolor{keywordtype}{double}\ lon\_now,\ \textcolor{keywordtype}{double}\ lat\_next,\ \textcolor{keywordtype}{double}\ lon\_next);}
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{geo_8h_aa534a8020615f97fdd342c587211d557}{get\_distance\_to\_next\_waypoint}}(\textcolor{keywordtype}{double}\ lat\_now,\ \textcolor{keywordtype}{double}\ lon\_now,\ \textcolor{keywordtype}{double}\ lat\_next,\ \textcolor{keywordtype}{double}\ lon\_next);}
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{geo_8h_a8cf2ed6d2c6d6ef12853085621d50c24}{waypoint\_from\_heading\_and\_distance}}(\textcolor{keywordtype}{double}\ lat\_start,\ \textcolor{keywordtype}{double}\ lon\_start,\ \textcolor{keywordtype}{float}\ bearing,\ \textcolor{keywordtype}{float}\ dist,\ \textcolor{keywordtype}{double}\ *lat\_target,\ \textcolor{keywordtype}{double}\ *lon\_target);}
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{geo_8h_a713e1c07bb04347540b8c98af7bb6a37}{create\_waypoint\_from\_line\_and\_dist}}(\textcolor{keywordtype}{double}\ lat\_A,\ \textcolor{keywordtype}{double}\ lon\_A,\ \textcolor{keywordtype}{double}\ lat\_B,\ \textcolor{keywordtype}{double}\ lon\_B,\ \textcolor{keywordtype}{float}\ dist,\ \textcolor{keywordtype}{double}\ *lat\_target,\ \textcolor{keywordtype}{double}\ *lon\_target);}
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{geo_8h_a5e68ad5e5e2cbff411bc04cd80724856}{get\_distance\_to\_point\_global\_wgs84}}(\textcolor{keywordtype}{double}\ lat\_now,\ \textcolor{keywordtype}{double}\ lon\_now,\ \textcolor{keywordtype}{float}\ alt\_now,\ \textcolor{keywordtype}{double}\ lat\_next,\ \textcolor{keywordtype}{double}\ lon\_next,\ \textcolor{keywordtype}{float}\ alt\_next,\textcolor{keywordtype}{float}\ *dist\_xy,\ \textcolor{keywordtype}{float}\ *dist\_z);}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{geo_8h_a8461e04a8672b957285ced1e58cad478}{get\_distance\_to\_line}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structcrosstrack__error__s}{crosstrack\_error\_s}}\ *crosstrack\_error,\ \textcolor{keywordtype}{double}\ lat\_now,\ \textcolor{keywordtype}{double}\ lon\_now,\ \textcolor{keywordtype}{double}\ lat\_start,\ \textcolor{keywordtype}{double}\ lon\_start,\ \textcolor{keywordtype}{double}\ lat\_end,\ \textcolor{keywordtype}{double}\ lon\_end);}
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{geo_8h_abeff6a5ec4736d7cb89258a0d26560d1}{get\_distance\_to\_arc}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structcrosstrack__error__s}{crosstrack\_error\_s}}\ *crosstrack\_error,\ \textcolor{keywordtype}{double}\ lat\_now,\ \textcolor{keywordtype}{double}\ lon\_now,\textcolor{keywordtype}{double}\ lat\_center,\ \textcolor{keywordtype}{double}\ lon\_center,\textcolor{keywordtype}{float}\ radius,\ \textcolor{keywordtype}{float}\ arc\_start\_bearing,\ \textcolor{keywordtype}{float}\ arc\_sweep);}
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{geo_8h_af78e324949ecc8e9b46518c695cc2e42}{get\_vector\_to\_next\_waypoint}}(\textcolor{keywordtype}{double}\ lat\_now,\ \textcolor{keywordtype}{double}\ lon\_now,\ \textcolor{keywordtype}{double}\ lat\_next,\ \textcolor{keywordtype}{double}\ lon\_next,\ \textcolor{keywordtype}{float}\ *v\_n,\ \textcolor{keywordtype}{float}\ *v\_e);}
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{geo_8h_a5fba342d3636e23b40d89e62df5e2490}{get\_vector\_to\_next\_waypoint\_fast}}(\textcolor{keywordtype}{double}\ lat\_now,\ \textcolor{keywordtype}{double}\ lon\_now,\ \textcolor{keywordtype}{double}\ lat\_next,\ \textcolor{keywordtype}{double}\ lon\_next,\ \textcolor{keywordtype}{float}\ *v\_n,\ \textcolor{keywordtype}{float}\ *v\_e);}
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{geo_8h_a5e9f593d4dc359086faa8bb94148116e}{add\_vector\_to\_global\_position}}(\textcolor{keywordtype}{double}\ lat\_now,\ \textcolor{keywordtype}{double}\ lon\_now,\ \textcolor{keywordtype}{float}\ v\_n,\ \textcolor{keywordtype}{float}\ v\_e,\ \textcolor{keywordtype}{double}\ *lat\_res,\ \textcolor{keywordtype}{double}\ *lon\_res);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIB\_LIBGEO\_GEO\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

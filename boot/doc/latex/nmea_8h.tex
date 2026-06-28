@@ -1,0 +1,246 @@
+\doxysection{src/lib/libnmea/nmea.h 文件参考}
+\hypertarget{nmea_8h}{}\label{nmea_8h}\index{src/lib/libnmea/nmea.h@{src/lib/libnmea/nmea.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_g_g_a}{GGA}}
+\item 
+struct \mbox{\hyperlink{struct_g_l_l}{GLL}}
+\item 
+struct \mbox{\hyperlink{struct_g_s_a___p_r_n}{GSA\+\_\+\+PRN}}
+\item 
+struct \mbox{\hyperlink{struct_g_s_a}{GSA}}
+\item 
+struct \mbox{\hyperlink{struct_r_m_c}{RMC}}
+\item 
+struct \mbox{\hyperlink{struct_v_t_g}{VTG}}
+\item 
+struct \mbox{\hyperlink{struct_g_p_s}{GPS}}
+\begin{DoxyCompactList}\small\item\em GPS结构体 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{nmea_8h_ad451c3149706ee95aceaf740f24a8593}{PRE\+\_\+\+GGA}}~"{}\$GNGGA"{}
+\item 
+\#define \mbox{\hyperlink{nmea_8h_ae28cdc933e04a28bb65afba8e139d809}{PRE\+\_\+\+GLL}}~"{}\$GNGLL"{}
+\item 
+\#define \mbox{\hyperlink{nmea_8h_a3b9c3453464a09548e76a4dd33b89f13}{PRE\+\_\+\+GSA}}~"{}\$GNGSA"{}
+\item 
+\#define \mbox{\hyperlink{nmea_8h_a0ed8bf05d6a3ccccfd8084c38546b153}{PRE\+\_\+\+GPGSV}}~"{}\$GPGSV"{}
+\item 
+\#define \mbox{\hyperlink{nmea_8h_a7644df5d758d1c179f709e90a51a0d2d}{PRE\+\_\+\+GNGSV}}~"{}\$GNGSV"{}
+\item 
+\#define \mbox{\hyperlink{nmea_8h_a87da972de7e2edd536c8318c92a16033}{PRE\+\_\+\+GLGSV}}~"{}\$GLGSV"{}
+\item 
+\#define \mbox{\hyperlink{nmea_8h_abf912c7d5eed611aa3c5df53d429670d}{PRE\+\_\+\+RMC}}~"{}\$GNRMC"{}
+\item 
+\#define \mbox{\hyperlink{nmea_8h_add40d43ab81e733847300e8614bc25f4}{PRE\+\_\+\+VTG}}~"{}\$GNVTG"{}
+\item 
+\#define \mbox{\hyperlink{nmea_8h_ada925d4c0b77f86222a53ca48e3fef84}{ENABLE\+\_\+\+GGA}}~1
+\item 
+\#define \mbox{\hyperlink{nmea_8h_a2cacd34c81c9df9b49f98f7807fd552f}{ENABLE\+\_\+\+GLL}}~1
+\item 
+\#define \mbox{\hyperlink{nmea_8h_a4945606a93223905e5262a04ccb2ac8f}{ENABLE\+\_\+\+GSA}}~1
+\item 
+\#define \mbox{\hyperlink{nmea_8h_ad7a18a5f7d7ec652fb2f07666b5f02a1}{ENABLE\+\_\+\+GSV}}~0
+\item 
+\#define \mbox{\hyperlink{nmea_8h_a8b6c2e8562acea52f537e467fcd9a5e9}{ENABLE\+\_\+\+RMC}}~1
+\item 
+\#define \mbox{\hyperlink{nmea_8h_a992c93cb8b2a6d84eef90f6ad40cebb5}{ENABLE\+\_\+\+VTG}}~1
+\item 
+\#define \mbox{\hyperlink{nmea_8h_a3a3ab5e431097511cc252ee8a09338e7}{ENABLE\+\_\+\+UTC}}~0
+\item 
+\#define \mbox{\hyperlink{nmea_8h_a28a5b4da4a3994220cde4d90acac4b22}{MAX\+\_\+\+GPS\+\_\+\+BUFFER\+\_\+\+SIZE}}~512
+\item 
+\#define \mbox{\hyperlink{nmea_8h_a01fd210b45393158b79251da6a7d75b7}{MAX\+\_\+\+SATELLITES}}~32
+\item 
+\#define \mbox{\hyperlink{nmea_8h_a6b19d95aeaaa0435b963cd26687f1c2f}{MAX\+\_\+\+GSA\+\_\+\+CHANNELS}}~36
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{nmea_8h_a5d880dd9c672c243e1d6bcbb9cba74e6}{gps\+\_\+global\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em 初始化全局\+GPS数据结构 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_g_p_s}{GPS}} \mbox{\hyperlink{nmea_8h_aacbe592abc0b5d13ce4b9195ac268716}{gps\+\_\+data\+\_\+parse}} (const char \texorpdfstring{$\ast$}{*}gps\+\_\+src, const unsigned short gps\+\_\+src\+\_\+len)
+\begin{DoxyCompactList}\small\item\em 解析\+NMEA格式的\+GPS原始数据，提取各数据段信息 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{nmea_8h_doc-define-members}
+\doxysubsection{宏定义说明}
+\Hypertarget{nmea_8h_ada925d4c0b77f86222a53ca48e3fef84}\index{nmea.h@{nmea.h}!ENABLE\_GGA@{ENABLE\_GGA}}
+\index{ENABLE\_GGA@{ENABLE\_GGA}!nmea.h@{nmea.h}}
+\doxysubsubsection{\texorpdfstring{ENABLE\_GGA}{ENABLE\_GGA}}
+{\footnotesize\ttfamily \label{nmea_8h_ada925d4c0b77f86222a53ca48e3fef84} 
+\#define ENABLE\+\_\+\+GGA~1}
+
+\Hypertarget{nmea_8h_a2cacd34c81c9df9b49f98f7807fd552f}\index{nmea.h@{nmea.h}!ENABLE\_GLL@{ENABLE\_GLL}}
+\index{ENABLE\_GLL@{ENABLE\_GLL}!nmea.h@{nmea.h}}
+\doxysubsubsection{\texorpdfstring{ENABLE\_GLL}{ENABLE\_GLL}}
+{\footnotesize\ttfamily \label{nmea_8h_a2cacd34c81c9df9b49f98f7807fd552f} 
+\#define ENABLE\+\_\+\+GLL~1}
+
+\Hypertarget{nmea_8h_a4945606a93223905e5262a04ccb2ac8f}\index{nmea.h@{nmea.h}!ENABLE\_GSA@{ENABLE\_GSA}}
+\index{ENABLE\_GSA@{ENABLE\_GSA}!nmea.h@{nmea.h}}
+\doxysubsubsection{\texorpdfstring{ENABLE\_GSA}{ENABLE\_GSA}}
+{\footnotesize\ttfamily \label{nmea_8h_a4945606a93223905e5262a04ccb2ac8f} 
+\#define ENABLE\+\_\+\+GSA~1}
+
+\Hypertarget{nmea_8h_ad7a18a5f7d7ec652fb2f07666b5f02a1}\index{nmea.h@{nmea.h}!ENABLE\_GSV@{ENABLE\_GSV}}
+\index{ENABLE\_GSV@{ENABLE\_GSV}!nmea.h@{nmea.h}}
+\doxysubsubsection{\texorpdfstring{ENABLE\_GSV}{ENABLE\_GSV}}
+{\footnotesize\ttfamily \label{nmea_8h_ad7a18a5f7d7ec652fb2f07666b5f02a1} 
+\#define ENABLE\+\_\+\+GSV~0}
+
+\Hypertarget{nmea_8h_a8b6c2e8562acea52f537e467fcd9a5e9}\index{nmea.h@{nmea.h}!ENABLE\_RMC@{ENABLE\_RMC}}
+\index{ENABLE\_RMC@{ENABLE\_RMC}!nmea.h@{nmea.h}}
+\doxysubsubsection{\texorpdfstring{ENABLE\_RMC}{ENABLE\_RMC}}
+{\footnotesize\ttfamily \label{nmea_8h_a8b6c2e8562acea52f537e467fcd9a5e9} 
+\#define ENABLE\+\_\+\+RMC~1}
+
+\Hypertarget{nmea_8h_a3a3ab5e431097511cc252ee8a09338e7}\index{nmea.h@{nmea.h}!ENABLE\_UTC@{ENABLE\_UTC}}
+\index{ENABLE\_UTC@{ENABLE\_UTC}!nmea.h@{nmea.h}}
+\doxysubsubsection{\texorpdfstring{ENABLE\_UTC}{ENABLE\_UTC}}
+{\footnotesize\ttfamily \label{nmea_8h_a3a3ab5e431097511cc252ee8a09338e7} 
+\#define ENABLE\+\_\+\+UTC~0}
+
+\Hypertarget{nmea_8h_a992c93cb8b2a6d84eef90f6ad40cebb5}\index{nmea.h@{nmea.h}!ENABLE\_VTG@{ENABLE\_VTG}}
+\index{ENABLE\_VTG@{ENABLE\_VTG}!nmea.h@{nmea.h}}
+\doxysubsubsection{\texorpdfstring{ENABLE\_VTG}{ENABLE\_VTG}}
+{\footnotesize\ttfamily \label{nmea_8h_a992c93cb8b2a6d84eef90f6ad40cebb5} 
+\#define ENABLE\+\_\+\+VTG~1}
+
+\Hypertarget{nmea_8h_a28a5b4da4a3994220cde4d90acac4b22}\index{nmea.h@{nmea.h}!MAX\_GPS\_BUFFER\_SIZE@{MAX\_GPS\_BUFFER\_SIZE}}
+\index{MAX\_GPS\_BUFFER\_SIZE@{MAX\_GPS\_BUFFER\_SIZE}!nmea.h@{nmea.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_GPS\_BUFFER\_SIZE}{MAX\_GPS\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \label{nmea_8h_a28a5b4da4a3994220cde4d90acac4b22} 
+\#define MAX\+\_\+\+GPS\+\_\+\+BUFFER\+\_\+\+SIZE~512}
+
+\Hypertarget{nmea_8h_a6b19d95aeaaa0435b963cd26687f1c2f}\index{nmea.h@{nmea.h}!MAX\_GSA\_CHANNELS@{MAX\_GSA\_CHANNELS}}
+\index{MAX\_GSA\_CHANNELS@{MAX\_GSA\_CHANNELS}!nmea.h@{nmea.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_GSA\_CHANNELS}{MAX\_GSA\_CHANNELS}}
+{\footnotesize\ttfamily \label{nmea_8h_a6b19d95aeaaa0435b963cd26687f1c2f} 
+\#define MAX\+\_\+\+GSA\+\_\+\+CHANNELS~36}
+
+\Hypertarget{nmea_8h_a01fd210b45393158b79251da6a7d75b7}\index{nmea.h@{nmea.h}!MAX\_SATELLITES@{MAX\_SATELLITES}}
+\index{MAX\_SATELLITES@{MAX\_SATELLITES}!nmea.h@{nmea.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_SATELLITES}{MAX\_SATELLITES}}
+{\footnotesize\ttfamily \label{nmea_8h_a01fd210b45393158b79251da6a7d75b7} 
+\#define MAX\+\_\+\+SATELLITES~32}
+
+\Hypertarget{nmea_8h_ad451c3149706ee95aceaf740f24a8593}\index{nmea.h@{nmea.h}!PRE\_GGA@{PRE\_GGA}}
+\index{PRE\_GGA@{PRE\_GGA}!nmea.h@{nmea.h}}
+\doxysubsubsection{\texorpdfstring{PRE\_GGA}{PRE\_GGA}}
+{\footnotesize\ttfamily \label{nmea_8h_ad451c3149706ee95aceaf740f24a8593} 
+\#define PRE\+\_\+\+GGA~"{}\$GNGGA"{}}
+
+\Hypertarget{nmea_8h_a87da972de7e2edd536c8318c92a16033}\index{nmea.h@{nmea.h}!PRE\_GLGSV@{PRE\_GLGSV}}
+\index{PRE\_GLGSV@{PRE\_GLGSV}!nmea.h@{nmea.h}}
+\doxysubsubsection{\texorpdfstring{PRE\_GLGSV}{PRE\_GLGSV}}
+{\footnotesize\ttfamily \label{nmea_8h_a87da972de7e2edd536c8318c92a16033} 
+\#define PRE\+\_\+\+GLGSV~"{}\$GLGSV"{}}
+
+\Hypertarget{nmea_8h_ae28cdc933e04a28bb65afba8e139d809}\index{nmea.h@{nmea.h}!PRE\_GLL@{PRE\_GLL}}
+\index{PRE\_GLL@{PRE\_GLL}!nmea.h@{nmea.h}}
+\doxysubsubsection{\texorpdfstring{PRE\_GLL}{PRE\_GLL}}
+{\footnotesize\ttfamily \label{nmea_8h_ae28cdc933e04a28bb65afba8e139d809} 
+\#define PRE\+\_\+\+GLL~"{}\$GNGLL"{}}
+
+\Hypertarget{nmea_8h_a7644df5d758d1c179f709e90a51a0d2d}\index{nmea.h@{nmea.h}!PRE\_GNGSV@{PRE\_GNGSV}}
+\index{PRE\_GNGSV@{PRE\_GNGSV}!nmea.h@{nmea.h}}
+\doxysubsubsection{\texorpdfstring{PRE\_GNGSV}{PRE\_GNGSV}}
+{\footnotesize\ttfamily \label{nmea_8h_a7644df5d758d1c179f709e90a51a0d2d} 
+\#define PRE\+\_\+\+GNGSV~"{}\$GNGSV"{}}
+
+\Hypertarget{nmea_8h_a0ed8bf05d6a3ccccfd8084c38546b153}\index{nmea.h@{nmea.h}!PRE\_GPGSV@{PRE\_GPGSV}}
+\index{PRE\_GPGSV@{PRE\_GPGSV}!nmea.h@{nmea.h}}
+\doxysubsubsection{\texorpdfstring{PRE\_GPGSV}{PRE\_GPGSV}}
+{\footnotesize\ttfamily \label{nmea_8h_a0ed8bf05d6a3ccccfd8084c38546b153} 
+\#define PRE\+\_\+\+GPGSV~"{}\$GPGSV"{}}
+
+\Hypertarget{nmea_8h_a3b9c3453464a09548e76a4dd33b89f13}\index{nmea.h@{nmea.h}!PRE\_GSA@{PRE\_GSA}}
+\index{PRE\_GSA@{PRE\_GSA}!nmea.h@{nmea.h}}
+\doxysubsubsection{\texorpdfstring{PRE\_GSA}{PRE\_GSA}}
+{\footnotesize\ttfamily \label{nmea_8h_a3b9c3453464a09548e76a4dd33b89f13} 
+\#define PRE\+\_\+\+GSA~"{}\$GNGSA"{}}
+
+\Hypertarget{nmea_8h_abf912c7d5eed611aa3c5df53d429670d}\index{nmea.h@{nmea.h}!PRE\_RMC@{PRE\_RMC}}
+\index{PRE\_RMC@{PRE\_RMC}!nmea.h@{nmea.h}}
+\doxysubsubsection{\texorpdfstring{PRE\_RMC}{PRE\_RMC}}
+{\footnotesize\ttfamily \label{nmea_8h_abf912c7d5eed611aa3c5df53d429670d} 
+\#define PRE\+\_\+\+RMC~"{}\$GNRMC"{}}
+
+\Hypertarget{nmea_8h_add40d43ab81e733847300e8614bc25f4}\index{nmea.h@{nmea.h}!PRE\_VTG@{PRE\_VTG}}
+\index{PRE\_VTG@{PRE\_VTG}!nmea.h@{nmea.h}}
+\doxysubsubsection{\texorpdfstring{PRE\_VTG}{PRE\_VTG}}
+{\footnotesize\ttfamily \label{nmea_8h_add40d43ab81e733847300e8614bc25f4} 
+\#define PRE\+\_\+\+VTG~"{}\$GNVTG"{}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{nmea_8h_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{nmea_8h_aacbe592abc0b5d13ce4b9195ac268716}\index{nmea.h@{nmea.h}!gps\_data\_parse@{gps\_data\_parse}}
+\index{gps\_data\_parse@{gps\_data\_parse}!nmea.h@{nmea.h}}
+\doxysubsubsection{\texorpdfstring{gps\_data\_parse()}{gps\_data\_parse()}}
+{\footnotesize\ttfamily \label{nmea_8h_aacbe592abc0b5d13ce4b9195ac268716} 
+\mbox{\hyperlink{struct_g_p_s}{GPS}} gps\+\_\+data\+\_\+parse (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{gps\+\_\+src}{, }\item[{const unsigned short}]{gps\+\_\+src\+\_\+len}{}\end{DoxyParamCaption})}
+
+
+
+解析\+NMEA格式的\+GPS原始数据，提取各数据段信息 
+
+
+\begin{DoxyParams}{参数}
+{\em gps\+\_\+src} & 输入的\+NMEA格式\+GPS原始数据字符串 \\
+\hline
+{\em gps\+\_\+src\+\_\+len} & 输入数据的长度 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+\doxylink{struct_g_p_s}{GPS} 包含所有解析后\+GPS数据的结构体
+\end{DoxyReturn}
+\begin{DoxyNote}{注解}
+根据编译时定义的宏(ENABLE\+\_\+\+GGA/\+ENABLE\+\_\+\+GLL等)决定解析哪些\+NMEA数据段 未启用的数据段将返回默认值 支持解析的\+NMEA数据段包括：
+\begin{DoxyItemize}
+\item \doxylink{struct_g_g_a}{GGA}(全球定位系统固定数据)
+\item \doxylink{struct_g_l_l}{GLL}(地理定位信息)
+\item \doxylink{struct_g_s_a}{GSA}(当前卫星信息)
+\item \doxylink{struct_r_m_c}{RMC}(推荐最小特定\+GPS/\+TRANSIT数据)
+\item \doxylink{struct_v_t_g}{VTG}(地面速度信息)
+\item GSV(可见卫星信息)
+\item UTC(时间信息) 
+\end{DoxyItemize}
+\end{DoxyNote}
+\Hypertarget{nmea_8h_a5d880dd9c672c243e1d6bcbb9cba74e6}\index{nmea.h@{nmea.h}!gps\_global\_init@{gps\_global\_init}}
+\index{gps\_global\_init@{gps\_global\_init}!nmea.h@{nmea.h}}
+\doxysubsubsection{\texorpdfstring{gps\_global\_init()}{gps\_global\_init()}}
+{\footnotesize\ttfamily \label{nmea_8h_a5d880dd9c672c243e1d6bcbb9cba74e6} 
+void gps\+\_\+global\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+初始化全局\+GPS数据结构 
+
+该函数用于初始化全局\+GPS数据结构体gps\+\_\+all，根据编译时定义的宏(ENABLE\+\_\+\+GGA/\+ENABLE\+\_\+\+RMC等) 来初始化对应的\+NMEA语句解析数据结构。每个启用的\+NMEA语句类型都会被初始化为默认值。
+
+\begin{DoxyNote}{注解}
+该函数应在系统启动时调用一次，用于初始化\+GPS解析模块的全局数据结构 
+
+当前实现不使用动态内存分配，所有缓冲区均为静态分配
+\end{DoxyNote}
+支持的\+NMEA语句类型包括：
+\begin{DoxyItemize}
+\item \doxylink{struct_g_g_a}{GGA}\+: 全球定位系统定位数据
+\item \doxylink{struct_g_l_l}{GLL}\+: 地理定位信息
+\item \doxylink{struct_g_s_a}{GSA}\+: 当前卫星信息
+\item \doxylink{struct_r_m_c}{RMC}\+: 推荐最小定位信息
+\item \doxylink{struct_v_t_g}{VTG}\+: 地面速度信息
+\item GSV\+: 可见卫星信息
+\end{DoxyItemize}
+
+每个语句类型的初始化值均为零或空字符串 

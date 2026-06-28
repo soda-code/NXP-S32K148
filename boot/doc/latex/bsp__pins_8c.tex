@@ -1,0 +1,33 @@
+\doxysection{src/bsp/bsp\+\_\+pins.c 文件参考}
+\hypertarget{bsp__pins_8c}{}\label{bsp__pins_8c}\index{src/bsp/bsp\_pins.c@{src/bsp/bsp\_pins.c}}
+{\ttfamily \#include "{}bsp\+\_\+pins.\+h"{}}\newline
+{\ttfamily \#include "{}os\+\_\+task.\+h"{}}\newline
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{bsp__pins_8c_ad5fbe72f2b999f65db5a42fddabff75a}{BSP\+\_\+\+Pins\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em 初始化所有板级引脚配置 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{bsp__pins_8c_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{bsp__pins_8c_ad5fbe72f2b999f65db5a42fddabff75a}\index{bsp\_pins.c@{bsp\_pins.c}!BSP\_Pins\_Init@{BSP\_Pins\_Init}}
+\index{BSP\_Pins\_Init@{BSP\_Pins\_Init}!bsp\_pins.c@{bsp\_pins.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_Pins\_Init()}{BSP\_Pins\_Init()}}
+{\footnotesize\ttfamily \label{bsp__pins_8c_ad5fbe72f2b999f65db5a42fddabff75a} 
+void BSP\+\_\+\+Pins\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+初始化所有板级引脚配置 
+
+该函数执行以下操作：
+\begin{DoxyEnumerate}
+\item 通过\+PINS\+\_\+\+DRV\+\_\+\+Init初始化所有配置的引脚
+\item 将所有\+LED初始化为关闭状态
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{注解}
+该函数应在系统初始化阶段调用 
+\end{DoxyNote}

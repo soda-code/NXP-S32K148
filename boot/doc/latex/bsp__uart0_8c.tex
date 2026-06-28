@@ -1,0 +1,134 @@
+\doxysection{src/bsp/bsp\+\_\+uart0.c 文件参考}
+\hypertarget{bsp__uart0_8c}{}\label{bsp__uart0_8c}\index{src/bsp/bsp\_uart0.c@{src/bsp/bsp\_uart0.c}}
+{\ttfamily \#include "{}bsp\+\_\+uart0.\+h"{}}\newline
+{\ttfamily \#include "{}os\+\_\+task.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{bsp__uart0_8c_adcdf016e292b6667bca31f78a4b3289d}{BSP\+\_\+\+BSP\+\_\+\+UART0\+\_\+\+C\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{bsp__uart0_8c_a628d915a21a91869b74e0232c0d9fc10}{UART0\+\_\+\+Rx\+\_\+\+Callback}} (void \texorpdfstring{$\ast$}{*}driver\+State, uart\+\_\+event\+\_\+t event, void \texorpdfstring{$\ast$}{*}user\+Data)
+\begin{DoxyCompactList}\small\item\em UART0接收中断回调函数 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bsp__uart0_8c_a53d3a2135380d2643434a5c3beaa3efe}{BSP\+\_\+\+UART0\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em 初始化\+UART0外设 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bsp__uart0_8c_a013cf80be2e0181ebbc660a2094f32cf}{BSP\+\_\+\+UART0\+\_\+\+Send}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}buf, uint8\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em 通过\+UART0发送数据 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bsp__uart0_8c_ab612c5c4386c57c8766bfb49f74d863d}{BSP\+\_\+\+UART0\+\_\+\+Printf}} (char \texorpdfstring{$\ast$}{*}fmt,...)
+\begin{DoxyCompactList}\small\item\em 通过\+UART0接口格式化输出字符串 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{bsp__uart0_8c_doc-define-members}
+\doxysubsection{宏定义说明}
+\Hypertarget{bsp__uart0_8c_adcdf016e292b6667bca31f78a4b3289d}\index{bsp\_uart0.c@{bsp\_uart0.c}!BSP\_BSP\_UART0\_C\_@{BSP\_BSP\_UART0\_C\_}}
+\index{BSP\_BSP\_UART0\_C\_@{BSP\_BSP\_UART0\_C\_}!bsp\_uart0.c@{bsp\_uart0.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_BSP\_UART0\_C\_}{BSP\_BSP\_UART0\_C\_}}
+{\footnotesize\ttfamily \label{bsp__uart0_8c_adcdf016e292b6667bca31f78a4b3289d} 
+\#define BSP\+\_\+\+BSP\+\_\+\+UART0\+\_\+\+C\+\_\+}
+
+
+
+\label{doc-func-members}
+\Hypertarget{bsp__uart0_8c_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{bsp__uart0_8c_a53d3a2135380d2643434a5c3beaa3efe}\index{bsp\_uart0.c@{bsp\_uart0.c}!BSP\_UART0\_Init@{BSP\_UART0\_Init}}
+\index{BSP\_UART0\_Init@{BSP\_UART0\_Init}!bsp\_uart0.c@{bsp\_uart0.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_UART0\_Init()}{BSP\_UART0\_Init()}}
+{\footnotesize\ttfamily \label{bsp__uart0_8c_a53d3a2135380d2643434a5c3beaa3efe} 
+void BSP\+\_\+\+UART0\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+初始化\+UART0外设 
+
+配置\+UART0硬件接口，包括：
+\begin{DoxyItemize}
+\item 初始化\+UART控制器
+\item 设置中断优先级
+\item 启动首次接收操作
+\end{DoxyItemize}
+
+\begin{DoxyNote}{注解}
+该函数必须在其他\+UART0操作前调用 
+\end{DoxyNote}
+\begin{DoxyWarning}{警告}
+中断优先级设置为0x02（较高优先级） 
+\end{DoxyWarning}
+\Hypertarget{bsp__uart0_8c_ab612c5c4386c57c8766bfb49f74d863d}\index{bsp\_uart0.c@{bsp\_uart0.c}!BSP\_UART0\_Printf@{BSP\_UART0\_Printf}}
+\index{BSP\_UART0\_Printf@{BSP\_UART0\_Printf}!bsp\_uart0.c@{bsp\_uart0.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_UART0\_Printf()}{BSP\_UART0\_Printf()}}
+{\footnotesize\ttfamily \label{bsp__uart0_8c_ab612c5c4386c57c8766bfb49f74d863d} 
+void BSP\+\_\+\+UART0\+\_\+\+Printf (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{fmt}{, }\item[{}]{...}{}\end{DoxyParamCaption})}
+
+
+
+通过\+UART0接口格式化输出字符串 
+
+
+\begin{DoxyParams}{参数}
+{\em fmt} & 格式化字符串，支持可变参数 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+内部使用100字节的静态缓冲区，格式化后的字符串长度不应超过此限制 
+\end{DoxyNote}
+\begin{DoxyWarning}{警告}
+此函数会阻塞直到所有数据发送完成 
+\end{DoxyWarning}
+\Hypertarget{bsp__uart0_8c_a013cf80be2e0181ebbc660a2094f32cf}\index{bsp\_uart0.c@{bsp\_uart0.c}!BSP\_UART0\_Send@{BSP\_UART0\_Send}}
+\index{BSP\_UART0\_Send@{BSP\_UART0\_Send}!bsp\_uart0.c@{bsp\_uart0.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_UART0\_Send()}{BSP\_UART0\_Send()}}
+{\footnotesize\ttfamily \label{bsp__uart0_8c_a013cf80be2e0181ebbc660a2094f32cf} 
+void BSP\+\_\+\+UART0\+\_\+\+Send (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{buf}{, }\item[{uint8\+\_\+t}]{len}{}\end{DoxyParamCaption})}
+
+
+
+通过\+UART0发送数据 
+
+
+\begin{DoxyParams}{参数}
+{\em buf} & 要发送的数据缓冲区指针 \\
+\hline
+{\em len} & 要发送的数据长度（字节数）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+此函数是阻塞式发送，调用后会等待发送完成才返回 
+\end{DoxyNote}
+\Hypertarget{bsp__uart0_8c_a628d915a21a91869b74e0232c0d9fc10}\index{bsp\_uart0.c@{bsp\_uart0.c}!UART0\_Rx\_Callback@{UART0\_Rx\_Callback}}
+\index{UART0\_Rx\_Callback@{UART0\_Rx\_Callback}!bsp\_uart0.c@{bsp\_uart0.c}}
+\doxysubsubsection{\texorpdfstring{UART0\_Rx\_Callback()}{UART0\_Rx\_Callback()}}
+{\footnotesize\ttfamily \label{bsp__uart0_8c_a628d915a21a91869b74e0232c0d9fc10} 
+void UART0\+\_\+\+Rx\+\_\+\+Callback (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{driver\+State}{, }\item[{uart\+\_\+event\+\_\+t}]{event}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{user\+Data}{}\end{DoxyParamCaption})}
+
+
+
+UART0接收中断回调函数 
+
+处理\+UART0接收中断事件，将接收到的数据通过消息队列发送给上层任务处理。 支持单字节接收模式和缓冲区管理，遇到换行符或缓冲区满时停止接收。
+
+
+\begin{DoxyParams}{参数}
+{\em driver\+State} & 驱动状态指针（未使用） \\
+\hline
+{\em event} & 触发回调的事件类型 \\
+\hline
+{\em user\+Data} & 用户数据指针（未使用）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+此函数在中断上下文中执行，必须保持简短高效 
+
+使用\+Free\+RTOS的\+From\+ISR版本队列\+API确保中断安全
+\end{DoxyNote}
+\begin{DoxyWarning}{警告}
+缓冲区大小由\+UART0\+\_\+\+BUF\+\_\+\+SIZE宏定义，修改需同步调整相关逻辑 
+\end{DoxyWarning}

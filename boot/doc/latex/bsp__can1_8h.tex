@@ -1,0 +1,142 @@
+\doxysection{src/bsp/inc/bsp\+\_\+can1.h 文件参考}
+\hypertarget{bsp__can1_8h}{}\label{bsp__can1_8h}\index{src/bsp/inc/bsp\_can1.h@{src/bsp/inc/bsp\_can1.h}}
+{\ttfamily \#include "{}can1.\+h"{}}\newline
+\doxysubsubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{bsp__can1_8h_aa84c2d72fbaae6dc58bb531b41323059}{RX\+\_\+\+MAILBOX\+\_\+\+CAN1\+\_\+\+STD}}~(4UL)
+\item 
+\#define \mbox{\hyperlink{bsp__can1_8h_ad5d6895fdac59100dc719fca77af1af6}{TX\+\_\+\+MAILBOX\+\_\+\+CAN1\+\_\+\+STD}}~(5UL)
+\item 
+\#define \mbox{\hyperlink{bsp__can1_8h_abd0e292212aa1e7c33e403832f008f43}{RX\+\_\+\+MAILBOX\+\_\+\+CAN1\+\_\+\+EXT}}~(6UL)
+\item 
+\#define \mbox{\hyperlink{bsp__can1_8h_a9170f96392b2b7ed442b5f27ec21ef56}{TX\+\_\+\+MAILBOX\+\_\+\+CAN1\+\_\+\+EXT}}~(7UL)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{bsp__can1_8h_a82fce858f1ddaceaa295f74a4343ebe3}{BSP\+\_\+\+CAN1\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em 初始化\+CAN1控制器 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bsp__can1_8h_ad9d1d589c2181201c4c054327494a5e7}{BSP\+\_\+\+CAN1\+\_\+\+Send\+\_\+\+STD}} (uint16\+\_\+t id, uint8\+\_\+t data\mbox{[}8\mbox{]})
+\begin{DoxyCompactList}\small\item\em 通过\+CAN1总线发送标准帧数据（11位\+ID） \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{bsp__can1_8h_aaf1f9b75c3675c5d2d07c39a08a306e5}{BSP\+\_\+\+CAN1\+\_\+\+Send\+\_\+\+EXT}} (uint32\+\_\+t id, uint8\+\_\+t data\mbox{[}64\mbox{]}, uint8\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em 通过\+CAN1发送扩展帧数据（支持\+CAN FD） \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{bsp__can1_8h_doc-define-members}
+\doxysubsection{宏定义说明}
+\Hypertarget{bsp__can1_8h_abd0e292212aa1e7c33e403832f008f43}\index{bsp\_can1.h@{bsp\_can1.h}!RX\_MAILBOX\_CAN1\_EXT@{RX\_MAILBOX\_CAN1\_EXT}}
+\index{RX\_MAILBOX\_CAN1\_EXT@{RX\_MAILBOX\_CAN1\_EXT}!bsp\_can1.h@{bsp\_can1.h}}
+\doxysubsubsection{\texorpdfstring{RX\_MAILBOX\_CAN1\_EXT}{RX\_MAILBOX\_CAN1\_EXT}}
+{\footnotesize\ttfamily \label{bsp__can1_8h_abd0e292212aa1e7c33e403832f008f43} 
+\#define RX\+\_\+\+MAILBOX\+\_\+\+CAN1\+\_\+\+EXT~(6UL)}
+
+\Hypertarget{bsp__can1_8h_aa84c2d72fbaae6dc58bb531b41323059}\index{bsp\_can1.h@{bsp\_can1.h}!RX\_MAILBOX\_CAN1\_STD@{RX\_MAILBOX\_CAN1\_STD}}
+\index{RX\_MAILBOX\_CAN1\_STD@{RX\_MAILBOX\_CAN1\_STD}!bsp\_can1.h@{bsp\_can1.h}}
+\doxysubsubsection{\texorpdfstring{RX\_MAILBOX\_CAN1\_STD}{RX\_MAILBOX\_CAN1\_STD}}
+{\footnotesize\ttfamily \label{bsp__can1_8h_aa84c2d72fbaae6dc58bb531b41323059} 
+\#define RX\+\_\+\+MAILBOX\+\_\+\+CAN1\+\_\+\+STD~(4UL)}
+
+CAN1 Mailbox \Hypertarget{bsp__can1_8h_a9170f96392b2b7ed442b5f27ec21ef56}\index{bsp\_can1.h@{bsp\_can1.h}!TX\_MAILBOX\_CAN1\_EXT@{TX\_MAILBOX\_CAN1\_EXT}}
+\index{TX\_MAILBOX\_CAN1\_EXT@{TX\_MAILBOX\_CAN1\_EXT}!bsp\_can1.h@{bsp\_can1.h}}
+\doxysubsubsection{\texorpdfstring{TX\_MAILBOX\_CAN1\_EXT}{TX\_MAILBOX\_CAN1\_EXT}}
+{\footnotesize\ttfamily \label{bsp__can1_8h_a9170f96392b2b7ed442b5f27ec21ef56} 
+\#define TX\+\_\+\+MAILBOX\+\_\+\+CAN1\+\_\+\+EXT~(7UL)}
+
+\Hypertarget{bsp__can1_8h_ad5d6895fdac59100dc719fca77af1af6}\index{bsp\_can1.h@{bsp\_can1.h}!TX\_MAILBOX\_CAN1\_STD@{TX\_MAILBOX\_CAN1\_STD}}
+\index{TX\_MAILBOX\_CAN1\_STD@{TX\_MAILBOX\_CAN1\_STD}!bsp\_can1.h@{bsp\_can1.h}}
+\doxysubsubsection{\texorpdfstring{TX\_MAILBOX\_CAN1\_STD}{TX\_MAILBOX\_CAN1\_STD}}
+{\footnotesize\ttfamily \label{bsp__can1_8h_ad5d6895fdac59100dc719fca77af1af6} 
+\#define TX\+\_\+\+MAILBOX\+\_\+\+CAN1\+\_\+\+STD~(5UL)}
+
+
+
+\label{doc-func-members}
+\Hypertarget{bsp__can1_8h_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{bsp__can1_8h_a82fce858f1ddaceaa295f74a4343ebe3}\index{bsp\_can1.h@{bsp\_can1.h}!BSP\_CAN1\_Init@{BSP\_CAN1\_Init}}
+\index{BSP\_CAN1\_Init@{BSP\_CAN1\_Init}!bsp\_can1.h@{bsp\_can1.h}}
+\doxysubsubsection{\texorpdfstring{BSP\_CAN1\_Init()}{BSP\_CAN1\_Init()}}
+{\footnotesize\ttfamily \label{bsp__can1_8h_a82fce858f1ddaceaa295f74a4343ebe3} 
+void BSP\+\_\+\+CAN1\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+初始化\+CAN1控制器 
+
+完成\+CAN1控制器的完整硬件配置，包括：
+\begin{DoxyItemize}
+\item 控制器初始化
+\item 标准帧和扩展帧的收发邮箱配置
+\item 接收过滤器设置（全通模式）
+\item 中断回调函数注册
+\item 中断优先级设置
+\item 启动接收操作
+\end{DoxyItemize}
+
+\begin{DoxyNote}{注解}
+该函数应在系统初始化阶段调用，且只调用一次 
+
+使用前需确保\+CAN1时钟已使能 
+
+中断优先级设置为0x02（较高优先级） 
+\end{DoxyNote}
+\Hypertarget{bsp__can1_8h_aaf1f9b75c3675c5d2d07c39a08a306e5}\index{bsp\_can1.h@{bsp\_can1.h}!BSP\_CAN1\_Send\_EXT@{BSP\_CAN1\_Send\_EXT}}
+\index{BSP\_CAN1\_Send\_EXT@{BSP\_CAN1\_Send\_EXT}!bsp\_can1.h@{bsp\_can1.h}}
+\doxysubsubsection{\texorpdfstring{BSP\_CAN1\_Send\_EXT()}{BSP\_CAN1\_Send\_EXT()}}
+{\footnotesize\ttfamily \label{bsp__can1_8h_aaf1f9b75c3675c5d2d07c39a08a306e5} 
+uint8\+\_\+t BSP\+\_\+\+CAN1\+\_\+\+Send\+\_\+\+EXT (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id}{, }\item[{uint8\+\_\+t}]{data}{\mbox{[}64\mbox{]}, }\item[{uint8\+\_\+t}]{length}{}\end{DoxyParamCaption})}
+
+
+
+通过\+CAN1发送扩展帧数据（支持\+CAN FD） 
+
+
+\begin{DoxyParams}{参数}
+{\em id} & 29位扩展帧标识符 \\
+\hline
+{\em data} & 待发送的数据缓冲区（最大64字节） \\
+\hline
+{\em length} & 数据长度（1-\/64字节）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+uint8\+\_\+t 发送状态码：
+\begin{DoxyItemize}
+\item 0\+: 发送成功
+\item 1\+: 发送失败
+\item 2\+: 中止传输失败
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{注解}
+该函数采用阻塞式发送，最大重试500次后强制中止 
+\end{DoxyNote}
+\begin{DoxyWarning}{警告}
+数据长度超过64字节将导致内存越界 
+\end{DoxyWarning}
+\Hypertarget{bsp__can1_8h_ad9d1d589c2181201c4c054327494a5e7}\index{bsp\_can1.h@{bsp\_can1.h}!BSP\_CAN1\_Send\_STD@{BSP\_CAN1\_Send\_STD}}
+\index{BSP\_CAN1\_Send\_STD@{BSP\_CAN1\_Send\_STD}!bsp\_can1.h@{bsp\_can1.h}}
+\doxysubsubsection{\texorpdfstring{BSP\_CAN1\_Send\_STD()}{BSP\_CAN1\_Send\_STD()}}
+{\footnotesize\ttfamily \label{bsp__can1_8h_ad9d1d589c2181201c4c054327494a5e7} 
+void BSP\+\_\+\+CAN1\+\_\+\+Send\+\_\+\+STD (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{id}{, }\item[{uint8\+\_\+t}]{data}{\mbox{[}8\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+通过\+CAN1总线发送标准帧数据（11位\+ID） 
+
+
+\begin{DoxyParams}{参数}
+{\em id} & 11位标准帧\+ID \\
+\hline
+{\em data} & 待发送的数据数组（固定8字节）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+该函数采用阻塞式发送，最多尝试500次后强制中止 
+
+如果发送超时，会先中止当前传输再重新尝试发送一次
+\end{DoxyNote}
+\begin{DoxyWarning}{警告}
+数据长度固定为8字节，超出部分将被忽略 
+\end{DoxyWarning}

@@ -1,0 +1,49 @@
+\doxysection{crosstrack\+\_\+error\+\_\+s结构体 参考}
+\hypertarget{structcrosstrack__error__s}{}\label{structcrosstrack__error__s}\index{crosstrack\_error\_s@{crosstrack\_error\_s}}
+
+
+相对于线段或弧段的横向误差（crosstrack）信息。  
+
+
+
+
+{\ttfamily \#include $<$geo.\+h$>$}
+
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{structcrosstrack__error__s_ad9c423ec01aad0eff70ad5186d01bbf7}{past\+\_\+end}}
+\item 
+float \mbox{\hyperlink{structcrosstrack__error__s_a1fbc068b4c85fc5e8b20ebea4e0f0ca7}{distance}}
+\item 
+float \mbox{\hyperlink{structcrosstrack__error__s_abbd521db18c6ff65884a741d5b69ed79}{bearing}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+相对于线段或弧段的横向误差（crosstrack）信息。 
+
+包含评估横向偏差以及从参考位置（例如车辆位置）到线段或弧段最近点的方向所需的信息。 
+
+\label{doc-variable-members}
+\Hypertarget{structcrosstrack__error__s_doc-variable-members}
+\doxysubsection{类成员变量说明}
+\Hypertarget{structcrosstrack__error__s_abbd521db18c6ff65884a741d5b69ed79}\index{crosstrack\_error\_s@{crosstrack\_error\_s}!bearing@{bearing}}
+\index{bearing@{bearing}!crosstrack\_error\_s@{crosstrack\_error\_s}}
+\doxysubsubsection{\texorpdfstring{bearing}{bearing}}
+{\footnotesize\ttfamily \label{structcrosstrack__error__s_abbd521db18c6ff65884a741d5b69ed79} 
+float crosstrack\+\_\+error\+\_\+s\+::bearing}
+
+从参考位置到最近点的方位角，单位为弧度，按导航系统的角度约定表示。 \Hypertarget{structcrosstrack__error__s_a1fbc068b4c85fc5e8b20ebea4e0f0ca7}\index{crosstrack\_error\_s@{crosstrack\_error\_s}!distance@{distance}}
+\index{distance@{distance}!crosstrack\_error\_s@{crosstrack\_error\_s}}
+\doxysubsubsection{\texorpdfstring{distance}{distance}}
+{\footnotesize\ttfamily \label{structcrosstrack__error__s_a1fbc068b4c85fc5e8b20ebea4e0f0ca7} 
+float crosstrack\+\_\+error\+\_\+s\+::distance}
+
+与线段或弧段最近点的距离，单位为米。 \Hypertarget{structcrosstrack__error__s_ad9c423ec01aad0eff70ad5186d01bbf7}\index{crosstrack\_error\_s@{crosstrack\_error\_s}!past\_end@{past\_end}}
+\index{past\_end@{past\_end}!crosstrack\_error\_s@{crosstrack\_error\_s}}
+\doxysubsubsection{\texorpdfstring{past\_end}{past\_end}}
+{\footnotesize\ttfamily \label{structcrosstrack__error__s_ad9c423ec01aad0eff70ad5186d01bbf7} 
+bool crosstrack\+\_\+error\+\_\+s\+::past\+\_\+end}
+
+如果最近点位于线段/弧段的终点之外，则为真。 

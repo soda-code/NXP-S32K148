@@ -1,0 +1,35 @@
+\doxysection{bsp\+\_\+can0.\+h}
+\hypertarget{bsp__can0_8h_source}{}\label{bsp__can0_8h_source}\index{src/bsp/inc/bsp\_can0.h@{src/bsp/inc/bsp\_can0.h}}
+\mbox{\hyperlink{bsp__can0_8h}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ bsp\_can0.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ 2025{\ucr}{\ucr}11{\ucr}{\ucr}18{\ucr}{\ucr}}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ 18750}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ BSP\_INC\_BSP\_CAN0\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ BSP\_INC\_BSP\_CAN0\_H\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}can0.h"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{comment}{/*\ ********************************************************************************}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ CAN0}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ RX\_MAILBOX\_CAN0\_STD\ \ \ \ \ (0UL)}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ TX\_MAILBOX\_CAN0\_STD\ \ \ \ \ (1UL)}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ RX\_MAILBOX\_CAN0\_EXT\ \ \ \ \ (2UL)}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ TX\_MAILBOX\_CAN0\_EXT\ \ \ \ \ (3UL)}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bsp__can0_8h_a1b3667da09687e06f9b25fca016135e5}{BSP\_CAN0\_Init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bsp__can0_8h_a95c1440bfaa98d76c3059011ad98d1c6}{BSP\_CAN0\_Send\_STD}}(uint16\_t\ \textcolor{keywordtype}{id},\ uint8\_t\ data[8]);}
+\DoxyCodeLine{00028\ uint8\_t\ \mbox{\hyperlink{bsp__can0_8h_a85fc1177fbdd048a41ca8a08f9fa2704}{BSP\_CAN0\_Send\_EXT}}(uint32\_t\ \textcolor{keywordtype}{id},\ uint8\_t\ data[64],\ uint8\_t\ length);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ BSP\_INC\_BSP\_CAN0\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

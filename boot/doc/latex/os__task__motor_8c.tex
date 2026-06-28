@@ -1,0 +1,56 @@
+\doxysection{src/os/os\+\_\+task\+\_\+motor.c 文件参考}
+\hypertarget{os__task__motor_8c}{}\label{os__task__motor_8c}\index{src/os/os\_task\_motor.c@{src/os/os\_task\_motor.c}}
+
+
+动力控制任务  
+
+
+{\ttfamily \#include "{}os\+\_\+task\+\_\+motor.\+h"{}}\newline
+{\ttfamily \#include "{}bsp.\+h"{}}\newline
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{os__task__motor_8c_a7b8be94c22324cffa9953a263d3c8282}{OS\+\_\+\+Task\+\_\+\+Motor}} (void \texorpdfstring{$\ast$}{*}pv\+Para)
+\begin{DoxyCompactList}\small\item\em 电机控制任务主函数 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+动力控制任务 
+
+\begin{DoxyAuthor}{作者}
+polaris 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{版本}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{日期}
+2025-\/11-\/22 
+\end{DoxyDate}
+
+
+\label{doc-func-members}
+\Hypertarget{os__task__motor_8c_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{os__task__motor_8c_a7b8be94c22324cffa9953a263d3c8282}\index{os\_task\_motor.c@{os\_task\_motor.c}!OS\_Task\_Motor@{OS\_Task\_Motor}}
+\index{OS\_Task\_Motor@{OS\_Task\_Motor}!os\_task\_motor.c@{os\_task\_motor.c}}
+\doxysubsubsection{\texorpdfstring{OS\_Task\_Motor()}{OS\_Task\_Motor()}}
+{\footnotesize\ttfamily \label{os__task__motor_8c_a7b8be94c22324cffa9953a263d3c8282} 
+void OS\+\_\+\+Task\+\_\+\+Motor (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Para}{}\end{DoxyParamCaption})}
+
+
+
+电机控制任务主函数 
+
+该任务负责处理来自\+CAN总线的电机控制消息，并更新本地电机控制数据。 任务以5ms的固定周期运行，确保电机控制的实时性。
+
+
+\begin{DoxyParams}{参数}
+{\em pv\+Para} & Free\+RTOS任务参数（未使用）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+任务通过g\+\_\+motor\+\_\+rx\+\_\+queue接收\+CAN消息，使用\+Update\+\_\+\+Local\+\_\+\+Data()更新数据 
+
+任务存活状态通过\+MOTOR\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BIT事件标志位上报 
+\end{DoxyNote}
+上报任务存活状态

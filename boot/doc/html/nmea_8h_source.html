@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>S32K148_VCU_APP: src/lib/libnmea/nmea.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">S32K148_VCU_APP
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('nmea_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">nmea.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="nmea_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * nmea.h</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef LIB_LIBNMEA_NMEA_H_</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define LIB_LIBNMEA_NMEA_H_</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="nmea_8h.html#ad451c3149706ee95aceaf740f24a8593">   12</a></span><span class="preprocessor">#define PRE_GGA     &quot;$GNGGA&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="nmea_8h.html#ae28cdc933e04a28bb65afba8e139d809">   13</a></span><span class="preprocessor">#define PRE_GLL     &quot;$GNGLL&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="nmea_8h.html#a3b9c3453464a09548e76a4dd33b89f13">   14</a></span><span class="preprocessor">#define PRE_GSA     &quot;$GNGSA&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="nmea_8h.html#a0ed8bf05d6a3ccccfd8084c38546b153">   15</a></span><span class="preprocessor">#define PRE_GPGSV   &quot;$GPGSV&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="nmea_8h.html#a7644df5d758d1c179f709e90a51a0d2d">   16</a></span><span class="preprocessor">#define PRE_GNGSV   &quot;$GNGSV&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="nmea_8h.html#a87da972de7e2edd536c8318c92a16033">   17</a></span><span class="preprocessor">#define PRE_GLGSV   &quot;$GLGSV&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="nmea_8h.html#abf912c7d5eed611aa3c5df53d429670d">   18</a></span><span class="preprocessor">#define PRE_RMC     &quot;$GNRMC&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="nmea_8h.html#add40d43ab81e733847300e8614bc25f4">   19</a></span><span class="preprocessor">#define PRE_VTG     &quot;$GNVTG&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="nmea_8h.html#ada925d4c0b77f86222a53ca48e3fef84">   21</a></span><span class="preprocessor">#define ENABLE_GGA  1</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="nmea_8h.html#a2cacd34c81c9df9b49f98f7807fd552f">   22</a></span><span class="preprocessor">#define ENABLE_GLL  1</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="nmea_8h.html#a4945606a93223905e5262a04ccb2ac8f">   23</a></span><span class="preprocessor">#define ENABLE_GSA  1</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="nmea_8h.html#ad7a18a5f7d7ec652fb2f07666b5f02a1">   24</a></span><span class="preprocessor">#define ENABLE_GSV  0</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="nmea_8h.html#a8b6c2e8562acea52f537e467fcd9a5e9">   25</a></span><span class="preprocessor">#define ENABLE_RMC  1</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="nmea_8h.html#a992c93cb8b2a6d84eef90f6ad40cebb5">   26</a></span><span class="preprocessor">#define ENABLE_VTG  1</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="nmea_8h.html#a3a3ab5e431097511cc252ee8a09338e7">   27</a></span><span class="preprocessor">#define ENABLE_UTC  0</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="nmea_8h.html#a28a5b4da4a3994220cde4d90acac4b22">   29</a></span><span class="preprocessor">#define MAX_GPS_BUFFER_SIZE 512 </span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="nmea_8h.html#a01fd210b45393158b79251da6a7d75b7">   30</a></span><span class="preprocessor">#define MAX_SATELLITES   32</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="nmea_8h.html#a6b19d95aeaaa0435b963cd26687f1c2f">   31</a></span><span class="preprocessor">#define MAX_GSA_CHANNELS 36</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#if ENABLE_GGA</span></div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="struct_g_g_a.html">   34</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="struct_g_g_a.html#acc6b8a3a5e6fecee73a8d0db9c36feae">   36</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_g_g_a.html#acc6b8a3a5e6fecee73a8d0db9c36feae">utc</a>[11];                     <span class="comment">// UTC时间，格式为hhmmss.sss</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="struct_g_g_a.html#addbca9561f53a93272f412aad9d10e25">   37</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_g_g_a.html#addbca9561f53a93272f412aad9d10e25">lat</a>;                       <span class="comment">// 纬度，格式为ddmm.mmmm</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="struct_g_g_a.html#a474bde26492a6ad4c96f4f5aef869dd1">   38</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_g_g_a.html#a474bde26492a6ad4c96f4f5aef869dd1">lat_dir</a>;                     <span class="comment">// 纬度半球，N或S</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="struct_g_g_a.html#afa045176fa3ff71b97db05f84ea2daa0">   39</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_g_g_a.html#afa045176fa3ff71b97db05f84ea2daa0">lon</a>;                       <span class="comment">// 经度，格式为dddmm.mmmm</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="struct_g_g_a.html#a135a986f29c9e257acd250c312f4f9da">   40</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_g_g_a.html#a135a986f29c9e257acd250c312f4f9da">lon_dir</a>;                     <span class="comment">// 经度半球，E或W</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="struct_g_g_a.html#aa565749ac2b7fd745fb688c99002d446">   41</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_g_g_a.html#aa565749ac2b7fd745fb688c99002d446">quality</a>;            <span class="comment">// 0=定位无效，1=定位有效</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="struct_g_g_a.html#a37040029c3aa7f2f8cb43b27990d67d9">   42</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_g_g_a.html#a37040029c3aa7f2f8cb43b27990d67d9">sats</a>;               <span class="comment">// 使用卫星数量，从00到12</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="struct_g_g_a.html#ab7c43f57a48f0c85599f66fe9ed62e2a">   43</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_g_g_a.html#ab7c43f57a48f0c85599f66fe9ed62e2a">hdop</a>;                      <span class="comment">// 水平精确度，0.5到99.9，单位m</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="struct_g_g_a.html#a3c3ba34439a485e62c4365f6a894559b">   44</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_g_g_a.html#a3c3ba34439a485e62c4365f6a894559b">alt</a>;                       <span class="comment">// 海平面的高度，-9999.9到9999.9米</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="struct_g_g_a.html#a3aa0e01009bfa65519e52bf46b93464b">   45</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_g_g_a.html#a3aa0e01009bfa65519e52bf46b93464b">undulation</a>;                <span class="comment">// 大地水准面高度，-9999.9到9999.9米</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="struct_g_g_a.html#a31651af5e01e53e9c41a07931ce741d5">   46</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_g_g_a.html#a31651af5e01e53e9c41a07931ce741d5">age</a>;                <span class="comment">// 差分时间</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="struct_g_g_a.html#af335ed32791edf6034fdcf5cba1c0326">   47</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code hl_variable" href="struct_g_g_a.html#af335ed32791edf6034fdcf5cba1c0326">stn_ID</a>;            <span class="comment">// 差分站ID号0000 - 1023</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>} <a class="code hl_struct" href="struct_g_g_a.html">GGA</a>;</div>
+</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#if ENABLE_GLL</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">// GPGLL数据结构体（地理定位信息）</span></div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="};">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="struct_g_l_l.html">   53</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>{</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="struct_g_l_l.html#a251f5d6e70463debe87c3f4ea6b2fa0a">   55</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_g_l_l.html#a251f5d6e70463debe87c3f4ea6b2fa0a">lat</a>;                       <span class="comment">// 纬度，格式为ddmm.mmmm</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="struct_g_l_l.html#ac8a0a0aef47d82767580dd7d746f7a63">   56</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_g_l_l.html#ac8a0a0aef47d82767580dd7d746f7a63">lat_dir</a>;                     <span class="comment">// 纬度半球，N或S</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="struct_g_l_l.html#ad305c43e84f86b61ceb633a98768db5d">   57</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_g_l_l.html#ad305c43e84f86b61ceb633a98768db5d">lon</a>;                       <span class="comment">// 经度，格式为dddmm.mmmm</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="struct_g_l_l.html#a4b654c653f1baca23fe1f8c8225c025c">   58</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_g_l_l.html#a4b654c653f1baca23fe1f8c8225c025c">lon_dir</a>;                     <span class="comment">// 经度半球，E或W</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="struct_g_l_l.html#abb7165183d6a4ca6f782fffcd5c94859">   59</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_g_l_l.html#abb7165183d6a4ca6f782fffcd5c94859">utc</a>[11];                     <span class="comment">// UTC时间，格式为hhmmss.sss</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="struct_g_l_l.html#a0eb43b605112858cc1d66c1fee6fd917">   60</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_g_l_l.html#a0eb43b605112858cc1d66c1fee6fd917">data_status</a>;                 <span class="comment">// 状态标志位，A：有效，V无效</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}<a class="code hl_struct" href="struct_g_l_l.html">GLL</a>;</div>
+</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#if ENABLE_GSA</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#pragma pack(1)                       </span><span class="comment">// 便于指针偏移取值</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">// 信道信息结构体</span></div>
+<div class="foldopen" id="foldopen00067" data-start="{" data-end="};">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="struct_g_s_a___p_r_n.html">   67</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>{</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="struct_g_s_a___p_r_n.html#ae60711e5fb568bd47922068d60c07f1f">   69</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_g_s_a___p_r_n.html#ae60711e5fb568bd47922068d60c07f1f">total</a>;              <span class="comment">// 总信道个数</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="struct_g_s_a___p_r_n.html#a3c04964404034edb1106074eea62a0de">   70</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_g_s_a___p_r_n.html#a3c04964404034edb1106074eea62a0de">prn_ID</a>;             <span class="comment">// prn信道</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="struct_g_s_a___p_r_n.html#af8dc5226655f67d1118968d19f275359">   71</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_g_s_a___p_r_n.html#af8dc5226655f67d1118968d19f275359">prn</a>;                <span class="comment">// PRN 码（伪随机噪声码）</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>}<a class="code hl_struct" href="struct_g_s_a___p_r_n.html">GSA_PRN</a>;</div>
+</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#pragma pack()</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">//GPGSA数据结构体（当前卫星信息）</span></div>
+<div class="foldopen" id="foldopen00076" data-start="{" data-end="};">
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="struct_g_s_a.html">   76</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>{</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="struct_g_s_a.html#acf85aed816254009c982b21bdfe9f60d">   78</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_g_s_a.html#acf85aed816254009c982b21bdfe9f60d">mode_MA</a>;               <span class="comment">// 定位模式(选择2D/3D)，A=自动选择，M=手动选择</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="struct_g_s_a.html#a7954a0cc0ffa518856c3c867ae91ab90">   79</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_g_s_a.html#a7954a0cc0ffa518856c3c867ae91ab90">mode_123</a>;              <span class="comment">// 定位类型，1=未定位，2=2D定位，3=3D定位</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="struct_g_s_a.html#afbfb48a6d700fa763a5f30d34de6bcfd">   80</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_g_s_a.html#afbfb48a6d700fa763a5f30d34de6bcfd">pdop</a>;                         <span class="comment">// PDOP综合位置精度因子（0.5 - 99.9）</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="struct_g_s_a.html#a6f03c09bec71f917798ff7c4d3c864de">   81</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_g_s_a.html#a6f03c09bec71f917798ff7c4d3c864de">hdop</a>;                         <span class="comment">// HDOP水平精度因子（0.5 - 99.9）</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="struct_g_s_a.html#a9ceaecea121d3a9f0a82d7f2a45dbd1d">   82</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_g_s_a.html#a9ceaecea121d3a9f0a82d7f2a45dbd1d">vdop</a>;                         <span class="comment">// VDOP垂直精度因子（0.5 - 99.9）</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="struct_g_s_a.html#a35b83c27f7f0dd7464bf8ac6f6ede602">   83</a></span>    <a class="code hl_struct" href="struct_g_s_a___p_r_n.html">GSA_PRN</a> <a class="code hl_variable" href="struct_g_s_a.html#a35b83c27f7f0dd7464bf8ac6f6ede602">gsa_prn</a>[<a class="code hl_define" href="nmea_8h.html#a6b19d95aeaaa0435b963cd26687f1c2f">MAX_GSA_CHANNELS</a>];   <span class="comment">// 存放信道信息</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>}<a class="code hl_struct" href="struct_g_s_a.html">GSA</a>;</div>
+</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#if ENABLE_GSV</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#pragma pack(1)                      </span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">// 可见卫星信息结构体</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>{</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> prn;                <span class="comment">// PRN 码（伪随机噪声码）</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> elev;               <span class="comment">// 卫星仰角（00 - 90）度</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> azimuth;           <span class="comment">// 卫星方位角（00 - 359）度</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> SNR;                <span class="comment">// 信噪比</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}SAT_INFO;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="preprocessor">#pragma pack()</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">// GPGSV数据结构体(可见卫星信息)</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>{</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> msgs;                  <span class="comment">// 本次GSV语句的总数目（1 - 3）</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> msg;                   <span class="comment">// 本条GSV语句是本次GSV语句的第几条（1 - 3）</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> sats;                  <span class="comment">// 当前可见卫星总数（00 - 12）</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    SAT_INFO sat_info[<a class="code hl_define" href="nmea_8h.html#a01fd210b45393158b79251da6a7d75b7">MAX_SATELLITES</a>];   <span class="comment">// 卫星信息</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>}GSV;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">#if ENABLE_RMC</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">//RMC数据结构体（推荐定位信息数据格式）</span></div>
+<div class="foldopen" id="foldopen00111" data-start="{" data-end="};">
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="struct_r_m_c.html">  111</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>{</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="struct_r_m_c.html#ae6c777ae089ba7f3a16c2e20d44a6911">  113</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_r_m_c.html#ae6c777ae089ba7f3a16c2e20d44a6911">utc</a>[11];                     <span class="comment">// UTC时间，hhmmss.sss格式</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="struct_r_m_c.html#a0ddc4bd04b72cff58498487eff0ce6bd">  114</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_r_m_c.html#a0ddc4bd04b72cff58498487eff0ce6bd">pos_status</a>;                  <span class="comment">// 状态，A=定位，V=未定位</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="struct_r_m_c.html#a20b61004e3a00428b75e638b20e9c9d1">  115</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_r_m_c.html#a20b61004e3a00428b75e638b20e9c9d1">lat</a>;                       <span class="comment">// 纬度ddmm.mmmm，度分格式</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="struct_r_m_c.html#ad2d055c4b54f1878441ae98bff794200">  116</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_r_m_c.html#ad2d055c4b54f1878441ae98bff794200">lat_dec</a>;                   <span class="comment">//</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="struct_r_m_c.html#a7e63f3c67c2e0f41b3380e42a231831a">  117</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_r_m_c.html#a7e63f3c67c2e0f41b3380e42a231831a">lat_dir</a>;                     <span class="comment">// 纬度N（北纬）或S（南纬）</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="struct_r_m_c.html#a41664567d6c1b313269c5f63f327583a">  118</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_r_m_c.html#a41664567d6c1b313269c5f63f327583a">lon</a>;                       <span class="comment">// 经度dddmm.mmmm，度分格式</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="struct_r_m_c.html#ac4a77ea70aad65bf7580b1bbb4f9b892">  119</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_r_m_c.html#ac4a77ea70aad65bf7580b1bbb4f9b892">lon_dec</a>;                   <span class="comment">//</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="struct_r_m_c.html#ad26d00a5b2afae18e7379498113c32b0">  120</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_r_m_c.html#ad26d00a5b2afae18e7379498113c32b0">lon_dir</a>;                     <span class="comment">// 经度E（东经）或W（西经）</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="struct_r_m_c.html#a025c75274f8661c27fc5923ec14e4449">  121</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_r_m_c.html#a025c75274f8661c27fc5923ec14e4449">speed_Kn</a>;                  <span class="comment">// 速度</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="struct_r_m_c.html#a4108e15c73775b09acb19cd83ad2eec9">  122</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_r_m_c.html#a4108e15c73775b09acb19cd83ad2eec9">track_true</a>;                <span class="comment">// 方位角，度</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="struct_r_m_c.html#a31ddd417ecf957beac1e3d573002e5bf">  123</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_r_m_c.html#a31ddd417ecf957beac1e3d573002e5bf">date</a>[7];                     <span class="comment">// UTC日期，DDMMYY格式</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="struct_r_m_c.html#a33a7ef8df8d2d5569591fa4c72e11564">  124</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_r_m_c.html#a33a7ef8df8d2d5569591fa4c72e11564">mag_var</a>;                   <span class="comment">// 磁偏角，（000 - 180）度</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="struct_r_m_c.html#a649c92968801d91927d3571a8e33f6b2">  125</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_r_m_c.html#a649c92968801d91927d3571a8e33f6b2">var_dir</a>;                     <span class="comment">// 磁偏角方向，E=东,W=西</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="struct_r_m_c.html#a901060ac822a5150e855816739d62472">  126</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_r_m_c.html#a901060ac822a5150e855816739d62472">mode_ind</a>;                    <span class="comment">// 模式，A=自动，D=差分，E=估测，N=数据无效（3.0协议内容）</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>}<a class="code hl_struct" href="struct_r_m_c.html">RMC</a>;</div>
+</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="preprocessor">#if ENABLE_VTG</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment">//VTG数据结构体（地面速度信息）</span></div>
+<div class="foldopen" id="foldopen00132" data-start="{" data-end="};">
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="struct_v_t_g.html">  132</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>{</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="struct_v_t_g.html#a2e68e96dbf2817020d5f1849d90cc90d">  134</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_v_t_g.html#a2e68e96dbf2817020d5f1849d90cc90d">track_true</a>;                <span class="comment">// 运动角度，000 - 359，真北参照系</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="struct_v_t_g.html#a76c621263f42176f09622753bc57ea3f">  135</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_v_t_g.html#a76c621263f42176f09622753bc57ea3f">track_mag</a>;                 <span class="comment">// 运动角度，000 - 359，磁北参照系</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="struct_v_t_g.html#a335307a864dcebb677198b0bf5a1370e">  136</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_v_t_g.html#a335307a864dcebb677198b0bf5a1370e">speed_Kn</a>;                  <span class="comment">// 水平运动速度（0.00），节，Knots</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="struct_v_t_g.html#af2d1e498befef1916d4d17100cf5e273">  137</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_v_t_g.html#af2d1e498befef1916d4d17100cf5e273">speed_Km</a>;                  <span class="comment">// 水平运动速度（0.00）, 公里/时，km/h</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>}<a class="code hl_struct" href="struct_v_t_g.html">VTG</a>;</div>
+</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="preprocessor">#if ENABLE_UTC</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">//UTC时间结构体</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>{</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> YY;                 <span class="comment">// 年</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> DD;                 <span class="comment">// 日</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> MM;                 <span class="comment">// 月</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> hh;                 <span class="comment">// 时</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> mm;                 <span class="comment">// 分</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> ss;                 <span class="comment">// 秒</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> ds;                <span class="comment">// 毫秒</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>}UTC;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span></div>
+<div class="foldopen" id="foldopen00159" data-start="{" data-end="};">
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="struct_g_p_s.html">  159</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>{</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="struct_g_p_s.html#af9322aab557a66d969c232a8a7abf2a7">  161</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_g_p_s.html#af9322aab557a66d969c232a8a7abf2a7">gps_buffer_data</a>[<a class="code hl_define" href="nmea_8h.html#a28a5b4da4a3994220cde4d90acac4b22">MAX_GPS_BUFFER_SIZE</a>];</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="preprocessor">#if ENABLE_GGA</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="struct_g_p_s.html#a926544c67c37bb67b3914eba8d55f256">  163</a></span>    <a class="code hl_struct" href="struct_g_g_a.html">GGA</a> <a class="code hl_variable" href="struct_g_p_s.html#a926544c67c37bb67b3914eba8d55f256">gga_data</a>;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="preprocessor">#if ENABLE_GLL</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="struct_g_p_s.html#ae38b1dc67005d6e2316886b417746113">  166</a></span>    <a class="code hl_struct" href="struct_g_l_l.html">GLL</a> <a class="code hl_variable" href="struct_g_p_s.html#ae38b1dc67005d6e2316886b417746113">gll_data</a>;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="preprocessor">#if ENABLE_GSA</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="struct_g_p_s.html#a4c9aa5d9fe0c1f8d6f54fe5e76e00e8e">  169</a></span>    <a class="code hl_struct" href="struct_g_s_a.html">GSA</a> <a class="code hl_variable" href="struct_g_p_s.html#a4c9aa5d9fe0c1f8d6f54fe5e76e00e8e">gsa_data</a>;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="preprocessor">#if ENABLE_GSV</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    GSV gpgsv_data;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    GSV gngsv_data;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    GSV glgsv_data;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="preprocessor">#if ENABLE_RMC</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="struct_g_p_s.html#a504faabf9710aab879800ca43436fd2e">  177</a></span>    <a class="code hl_struct" href="struct_r_m_c.html">RMC</a> <a class="code hl_variable" href="struct_g_p_s.html#a504faabf9710aab879800ca43436fd2e">rmc_data</a>;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="preprocessor">#if ENABLE_VTG</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="struct_g_p_s.html#a54a4857bcb6a5c44d46296885366de7c">  180</a></span>    <a class="code hl_struct" href="struct_v_t_g.html">VTG</a> <a class="code hl_variable" href="struct_g_p_s.html#a54a4857bcb6a5c44d46296885366de7c">vtg_data</a>;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="preprocessor">#if ENABLE_UTC</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    UTC utc;    </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>}<a class="code hl_struct" href="struct_g_p_s.html">GPS</a>;</div>
+</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="keywordtype">void</span> <a class="code hl_function" href="nmea_8h.html#a5d880dd9c672c243e1d6bcbb9cba74e6">gps_global_init</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><a class="code hl_struct" href="struct_g_p_s.html">GPS</a> <a class="code hl_function" href="nmea_8h.html#aacbe592abc0b5d13ce4b9195ac268716">gps_data_parse</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* gps_src, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> gps_src_len);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="preprocessor">#endif </span><span class="comment">/* LIB_LIBNMEA_NMEA_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="anmea_8h_html_a01fd210b45393158b79251da6a7d75b7"><div class="ttname"><a href="nmea_8h.html#a01fd210b45393158b79251da6a7d75b7">MAX_SATELLITES</a></div><div class="ttdeci">#define MAX_SATELLITES</div><div class="ttdef"><b>定义</b> nmea.h:30</div></div>
+<div class="ttc" id="anmea_8h_html_a28a5b4da4a3994220cde4d90acac4b22"><div class="ttname"><a href="nmea_8h.html#a28a5b4da4a3994220cde4d90acac4b22">MAX_GPS_BUFFER_SIZE</a></div><div class="ttdeci">#define MAX_GPS_BUFFER_SIZE</div><div class="ttdef"><b>定义</b> nmea.h:29</div></div>
+<div class="ttc" id="anmea_8h_html_a5d880dd9c672c243e1d6bcbb9cba74e6"><div class="ttname"><a href="nmea_8h.html#a5d880dd9c672c243e1d6bcbb9cba74e6">gps_global_init</a></div><div class="ttdeci">void gps_global_init(void)</div><div class="ttdoc">初始化全局GPS数据结构</div><div class="ttdef"><b>定义</b> nmea.c:695</div></div>
+<div class="ttc" id="anmea_8h_html_a6b19d95aeaaa0435b963cd26687f1c2f"><div class="ttname"><a href="nmea_8h.html#a6b19d95aeaaa0435b963cd26687f1c2f">MAX_GSA_CHANNELS</a></div><div class="ttdeci">#define MAX_GSA_CHANNELS</div><div class="ttdef"><b>定义</b> nmea.h:31</div></div>
+<div class="ttc" id="anmea_8h_html_aacbe592abc0b5d13ce4b9195ac268716"><div class="ttname"><a href="nmea_8h.html#aacbe592abc0b5d13ce4b9195ac268716">gps_data_parse</a></div><div class="ttdeci">GPS gps_data_parse(const char *gps_src, const unsigned short gps_src_len)</div><div class="ttdoc">解析NMEA格式的GPS原始数据，提取各数据段信息</div><div class="ttdef"><b>定义</b> nmea.c:749</div></div>
+<div class="ttc" id="astruct_g_g_a_html"><div class="ttname"><a href="struct_g_g_a.html">GGA</a></div><div class="ttdef"><b>定义</b> nmea.h:35</div></div>
+<div class="ttc" id="astruct_g_g_a_html_a135a986f29c9e257acd250c312f4f9da"><div class="ttname"><a href="struct_g_g_a.html#a135a986f29c9e257acd250c312f4f9da">GGA::lon_dir</a></div><div class="ttdeci">char lon_dir</div><div class="ttdef"><b>定义</b> nmea.h:40</div></div>
+<div class="ttc" id="astruct_g_g_a_html_a31651af5e01e53e9c41a07931ce741d5"><div class="ttname"><a href="struct_g_g_a.html#a31651af5e01e53e9c41a07931ce741d5">GGA::age</a></div><div class="ttdeci">unsigned char age</div><div class="ttdef"><b>定义</b> nmea.h:46</div></div>
+<div class="ttc" id="astruct_g_g_a_html_a37040029c3aa7f2f8cb43b27990d67d9"><div class="ttname"><a href="struct_g_g_a.html#a37040029c3aa7f2f8cb43b27990d67d9">GGA::sats</a></div><div class="ttdeci">unsigned char sats</div><div class="ttdef"><b>定义</b> nmea.h:42</div></div>
+<div class="ttc" id="astruct_g_g_a_html_a3aa0e01009bfa65519e52bf46b93464b"><div class="ttname"><a href="struct_g_g_a.html#a3aa0e01009bfa65519e52bf46b93464b">GGA::undulation</a></div><div class="ttdeci">double undulation</div><div class="ttdef"><b>定义</b> nmea.h:45</div></div>
+<div class="ttc" id="astruct_g_g_a_html_a3c3ba34439a485e62c4365f6a894559b"><div class="ttname"><a href="struct_g_g_a.html#a3c3ba34439a485e62c4365f6a894559b">GGA::alt</a></div><div class="ttdeci">double alt</div><div class="ttdef"><b>定义</b> nmea.h:44</div></div>
+<div class="ttc" id="astruct_g_g_a_html_a474bde26492a6ad4c96f4f5aef869dd1"><div class="ttname"><a href="struct_g_g_a.html#a474bde26492a6ad4c96f4f5aef869dd1">GGA::lat_dir</a></div><div class="ttdeci">char lat_dir</div><div class="ttdef"><b>定义</b> nmea.h:38</div></div>
+<div class="ttc" id="astruct_g_g_a_html_aa565749ac2b7fd745fb688c99002d446"><div class="ttname"><a href="struct_g_g_a.html#aa565749ac2b7fd745fb688c99002d446">GGA::quality</a></div><div class="ttdeci">unsigned char quality</div><div class="ttdef"><b>定义</b> nmea.h:41</div></div>
+<div class="ttc" id="astruct_g_g_a_html_ab7c43f57a48f0c85599f66fe9ed62e2a"><div class="ttname"><a href="struct_g_g_a.html#ab7c43f57a48f0c85599f66fe9ed62e2a">GGA::hdop</a></div><div class="ttdeci">double hdop</div><div class="ttdef"><b>定义</b> nmea.h:43</div></div>
+<div class="ttc" id="astruct_g_g_a_html_acc6b8a3a5e6fecee73a8d0db9c36feae"><div class="ttname"><a href="struct_g_g_a.html#acc6b8a3a5e6fecee73a8d0db9c36feae">GGA::utc</a></div><div class="ttdeci">char utc[11]</div><div class="ttdef"><b>定义</b> nmea.h:36</div></div>
+<div class="ttc" id="astruct_g_g_a_html_addbca9561f53a93272f412aad9d10e25"><div class="ttname"><a href="struct_g_g_a.html#addbca9561f53a93272f412aad9d10e25">GGA::lat</a></div><div class="ttdeci">double lat</div><div class="ttdef"><b>定义</b> nmea.h:37</div></div>
+<div class="ttc" id="astruct_g_g_a_html_af335ed32791edf6034fdcf5cba1c0326"><div class="ttname"><a href="struct_g_g_a.html#af335ed32791edf6034fdcf5cba1c0326">GGA::stn_ID</a></div><div class="ttdeci">unsigned short stn_ID</div><div class="ttdef"><b>定义</b> nmea.h:47</div></div>
+<div class="ttc" id="astruct_g_g_a_html_afa045176fa3ff71b97db05f84ea2daa0"><div class="ttname"><a href="struct_g_g_a.html#afa045176fa3ff71b97db05f84ea2daa0">GGA::lon</a></div><div class="ttdeci">double lon</div><div class="ttdef"><b>定义</b> nmea.h:39</div></div>
+<div class="ttc" id="astruct_g_l_l_html"><div class="ttname"><a href="struct_g_l_l.html">GLL</a></div><div class="ttdef"><b>定义</b> nmea.h:54</div></div>
+<div class="ttc" id="astruct_g_l_l_html_a0eb43b605112858cc1d66c1fee6fd917"><div class="ttname"><a href="struct_g_l_l.html#a0eb43b605112858cc1d66c1fee6fd917">GLL::data_status</a></div><div class="ttdeci">char data_status</div><div class="ttdef"><b>定义</b> nmea.h:60</div></div>
+<div class="ttc" id="astruct_g_l_l_html_a251f5d6e70463debe87c3f4ea6b2fa0a"><div class="ttname"><a href="struct_g_l_l.html#a251f5d6e70463debe87c3f4ea6b2fa0a">GLL::lat</a></div><div class="ttdeci">double lat</div><div class="ttdef"><b>定义</b> nmea.h:55</div></div>
+<div class="ttc" id="astruct_g_l_l_html_a4b654c653f1baca23fe1f8c8225c025c"><div class="ttname"><a href="struct_g_l_l.html#a4b654c653f1baca23fe1f8c8225c025c">GLL::lon_dir</a></div><div class="ttdeci">char lon_dir</div><div class="ttdef"><b>定义</b> nmea.h:58</div></div>
+<div class="ttc" id="astruct_g_l_l_html_abb7165183d6a4ca6f782fffcd5c94859"><div class="ttname"><a href="struct_g_l_l.html#abb7165183d6a4ca6f782fffcd5c94859">GLL::utc</a></div><div class="ttdeci">char utc[11]</div><div class="ttdef"><b>定义</b> nmea.h:59</div></div>
+<div class="ttc" id="astruct_g_l_l_html_ac8a0a0aef47d82767580dd7d746f7a63"><div class="ttname"><a href="struct_g_l_l.html#ac8a0a0aef47d82767580dd7d746f7a63">GLL::lat_dir</a></div><div class="ttdeci">char lat_dir</div><div class="ttdef"><b>定义</b> nmea.h:56</div></div>
+<div class="ttc" id="astruct_g_l_l_html_ad305c43e84f86b61ceb633a98768db5d"><div class="ttname"><a href="struct_g_l_l.html#ad305c43e84f86b61ceb633a98768db5d">GLL::lon</a></div><div class="ttdeci">double lon</div><div class="ttdef"><b>定义</b> nmea.h:57</div></div>
+<div class="ttc" id="astruct_g_p_s_html"><div class="ttname"><a href="struct_g_p_s.html">GPS</a></div><div class="ttdoc">GPS结构体</div><div class="ttdef"><b>定义</b> nmea.h:160</div></div>
+<div class="ttc" id="astruct_g_p_s_html_a4c9aa5d9fe0c1f8d6f54fe5e76e00e8e"><div class="ttname"><a href="struct_g_p_s.html#a4c9aa5d9fe0c1f8d6f54fe5e76e00e8e">GPS::gsa_data</a></div><div class="ttdeci">GSA gsa_data</div><div class="ttdef"><b>定义</b> nmea.h:169</div></div>
+<div class="ttc" id="astruct_g_p_s_html_a504faabf9710aab879800ca43436fd2e"><div class="ttname"><a href="struct_g_p_s.html#a504faabf9710aab879800ca43436fd2e">GPS::rmc_data</a></div><div class="ttdeci">RMC rmc_data</div><div class="ttdef"><b>定义</b> nmea.h:177</div></div>
+<div class="ttc" id="astruct_g_p_s_html_a54a4857bcb6a5c44d46296885366de7c"><div class="ttname"><a href="struct_g_p_s.html#a54a4857bcb6a5c44d46296885366de7c">GPS::vtg_data</a></div><div class="ttdeci">VTG vtg_data</div><div class="ttdef"><b>定义</b> nmea.h:180</div></div>
+<div class="ttc" id="astruct_g_p_s_html_a926544c67c37bb67b3914eba8d55f256"><div class="ttname"><a href="struct_g_p_s.html#a926544c67c37bb67b3914eba8d55f256">GPS::gga_data</a></div><div class="ttdeci">GGA gga_data</div><div class="ttdef"><b>定义</b> nmea.h:163</div></div>
+<div class="ttc" id="astruct_g_p_s_html_ae38b1dc67005d6e2316886b417746113"><div class="ttname"><a href="struct_g_p_s.html#ae38b1dc67005d6e2316886b417746113">GPS::gll_data</a></div><div class="ttdeci">GLL gll_data</div><div class="ttdef"><b>定义</b> nmea.h:166</div></div>
+<div class="ttc" id="astruct_g_p_s_html_af9322aab557a66d969c232a8a7abf2a7"><div class="ttname"><a href="struct_g_p_s.html#af9322aab557a66d969c232a8a7abf2a7">GPS::gps_buffer_data</a></div><div class="ttdeci">char gps_buffer_data[MAX_GPS_BUFFER_SIZE]</div><div class="ttdef"><b>定义</b> nmea.h:161</div></div>
+<div class="ttc" id="astruct_g_s_a___p_r_n_html"><div class="ttname"><a href="struct_g_s_a___p_r_n.html">GSA_PRN</a></div><div class="ttdef"><b>定义</b> nmea.h:68</div></div>
+<div class="ttc" id="astruct_g_s_a___p_r_n_html_a3c04964404034edb1106074eea62a0de"><div class="ttname"><a href="struct_g_s_a___p_r_n.html#a3c04964404034edb1106074eea62a0de">GSA_PRN::prn_ID</a></div><div class="ttdeci">unsigned char prn_ID</div><div class="ttdef"><b>定义</b> nmea.h:70</div></div>
+<div class="ttc" id="astruct_g_s_a___p_r_n_html_ae60711e5fb568bd47922068d60c07f1f"><div class="ttname"><a href="struct_g_s_a___p_r_n.html#ae60711e5fb568bd47922068d60c07f1f">GSA_PRN::total</a></div><div class="ttdeci">unsigned char total</div><div class="ttdef"><b>定义</b> nmea.h:69</div></div>
+<div class="ttc" id="astruct_g_s_a___p_r_n_html_af8dc5226655f67d1118968d19f275359"><div class="ttname"><a href="struct_g_s_a___p_r_n.html#af8dc5226655f67d1118968d19f275359">GSA_PRN::prn</a></div><div class="ttdeci">unsigned char prn</div><div class="ttdef"><b>定义</b> nmea.h:71</div></div>
+<div class="ttc" id="astruct_g_s_a_html"><div class="ttname"><a href="struct_g_s_a.html">GSA</a></div><div class="ttdef"><b>定义</b> nmea.h:77</div></div>
+<div class="ttc" id="astruct_g_s_a_html_a35b83c27f7f0dd7464bf8ac6f6ede602"><div class="ttname"><a href="struct_g_s_a.html#a35b83c27f7f0dd7464bf8ac6f6ede602">GSA::gsa_prn</a></div><div class="ttdeci">GSA_PRN gsa_prn[MAX_GSA_CHANNELS]</div><div class="ttdef"><b>定义</b> nmea.h:83</div></div>
+<div class="ttc" id="astruct_g_s_a_html_a6f03c09bec71f917798ff7c4d3c864de"><div class="ttname"><a href="struct_g_s_a.html#a6f03c09bec71f917798ff7c4d3c864de">GSA::hdop</a></div><div class="ttdeci">double hdop</div><div class="ttdef"><b>定义</b> nmea.h:81</div></div>
+<div class="ttc" id="astruct_g_s_a_html_a7954a0cc0ffa518856c3c867ae91ab90"><div class="ttname"><a href="struct_g_s_a.html#a7954a0cc0ffa518856c3c867ae91ab90">GSA::mode_123</a></div><div class="ttdeci">unsigned char mode_123</div><div class="ttdef"><b>定义</b> nmea.h:79</div></div>
+<div class="ttc" id="astruct_g_s_a_html_a9ceaecea121d3a9f0a82d7f2a45dbd1d"><div class="ttname"><a href="struct_g_s_a.html#a9ceaecea121d3a9f0a82d7f2a45dbd1d">GSA::vdop</a></div><div class="ttdeci">double vdop</div><div class="ttdef"><b>定义</b> nmea.h:82</div></div>
+<div class="ttc" id="astruct_g_s_a_html_acf85aed816254009c982b21bdfe9f60d"><div class="ttname"><a href="struct_g_s_a.html#acf85aed816254009c982b21bdfe9f60d">GSA::mode_MA</a></div><div class="ttdeci">unsigned char mode_MA</div><div class="ttdef"><b>定义</b> nmea.h:78</div></div>
+<div class="ttc" id="astruct_g_s_a_html_afbfb48a6d700fa763a5f30d34de6bcfd"><div class="ttname"><a href="struct_g_s_a.html#afbfb48a6d700fa763a5f30d34de6bcfd">GSA::pdop</a></div><div class="ttdeci">double pdop</div><div class="ttdef"><b>定义</b> nmea.h:80</div></div>
+<div class="ttc" id="astruct_r_m_c_html"><div class="ttname"><a href="struct_r_m_c.html">RMC</a></div><div class="ttdef"><b>定义</b> nmea.h:112</div></div>
+<div class="ttc" id="astruct_r_m_c_html_a025c75274f8661c27fc5923ec14e4449"><div class="ttname"><a href="struct_r_m_c.html#a025c75274f8661c27fc5923ec14e4449">RMC::speed_Kn</a></div><div class="ttdeci">double speed_Kn</div><div class="ttdef"><b>定义</b> nmea.h:121</div></div>
+<div class="ttc" id="astruct_r_m_c_html_a0ddc4bd04b72cff58498487eff0ce6bd"><div class="ttname"><a href="struct_r_m_c.html#a0ddc4bd04b72cff58498487eff0ce6bd">RMC::pos_status</a></div><div class="ttdeci">char pos_status</div><div class="ttdef"><b>定义</b> nmea.h:114</div></div>
+<div class="ttc" id="astruct_r_m_c_html_a20b61004e3a00428b75e638b20e9c9d1"><div class="ttname"><a href="struct_r_m_c.html#a20b61004e3a00428b75e638b20e9c9d1">RMC::lat</a></div><div class="ttdeci">double lat</div><div class="ttdef"><b>定义</b> nmea.h:115</div></div>
+<div class="ttc" id="astruct_r_m_c_html_a31ddd417ecf957beac1e3d573002e5bf"><div class="ttname"><a href="struct_r_m_c.html#a31ddd417ecf957beac1e3d573002e5bf">RMC::date</a></div><div class="ttdeci">char date[7]</div><div class="ttdef"><b>定义</b> nmea.h:123</div></div>
+<div class="ttc" id="astruct_r_m_c_html_a33a7ef8df8d2d5569591fa4c72e11564"><div class="ttname"><a href="struct_r_m_c.html#a33a7ef8df8d2d5569591fa4c72e11564">RMC::mag_var</a></div><div class="ttdeci">double mag_var</div><div class="ttdef"><b>定义</b> nmea.h:124</div></div>
+<div class="ttc" id="astruct_r_m_c_html_a4108e15c73775b09acb19cd83ad2eec9"><div class="ttname"><a href="struct_r_m_c.html#a4108e15c73775b09acb19cd83ad2eec9">RMC::track_true</a></div><div class="ttdeci">double track_true</div><div class="ttdef"><b>定义</b> nmea.h:122</div></div>
+<div class="ttc" id="astruct_r_m_c_html_a41664567d6c1b313269c5f63f327583a"><div class="ttname"><a href="struct_r_m_c.html#a41664567d6c1b313269c5f63f327583a">RMC::lon</a></div><div class="ttdeci">double lon</div><div class="ttdef"><b>定义</b> nmea.h:118</div></div>
+<div class="ttc" id="astruct_r_m_c_html_a649c92968801d91927d3571a8e33f6b2"><div class="ttname"><a href="struct_r_m_c.html#a649c92968801d91927d3571a8e33f6b2">RMC::var_dir</a></div><div class="ttdeci">char var_dir</div><div class="ttdef"><b>定义</b> nmea.h:125</div></div>
+<div class="ttc" id="astruct_r_m_c_html_a7e63f3c67c2e0f41b3380e42a231831a"><div class="ttname"><a href="struct_r_m_c.html#a7e63f3c67c2e0f41b3380e42a231831a">RMC::lat_dir</a></div><div class="ttdeci">char lat_dir</div><div class="ttdef"><b>定义</b> nmea.h:117</div></div>
+<div class="ttc" id="astruct_r_m_c_html_a901060ac822a5150e855816739d62472"><div class="ttname"><a href="struct_r_m_c.html#a901060ac822a5150e855816739d62472">RMC::mode_ind</a></div><div class="ttdeci">char mode_ind</div><div class="ttdef"><b>定义</b> nmea.h:126</div></div>
+<div class="ttc" id="astruct_r_m_c_html_ac4a77ea70aad65bf7580b1bbb4f9b892"><div class="ttname"><a href="struct_r_m_c.html#ac4a77ea70aad65bf7580b1bbb4f9b892">RMC::lon_dec</a></div><div class="ttdeci">double lon_dec</div><div class="ttdef"><b>定义</b> nmea.h:119</div></div>
+<div class="ttc" id="astruct_r_m_c_html_ad26d00a5b2afae18e7379498113c32b0"><div class="ttname"><a href="struct_r_m_c.html#ad26d00a5b2afae18e7379498113c32b0">RMC::lon_dir</a></div><div class="ttdeci">char lon_dir</div><div class="ttdef"><b>定义</b> nmea.h:120</div></div>
+<div class="ttc" id="astruct_r_m_c_html_ad2d055c4b54f1878441ae98bff794200"><div class="ttname"><a href="struct_r_m_c.html#ad2d055c4b54f1878441ae98bff794200">RMC::lat_dec</a></div><div class="ttdeci">double lat_dec</div><div class="ttdef"><b>定义</b> nmea.h:116</div></div>
+<div class="ttc" id="astruct_r_m_c_html_ae6c777ae089ba7f3a16c2e20d44a6911"><div class="ttname"><a href="struct_r_m_c.html#ae6c777ae089ba7f3a16c2e20d44a6911">RMC::utc</a></div><div class="ttdeci">char utc[11]</div><div class="ttdef"><b>定义</b> nmea.h:113</div></div>
+<div class="ttc" id="astruct_v_t_g_html"><div class="ttname"><a href="struct_v_t_g.html">VTG</a></div><div class="ttdef"><b>定义</b> nmea.h:133</div></div>
+<div class="ttc" id="astruct_v_t_g_html_a2e68e96dbf2817020d5f1849d90cc90d"><div class="ttname"><a href="struct_v_t_g.html#a2e68e96dbf2817020d5f1849d90cc90d">VTG::track_true</a></div><div class="ttdeci">double track_true</div><div class="ttdef"><b>定义</b> nmea.h:134</div></div>
+<div class="ttc" id="astruct_v_t_g_html_a335307a864dcebb677198b0bf5a1370e"><div class="ttname"><a href="struct_v_t_g.html#a335307a864dcebb677198b0bf5a1370e">VTG::speed_Kn</a></div><div class="ttdeci">double speed_Kn</div><div class="ttdef"><b>定义</b> nmea.h:136</div></div>
+<div class="ttc" id="astruct_v_t_g_html_a76c621263f42176f09622753bc57ea3f"><div class="ttname"><a href="struct_v_t_g.html#a76c621263f42176f09622753bc57ea3f">VTG::track_mag</a></div><div class="ttdeci">double track_mag</div><div class="ttdef"><b>定义</b> nmea.h:135</div></div>
+<div class="ttc" id="astruct_v_t_g_html_af2d1e498befef1916d4d17100cf5e273"><div class="ttname"><a href="struct_v_t_g.html#af2d1e498befef1916d4d17100cf5e273">VTG::speed_Km</a></div><div class="ttdeci">double speed_Km</div><div class="ttdef"><b>定义</b> nmea.h:137</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_c85d3e3c5052e9ad9ce18c6863244a25.html">lib</a></li><li class="navelem"><a href="dir_db9541fac944e555f853f2d7979db993.html">libnmea</a></li><li class="navelem"><a href="nmea_8h.html">nmea.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

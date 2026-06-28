@@ -1,0 +1,119 @@
+\doxysection{src/interface/msg\+\_\+interface.h 文件参考}
+\hypertarget{msg__interface_8h}{}\label{msg__interface_8h}\index{src/interface/msg\_interface.h@{src/interface/msg\_interface.h}}
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include "{}vcu\+\_\+can0\+\_\+fd.\+h"{}}\newline
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_h_u_a_r_t___p_a_r}{HUART\+\_\+\+PAR}}
+\begin{DoxyCompactList}\small\item\em UART接收参数结构体 \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_h_c_a_n___s_t_r_u_c_t}{HCAN\+\_\+\+STRUCT}}
+\begin{DoxyCompactList}\small\item\em CAN接收参数结构体 \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_v_c_u___shared___data__t}{VCU\+\_\+\+Shared\+\_\+\+Data\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em 共享数据结构体 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{类型定义}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct vcu\+\_\+can0\+\_\+fd\+\_\+motor\+\_\+ctrl\+\_\+t \mbox{\hyperlink{msg__interface_8h_a1fc2eefee98d8daa7b17bff29d126de7}{vcu\+\_\+can0\+\_\+fd\+\_\+motor\+\_\+ctrl\+\_\+t}}
+\item 
+typedef struct vcu\+\_\+can0\+\_\+fd\+\_\+gps\+\_\+status\+\_\+t \mbox{\hyperlink{msg__interface_8h_a2b4d2c0a2b8342ac061cfd0c0915129a}{vcu\+\_\+can0\+\_\+fd\+\_\+gps\+\_\+status\+\_\+t}}
+\item 
+typedef struct vcu\+\_\+can0\+\_\+fd\+\_\+vcu\+\_\+version\+\_\+t \mbox{\hyperlink{msg__interface_8h_adaa803ab2cde47d2ac79b7defbc01d03}{vcu\+\_\+can0\+\_\+fd\+\_\+vcu\+\_\+version\+\_\+t}}
+\item 
+typedef struct vcu\+\_\+can0\+\_\+fd\+\_\+vcu\+\_\+cmd\+\_\+t \mbox{\hyperlink{msg__interface_8h_a08243bdeaeb79a1a00680d1e145b9fa7}{vcu\+\_\+can0\+\_\+fd\+\_\+vcu\+\_\+cmd\+\_\+t}}
+\item 
+typedef struct vcu\+\_\+can0\+\_\+fd\+\_\+vcu\+\_\+heartbeat\+\_\+t \mbox{\hyperlink{msg__interface_8h_a3c8a8d442ca19c3048a8d520e8742fba}{vcu\+\_\+can0\+\_\+fd\+\_\+vcu\+\_\+heartbeat\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{msg__interface_8h_a747b619eb98617940b805267f7ee6050}{vehicle\+\_\+mode\+\_\+t}} \{ \mbox{\hyperlink{msg__interface_8h_a747b619eb98617940b805267f7ee6050a506e8dd29460ea318b68d035f679b01b}{MANUAL}}
+, \mbox{\hyperlink{msg__interface_8h_a747b619eb98617940b805267f7ee6050ad4f1ddc0e9c9a34f69ab877071896786}{RC}}
+, \mbox{\hyperlink{msg__interface_8h_a747b619eb98617940b805267f7ee6050ab81b7469043e9c54603ca3aebbe38e90}{Auto}}
+ \}
+\begin{DoxyCompactList}\small\item\em 车辆模式枚举类型 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{变量}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_v_c_u___shared___data__t}{VCU\+\_\+\+Shared\+\_\+\+Data\+\_\+t}} \mbox{\hyperlink{msg__interface_8h_afc8069e9efa5cce49bc050716a8d16e7}{g\+\_\+shared\+\_\+data}}
+\begin{DoxyCompactList}\small\item\em 全局共享数据 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{msg__interface_8h_doc-typedef-members}
+\doxysubsection{类型定义说明}
+\Hypertarget{msg__interface_8h_a2b4d2c0a2b8342ac061cfd0c0915129a}\index{msg\_interface.h@{msg\_interface.h}!vcu\_can0\_fd\_gps\_status\_t@{vcu\_can0\_fd\_gps\_status\_t}}
+\index{vcu\_can0\_fd\_gps\_status\_t@{vcu\_can0\_fd\_gps\_status\_t}!msg\_interface.h@{msg\_interface.h}}
+\doxysubsubsection{\texorpdfstring{vcu\_can0\_fd\_gps\_status\_t}{vcu\_can0\_fd\_gps\_status\_t}}
+{\footnotesize\ttfamily \label{msg__interface_8h_a2b4d2c0a2b8342ac061cfd0c0915129a} 
+typedef struct vcu\+\_\+can0\+\_\+fd\+\_\+gps\+\_\+status\+\_\+t vcu\+\_\+can0\+\_\+fd\+\_\+gps\+\_\+status\+\_\+t}
+
+\Hypertarget{msg__interface_8h_a1fc2eefee98d8daa7b17bff29d126de7}\index{msg\_interface.h@{msg\_interface.h}!vcu\_can0\_fd\_motor\_ctrl\_t@{vcu\_can0\_fd\_motor\_ctrl\_t}}
+\index{vcu\_can0\_fd\_motor\_ctrl\_t@{vcu\_can0\_fd\_motor\_ctrl\_t}!msg\_interface.h@{msg\_interface.h}}
+\doxysubsubsection{\texorpdfstring{vcu\_can0\_fd\_motor\_ctrl\_t}{vcu\_can0\_fd\_motor\_ctrl\_t}}
+{\footnotesize\ttfamily \label{msg__interface_8h_a1fc2eefee98d8daa7b17bff29d126de7} 
+typedef struct vcu\+\_\+can0\+\_\+fd\+\_\+motor\+\_\+ctrl\+\_\+t vcu\+\_\+can0\+\_\+fd\+\_\+motor\+\_\+ctrl\+\_\+t}
+
+结构体添加别名定义,适配\+Simulink需要以及内部使用 \Hypertarget{msg__interface_8h_a08243bdeaeb79a1a00680d1e145b9fa7}\index{msg\_interface.h@{msg\_interface.h}!vcu\_can0\_fd\_vcu\_cmd\_t@{vcu\_can0\_fd\_vcu\_cmd\_t}}
+\index{vcu\_can0\_fd\_vcu\_cmd\_t@{vcu\_can0\_fd\_vcu\_cmd\_t}!msg\_interface.h@{msg\_interface.h}}
+\doxysubsubsection{\texorpdfstring{vcu\_can0\_fd\_vcu\_cmd\_t}{vcu\_can0\_fd\_vcu\_cmd\_t}}
+{\footnotesize\ttfamily \label{msg__interface_8h_a08243bdeaeb79a1a00680d1e145b9fa7} 
+typedef struct vcu\+\_\+can0\+\_\+fd\+\_\+vcu\+\_\+cmd\+\_\+t vcu\+\_\+can0\+\_\+fd\+\_\+vcu\+\_\+cmd\+\_\+t}
+
+\Hypertarget{msg__interface_8h_a3c8a8d442ca19c3048a8d520e8742fba}\index{msg\_interface.h@{msg\_interface.h}!vcu\_can0\_fd\_vcu\_heartbeat\_t@{vcu\_can0\_fd\_vcu\_heartbeat\_t}}
+\index{vcu\_can0\_fd\_vcu\_heartbeat\_t@{vcu\_can0\_fd\_vcu\_heartbeat\_t}!msg\_interface.h@{msg\_interface.h}}
+\doxysubsubsection{\texorpdfstring{vcu\_can0\_fd\_vcu\_heartbeat\_t}{vcu\_can0\_fd\_vcu\_heartbeat\_t}}
+{\footnotesize\ttfamily \label{msg__interface_8h_a3c8a8d442ca19c3048a8d520e8742fba} 
+typedef struct vcu\+\_\+can0\+\_\+fd\+\_\+vcu\+\_\+heartbeat\+\_\+t vcu\+\_\+can0\+\_\+fd\+\_\+vcu\+\_\+heartbeat\+\_\+t}
+
+\Hypertarget{msg__interface_8h_adaa803ab2cde47d2ac79b7defbc01d03}\index{msg\_interface.h@{msg\_interface.h}!vcu\_can0\_fd\_vcu\_version\_t@{vcu\_can0\_fd\_vcu\_version\_t}}
+\index{vcu\_can0\_fd\_vcu\_version\_t@{vcu\_can0\_fd\_vcu\_version\_t}!msg\_interface.h@{msg\_interface.h}}
+\doxysubsubsection{\texorpdfstring{vcu\_can0\_fd\_vcu\_version\_t}{vcu\_can0\_fd\_vcu\_version\_t}}
+{\footnotesize\ttfamily \label{msg__interface_8h_adaa803ab2cde47d2ac79b7defbc01d03} 
+typedef struct vcu\+\_\+can0\+\_\+fd\+\_\+vcu\+\_\+version\+\_\+t vcu\+\_\+can0\+\_\+fd\+\_\+vcu\+\_\+version\+\_\+t}
+
+
+
+\label{doc-enum-members}
+\Hypertarget{msg__interface_8h_doc-enum-members}
+\doxysubsection{枚举类型说明}
+\Hypertarget{msg__interface_8h_a747b619eb98617940b805267f7ee6050}\index{msg\_interface.h@{msg\_interface.h}!vehicle\_mode\_t@{vehicle\_mode\_t}}
+\index{vehicle\_mode\_t@{vehicle\_mode\_t}!msg\_interface.h@{msg\_interface.h}}
+\doxysubsubsection{\texorpdfstring{vehicle\_mode\_t}{vehicle\_mode\_t}}
+{\footnotesize\ttfamily \label{msg__interface_8h_a747b619eb98617940b805267f7ee6050} 
+enum \mbox{\hyperlink{msg__interface_8h_a747b619eb98617940b805267f7ee6050}{vehicle\+\_\+mode\+\_\+t}}}
+
+
+
+车辆模式枚举类型 
+
+定义车辆模式的可能值，包括手动、遥控、自动 \begin{DoxyEnumFields}[2]{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MANUAL@{MANUAL}!msg\_interface.h@{msg\_interface.h}}\index{msg\_interface.h@{msg\_interface.h}!MANUAL@{MANUAL}}}\Hypertarget{msg__interface_8h_a747b619eb98617940b805267f7ee6050a506e8dd29460ea318b68d035f679b01b}\label{msg__interface_8h_a747b619eb98617940b805267f7ee6050a506e8dd29460ea318b68d035f679b01b} 
+MANUAL&手动模式 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RC@{RC}!msg\_interface.h@{msg\_interface.h}}\index{msg\_interface.h@{msg\_interface.h}!RC@{RC}}}\Hypertarget{msg__interface_8h_a747b619eb98617940b805267f7ee6050ad4f1ddc0e9c9a34f69ab877071896786}\label{msg__interface_8h_a747b619eb98617940b805267f7ee6050ad4f1ddc0e9c9a34f69ab877071896786} 
+RC&遥控模式 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Auto@{Auto}!msg\_interface.h@{msg\_interface.h}}\index{msg\_interface.h@{msg\_interface.h}!Auto@{Auto}}}\Hypertarget{msg__interface_8h_a747b619eb98617940b805267f7ee6050ab81b7469043e9c54603ca3aebbe38e90}\label{msg__interface_8h_a747b619eb98617940b805267f7ee6050ab81b7469043e9c54603ca3aebbe38e90} 
+Auto&自动模式 \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-var-members}
+\Hypertarget{msg__interface_8h_doc-var-members}
+\doxysubsection{变量说明}
+\Hypertarget{msg__interface_8h_afc8069e9efa5cce49bc050716a8d16e7}\index{msg\_interface.h@{msg\_interface.h}!g\_shared\_data@{g\_shared\_data}}
+\index{g\_shared\_data@{g\_shared\_data}!msg\_interface.h@{msg\_interface.h}}
+\doxysubsubsection{\texorpdfstring{g\_shared\_data}{g\_shared\_data}}
+{\footnotesize\ttfamily \label{msg__interface_8h_afc8069e9efa5cce49bc050716a8d16e7} 
+\mbox{\hyperlink{struct_v_c_u___shared___data__t}{VCU\+\_\+\+Shared\+\_\+\+Data\+\_\+t}} g\+\_\+shared\+\_\+data\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+全局共享数据 
+

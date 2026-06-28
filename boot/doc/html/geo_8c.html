@@ -1,0 +1,852 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>S32K148_VCU_APP: src/lib/libgeo/geo.c 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">S32K148_VCU_APP
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('geo_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">geo.c 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="geo_8h_source.html">geo.h</a>&quot;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;float.h&gt;</code><br />
+<code>#include &quot;AMMCLib1.h&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:ae71449b1cc6e6250b91f539153a7a0d3" id="r_ae71449b1cc6e6250b91f539153a7a0d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a>&#160;&#160;&#160;3.14159265358979323846</td></tr>
+<tr class="memitem:ab9c3c609e1d02430671de0a109410ac8" id="r_ab9c3c609e1d02430671de0a109410ac8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9c3c609e1d02430671de0a109410ac8">M_PI_F</a>&#160;&#160;&#160;3.14159265f</td></tr>
+<tr class="memitem:a2b791d1953eea4287b0f21cf900906cc" id="r_a2b791d1953eea4287b0f21cf900906cc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b791d1953eea4287b0f21cf900906cc">M_PI_2_F</a>&#160;&#160;&#160;1.57079632f</td></tr>
+<tr class="memitem:a4da6eb78c6d6247f75b2d132c8abf110" id="r_a4da6eb78c6d6247f75b2d132c8abf110"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4da6eb78c6d6247f75b2d132c8abf110">M_PI_4_F</a>&#160;&#160;&#160;0.78539816f</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a71a3f1dd74077ca88d95a943768c728b" id="r_a71a3f1dd74077ca88d95a943768c728b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71a3f1dd74077ca88d95a943768c728b">get_bearing_to_next_waypoint</a> (double lat_now, double lon_now, double lat_next, double lon_next)</td></tr>
+<tr class="memdesc:a71a3f1dd74077ca88d95a943768c728b"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算到下一个航点的方位角（初始航向）  <br /></td></tr>
+<tr class="memitem:aa534a8020615f97fdd342c587211d557" id="r_aa534a8020615f97fdd342c587211d557"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa534a8020615f97fdd342c587211d557">get_distance_to_next_waypoint</a> (double lat_now, double lon_now, double lat_next, double lon_next)</td></tr>
+<tr class="memdesc:aa534a8020615f97fdd342c587211d557"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算两个地理航点之间的大圆距离  <br /></td></tr>
+<tr class="memitem:a8cf2ed6d2c6d6ef12853085621d50c24" id="r_a8cf2ed6d2c6d6ef12853085621d50c24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cf2ed6d2c6d6ef12853085621d50c24">waypoint_from_heading_and_distance</a> (double lat_start, double lon_start, float bearing, float dist, double *lat_target, double *lon_target)</td></tr>
+<tr class="memdesc:a8cf2ed6d2c6d6ef12853085621d50c24"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据起始点、方位角和距离计算目标航点坐标  <br /></td></tr>
+<tr class="memitem:a713e1c07bb04347540b8c98af7bb6a37" id="r_a713e1c07bb04347540b8c98af7bb6a37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a713e1c07bb04347540b8c98af7bb6a37">create_waypoint_from_line_and_dist</a> (double lat_A, double lon_A, double lat_B, double lon_B, float dist, double *lat_target, double *lon_target)</td></tr>
+<tr class="memdesc:a713e1c07bb04347540b8c98af7bb6a37"><td class="mdescLeft">&#160;</td><td class="mdescRight">从起始点沿着指向第二个点的方向创建指定距离的航点  <br /></td></tr>
+<tr class="memitem:a5e68ad5e5e2cbff411bc04cd80724856" id="r_a5e68ad5e5e2cbff411bc04cd80724856"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e68ad5e5e2cbff411bc04cd80724856">get_distance_to_point_global_wgs84</a> (double lat_now, double lon_now, float alt_now, double lat_next, double lon_next, float alt_next, float *dist_xy, float *dist_z)</td></tr>
+<tr class="memdesc:a5e68ad5e5e2cbff411bc04cd80724856"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用Haversine公式计算两个地理点之间的距离  <br /></td></tr>
+<tr class="memitem:a8461e04a8672b957285ced1e58cad478" id="r_a8461e04a8672b957285ced1e58cad478"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8461e04a8672b957285ced1e58cad478">get_distance_to_line</a> (struct <a class="el" href="structcrosstrack__error__s.html">crosstrack_error_s</a> *crosstrack_error, double lat_now, double lon_now, double lat_start, double lon_start, double lat_end, double lon_end)</td></tr>
+<tr class="memdesc:a8461e04a8672b957285ced1e58cad478"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算当前位置到线段的横向误差（cross-track error）。  <br /></td></tr>
+<tr class="memitem:abeff6a5ec4736d7cb89258a0d26560d1" id="r_abeff6a5ec4736d7cb89258a0d26560d1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abeff6a5ec4736d7cb89258a0d26560d1">get_distance_to_arc</a> (struct <a class="el" href="structcrosstrack__error__s.html">crosstrack_error_s</a> *crosstrack_error, double lat_now, double lon_now, double lat_center, double lon_center, float radius, float arc_start_bearing, float arc_sweep)</td></tr>
+<tr class="memdesc:abeff6a5ec4736d7cb89258a0d26560d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算当前位置到指定圆弧（arc）的最近距离和方位，并填充横向误差结构体  <br /></td></tr>
+<tr class="memitem:af78e324949ecc8e9b46518c695cc2e42" id="r_af78e324949ecc8e9b46518c695cc2e42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af78e324949ecc8e9b46518c695cc2e42">get_vector_to_next_waypoint</a> (double lat_now, double lon_now, double lat_next, double lon_next, float *v_n, float *v_e)</td></tr>
+<tr class="memdesc:af78e324949ecc8e9b46518c695cc2e42"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算当前位置到下一个航点的向量在局部东北坐标系（North, East）上的分量（单位：米）。  <br /></td></tr>
+<tr class="memitem:a5fba342d3636e23b40d89e62df5e2490" id="r_a5fba342d3636e23b40d89e62df5e2490"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fba342d3636e23b40d89e62df5e2490">get_vector_to_next_waypoint_fast</a> (double lat_now, double lon_now, double lat_next, double lon_next, float *v_n, float *v_e)</td></tr>
+<tr class="memdesc:a5fba342d3636e23b40d89e62df5e2490"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算从当前位置到下一个航路点的向量（快速版本）  <br /></td></tr>
+<tr class="memitem:a5e9f593d4dc359086faa8bb94148116e" id="r_a5e9f593d4dc359086faa8bb94148116e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e9f593d4dc359086faa8bb94148116e">add_vector_to_global_position</a> (double lat_now, double lon_now, float v_n, float v_e, double *lat_res, double *lon_res)</td></tr>
+<tr class="memdesc:a5e9f593d4dc359086faa8bb94148116e"><td class="mdescLeft">&#160;</td><td class="mdescRight">将速度矢量添加到全球位置坐标  <br /></td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="ae71449b1cc6e6250b91f539153a7a0d3" name="ae71449b1cc6e6250b91f539153a7a0d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae71449b1cc6e6250b91f539153a7a0d3">&#9670;&#160;</a></span>M_PI</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define M_PI&#160;&#160;&#160;3.14159265358979323846</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b791d1953eea4287b0f21cf900906cc" name="a2b791d1953eea4287b0f21cf900906cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b791d1953eea4287b0f21cf900906cc">&#9670;&#160;</a></span>M_PI_2_F</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define M_PI_2_F&#160;&#160;&#160;1.57079632f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4da6eb78c6d6247f75b2d132c8abf110" name="a4da6eb78c6d6247f75b2d132c8abf110"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4da6eb78c6d6247f75b2d132c8abf110">&#9670;&#160;</a></span>M_PI_4_F</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define M_PI_4_F&#160;&#160;&#160;0.78539816f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab9c3c609e1d02430671de0a109410ac8" name="ab9c3c609e1d02430671de0a109410ac8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9c3c609e1d02430671de0a109410ac8">&#9670;&#160;</a></span>M_PI_F</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define M_PI_F&#160;&#160;&#160;3.14159265f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">函数说明</h2>
+<a id="a5e9f593d4dc359086faa8bb94148116e" name="a5e9f593d4dc359086faa8bb94148116e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e9f593d4dc359086faa8bb94148116e">&#9670;&#160;</a></span>add_vector_to_global_position()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add_vector_to_global_position </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat_now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon_now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>v_n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>v_e</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>lat_res</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>lon_res</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将速度矢量添加到全球位置坐标 </p>
+<p>该函数根据北向和东向速度分量，计算相对于当前位置的新的地理坐标。 使用地球半径作为转换因子，将笛卡尔坐标系中的速度增量转换为地理坐标增量。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">lat_now</td><td>当前纬度，单位：度（°） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lon_now</td><td>当前经度，单位：度（°） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v_n</td><td>北向速度分量，单位：米/秒（m/s） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v_e</td><td>东向速度分量，单位：米/秒（m/s） </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">lat_res</td><td>计算得到的结果纬度指针，单位：度（°） </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">lon_res</td><td>计算得到的结果经度指针，单位：度（°）</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>void</dd></dl>
+<dl class="section note"><dt>注解</dt><dd>该函数假设地球为球体，使用常数 CONSTANTS_RADIUS_OF_EARTH 表示地球半径。 函数内部使用弧度制进行计算，输入输出均为十进制度数。</dd></dl>
+<dl class="section see"><dt>参见</dt><dd>CONSTANTS_RADIUS_OF_EARTH </dd></dl>
+
+</div>
+</div>
+<a id="a713e1c07bb04347540b8c98af7bb6a37" name="a713e1c07bb04347540b8c98af7bb6a37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a713e1c07bb04347540b8c98af7bb6a37">&#9670;&#160;</a></span>create_waypoint_from_line_and_dist()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void create_waypoint_from_line_and_dist </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat_A</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon_A</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat_B</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon_B</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>dist</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>lat_target</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>lon_target</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从起始点沿着指向第二个点的方向创建指定距离的航点 </p>
+<p>该函数通过以下步骤计算目标航点：</p><ol type="1">
+<li>计算从点A到点B的方位角</li>
+<li>沿该方位角从点A出发指定距离处创建新航点 如果距离实际上为零（小于FLT_EPSILON），目标点设置为点A</li>
+</ol>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">lat_A</td><td>起始点A的纬度，单位：度 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lon_A</td><td>起始点A的经度，单位：度 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lat_B</td><td>参考点B的纬度，单位：度 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lon_B</td><td>参考点B的经度，单位：度 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dist</td><td>从点A沿指向点B方向行进的距离，单位：米 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">lat_target</td><td>指向存储计算的目标航点纬度的指针 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">lon_target</td><td>指向存储计算的目标航点经度的指针</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>无返回值</dd></dl>
+<dl class="section note"><dt>注解</dt><dd>该函数假设输入参数有效。确保指针不为NULL。 </dd>
+<dd>
+距离可以是正值或负值；负值将在相反方向创建航点。 </dd></dl>
+
+</div>
+</div>
+<a id="a71a3f1dd74077ca88d95a943768c728b" name="a71a3f1dd74077ca88d95a943768c728b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71a3f1dd74077ca88d95a943768c728b">&#9670;&#160;</a></span>get_bearing_to_next_waypoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float get_bearing_to_next_waypoint </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat_now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon_now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat_next</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon_next</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算到下一个航点的方位角（初始航向） </p>
+<p>该函数使用球面余弦定理计算从当前地理位置到下一个航点的初始方位角（弧度）。 方位角是相对于北向的顺时针角度，范围归一化至 [-π, π]。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lat_now</td><td>当前纬度，单位：度 </td></tr>
+    <tr><td class="paramname">lon_now</td><td>当前经度，单位：度 </td></tr>
+    <tr><td class="paramname">lat_next</td><td>下一航点纬度，单位：度 </td></tr>
+    <tr><td class="paramname">lon_next</td><td>下一航点经度，单位：度</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>方位角，单位：弧度，范围 [-π, π]，其中：<ul>
+<li>0 弧度表示北方</li>
+<li>π/2 弧度表示东方</li>
+<li>π 或 -π 表示南方</li>
+<li>-π/2 弧度表示西方</li>
+</ul>
+</dd></dl>
+<dl class="section note"><dt>注解</dt><dd>所有输入坐标应以度为单位。该函数采用球形地球模型， 适用于中小距离的计算。 </dd></dl>
+
+</div>
+</div>
+<a id="abeff6a5ec4736d7cb89258a0d26560d1" name="abeff6a5ec4736d7cb89258a0d26560d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abeff6a5ec4736d7cb89258a0d26560d1">&#9670;&#160;</a></span>get_distance_to_arc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int get_distance_to_arc </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structcrosstrack__error__s.html">crosstrack_error_s</a> *</td>          <td class="paramname"><span class="paramname"><em>crosstrack_error</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat_now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon_now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat_center</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon_center</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>radius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>arc_start_bearing</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>arc_sweep</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算当前位置到指定圆弧（arc）的最近距离和方位，并填充横向误差结构体 </p>
+<p>该函数在给定圆心和半径以及圆弧起始方位与扫过角的情况下， 计算当前位置到圆弧的最短距离与相应的方位，并通过 <a class="el" href="structcrosstrack__error__s.html" title="相对于线段或弧段的横向误差（crosstrack）信息。">crosstrack_error_s</a> 结构返回结果。 函数同时标记是否到达圆弧的终点（past_end）。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">crosstrack_error</td><td>指向用于返回结果的结构体指针。函数会设置以下字段：<ul>
+<li>crosstrack_error-&gt;distance : 最近点到当前位置的距离（单位：米，非负）。</li>
+<li>crosstrack_error-&gt;bearing : 从当前位置指向最近点的航向（单位：弧度）， 最终用 wrap_pif 包裹到典型区间（例如 -π 到 π）。</li>
+<li>crosstrack_error-&gt;past_end : 布尔值，若最近点为圆弧终点则为 true，否则为 false。 </li>
+</ul>
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lat_now</td><td>当前纬度（与项目中 <a class="el" href="#aa534a8020615f97fdd342c587211d557" title="计算两个地理航点之间的大圆距离">get_distance_to_next_waypoint()</a>/get_bearing_to_next_waypoint() 使用的纬度单位一致）。 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lon_now</td><td>当前经度（与项目中 <a class="el" href="#aa534a8020615f97fdd342c587211d557" title="计算两个地理航点之间的大圆距离">get_distance_to_next_waypoint()</a>/get_bearing_to_next_waypoint() 使用的经度单位一致）。 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lat_center</td><td>圆心纬度（与上述经纬度单位一致）。 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lon_center</td><td>圆心经度（与上述经纬度单位一致）。 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">radius</td><td>圆弧半径（单位：米）。若 radius &lt; 0.1，则函数视为无效并返回错误。 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">arc_start_bearing</td><td>圆弧起始方位（单位：弧度）。与 arc_sweep 一起定义圆弧的区间（按模 2π 处理）。 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">arc_sweep</td><td>圆弧扫过角（单位：弧度），可为正或负：<ul>
+<li>当 arc_sweep &gt;= 0 时，圆弧区间为 [arc_start_bearing, arc_start_bearing + arc_sweep]（模 2π）。</li>
+<li>当 arc_sweep &lt; 0 时，圆弧区间为 [arc_start_bearing + arc_sweep, arc_start_bearing]（模 2π）。</li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>返回值说明：<ul>
+<li>0 表示成功计算并已填充 crosstrack_error。</li>
+<li>-1 表示输入无效（当前仅在 radius &lt; 0.1 m 时返回错误）；在出错时 crosstrack_error 不被保证为有效值。 </li>
+</ul>
+</dd></dl>
+<dl class="section see"><dt>参见</dt><dd><a class="el" href="#aa534a8020615f97fdd342c587211d557" title="计算两个地理航点之间的大圆距离">get_distance_to_next_waypoint</a>, <a class="el" href="#a71a3f1dd74077ca88d95a943768c728b" title="计算到下一个航点的方位角（初始航向）">get_bearing_to_next_waypoint</a>, wrap_pif </dd></dl>
+
+</div>
+</div>
+<a id="a8461e04a8672b957285ced1e58cad478" name="a8461e04a8672b957285ced1e58cad478"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8461e04a8672b957285ced1e58cad478">&#9670;&#160;</a></span>get_distance_to_line()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int get_distance_to_line </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structcrosstrack__error__s.html">crosstrack_error_s</a> *</td>          <td class="paramname"><span class="paramname"><em>crosstrack_error</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat_now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon_now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat_start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon_start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat_end</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon_end</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算当前位置到线段的横向误差（cross-track error）。 </p>
+<p>计算从当前位置 (lat_now, lon_now) 到由 (lat_start, lon_start) 与 (lat_end, lon_end) 定义的大圆航线段的有符号最短距离（横向误差）以及指向该航线的制导航向。 同时检测当前位置是否已越过航段终点。</p>
+<dl class="section note"><dt>注解</dt><dd>crosstrack_error 结构体字段：<ul>
+<li>crosstrack_error-&gt;distance : 有符号横向距离（与 get_distance_to_next_waypoint 返回相同的线性单位）。 符号表示相对于由起点到终点方向的航线在左/右侧（正值表示在航线左侧）。</li>
+<li>crosstrack_error-&gt;bearing : 指向航线的航向（弧度），已归一化到 [-pi, pi]。 值基于航线航向旋转 ±pi/2，取决于当前位置在哪一侧。</li>
+<li>crosstrack_error-&gt;past_end : 当当前位置沿航线方向越过终点时置为 true （即航线航向与指向终点的航向之间的角度差超过 ±pi/2）。</li>
+</ul>
+</dd>
+<dd>
+<ul>
+<li>航向以弧度表示，使用 wrap_pif/wrap_pi 等函数归一化。</li>
+<li>距离使用与 get_distance_to_next_waypoint 相同的单位（通常为米）。</li>
+<li>函数在内部使用浮点运算（中间计算为 float 精度）。</li>
+</ul>
+</dd></dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">crosstrack_error</td><td>: 指向要填充的 struct <a class="el" href="structcrosstrack__error__s.html" title="相对于线段或弧段的横向误差（crosstrack）信息。">crosstrack_error_s</a> 的指针。 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lat_now,lon_now</td><td>: 当前点纬度/经度（度）。 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lat_start,lon_start</td><td>: 航段起点纬度/经度（度）。 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lat_end,lon_end</td><td>: 航段终点纬度/经度（度）。</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><ul>
+<li>0 成功（crosstrack_error 已填充）。</li>
+<li>-1 错误（参数无效或当前位置与终点距离过小）。此时 crosstrack_error 保持默认/重置状态 （past_end = false, distance = 0.0, bearing = 0.0）。</li>
+</ul>
+</dd></dl>
+<dl class="section note"><dt>注解</dt><dd><ul>
+<li>若当前位置到终点距离非常小（dist_to_end &lt; 0.1，与 get_distance_to_next_waypoint 单位一致）， 为避免不可靠的横向误差计算，函数返回 -1。 </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="aa534a8020615f97fdd342c587211d557" name="aa534a8020615f97fdd342c587211d557"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa534a8020615f97fdd342c587211d557">&#9670;&#160;</a></span>get_distance_to_next_waypoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float get_distance_to_next_waypoint </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat_now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon_now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat_next</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon_next</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算两个地理航点之间的大圆距离 </p>
+<p>使用Haversine公式计算地球表面上两点之间的最短距离， 这两点由它们的纬度和经度坐标指定。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lat_now</td><td>当前纬度，单位：十进制度 </td></tr>
+    <tr><td class="paramname">lon_now</td><td>当前经度，单位：十进制度 </td></tr>
+    <tr><td class="paramname">lat_next</td><td>下一航点纬度，单位：十进制度 </td></tr>
+    <tr><td class="paramname">lon_next</td><td>下一航点经度，单位：十进制度</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>到下一航点的距离，单位：米（或CONSTANTS_RADIUS_OF_EARTH使用的单位）</dd></dl>
+<dl class="section note"><dt>注解</dt><dd>假设radians()宏/函数将度转换为弧度 </dd>
+<dd>
+CONSTANTS_RADIUS_OF_EARTH应定义为地球平均半径（约6371000米） </dd>
+<dd>
+输入坐标应为有效的纬度[-90, 90]和经度[-180, 180]值 </dd></dl>
+
+</div>
+</div>
+<a id="a5e68ad5e5e2cbff411bc04cd80724856" name="a5e68ad5e5e2cbff411bc04cd80724856"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e68ad5e5e2cbff411bc04cd80724856">&#9670;&#160;</a></span>get_distance_to_point_global_wgs84()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float get_distance_to_point_global_wgs84 </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat_now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon_now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>alt_now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat_next</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon_next</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>alt_next</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>dist_xy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>dist_z</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>使用Haversine公式计算两个地理点之间的距离 </p>
+<p>计算以WGS84坐标（纬度/经度/高度）指定的两点之间的3D距离。 该函数返回总3D距离，并提供水平和竖直分量。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lat_now</td><td>当前纬度，单位：度 </td></tr>
+    <tr><td class="paramname">lon_now</td><td>当前经度，单位：度 </td></tr>
+    <tr><td class="paramname">alt_now</td><td>当前高度，单位：米 </td></tr>
+    <tr><td class="paramname">lat_next</td><td>目标纬度，单位：度 </td></tr>
+    <tr><td class="paramname">lon_next</td><td>目标经度，单位：度 </td></tr>
+    <tr><td class="paramname">alt_next</td><td>目标高度，单位：米 </td></tr>
+    <tr><td class="paramname">dist_xy</td><td>指向存储水平距离的指针，单位：米 </td></tr>
+    <tr><td class="paramname">dist_z</td><td>指向存储竖直距离的指针，单位：米</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>float 两点之间的总3D距离，单位：米</dd></dl>
+<dl class="section note"><dt>注解</dt><dd>使用Haversine公式计算地球表面的大圆距离 </dd>
+<dd>
+所有返回的距离值为绝对值（正数） </dd>
+<dd>
+需要定义CONSTANTS_RADIUS_OF_EARTH（通常约为6371000米） </dd></dl>
+
+</div>
+</div>
+<a id="af78e324949ecc8e9b46518c695cc2e42" name="af78e324949ecc8e9b46518c695cc2e42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af78e324949ecc8e9b46518c695cc2e42">&#9670;&#160;</a></span>get_vector_to_next_waypoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void get_vector_to_next_waypoint </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat_now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon_now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat_next</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon_next</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>v_n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>v_e</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算当前位置到下一个航点的向量在局部东北坐标系（North, East）上的分量（单位：米）。 </p>
+<p>给定当前点和目标航点的纬度/经度，函数基于球面地球模型（使用 CONSTANTS_RADIUS_OF_EARTH） 计算从当前点指向目标航点的向量在北向和东向的分量。输入角度以十进制度（degrees）给出， 函数会内部将其转换为弧度并使用三角函数进行计算。实现中为兼顾性能与精度在部分计算中混合 使用了 double 与 float 类型的三角运算与转换。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">lat_now</td><td>当前纬度（degrees）。 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lon_now</td><td>当前经度（degrees）。 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lat_next</td><td>目标航点纬度（degrees）。 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lon_next</td><td>目标航点经度（degrees）。 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">v_n</td><td>指向 float 的指针，用于返回北向分量（单位：米）。调用者需保证非 NULL。 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">v_e</td><td>指向 float 的指针，用于返回东向分量（单位：米）。调用者需保证非 NULL。</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd><ul>
+<li>结果基于简化的球面近似（不考虑高度差或地球椭球体修正），适用于短至中距离导航向量计算。</li>
+<li>输入角度必须为度值；函数内部使用 radians() 进行转换。</li>
+<li>函数不对 v_n/v_e 进行空指针检查，调用者需负责传入有效指针。</li>
+<li>该函数无全局可变状态（假定 CONSTANTS_RADIUS_OF_EARTH 为常量），因此在多线程环境下为可重入的。</li>
+</ul>
+</dd></dl>
+<dl class="section see"><dt>参见</dt><dd>radians() </dd></dl>
+
+</div>
+</div>
+<a id="a5fba342d3636e23b40d89e62df5e2490" name="a5fba342d3636e23b40d89e62df5e2490"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fba342d3636e23b40d89e62df5e2490">&#9670;&#160;</a></span>get_vector_to_next_waypoint_fast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void get_vector_to_next_waypoint_fast </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat_now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon_now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat_next</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon_next</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>v_n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>v_e</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算从当前位置到下一个航路点的向量（快速版本） </p>
+<p>该函数使用快速近似方法计算从当前地理位置到下一个航路点的北向和东向速度向量。 混合使用双精度和单精度三角函数以最大化速度和效率。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">lat_now</td><td>当前位置纬度（度） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lon_now</td><td>当前位置经度（度） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lat_next</td><td>下一个航路点纬度（度） </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lon_next</td><td>下一个航路点经度（度） </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">v_n</td><td>指向北向向量分量的指针（米） </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">v_e</td><td>指向东向向量分量的指针（米）</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>void</dd></dl>
+<dl class="section note"><dt>注解</dt><dd>此函数使用简化的地球模型，假设地球半径恒定，适用于近距离航路点计算 </dd>
+<dd>
+输出向量分量单位为米，基于地球半径常数计算</dd></dl>
+<dl class="section see"><dt>参见</dt><dd>CONSTANTS_RADIUS_OF_EARTH </dd>
+<dd>
+radians() </dd></dl>
+
+</div>
+</div>
+<a id="a8cf2ed6d2c6d6ef12853085621d50c24" name="a8cf2ed6d2c6d6ef12853085621d50c24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cf2ed6d2c6d6ef12853085621d50c24">&#9670;&#160;</a></span>waypoint_from_heading_and_distance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void waypoint_from_heading_and_distance </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lat_start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>lon_start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>bearing</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>dist</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>lat_target</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>lon_target</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>根据起始点、方位角和距离计算目标航点坐标 </p>
+<p>该函数基于起始地理位置、方位角和行进距离，计算目标航点的纬度和经度。 计算使用球面三角学来考虑地球的曲率。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lat_start</td><td>起始纬度，单位：度 </td></tr>
+    <tr><td class="paramname">lon_start</td><td>起始经度，单位：度 </td></tr>
+    <tr><td class="paramname">bearing</td><td>方位角，单位：弧度（将被归一化到 [0, 2π]） </td></tr>
+    <tr><td class="paramname">dist</td><td>行进距离，单位：米 </td></tr>
+    <tr><td class="paramname">lat_target</td><td>指向存储计算出的目标纬度的指针，单位：度 </td></tr>
+    <tr><td class="paramname">lon_target</td><td>指向存储计算出的目标经度的指针，单位：度</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>方位角使用 wrap_2pif() 归一化，确保其在 [0, 2π] 范围内。 </dd>
+<dd>
+CONSTANTS_RADIUS_OF_EARTH 应定义为地球平均半径（米）。 </dd>
+<dd>
+坐标使用 WGS84 基准（纬度/经度以度为单位）。</dd></dl>
+<dl class="section see"><dt>参见</dt><dd>wrap_2pif(), radians(), degrees() </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_c85d3e3c5052e9ad9ce18c6863244a25.html">lib</a></li><li class="navelem"><a href="dir_158a49887507f8643b83dba3b4a1d3a2.html">libgeo</a></li><li class="navelem"><a href="geo_8c.html">geo.c</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

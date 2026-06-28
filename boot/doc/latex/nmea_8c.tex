@@ -1,0 +1,124 @@
+\doxysection{src/lib/libnmea/nmea.c 文件参考}
+\hypertarget{nmea_8c}{}\label{nmea_8c}\index{src/lib/libnmea/nmea.c@{src/lib/libnmea/nmea.c}}
+{\ttfamily \#include "{}nmea.\+h"{}}\newline
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{nmea_8c_a6e73b458daa3bba358554078bcf2f920}{lat\+\_\+dm\+\_\+to\+\_\+decimal}} (double lat\+\_\+dm, char lat\+\_\+dir)
+\begin{DoxyCompactList}\small\item\em 将度分格式(\+DM)的纬度转换为十进制格式 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{nmea_8c_af3f06a2d29192fe3247121351be0a041}{lon\+\_\+dm\+\_\+to\+\_\+decimal}} (double lon\+\_\+dm, char lon\+\_\+dir)
+\begin{DoxyCompactList}\small\item\em 将经度从度分格式转换为十进制格式 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nmea_8c_a5d880dd9c672c243e1d6bcbb9cba74e6}{gps\+\_\+global\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em 初始化全局\+GPS数据结构 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_g_p_s}{GPS}} \mbox{\hyperlink{nmea_8c_aacbe592abc0b5d13ce4b9195ac268716}{gps\+\_\+data\+\_\+parse}} (const char \texorpdfstring{$\ast$}{*}gps\+\_\+src, const unsigned short gps\+\_\+src\+\_\+len)
+\begin{DoxyCompactList}\small\item\em 解析\+NMEA格式的\+GPS原始数据，提取各数据段信息 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{nmea_8c_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{nmea_8c_aacbe592abc0b5d13ce4b9195ac268716}\index{nmea.c@{nmea.c}!gps\_data\_parse@{gps\_data\_parse}}
+\index{gps\_data\_parse@{gps\_data\_parse}!nmea.c@{nmea.c}}
+\doxysubsubsection{\texorpdfstring{gps\_data\_parse()}{gps\_data\_parse()}}
+{\footnotesize\ttfamily \label{nmea_8c_aacbe592abc0b5d13ce4b9195ac268716} 
+\mbox{\hyperlink{struct_g_p_s}{GPS}} gps\+\_\+data\+\_\+parse (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{gps\+\_\+src}{, }\item[{const unsigned short}]{gps\+\_\+src\+\_\+len}{}\end{DoxyParamCaption})}
+
+
+
+解析\+NMEA格式的\+GPS原始数据，提取各数据段信息 
+
+
+\begin{DoxyParams}{参数}
+{\em gps\+\_\+src} & 输入的\+NMEA格式\+GPS原始数据字符串 \\
+\hline
+{\em gps\+\_\+src\+\_\+len} & 输入数据的长度 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+\doxylink{struct_g_p_s}{GPS} 包含所有解析后\+GPS数据的结构体
+\end{DoxyReturn}
+\begin{DoxyNote}{注解}
+根据编译时定义的宏(ENABLE\+\_\+\+GGA/\+ENABLE\+\_\+\+GLL等)决定解析哪些\+NMEA数据段 未启用的数据段将返回默认值 支持解析的\+NMEA数据段包括：
+\begin{DoxyItemize}
+\item \doxylink{struct_g_g_a}{GGA}(全球定位系统固定数据)
+\item \doxylink{struct_g_l_l}{GLL}(地理定位信息)
+\item \doxylink{struct_g_s_a}{GSA}(当前卫星信息)
+\item \doxylink{struct_r_m_c}{RMC}(推荐最小特定\+GPS/\+TRANSIT数据)
+\item \doxylink{struct_v_t_g}{VTG}(地面速度信息)
+\item GSV(可见卫星信息)
+\item UTC(时间信息) 
+\end{DoxyItemize}
+\end{DoxyNote}
+\Hypertarget{nmea_8c_a5d880dd9c672c243e1d6bcbb9cba74e6}\index{nmea.c@{nmea.c}!gps\_global\_init@{gps\_global\_init}}
+\index{gps\_global\_init@{gps\_global\_init}!nmea.c@{nmea.c}}
+\doxysubsubsection{\texorpdfstring{gps\_global\_init()}{gps\_global\_init()}}
+{\footnotesize\ttfamily \label{nmea_8c_a5d880dd9c672c243e1d6bcbb9cba74e6} 
+void gps\+\_\+global\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+初始化全局\+GPS数据结构 
+
+该函数用于初始化全局\+GPS数据结构体gps\+\_\+all，根据编译时定义的宏(ENABLE\+\_\+\+GGA/\+ENABLE\+\_\+\+RMC等) 来初始化对应的\+NMEA语句解析数据结构。每个启用的\+NMEA语句类型都会被初始化为默认值。
+
+\begin{DoxyNote}{注解}
+该函数应在系统启动时调用一次，用于初始化\+GPS解析模块的全局数据结构 
+
+当前实现不使用动态内存分配，所有缓冲区均为静态分配
+\end{DoxyNote}
+支持的\+NMEA语句类型包括：
+\begin{DoxyItemize}
+\item \doxylink{struct_g_g_a}{GGA}\+: 全球定位系统定位数据
+\item \doxylink{struct_g_l_l}{GLL}\+: 地理定位信息
+\item \doxylink{struct_g_s_a}{GSA}\+: 当前卫星信息
+\item \doxylink{struct_r_m_c}{RMC}\+: 推荐最小定位信息
+\item \doxylink{struct_v_t_g}{VTG}\+: 地面速度信息
+\item GSV\+: 可见卫星信息
+\end{DoxyItemize}
+
+每个语句类型的初始化值均为零或空字符串 \Hypertarget{nmea_8c_a6e73b458daa3bba358554078bcf2f920}\index{nmea.c@{nmea.c}!lat\_dm\_to\_decimal@{lat\_dm\_to\_decimal}}
+\index{lat\_dm\_to\_decimal@{lat\_dm\_to\_decimal}!nmea.c@{nmea.c}}
+\doxysubsubsection{\texorpdfstring{lat\_dm\_to\_decimal()}{lat\_dm\_to\_decimal()}}
+{\footnotesize\ttfamily \label{nmea_8c_a6e73b458daa3bba358554078bcf2f920} 
+double lat\+\_\+dm\+\_\+to\+\_\+decimal (\begin{DoxyParamCaption}\item[{double}]{lat\+\_\+dm}{, }\item[{char}]{lat\+\_\+dir}{}\end{DoxyParamCaption})}
+
+
+
+将度分格式(\+DM)的纬度转换为十进制格式 
+
+
+\begin{DoxyParams}{参数}
+{\em lat\+\_\+dm} & 度分格式的纬度值，格式为\+DDMM.\+MMMM（度+分） \\
+\hline
+{\em lat\+\_\+dir} & 纬度方向，\textquotesingle{}N\textquotesingle{}表示北纬，\textquotesingle{}S\textquotesingle{}表示南纬 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+double 转换后的十进制纬度值，范围为\mbox{[}-\/90.\+0, 90.\+0\mbox{]}
+\end{DoxyReturn}
+\begin{DoxyNote}{注解}
+转换公式：十进制纬度 = 度 + (分 + 分的小数部分)/60 南纬(\+S)返回负值，北纬(\+N)返回正值 
+\end{DoxyNote}
+\Hypertarget{nmea_8c_af3f06a2d29192fe3247121351be0a041}\index{nmea.c@{nmea.c}!lon\_dm\_to\_decimal@{lon\_dm\_to\_decimal}}
+\index{lon\_dm\_to\_decimal@{lon\_dm\_to\_decimal}!nmea.c@{nmea.c}}
+\doxysubsubsection{\texorpdfstring{lon\_dm\_to\_decimal()}{lon\_dm\_to\_decimal()}}
+{\footnotesize\ttfamily \label{nmea_8c_af3f06a2d29192fe3247121351be0a041} 
+double lon\+\_\+dm\+\_\+to\+\_\+decimal (\begin{DoxyParamCaption}\item[{double}]{lon\+\_\+dm}{, }\item[{char}]{lon\+\_\+dir}{}\end{DoxyParamCaption})}
+
+
+
+将经度从度分格式转换为十进制格式 
+
+
+\begin{DoxyParams}{参数}
+{\em lon\+\_\+dm} & 度分格式的经度值（例如1234.56表示123度45.6分） \\
+\hline
+{\em lon\+\_\+dir} & 经度方向（\textquotesingle{}E\textquotesingle{}表示东经，\textquotesingle{}W\textquotesingle{}表示西经） \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+double 十进制格式的经度值（例如123.76）
+\end{DoxyReturn}
+\begin{DoxyNote}{注解}
+输入值范围限制：lon\+\_\+dm应在0-\/18000之间 
+\end{DoxyNote}

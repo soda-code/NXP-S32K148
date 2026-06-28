@@ -1,0 +1,55 @@
+\doxysection{src/os/os\+\_\+task\+\_\+body.c 文件参考}
+\hypertarget{os__task__body_8c}{}\label{os__task__body_8c}\index{src/os/os\_task\_body.c@{src/os/os\_task\_body.c}}
+
+
+车身控制任务头文件  
+
+
+{\ttfamily \#include "{}os\+\_\+task\+\_\+body.\+h"{}}\newline
+{\ttfamily \#include "{}bsp.\+h"{}}\newline
+{\ttfamily \#include "{}libnmea/nmea.\+h"{}}\newline
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{os__task__body_8c_abd076fd1f11b7443705fb8c3c89d11e9}{OS\+\_\+\+Task\+\_\+\+Body}} (void \texorpdfstring{$\ast$}{*}pv\+Para)
+\begin{DoxyCompactList}\small\item\em 车身控制任务主函数 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+车身控制任务头文件 
+
+\begin{DoxyAuthor}{作者}
+polaris 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{版本}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{日期}
+2025-\/11-\/22 
+\end{DoxyDate}
+
+
+\label{doc-func-members}
+\Hypertarget{os__task__body_8c_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{os__task__body_8c_abd076fd1f11b7443705fb8c3c89d11e9}\index{os\_task\_body.c@{os\_task\_body.c}!OS\_Task\_Body@{OS\_Task\_Body}}
+\index{OS\_Task\_Body@{OS\_Task\_Body}!os\_task\_body.c@{os\_task\_body.c}}
+\doxysubsubsection{\texorpdfstring{OS\_Task\_Body()}{OS\_Task\_Body()}}
+{\footnotesize\ttfamily \label{os__task__body_8c_abd076fd1f11b7443705fb8c3c89d11e9} 
+void OS\+\_\+\+Task\+\_\+\+Body (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Para}{}\end{DoxyParamCaption})}
+
+
+
+车身控制任务主函数 
+
+该任务负责处理车身相关控制逻辑，包括\+LED状态控制，并定期发送任务存活信号。 任务以固定10ms周期运行，确保实时性。
+
+
+\begin{DoxyParams}{参数}
+{\em pv\+Para} & 任务参数指针（未使用）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+任务通过设置事件标志位\+BODY\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BIT来指示任务正常运行状态 
+\end{DoxyNote}
+上报任务存活状态

@@ -1,0 +1,586 @@
+\doxysection{src/os/inc/os\+\_\+task.h 文件参考}
+\hypertarget{os__task_8h}{}\label{os__task_8h}\index{src/os/inc/os\_task.h@{src/os/inc/os\_task.h}}
+
+
+系统任务函数  
+
+
+{\ttfamily \#include "{}Free\+RTOS.\+h"{}}\newline
+{\ttfamily \#include "{}queue.\+h"{}}\newline
+{\ttfamily \#include "{}event\+\_\+groups.\+h"{}}\newline
+{\ttfamily \#include "{}task.\+h"{}}\newline
+{\ttfamily \#include "{}semphr.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}msg\+\_\+interface.\+h"{}}\newline
+{\ttfamily \#include "{}os\+\_\+task\+\_\+com.\+h"{}}\newline
+{\ttfamily \#include "{}os\+\_\+task\+\_\+diagnosis.\+h"{}}\newline
+\doxysubsubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{os__task_8h_abe6efefd449d19d4daa134bb3921618a}{PEX\+\_\+\+RTOS\+\_\+\+INIT}}~\mbox{\hyperlink{os__task_8h_acb6df8f47f418aad9c9a9e045d7d1e6d}{OS\+\_\+\+Init}}
+\begin{DoxyCompactList}\small\item\em 宏定义绑定main.\+c函数 \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{os__task_8h_a4b3a47f6cba094efa8f4a9a24bb0042e}{PEX\+\_\+\+RTOS\+\_\+\+START}}~\mbox{\hyperlink{os__task_8h_ab8c5f724349bae19455385ca6af34b47}{OS\+\_\+\+Task\+\_\+\+Start}}
+\item 
+\#define \mbox{\hyperlink{os__task_8h_a49bb301de1a96122ff438c9fed4486fe}{USE\+\_\+\+SYSTEM\+\_\+\+MONITOR}}~1
+\begin{DoxyCompactList}\small\item\em 使用系统监控,生产环境关闭 \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{os__task_8h_aadd45adc61f554a2f7692d0e7453f8c9}{USE\+\_\+\+NMEA\+\_\+\+RX\+\_\+\+CALLBACK}}~1
+\begin{DoxyCompactList}\small\item\em 使用\+NMEA解析 \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{os__task_8h_ae79a25eb3a4351c1e9b3c1a7721c3103}{COM\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BIT}}~(1 $<$$<$ 0)
+\begin{DoxyCompactList}\small\item\em 任务存活标志位 \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{os__task_8h_a90d910d3f785d13c5c235849338d0bf2}{BODY\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BIT}}~(1 $<$$<$ 2)
+\item 
+\#define \mbox{\hyperlink{os__task_8h_a04e9ac8e3b72b86ada5e6bb9548a5ced}{MOTOR\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BIT}}~(1 $<$$<$ 3)
+\item 
+\#define \mbox{\hyperlink{os__task_8h_abb1e7d55761c9fc1cce93388eeb69a77}{ENERGY\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BIT}}~(1 $<$$<$ 4)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{os__task_8h_a2723647aa6860e1571118555ffd1b999}{task\+\_\+priorities\+\_\+t}} \{ \newline
+\mbox{\hyperlink{os__task_8h_a2723647aa6860e1571118555ffd1b999abe16f09091eda222d9ea72d60ee7cff9}{TASK\+\_\+\+PRIO\+\_\+\+SAFETY\+\_\+\+MONITOR}} = 10
+, \mbox{\hyperlink{os__task_8h_a2723647aa6860e1571118555ffd1b999a754106f8110fe243d2045af9f4dfbdd6}{TASK\+\_\+\+PRIO\+\_\+\+MOTOR\+\_\+\+CONTROL}} = 9
+, \mbox{\hyperlink{os__task_8h_a2723647aa6860e1571118555ffd1b999ada61a8268b643862b6b73f7ad958ce73}{TASK\+\_\+\+PRIO\+\_\+\+POWER\+\_\+\+MGMT}} = 8
+, \mbox{\hyperlink{os__task_8h_a2723647aa6860e1571118555ffd1b999a6246438bdd8220f7644d78ceb6977ae3}{TASK\+\_\+\+PRIO\+\_\+\+BODY\+\_\+\+CONTROL}} = 7
+, \newline
+\mbox{\hyperlink{os__task_8h_a2723647aa6860e1571118555ffd1b999ade20e6b0aff16ad6216ebc92f0048fbf}{TASK\+\_\+\+PRIO\+\_\+\+THERMAL\+\_\+\+MGMT}} = 6
+, \mbox{\hyperlink{os__task_8h_a2723647aa6860e1571118555ffd1b999a04e71692b3eefe0ff457ca75c687e74d}{TASK\+\_\+\+PRIO\+\_\+\+COMMUNICATION}} = 5
+, \mbox{\hyperlink{os__task_8h_a2723647aa6860e1571118555ffd1b999ad38f2da0fec7cf97cfdbc3314663b883}{TASK\+\_\+\+PRIO\+\_\+\+DIAGNOSTIC}} = 4
+, \mbox{\hyperlink{os__task_8h_a2723647aa6860e1571118555ffd1b999a89352342d9ce3ec08b73202e4b34d6e6}{TASK\+\_\+\+PRIO\+\_\+\+DATA\+\_\+\+LOGGER}} = 3
+ \}
+\begin{DoxyCompactList}\small\item\em 任务优先级 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{os__task_8h_acb6df8f47f418aad9c9a9e045d7d1e6d}{OS\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em 系统初始化函数，负责硬件和\+RTOS基础环境初始化 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{os__task_8h_ab8c5f724349bae19455385ca6af34b47}{OS\+\_\+\+Task\+\_\+\+Start}} (void)
+\begin{DoxyCompactList}\small\item\em 系统任务启动函数，启动任务调度器 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{os__task_8h_a7c3f1730d68ea5aa990ec47d5da7048d}{BSP\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em 外设初始化函数，负责外设初始化 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{os__task_8h_a5181742ecc534cb7184318509f18e159}{Interface\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em 共享数据初始化函数，负责初始化共享数据区 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{os__task_8h_a4feeabaeaac27da1289ec7f2385962a1}{Task\+\_\+\+Create}} (void)
+\begin{DoxyCompactList}\small\item\em 任务创建函数，负责创建系统任务 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{os__task_8h_a23641a130d50561b87964ee9817782ad}{Queue\+\_\+\+Create}} (void)
+\begin{DoxyCompactList}\small\item\em 队列创建函数，负责创建系统队列 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{os__task_8h_a981e8359a4551c407b6fd181009618a2}{Event\+\_\+\+Create}} (void)
+\begin{DoxyCompactList}\small\item\em 事件创建函数，负责创建系统事件 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{os__task_8h_a9a7cc2dfa8662f845ac212f273ace247}{OS\+\_\+\+Task\+\_\+\+Init}} (void \texorpdfstring{$\ast$}{*}pv\+Para)
+\begin{DoxyCompactList}\small\item\em 系统初始化任务函数，负责系统初始化 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{os__task_8h_a16f1002548c4413e84cd5f4772fe6b0c}{OS\+\_\+\+Task\+\_\+\+Com}} (void \texorpdfstring{$\ast$}{*}pv\+Para)
+\begin{DoxyCompactList}\small\item\em Free\+RTOS通信任务（入口函数） \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{os__task_8h_a8053a425ece933dab1c08fd0c07268ef}{OS\+\_\+\+Task\+\_\+\+Diagnosis}} (void \texorpdfstring{$\ast$}{*}pv\+Para)
+\begin{DoxyCompactList}\small\item\em 诊断任务主函数，周期性执行系统健康监测 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{os__task_8h_abd076fd1f11b7443705fb8c3c89d11e9}{OS\+\_\+\+Task\+\_\+\+Body}} (void \texorpdfstring{$\ast$}{*}pv\+Para)
+\begin{DoxyCompactList}\small\item\em 车身控制任务主函数 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{os__task_8h_a7b8be94c22324cffa9953a263d3c8282}{OS\+\_\+\+Task\+\_\+\+Motor}} (void \texorpdfstring{$\ast$}{*}pv\+Para)
+\begin{DoxyCompactList}\small\item\em 电机控制任务主函数 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{变量}
+\begin{DoxyCompactItemize}
+\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{os__task_8h_acb5bc048b8a4c079fd4081016662800f}{Task\+\_\+\+Init\+\_\+\+Handler}}
+\begin{DoxyCompactList}\small\item\em 任务句柄 \end{DoxyCompactList}\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{os__task_8h_ac86368b82f4a801c72fbb1509b891009}{Task\+\_\+\+Com\+\_\+\+Handler}}
+\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{os__task_8h_a6ea58d7c320e8adddaa49c7d2da939d8}{Task\+\_\+\+Diagnosis\+\_\+\+Handler}}
+\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{os__task_8h_a3abdcc378dfd1ce59ad97e754f4ef846}{Task\+\_\+\+Body\+Ctrl\+\_\+\+Handler}}
+\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{os__task_8h_af4e36465b54ca7e100b6aa79d3a702d8}{Task\+\_\+\+Motor\+\_\+\+Handler}}
+\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{os__task_8h_aa8f7a242c608d2d6a3dc52e36eec8cf7}{Task\+\_\+\+Energy\+\_\+\+Handler}}
+\item 
+Queue\+Handle\+\_\+t \mbox{\hyperlink{os__task_8h_adfcbd748702f32899277485ce7ff03f2}{g\+\_\+uart0\+\_\+rx\+\_\+queue}}
+\begin{DoxyCompactList}\small\item\em UART队列句柄 \end{DoxyCompactList}\item 
+Queue\+Handle\+\_\+t \mbox{\hyperlink{os__task_8h_a2cff3efe9270ec7d6cc8d2263d0ead0c}{g\+\_\+uart1\+\_\+rx\+\_\+queue}}
+\item 
+Queue\+Handle\+\_\+t \mbox{\hyperlink{os__task_8h_a963fbfdc997e1bf5c54d348fb6daabce}{g\+\_\+uart2\+\_\+rx\+\_\+queue}}
+\item 
+Queue\+Handle\+\_\+t \mbox{\hyperlink{os__task_8h_a13be13a537aa5f691b9107db794b6f81}{g\+\_\+can0\+\_\+rx\+\_\+queue}}
+\begin{DoxyCompactList}\small\item\em CAN队列句柄 \end{DoxyCompactList}\item 
+Queue\+Handle\+\_\+t \mbox{\hyperlink{os__task_8h_aa31b0e7e08b64b3e0f252b92d4bee5cd}{g\+\_\+can1\+\_\+rx\+\_\+queue}}
+\item 
+Queue\+Handle\+\_\+t \mbox{\hyperlink{os__task_8h_a48231a18d753418ee56660e8ea71b72d}{g\+\_\+can2\+\_\+rx\+\_\+queue}}
+\item 
+Queue\+Handle\+\_\+t \mbox{\hyperlink{os__task_8h_aad262935fbeb61c41c7c65d82f688ea6}{g\+\_\+body\+\_\+rx\+\_\+queue}}
+\begin{DoxyCompactList}\small\item\em 不同任务专用队列 \end{DoxyCompactList}\item 
+Queue\+Handle\+\_\+t \mbox{\hyperlink{os__task_8h_a59ab7f766d2735ae2ae3deeed95c8891}{g\+\_\+motor\+\_\+rx\+\_\+queue}}
+\item 
+Event\+Group\+Handle\+\_\+t \mbox{\hyperlink{os__task_8h_acedba9d8b440a9ffd80834c6611a0a4b}{g\+\_\+system\+\_\+events}}
+\begin{DoxyCompactList}\small\item\em 系统事件组句柄 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+系统任务函数 
+
+\begin{DoxyAuthor}{作者}
+polaris 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{版本}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{日期}
+2025-\/11-\/22 
+\end{DoxyDate}
+
+
+\label{doc-define-members}
+\Hypertarget{os__task_8h_doc-define-members}
+\doxysubsection{宏定义说明}
+\Hypertarget{os__task_8h_a90d910d3f785d13c5c235849338d0bf2}\index{os\_task.h@{os\_task.h}!BODY\_TASK\_ALIVE\_BIT@{BODY\_TASK\_ALIVE\_BIT}}
+\index{BODY\_TASK\_ALIVE\_BIT@{BODY\_TASK\_ALIVE\_BIT}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{BODY\_TASK\_ALIVE\_BIT}{BODY\_TASK\_ALIVE\_BIT}}
+{\footnotesize\ttfamily \label{os__task_8h_a90d910d3f785d13c5c235849338d0bf2} 
+\#define BODY\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BIT~(1 $<$$<$ 2)}
+
+\Hypertarget{os__task_8h_ae79a25eb3a4351c1e9b3c1a7721c3103}\index{os\_task.h@{os\_task.h}!COM\_TASK\_ALIVE\_BIT@{COM\_TASK\_ALIVE\_BIT}}
+\index{COM\_TASK\_ALIVE\_BIT@{COM\_TASK\_ALIVE\_BIT}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{COM\_TASK\_ALIVE\_BIT}{COM\_TASK\_ALIVE\_BIT}}
+{\footnotesize\ttfamily \label{os__task_8h_ae79a25eb3a4351c1e9b3c1a7721c3103} 
+\#define COM\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BIT~(1 $<$$<$ 0)}
+
+
+
+任务存活标志位 
+
+\Hypertarget{os__task_8h_abb1e7d55761c9fc1cce93388eeb69a77}\index{os\_task.h@{os\_task.h}!ENERGY\_TASK\_ALIVE\_BIT@{ENERGY\_TASK\_ALIVE\_BIT}}
+\index{ENERGY\_TASK\_ALIVE\_BIT@{ENERGY\_TASK\_ALIVE\_BIT}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{ENERGY\_TASK\_ALIVE\_BIT}{ENERGY\_TASK\_ALIVE\_BIT}}
+{\footnotesize\ttfamily \label{os__task_8h_abb1e7d55761c9fc1cce93388eeb69a77} 
+\#define ENERGY\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BIT~(1 $<$$<$ 4)}
+
+\Hypertarget{os__task_8h_a04e9ac8e3b72b86ada5e6bb9548a5ced}\index{os\_task.h@{os\_task.h}!MOTOR\_TASK\_ALIVE\_BIT@{MOTOR\_TASK\_ALIVE\_BIT}}
+\index{MOTOR\_TASK\_ALIVE\_BIT@{MOTOR\_TASK\_ALIVE\_BIT}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{MOTOR\_TASK\_ALIVE\_BIT}{MOTOR\_TASK\_ALIVE\_BIT}}
+{\footnotesize\ttfamily \label{os__task_8h_a04e9ac8e3b72b86ada5e6bb9548a5ced} 
+\#define MOTOR\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BIT~(1 $<$$<$ 3)}
+
+\Hypertarget{os__task_8h_abe6efefd449d19d4daa134bb3921618a}\index{os\_task.h@{os\_task.h}!PEX\_RTOS\_INIT@{PEX\_RTOS\_INIT}}
+\index{PEX\_RTOS\_INIT@{PEX\_RTOS\_INIT}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{PEX\_RTOS\_INIT}{PEX\_RTOS\_INIT}}
+{\footnotesize\ttfamily \label{os__task_8h_abe6efefd449d19d4daa134bb3921618a} 
+\#define PEX\+\_\+\+RTOS\+\_\+\+INIT~\mbox{\hyperlink{os__task_8h_acb6df8f47f418aad9c9a9e045d7d1e6d}{OS\+\_\+\+Init}}}
+
+
+
+宏定义绑定main.\+c函数 
+
+\Hypertarget{os__task_8h_a4b3a47f6cba094efa8f4a9a24bb0042e}\index{os\_task.h@{os\_task.h}!PEX\_RTOS\_START@{PEX\_RTOS\_START}}
+\index{PEX\_RTOS\_START@{PEX\_RTOS\_START}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{PEX\_RTOS\_START}{PEX\_RTOS\_START}}
+{\footnotesize\ttfamily \label{os__task_8h_a4b3a47f6cba094efa8f4a9a24bb0042e} 
+\#define PEX\+\_\+\+RTOS\+\_\+\+START~\mbox{\hyperlink{os__task_8h_ab8c5f724349bae19455385ca6af34b47}{OS\+\_\+\+Task\+\_\+\+Start}}}
+
+\Hypertarget{os__task_8h_aadd45adc61f554a2f7692d0e7453f8c9}\index{os\_task.h@{os\_task.h}!USE\_NMEA\_RX\_CALLBACK@{USE\_NMEA\_RX\_CALLBACK}}
+\index{USE\_NMEA\_RX\_CALLBACK@{USE\_NMEA\_RX\_CALLBACK}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{USE\_NMEA\_RX\_CALLBACK}{USE\_NMEA\_RX\_CALLBACK}}
+{\footnotesize\ttfamily \label{os__task_8h_aadd45adc61f554a2f7692d0e7453f8c9} 
+\#define USE\+\_\+\+NMEA\+\_\+\+RX\+\_\+\+CALLBACK~1}
+
+
+
+使用\+NMEA解析 
+
+\Hypertarget{os__task_8h_a49bb301de1a96122ff438c9fed4486fe}\index{os\_task.h@{os\_task.h}!USE\_SYSTEM\_MONITOR@{USE\_SYSTEM\_MONITOR}}
+\index{USE\_SYSTEM\_MONITOR@{USE\_SYSTEM\_MONITOR}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{USE\_SYSTEM\_MONITOR}{USE\_SYSTEM\_MONITOR}}
+{\footnotesize\ttfamily \label{os__task_8h_a49bb301de1a96122ff438c9fed4486fe} 
+\#define USE\+\_\+\+SYSTEM\+\_\+\+MONITOR~1}
+
+
+
+使用系统监控,生产环境关闭 
+
+
+
+\label{doc-enum-members}
+\Hypertarget{os__task_8h_doc-enum-members}
+\doxysubsection{枚举类型说明}
+\Hypertarget{os__task_8h_a2723647aa6860e1571118555ffd1b999}\index{os\_task.h@{os\_task.h}!task\_priorities\_t@{task\_priorities\_t}}
+\index{task\_priorities\_t@{task\_priorities\_t}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{task\_priorities\_t}{task\_priorities\_t}}
+{\footnotesize\ttfamily \label{os__task_8h_a2723647aa6860e1571118555ffd1b999} 
+enum \mbox{\hyperlink{os__task_8h_a2723647aa6860e1571118555ffd1b999}{task\+\_\+priorities\+\_\+t}}}
+
+
+
+任务优先级 
+
+\begin{DoxyEnumFields}[2]{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TASK\_PRIO\_SAFETY\_MONITOR@{TASK\_PRIO\_SAFETY\_MONITOR}!os\_task.h@{os\_task.h}}\index{os\_task.h@{os\_task.h}!TASK\_PRIO\_SAFETY\_MONITOR@{TASK\_PRIO\_SAFETY\_MONITOR}}}\Hypertarget{os__task_8h_a2723647aa6860e1571118555ffd1b999abe16f09091eda222d9ea72d60ee7cff9}\label{os__task_8h_a2723647aa6860e1571118555ffd1b999abe16f09091eda222d9ea72d60ee7cff9} 
+TASK\+\_\+\+PRIO\+\_\+\+SAFETY\+\_\+\+MONITOR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TASK\_PRIO\_MOTOR\_CONTROL@{TASK\_PRIO\_MOTOR\_CONTROL}!os\_task.h@{os\_task.h}}\index{os\_task.h@{os\_task.h}!TASK\_PRIO\_MOTOR\_CONTROL@{TASK\_PRIO\_MOTOR\_CONTROL}}}\Hypertarget{os__task_8h_a2723647aa6860e1571118555ffd1b999a754106f8110fe243d2045af9f4dfbdd6}\label{os__task_8h_a2723647aa6860e1571118555ffd1b999a754106f8110fe243d2045af9f4dfbdd6} 
+TASK\+\_\+\+PRIO\+\_\+\+MOTOR\+\_\+\+CONTROL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TASK\_PRIO\_POWER\_MGMT@{TASK\_PRIO\_POWER\_MGMT}!os\_task.h@{os\_task.h}}\index{os\_task.h@{os\_task.h}!TASK\_PRIO\_POWER\_MGMT@{TASK\_PRIO\_POWER\_MGMT}}}\Hypertarget{os__task_8h_a2723647aa6860e1571118555ffd1b999ada61a8268b643862b6b73f7ad958ce73}\label{os__task_8h_a2723647aa6860e1571118555ffd1b999ada61a8268b643862b6b73f7ad958ce73} 
+TASK\+\_\+\+PRIO\+\_\+\+POWER\+\_\+\+MGMT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TASK\_PRIO\_BODY\_CONTROL@{TASK\_PRIO\_BODY\_CONTROL}!os\_task.h@{os\_task.h}}\index{os\_task.h@{os\_task.h}!TASK\_PRIO\_BODY\_CONTROL@{TASK\_PRIO\_BODY\_CONTROL}}}\Hypertarget{os__task_8h_a2723647aa6860e1571118555ffd1b999a6246438bdd8220f7644d78ceb6977ae3}\label{os__task_8h_a2723647aa6860e1571118555ffd1b999a6246438bdd8220f7644d78ceb6977ae3} 
+TASK\+\_\+\+PRIO\+\_\+\+BODY\+\_\+\+CONTROL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TASK\_PRIO\_THERMAL\_MGMT@{TASK\_PRIO\_THERMAL\_MGMT}!os\_task.h@{os\_task.h}}\index{os\_task.h@{os\_task.h}!TASK\_PRIO\_THERMAL\_MGMT@{TASK\_PRIO\_THERMAL\_MGMT}}}\Hypertarget{os__task_8h_a2723647aa6860e1571118555ffd1b999ade20e6b0aff16ad6216ebc92f0048fbf}\label{os__task_8h_a2723647aa6860e1571118555ffd1b999ade20e6b0aff16ad6216ebc92f0048fbf} 
+TASK\+\_\+\+PRIO\+\_\+\+THERMAL\+\_\+\+MGMT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TASK\_PRIO\_COMMUNICATION@{TASK\_PRIO\_COMMUNICATION}!os\_task.h@{os\_task.h}}\index{os\_task.h@{os\_task.h}!TASK\_PRIO\_COMMUNICATION@{TASK\_PRIO\_COMMUNICATION}}}\Hypertarget{os__task_8h_a2723647aa6860e1571118555ffd1b999a04e71692b3eefe0ff457ca75c687e74d}\label{os__task_8h_a2723647aa6860e1571118555ffd1b999a04e71692b3eefe0ff457ca75c687e74d} 
+TASK\+\_\+\+PRIO\+\_\+\+COMMUNICATION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TASK\_PRIO\_DIAGNOSTIC@{TASK\_PRIO\_DIAGNOSTIC}!os\_task.h@{os\_task.h}}\index{os\_task.h@{os\_task.h}!TASK\_PRIO\_DIAGNOSTIC@{TASK\_PRIO\_DIAGNOSTIC}}}\Hypertarget{os__task_8h_a2723647aa6860e1571118555ffd1b999ad38f2da0fec7cf97cfdbc3314663b883}\label{os__task_8h_a2723647aa6860e1571118555ffd1b999ad38f2da0fec7cf97cfdbc3314663b883} 
+TASK\+\_\+\+PRIO\+\_\+\+DIAGNOSTIC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TASK\_PRIO\_DATA\_LOGGER@{TASK\_PRIO\_DATA\_LOGGER}!os\_task.h@{os\_task.h}}\index{os\_task.h@{os\_task.h}!TASK\_PRIO\_DATA\_LOGGER@{TASK\_PRIO\_DATA\_LOGGER}}}\Hypertarget{os__task_8h_a2723647aa6860e1571118555ffd1b999a89352342d9ce3ec08b73202e4b34d6e6}\label{os__task_8h_a2723647aa6860e1571118555ffd1b999a89352342d9ce3ec08b73202e4b34d6e6} 
+TASK\+\_\+\+PRIO\+\_\+\+DATA\+\_\+\+LOGGER&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-func-members}
+\Hypertarget{os__task_8h_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{os__task_8h_a7c3f1730d68ea5aa990ec47d5da7048d}\index{os\_task.h@{os\_task.h}!BSP\_Init@{BSP\_Init}}
+\index{BSP\_Init@{BSP\_Init}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{BSP\_Init()}{BSP\_Init()}}
+{\footnotesize\ttfamily \label{os__task_8h_a7c3f1730d68ea5aa990ec47d5da7048d} 
+void BSP\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+外设初始化函数，负责外设初始化 
+
+\Hypertarget{os__task_8h_a981e8359a4551c407b6fd181009618a2}\index{os\_task.h@{os\_task.h}!Event\_Create@{Event\_Create}}
+\index{Event\_Create@{Event\_Create}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{Event\_Create()}{Event\_Create()}}
+{\footnotesize\ttfamily \label{os__task_8h_a981e8359a4551c407b6fd181009618a2} 
+void Event\+\_\+\+Create (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+事件创建函数，负责创建系统事件 
+
+\Hypertarget{os__task_8h_a5181742ecc534cb7184318509f18e159}\index{os\_task.h@{os\_task.h}!Interface\_Init@{Interface\_Init}}
+\index{Interface\_Init@{Interface\_Init}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{Interface\_Init()}{Interface\_Init()}}
+{\footnotesize\ttfamily \label{os__task_8h_a5181742ecc534cb7184318509f18e159} 
+void Interface\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+共享数据初始化函数，负责初始化共享数据区 
+
+\Hypertarget{os__task_8h_acb6df8f47f418aad9c9a9e045d7d1e6d}\index{os\_task.h@{os\_task.h}!OS\_Init@{OS\_Init}}
+\index{OS\_Init@{OS\_Init}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{OS\_Init()}{OS\_Init()}}
+{\footnotesize\ttfamily \label{os__task_8h_acb6df8f47f418aad9c9a9e045d7d1e6d} 
+void OS\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+系统初始化函数，负责硬件和\+RTOS基础环境初始化 
+
+该函数执行以下关键初始化操作：
+\begin{DoxyEnumerate}
+\item 系统时钟初始化（48\+MHz配置）
+\item MCU电源模式设置（\+HSRUN高速运行模式）
+\item 板级引脚初始化
+\item 创建系统初始化任务（\+T\+\_\+\+Init）
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{注解}
+此函数应在main()函数中首先调用，且只调用一次，通过\+PEX\+\_\+\+RTOS\+\_\+\+INIT宏定义控制是否调用 
+\end{DoxyNote}
+\begin{DoxyWarning}{警告}
+调用前需确保已正确配置g\+\_\+clock\+Man\+Configs\+Arr等全局配置数组
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{in}}  & {\em void} & 无输入参数 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+void 无返回值
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{参见}
+CLOCK\+\_\+\+SYS\+\_\+\+Init() 
+
+POWER\+\_\+\+SYS\+\_\+\+Init() 
+
+x\+Task\+Create() 
+\end{DoxySeeAlso}
+系统时钟初始化
+
+时钟更新配置,默认48\+MHZ, HSRUN下112\+MHZ
+
+电源模式初始化与设置
+
+板级引脚初始化
+
+创建系统初始化任务\Hypertarget{os__task_8h_abd076fd1f11b7443705fb8c3c89d11e9}\index{os\_task.h@{os\_task.h}!OS\_Task\_Body@{OS\_Task\_Body}}
+\index{OS\_Task\_Body@{OS\_Task\_Body}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{OS\_Task\_Body()}{OS\_Task\_Body()}}
+{\footnotesize\ttfamily \label{os__task_8h_abd076fd1f11b7443705fb8c3c89d11e9} 
+void OS\+\_\+\+Task\+\_\+\+Body (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Para}{}\end{DoxyParamCaption})}
+
+
+
+车身控制任务主函数 
+
+该任务负责处理车身相关控制逻辑，包括\+LED状态控制，并定期发送任务存活信号。 任务以固定10ms周期运行，确保实时性。
+
+
+\begin{DoxyParams}{参数}
+{\em pv\+Para} & 任务参数指针（未使用）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+任务通过设置事件标志位\+BODY\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BIT来指示任务正常运行状态 
+\end{DoxyNote}
+上报任务存活状态\Hypertarget{os__task_8h_a16f1002548c4413e84cd5f4772fe6b0c}\index{os\_task.h@{os\_task.h}!OS\_Task\_Com@{OS\_Task\_Com}}
+\index{OS\_Task\_Com@{OS\_Task\_Com}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{OS\_Task\_Com()}{OS\_Task\_Com()}}
+{\footnotesize\ttfamily \label{os__task_8h_a16f1002548c4413e84cd5f4772fe6b0c} 
+void OS\+\_\+\+Task\+\_\+\+Com (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Para}{}\end{DoxyParamCaption})}
+
+
+
+Free\+RTOS通信任务（入口函数） 
+
+
+\begin{DoxyParams}{参数}
+{\em pv\+Para} & 任务参数（未使用） \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+使用v\+Task\+Delay\+Until保证10ms精准周期，不受任务执行时间影响 
+\end{DoxyNote}
+\Hypertarget{os__task_8h_a8053a425ece933dab1c08fd0c07268ef}\index{os\_task.h@{os\_task.h}!OS\_Task\_Diagnosis@{OS\_Task\_Diagnosis}}
+\index{OS\_Task\_Diagnosis@{OS\_Task\_Diagnosis}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{OS\_Task\_Diagnosis()}{OS\_Task\_Diagnosis()}}
+{\footnotesize\ttfamily \label{os__task_8h_a8053a425ece933dab1c08fd0c07268ef} 
+void OS\+\_\+\+Task\+\_\+\+Diagnosis (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Para}{}\end{DoxyParamCaption})}
+
+
+
+诊断任务主函数，周期性执行系统健康监测 
+
+该任务以固定周期运行系统健康检查，包括但不限于：
+\begin{DoxyItemize}
+\item 系统资源监控
+\item 关键组件状态检查
+\item 故障诊断处理
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{参数}
+{\em pv\+Para} & Free\+RTOS任务参数（未使用）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+任务周期由\+DIAGNOSIS\+\_\+\+PERIOD宏定义控制 
+
+使用v\+Task\+Delay\+Until确保精确周期调度 
+\end{DoxyNote}
+\Hypertarget{os__task_8h_a9a7cc2dfa8662f845ac212f273ace247}\index{os\_task.h@{os\_task.h}!OS\_Task\_Init@{OS\_Task\_Init}}
+\index{OS\_Task\_Init@{OS\_Task\_Init}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{OS\_Task\_Init()}{OS\_Task\_Init()}}
+{\footnotesize\ttfamily \label{os__task_8h_a9a7cc2dfa8662f845ac212f273ace247} 
+void OS\+\_\+\+Task\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Para}{}\end{DoxyParamCaption})}
+
+
+
+系统初始化任务函数，负责系统初始化 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{in}}  & {\em pv\+Para} & 无输入参数 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+void 无返回值 
+\end{DoxyReturn}
+进入临界区
+
+退出临界区\Hypertarget{os__task_8h_a7b8be94c22324cffa9953a263d3c8282}\index{os\_task.h@{os\_task.h}!OS\_Task\_Motor@{OS\_Task\_Motor}}
+\index{OS\_Task\_Motor@{OS\_Task\_Motor}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{OS\_Task\_Motor()}{OS\_Task\_Motor()}}
+{\footnotesize\ttfamily \label{os__task_8h_a7b8be94c22324cffa9953a263d3c8282} 
+void OS\+\_\+\+Task\+\_\+\+Motor (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Para}{}\end{DoxyParamCaption})}
+
+
+
+电机控制任务主函数 
+
+该任务负责处理来自\+CAN总线的电机控制消息，并更新本地电机控制数据。 任务以5ms的固定周期运行，确保电机控制的实时性。
+
+
+\begin{DoxyParams}{参数}
+{\em pv\+Para} & Free\+RTOS任务参数（未使用）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+任务通过g\+\_\+motor\+\_\+rx\+\_\+queue接收\+CAN消息，使用\+Update\+\_\+\+Local\+\_\+\+Data()更新数据 
+
+任务存活状态通过\+MOTOR\+\_\+\+TASK\+\_\+\+ALIVE\+\_\+\+BIT事件标志位上报 
+\end{DoxyNote}
+上报任务存活状态\Hypertarget{os__task_8h_ab8c5f724349bae19455385ca6af34b47}\index{os\_task.h@{os\_task.h}!OS\_Task\_Start@{OS\_Task\_Start}}
+\index{OS\_Task\_Start@{OS\_Task\_Start}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{OS\_Task\_Start()}{OS\_Task\_Start()}}
+{\footnotesize\ttfamily \label{os__task_8h_ab8c5f724349bae19455385ca6af34b47} 
+void OS\+\_\+\+Task\+\_\+\+Start (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+系统任务启动函数，启动任务调度器 
+
+\Hypertarget{os__task_8h_a23641a130d50561b87964ee9817782ad}\index{os\_task.h@{os\_task.h}!Queue\_Create@{Queue\_Create}}
+\index{Queue\_Create@{Queue\_Create}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{Queue\_Create()}{Queue\_Create()}}
+{\footnotesize\ttfamily \label{os__task_8h_a23641a130d50561b87964ee9817782ad} 
+void Queue\+\_\+\+Create (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+队列创建函数，负责创建系统队列 
+
+\Hypertarget{os__task_8h_a4feeabaeaac27da1289ec7f2385962a1}\index{os\_task.h@{os\_task.h}!Task\_Create@{Task\_Create}}
+\index{Task\_Create@{Task\_Create}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{Task\_Create()}{Task\_Create()}}
+{\footnotesize\ttfamily \label{os__task_8h_a4feeabaeaac27da1289ec7f2385962a1} 
+void Task\+\_\+\+Create (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+任务创建函数，负责创建系统任务 
+
+创建通信任务
+
+创建车身控制任务
+
+创建动力控制任务
+
+创建诊断任务
+
+\label{doc-var-members}
+\Hypertarget{os__task_8h_doc-var-members}
+\doxysubsection{变量说明}
+\Hypertarget{os__task_8h_aad262935fbeb61c41c7c65d82f688ea6}\index{os\_task.h@{os\_task.h}!g\_body\_rx\_queue@{g\_body\_rx\_queue}}
+\index{g\_body\_rx\_queue@{g\_body\_rx\_queue}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{g\_body\_rx\_queue}{g\_body\_rx\_queue}}
+{\footnotesize\ttfamily \label{os__task_8h_aad262935fbeb61c41c7c65d82f688ea6} 
+Queue\+Handle\+\_\+t g\+\_\+body\+\_\+rx\+\_\+queue\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+不同任务专用队列 
+
+\Hypertarget{os__task_8h_a13be13a537aa5f691b9107db794b6f81}\index{os\_task.h@{os\_task.h}!g\_can0\_rx\_queue@{g\_can0\_rx\_queue}}
+\index{g\_can0\_rx\_queue@{g\_can0\_rx\_queue}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{g\_can0\_rx\_queue}{g\_can0\_rx\_queue}}
+{\footnotesize\ttfamily \label{os__task_8h_a13be13a537aa5f691b9107db794b6f81} 
+Queue\+Handle\+\_\+t g\+\_\+can0\+\_\+rx\+\_\+queue\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+CAN队列句柄 
+
+\Hypertarget{os__task_8h_aa31b0e7e08b64b3e0f252b92d4bee5cd}\index{os\_task.h@{os\_task.h}!g\_can1\_rx\_queue@{g\_can1\_rx\_queue}}
+\index{g\_can1\_rx\_queue@{g\_can1\_rx\_queue}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{g\_can1\_rx\_queue}{g\_can1\_rx\_queue}}
+{\footnotesize\ttfamily \label{os__task_8h_aa31b0e7e08b64b3e0f252b92d4bee5cd} 
+Queue\+Handle\+\_\+t g\+\_\+can1\+\_\+rx\+\_\+queue\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{os__task_8h_a48231a18d753418ee56660e8ea71b72d}\index{os\_task.h@{os\_task.h}!g\_can2\_rx\_queue@{g\_can2\_rx\_queue}}
+\index{g\_can2\_rx\_queue@{g\_can2\_rx\_queue}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{g\_can2\_rx\_queue}{g\_can2\_rx\_queue}}
+{\footnotesize\ttfamily \label{os__task_8h_a48231a18d753418ee56660e8ea71b72d} 
+Queue\+Handle\+\_\+t g\+\_\+can2\+\_\+rx\+\_\+queue\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{os__task_8h_a59ab7f766d2735ae2ae3deeed95c8891}\index{os\_task.h@{os\_task.h}!g\_motor\_rx\_queue@{g\_motor\_rx\_queue}}
+\index{g\_motor\_rx\_queue@{g\_motor\_rx\_queue}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{g\_motor\_rx\_queue}{g\_motor\_rx\_queue}}
+{\footnotesize\ttfamily \label{os__task_8h_a59ab7f766d2735ae2ae3deeed95c8891} 
+Queue\+Handle\+\_\+t g\+\_\+motor\+\_\+rx\+\_\+queue\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{os__task_8h_acedba9d8b440a9ffd80834c6611a0a4b}\index{os\_task.h@{os\_task.h}!g\_system\_events@{g\_system\_events}}
+\index{g\_system\_events@{g\_system\_events}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{g\_system\_events}{g\_system\_events}}
+{\footnotesize\ttfamily \label{os__task_8h_acedba9d8b440a9ffd80834c6611a0a4b} 
+Event\+Group\+Handle\+\_\+t g\+\_\+system\+\_\+events\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+系统事件组句柄 
+
+\Hypertarget{os__task_8h_adfcbd748702f32899277485ce7ff03f2}\index{os\_task.h@{os\_task.h}!g\_uart0\_rx\_queue@{g\_uart0\_rx\_queue}}
+\index{g\_uart0\_rx\_queue@{g\_uart0\_rx\_queue}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{g\_uart0\_rx\_queue}{g\_uart0\_rx\_queue}}
+{\footnotesize\ttfamily \label{os__task_8h_adfcbd748702f32899277485ce7ff03f2} 
+Queue\+Handle\+\_\+t g\+\_\+uart0\+\_\+rx\+\_\+queue\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+UART队列句柄 
+
+\Hypertarget{os__task_8h_a2cff3efe9270ec7d6cc8d2263d0ead0c}\index{os\_task.h@{os\_task.h}!g\_uart1\_rx\_queue@{g\_uart1\_rx\_queue}}
+\index{g\_uart1\_rx\_queue@{g\_uart1\_rx\_queue}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{g\_uart1\_rx\_queue}{g\_uart1\_rx\_queue}}
+{\footnotesize\ttfamily \label{os__task_8h_a2cff3efe9270ec7d6cc8d2263d0ead0c} 
+Queue\+Handle\+\_\+t g\+\_\+uart1\+\_\+rx\+\_\+queue\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{os__task_8h_a963fbfdc997e1bf5c54d348fb6daabce}\index{os\_task.h@{os\_task.h}!g\_uart2\_rx\_queue@{g\_uart2\_rx\_queue}}
+\index{g\_uart2\_rx\_queue@{g\_uart2\_rx\_queue}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{g\_uart2\_rx\_queue}{g\_uart2\_rx\_queue}}
+{\footnotesize\ttfamily \label{os__task_8h_a963fbfdc997e1bf5c54d348fb6daabce} 
+Queue\+Handle\+\_\+t g\+\_\+uart2\+\_\+rx\+\_\+queue\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{os__task_8h_a3abdcc378dfd1ce59ad97e754f4ef846}\index{os\_task.h@{os\_task.h}!Task\_BodyCtrl\_Handler@{Task\_BodyCtrl\_Handler}}
+\index{Task\_BodyCtrl\_Handler@{Task\_BodyCtrl\_Handler}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{Task\_BodyCtrl\_Handler}{Task\_BodyCtrl\_Handler}}
+{\footnotesize\ttfamily \label{os__task_8h_a3abdcc378dfd1ce59ad97e754f4ef846} 
+Task\+Handle\+\_\+t Task\+\_\+\+Body\+Ctrl\+\_\+\+Handler\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{os__task_8h_ac86368b82f4a801c72fbb1509b891009}\index{os\_task.h@{os\_task.h}!Task\_Com\_Handler@{Task\_Com\_Handler}}
+\index{Task\_Com\_Handler@{Task\_Com\_Handler}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{Task\_Com\_Handler}{Task\_Com\_Handler}}
+{\footnotesize\ttfamily \label{os__task_8h_ac86368b82f4a801c72fbb1509b891009} 
+Task\+Handle\+\_\+t Task\+\_\+\+Com\+\_\+\+Handler\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{os__task_8h_a6ea58d7c320e8adddaa49c7d2da939d8}\index{os\_task.h@{os\_task.h}!Task\_Diagnosis\_Handler@{Task\_Diagnosis\_Handler}}
+\index{Task\_Diagnosis\_Handler@{Task\_Diagnosis\_Handler}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{Task\_Diagnosis\_Handler}{Task\_Diagnosis\_Handler}}
+{\footnotesize\ttfamily \label{os__task_8h_a6ea58d7c320e8adddaa49c7d2da939d8} 
+Task\+Handle\+\_\+t Task\+\_\+\+Diagnosis\+\_\+\+Handler\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{os__task_8h_aa8f7a242c608d2d6a3dc52e36eec8cf7}\index{os\_task.h@{os\_task.h}!Task\_Energy\_Handler@{Task\_Energy\_Handler}}
+\index{Task\_Energy\_Handler@{Task\_Energy\_Handler}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{Task\_Energy\_Handler}{Task\_Energy\_Handler}}
+{\footnotesize\ttfamily \label{os__task_8h_aa8f7a242c608d2d6a3dc52e36eec8cf7} 
+Task\+Handle\+\_\+t Task\+\_\+\+Energy\+\_\+\+Handler\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{os__task_8h_acb5bc048b8a4c079fd4081016662800f}\index{os\_task.h@{os\_task.h}!Task\_Init\_Handler@{Task\_Init\_Handler}}
+\index{Task\_Init\_Handler@{Task\_Init\_Handler}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{Task\_Init\_Handler}{Task\_Init\_Handler}}
+{\footnotesize\ttfamily \label{os__task_8h_acb5bc048b8a4c079fd4081016662800f} 
+Task\+Handle\+\_\+t Task\+\_\+\+Init\+\_\+\+Handler\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+任务句柄 
+
+\Hypertarget{os__task_8h_af4e36465b54ca7e100b6aa79d3a702d8}\index{os\_task.h@{os\_task.h}!Task\_Motor\_Handler@{Task\_Motor\_Handler}}
+\index{Task\_Motor\_Handler@{Task\_Motor\_Handler}!os\_task.h@{os\_task.h}}
+\doxysubsubsection{\texorpdfstring{Task\_Motor\_Handler}{Task\_Motor\_Handler}}
+{\footnotesize\ttfamily \label{os__task_8h_af4e36465b54ca7e100b6aa79d3a702d8} 
+Task\+Handle\+\_\+t Task\+\_\+\+Motor\+\_\+\+Handler\hspace{0.3cm}{\ttfamily [extern]}}
+

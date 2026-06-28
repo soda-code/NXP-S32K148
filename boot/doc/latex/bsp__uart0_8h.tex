@@ -1,0 +1,102 @@
+\doxysection{src/bsp/inc/bsp\+\_\+uart0.h 文件参考}
+\hypertarget{bsp__uart0_8h}{}\label{bsp__uart0_8h}\index{src/bsp/inc/bsp\_uart0.h@{src/bsp/inc/bsp\_uart0.h}}
+{\ttfamily \#include "{}uart0.\+h"{}}\newline
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_u_a_r_t0___p_a_r}{UART0\+\_\+\+PAR}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{bsp__uart0_8h_a15f0ea91bc6f24b55e7e2630c35ac474}{UART0\+\_\+\+BUF\+\_\+\+SIZE}}~128UL
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{bsp__uart0_8h_a53d3a2135380d2643434a5c3beaa3efe}{BSP\+\_\+\+UART0\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em 初始化\+UART0外设 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bsp__uart0_8h_a013cf80be2e0181ebbc660a2094f32cf}{BSP\+\_\+\+UART0\+\_\+\+Send}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}buf, uint8\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em 通过\+UART0发送数据 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bsp__uart0_8h_ab612c5c4386c57c8766bfb49f74d863d}{BSP\+\_\+\+UART0\+\_\+\+Printf}} (char \texorpdfstring{$\ast$}{*}fmt,...)
+\begin{DoxyCompactList}\small\item\em 通过\+UART0接口格式化输出字符串 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{bsp__uart0_8h_doc-define-members}
+\doxysubsection{宏定义说明}
+\Hypertarget{bsp__uart0_8h_a15f0ea91bc6f24b55e7e2630c35ac474}\index{bsp\_uart0.h@{bsp\_uart0.h}!UART0\_BUF\_SIZE@{UART0\_BUF\_SIZE}}
+\index{UART0\_BUF\_SIZE@{UART0\_BUF\_SIZE}!bsp\_uart0.h@{bsp\_uart0.h}}
+\doxysubsubsection{\texorpdfstring{UART0\_BUF\_SIZE}{UART0\_BUF\_SIZE}}
+{\footnotesize\ttfamily \label{bsp__uart0_8h_a15f0ea91bc6f24b55e7e2630c35ac474} 
+\#define UART0\+\_\+\+BUF\+\_\+\+SIZE~128UL}
+
+
+
+\label{doc-func-members}
+\Hypertarget{bsp__uart0_8h_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{bsp__uart0_8h_a53d3a2135380d2643434a5c3beaa3efe}\index{bsp\_uart0.h@{bsp\_uart0.h}!BSP\_UART0\_Init@{BSP\_UART0\_Init}}
+\index{BSP\_UART0\_Init@{BSP\_UART0\_Init}!bsp\_uart0.h@{bsp\_uart0.h}}
+\doxysubsubsection{\texorpdfstring{BSP\_UART0\_Init()}{BSP\_UART0\_Init()}}
+{\footnotesize\ttfamily \label{bsp__uart0_8h_a53d3a2135380d2643434a5c3beaa3efe} 
+void BSP\+\_\+\+UART0\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+初始化\+UART0外设 
+
+配置\+UART0硬件接口，包括：
+\begin{DoxyItemize}
+\item 初始化\+UART控制器
+\item 设置中断优先级
+\item 启动首次接收操作
+\end{DoxyItemize}
+
+\begin{DoxyNote}{注解}
+该函数必须在其他\+UART0操作前调用 
+\end{DoxyNote}
+\begin{DoxyWarning}{警告}
+中断优先级设置为0x02（较高优先级） 
+\end{DoxyWarning}
+\Hypertarget{bsp__uart0_8h_ab612c5c4386c57c8766bfb49f74d863d}\index{bsp\_uart0.h@{bsp\_uart0.h}!BSP\_UART0\_Printf@{BSP\_UART0\_Printf}}
+\index{BSP\_UART0\_Printf@{BSP\_UART0\_Printf}!bsp\_uart0.h@{bsp\_uart0.h}}
+\doxysubsubsection{\texorpdfstring{BSP\_UART0\_Printf()}{BSP\_UART0\_Printf()}}
+{\footnotesize\ttfamily \label{bsp__uart0_8h_ab612c5c4386c57c8766bfb49f74d863d} 
+void BSP\+\_\+\+UART0\+\_\+\+Printf (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{fmt}{, }\item[{}]{...}{}\end{DoxyParamCaption})}
+
+
+
+通过\+UART0接口格式化输出字符串 
+
+
+\begin{DoxyParams}{参数}
+{\em fmt} & 格式化字符串，支持可变参数 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+内部使用100字节的静态缓冲区，格式化后的字符串长度不应超过此限制 
+\end{DoxyNote}
+\begin{DoxyWarning}{警告}
+此函数会阻塞直到所有数据发送完成 
+\end{DoxyWarning}
+\Hypertarget{bsp__uart0_8h_a013cf80be2e0181ebbc660a2094f32cf}\index{bsp\_uart0.h@{bsp\_uart0.h}!BSP\_UART0\_Send@{BSP\_UART0\_Send}}
+\index{BSP\_UART0\_Send@{BSP\_UART0\_Send}!bsp\_uart0.h@{bsp\_uart0.h}}
+\doxysubsubsection{\texorpdfstring{BSP\_UART0\_Send()}{BSP\_UART0\_Send()}}
+{\footnotesize\ttfamily \label{bsp__uart0_8h_a013cf80be2e0181ebbc660a2094f32cf} 
+void BSP\+\_\+\+UART0\+\_\+\+Send (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{buf}{, }\item[{uint8\+\_\+t}]{len}{}\end{DoxyParamCaption})}
+
+
+
+通过\+UART0发送数据 
+
+
+\begin{DoxyParams}{参数}
+{\em buf} & 要发送的数据缓冲区指针 \\
+\hline
+{\em len} & 要发送的数据长度（字节数）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+此函数是阻塞式发送，调用后会等待发送完成才返回 
+\end{DoxyNote}

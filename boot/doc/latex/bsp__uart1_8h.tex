@@ -1,0 +1,107 @@
+\doxysection{src/bsp/inc/bsp\+\_\+uart1.h 文件参考}
+\hypertarget{bsp__uart1_8h}{}\label{bsp__uart1_8h}\index{src/bsp/inc/bsp\_uart1.h@{src/bsp/inc/bsp\_uart1.h}}
+{\ttfamily \#include "{}uart1.\+h"{}}\newline
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_u_a_r_t1___p_a_r}{UART1\+\_\+\+PAR}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{bsp__uart1_8h_a1af831dd6bf2216d6fbf4142ab8c8b00}{UART1\+\_\+\+BUF\+\_\+\+SIZE}}~80\+UL
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{bsp__uart1_8h_a1c9190dc6bbe632ad5918b1ee4a5e2ab}{BSP\+\_\+\+UART1\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em 初始化\+UART1外设 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bsp__uart1_8h_a718de9c87a295d72ea1c9fa835a5f34f}{BSP\+\_\+\+UART1\+\_\+\+Send}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}buf, uint8\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em 通过\+UART1发送数据 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bsp__uart1_8h_a1e8d93185715d1a20938cf743d3c4618}{BSP\+\_\+\+UART1\+\_\+\+Printf}} (char \texorpdfstring{$\ast$}{*}fmt,...)
+\begin{DoxyCompactList}\small\item\em 通过\+UART1发送格式化字符串 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{bsp__uart1_8h_doc-define-members}
+\doxysubsection{宏定义说明}
+\Hypertarget{bsp__uart1_8h_a1af831dd6bf2216d6fbf4142ab8c8b00}\index{bsp\_uart1.h@{bsp\_uart1.h}!UART1\_BUF\_SIZE@{UART1\_BUF\_SIZE}}
+\index{UART1\_BUF\_SIZE@{UART1\_BUF\_SIZE}!bsp\_uart1.h@{bsp\_uart1.h}}
+\doxysubsubsection{\texorpdfstring{UART1\_BUF\_SIZE}{UART1\_BUF\_SIZE}}
+{\footnotesize\ttfamily \label{bsp__uart1_8h_a1af831dd6bf2216d6fbf4142ab8c8b00} 
+\#define UART1\+\_\+\+BUF\+\_\+\+SIZE~80\+UL}
+
+
+
+\label{doc-func-members}
+\Hypertarget{bsp__uart1_8h_doc-func-members}
+\doxysubsection{函数说明}
+\Hypertarget{bsp__uart1_8h_a1c9190dc6bbe632ad5918b1ee4a5e2ab}\index{bsp\_uart1.h@{bsp\_uart1.h}!BSP\_UART1\_Init@{BSP\_UART1\_Init}}
+\index{BSP\_UART1\_Init@{BSP\_UART1\_Init}!bsp\_uart1.h@{bsp\_uart1.h}}
+\doxysubsubsection{\texorpdfstring{BSP\_UART1\_Init()}{BSP\_UART1\_Init()}}
+{\footnotesize\ttfamily \label{bsp__uart1_8h_a1c9190dc6bbe632ad5918b1ee4a5e2ab} 
+void BSP\+\_\+\+UART1\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+初始化\+UART1外设 
+
+该函数完成\+UART1的硬件初始化配置，包括：
+\begin{DoxyEnumerate}
+\item 根据预定义配置初始化\+UART控制器
+\item 设置\+UART1中断优先级
+\item 启动首次接收操作
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{注解}
+该函数应在系统初始化阶段调用，且只调用一次 
+
+中断优先级设置为0x02（较高优先级） 
+
+使用轮询方式启动首次接收 
+\end{DoxyNote}
+\Hypertarget{bsp__uart1_8h_a1e8d93185715d1a20938cf743d3c4618}\index{bsp\_uart1.h@{bsp\_uart1.h}!BSP\_UART1\_Printf@{BSP\_UART1\_Printf}}
+\index{BSP\_UART1\_Printf@{BSP\_UART1\_Printf}!bsp\_uart1.h@{bsp\_uart1.h}}
+\doxysubsubsection{\texorpdfstring{BSP\_UART1\_Printf()}{BSP\_UART1\_Printf()}}
+{\footnotesize\ttfamily \label{bsp__uart1_8h_a1e8d93185715d1a20938cf743d3c4618} 
+void BSP\+\_\+\+UART1\+\_\+\+Printf (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{fmt}{, }\item[{}]{...}{}\end{DoxyParamCaption})}
+
+
+
+通过\+UART1发送格式化字符串 
+
+该函数提供类似printf的格式化输出功能，通过\+UART1串口发送格式化后的字符串。 函数内部使用固定大小的缓冲区(100字节)存储格式化结果。
+
+
+\begin{DoxyParams}{参数}
+{\em fmt} & 格式化字符串，遵循标准printf格式规范 \\
+\hline
+{\em ...} & 可变参数列表，与格式化字符串中的占位符对应\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+函数会阻塞直到所有数据发送完成 
+\end{DoxyNote}
+\begin{DoxyWarning}{警告}
+格式化后的字符串长度不能超过100字节，否则会导致缓冲区溢出 
+\end{DoxyWarning}
+\Hypertarget{bsp__uart1_8h_a718de9c87a295d72ea1c9fa835a5f34f}\index{bsp\_uart1.h@{bsp\_uart1.h}!BSP\_UART1\_Send@{BSP\_UART1\_Send}}
+\index{BSP\_UART1\_Send@{BSP\_UART1\_Send}!bsp\_uart1.h@{bsp\_uart1.h}}
+\doxysubsubsection{\texorpdfstring{BSP\_UART1\_Send()}{BSP\_UART1\_Send()}}
+{\footnotesize\ttfamily \label{bsp__uart1_8h_a718de9c87a295d72ea1c9fa835a5f34f} 
+void BSP\+\_\+\+UART1\+\_\+\+Send (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{buf}{, }\item[{uint8\+\_\+t}]{len}{}\end{DoxyParamCaption})}
+
+
+
+通过\+UART1发送数据 
+
+
+\begin{DoxyParams}{参数}
+{\em buf} & 要发送的数据缓冲区指针 \\
+\hline
+{\em len} & 要发送的数据长度（字节数）\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+该函数是阻塞式发送，调用后会等待发送完成才返回 
+\end{DoxyNote}

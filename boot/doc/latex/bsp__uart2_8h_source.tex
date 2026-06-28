@@ -1,0 +1,35 @@
+\doxysection{bsp\+\_\+uart2.\+h}
+\hypertarget{bsp__uart2_8h_source}{}\label{bsp__uart2_8h_source}\index{src/bsp/inc/bsp\_uart2.h@{src/bsp/inc/bsp\_uart2.h}}
+\mbox{\hyperlink{bsp__uart2_8h}{ÊµèËßàËØ•Êñá‰ª∂ÁöÑÊñáÊ°£.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ bsp\_uart2.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ 2025ƒÍ11‘¬18»’}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ 18750}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ BSP\_INC\_BSP\_UART2\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ BSP\_INC\_BSP\_UART2\_H\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}uart2.h"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ UART2\_BUF\_SIZE\ 128UL}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_u_a_r_t2___p_a_r_a191986683990767116afda3d3db86d5d}{rx\_len}};}
+\DoxyCodeLine{00018\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_u_a_r_t2___p_a_r_ac33cf4735930f6bd0d9b0f460262fabc}{rx\_buf}}[\mbox{\hyperlink{bsp__uart2_8h_aa64f224f55dcb46d424a467b37695882}{UART2\_BUF\_SIZE}}];}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_u_a_r_t2___p_a_r_a6233df57fe971f073a3014cb90fd27ad}{tx\_len}};}
+\DoxyCodeLine{00021\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_u_a_r_t2___p_a_r_ad0bd3bfadedcf58b90f48b3cebe304b6}{tx\_buf}}[\mbox{\hyperlink{bsp__uart2_8h_aa64f224f55dcb46d424a467b37695882}{UART2\_BUF\_SIZE}}];}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \}\ \mbox{\hyperlink{struct_u_a_r_t2___p_a_r}{UART2\_PAR}};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bsp__uart2_8h_aff03e3940f89a1a3680f59bb551d0918}{BSP\_UART2\_Init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bsp__uart2_8h_adc15728b027cc63b27fb322eddf5ede2}{BSP\_UART2\_Send}}(uint8\_t\ *buf,\ uint8\_t\ len);}
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bsp__uart2_8h_ad00c9e73f1d428238f1ce55cc23425c6}{BSP\_UART2\_Printf}}(\textcolor{keywordtype}{char}*\ fmt,...);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ BSP\_INC\_BSP\_UART2\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
