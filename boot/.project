@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>boot</name>
+	<name>S32K148_VCU_APP</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -29,4 +29,11 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/asw/demo_ert_rtw</name>
+			<type>2</type>
+			<location>D:/workspace/S32K148_demo/demo_ert_rtw</location>
+		</link>
+	</linkedResources>
 </projectDescription>

@@ -1,6 +1,6 @@
 /*
 ** ###################################################################
-**     Processor:           S32K144 with 64 KB SRAM
+**     Processor:           S32K148 with 256 KB SRAM
 **     Compiler:            GNU C Compiler
 **
 **     Abstract:
@@ -32,7 +32,7 @@
 ENTRY(Reset_Handler)
 
 HEAP_SIZE  = DEFINED(__heap_size__)  ? __heap_size__  : 0x00000400;
-STACK_SIZE = DEFINED(__stack_size__) ? __stack_size__ : 0x00001000;
+STACK_SIZE = DEFINED(__stack_size__) ? __stack_size__ : 0x00000400;
 
 /* If symbol __flash_vector_table__=1 is defined at link time
  * the interrupt vector will not be copied to RAM.
@@ -47,14 +47,13 @@ MEMORY
   /* Flash */
   m_interrupts          (RX)  : ORIGIN = 0x00000000, LENGTH = 0x00000400
   m_flash_config        (RX)  : ORIGIN = 0x00000400, LENGTH = 0x00000010
-  /* app 64k flash */
-  m_text                (RX)  : ORIGIN = 0x00000410, LENGTH = 0x00010000
+  m_text                (RX)  : ORIGIN = 0x00000410, LENGTH = 0x0017FBF0
 
-  /* ====== APP SRAM ÂúÑª¿Õ¼ä£¨È«¶î¿ª·Å 256 KB£© ====== */
-  /* SRAM_L: 0x1FFF0000 ~ 0x1FFFFFFF (¹² 128 KB) */
-  m_data                (RW)  : ORIGIN = 0x1FFF0000, LENGTH = 0x00020000
-  /* SRAM_U: 0x20000000 ~ 0x2000FFFF (¹² 128 KB) */
-  m_data_2              (RW)  : ORIGIN = 0x20000000, LENGTH = 0x00020000
+  /* SRAM_L */
+  m_data                (RW)  : ORIGIN = 0x1FFE0000, LENGTH = 0x00020000
+
+  /* SRAM_U */
+  m_data_2              (RW)  : ORIGIN = 0x20000000, LENGTH = 0x0001F000
 }
 
 /* Define output sections */
@@ -187,23 +186,23 @@ SECTIONS
     __heap_limit = .;
     __heap_end__ = .;
   } > m_data_2
-  
-/* ï¿½ï¿½Õ»ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0x20000000ï¿½ï¿½SRAM_Lï¿½ï¿½Ä©Î²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½K144ï¿½ï¿½ï¿½ï¿½K148ï¿½ï¿½ï¿½ï¿½ï¿½Ô°ï¿½È« */
-  __StackTop   = 0x20000000;
+
+  /* Initializes stack on the end of block */
+  __StackTop   = ORIGIN(m_data_2) + LENGTH(m_data_2);
   __StackLimit = __StackTop - STACK_SIZE;
   PROVIDE(__stack = __StackTop);
-  __RAM_END = ORIGIN(m_data_2) + LENGTH(m_data_2); /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½Õµï¿½ */
-  
-.stack __StackLimit :
+  __RAM_END = __StackTop;
+
+  .stack __StackLimit :
   {
     . = ALIGN(8);
     __stack_start__ = .;
     . += STACK_SIZE;
     __stack_end__ = .;
-  } > m_data   /* <-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ m_data_2 ï¿½ï¿½Îª m_data */
+  } > m_data_2
 
   .ARM.attributes 0 : { *(.ARM.attributes) }
 
-  /* Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½Ô°ï¿½È«ï¿½ï¿½ï¿½Ò²ï¿½ï¿½Ò»ï¿½ï¿½ */
-  ASSERT(__StackLimit >= __data_end__, "region m_data overflowed with stack")
+  ASSERT(__StackLimit >= __HeapLimit, "region m_data_2 overflowed with stack and heap")
 }
+

@@ -34,8 +34,14 @@
 #define CAN_OVER_FLEXCAN
 
 /* Define the resources necessary for current project */
-#define NO_OF_FLEXCAN_INSTS_FOR_CAN   1U
+#define NO_OF_FLEXCAN_INSTS_FOR_CAN   3U
 
 #endif /* can_PAL_CFG_H */
         
+
+
+
+                
+                
+                
 
